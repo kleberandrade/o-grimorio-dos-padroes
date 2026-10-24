@@ -1,0 +1,8 @@
+.env*
+.git
+**/node_modules/**
+**/dist/**
+book-23/
+FONTES-SHA256.json
+GUIA-DOS-PROJETOS.md
+README.md
