@@ -115,7 +115,31 @@
         "url": "arquivos/01-factory-method/tsconfig.json"
       }
     ],
-    "download": "downloads/01-factory-method.zip"
+    "download": "downloads/01-factory-method.zip",
+    "art": {
+      "url": "/assets/cenas/01.jpg",
+      "alt": "Talo alcança ajuda no posto enquanto uma enguia de água e sal rompe a passarela."
+    },
+    "diagrams": [
+      {
+        "title": "01 · a criação",
+        "url": "/assets/diagramas/01-01.svg",
+        "alt": "CriadorDeCristal herda de CriadorDeNotificacoes.",
+        "description": "Esta vista reúne CriadorDeNotificacoes, CriadorDeCristal, CriadorDePergaminho, Mensageiro. CriadorDeCristal herda de CriadorDeNotificacoes. CriadorDePergaminho herda de CriadorDeNotificacoes. CriadorDeNotificacoes depende de Mensageiro (enviar usa produto). CriadorDeNotificacoes: enviar valida e normaliza; chama criarMensageiro; delega entregar. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e5 · enviar usa produto"
+      },
+      {
+        "title": "01 · b produtos",
+        "url": "/assets/diagramas/01-02.svg",
+        "alt": "MensageiroDeCristal realiza Mensageiro.",
+        "description": "Esta vista reúne CriadorDeCristal, CriadorDePergaminho, Mensageiro, MensageiroDeCristal, MensageiroDePergaminho. MensageiroDeCristal realiza Mensageiro. MensageiroDePergaminho realiza Mensageiro. CriadorDeCristal depende de MensageiroDeCristal (cria). CriadorDePergaminho depende de MensageiroDePergaminho (cria). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e6 · cria e7 · cria"
+      },
+      {
+        "title": "01 · c correio",
+        "url": "/assets/diagramas/01-03.svg",
+        "alt": "MensageiroDeCristal mantém referência a Correio.",
+        "description": "Esta vista reúne CriadorDeNotificacoes, MensageiroDeCristal, MensageiroDePergaminho, Correio, CorreioEmMemoria. MensageiroDeCristal mantém referência a Correio. MensageiroDePergaminho mantém referência a Correio. CriadorDeNotificacoes mantém referência a Correio. CorreioEmMemoria realiza Correio. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   },
   {
     "id": "02-abstract-factory",
@@ -217,7 +241,37 @@
         "url": "arquivos/02-abstract-factory/tsconfig.json"
       }
     ],
-    "download": "downloads/02-abstract-factory.zip"
+    "download": "downloads/02-abstract-factory.zip",
+    "art": {
+      "url": "/assets/cenas/02.jpg",
+      "alt": "Saira sustenta o resgate de Dena nas nervuras de gelo enquanto a quimera volta a cabeça para a passagem."
+    },
+    "diagrams": [
+      {
+        "title": "02 · a fábricas",
+        "url": "/assets/diagramas/02-01.svg",
+        "alt": "FabricaDeBrasa realiza FabricaElemental.",
+        "description": "Esta vista reúne FabricaElemental, FabricaDeBrasa, FabricaDeGeada. FabricaDeBrasa realiza FabricaElemental. FabricaDeGeada realiza FabricaElemental. FabricaElemental: ensaiarKit recebe esta interface; cria arma e proteção separadamente. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "02 · b brasa",
+        "url": "/assets/diagramas/02-02.svg",
+        "alt": "ArmaDeBrasa realiza Arma.",
+        "description": "Esta vista reúne FabricaDeBrasa, Arma, Protecao, ArmaDeBrasa, ProtecaoDeBrasa. ArmaDeBrasa realiza Arma. ProtecaoDeBrasa realiza Protecao. FabricaDeBrasa depende de ArmaDeBrasa (cria). FabricaDeBrasa depende de ProtecaoDeBrasa (cria). Protecao: Mistura rejeitada em execução. Resultado é simulação de afinidade. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e7 · cria e8 · cria"
+      },
+      {
+        "title": "02 · c geada",
+        "url": "/assets/diagramas/02-03.svg",
+        "alt": "ArmaDeGeada realiza Arma.",
+        "description": "Esta vista reúne FabricaDeGeada, Arma, Protecao, ArmaDeGeada, ProtecaoDeGeada. ArmaDeGeada realiza Arma. ProtecaoDeGeada realiza Protecao. FabricaDeGeada depende de ArmaDeGeada (cria). FabricaDeGeada depende de ProtecaoDeGeada (cria). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e9 · cria e10 · cria"
+      },
+      {
+        "title": "02 · d afinidade",
+        "url": "/assets/diagramas/02-04.svg",
+        "alt": "Arma depende de Pulso (emite).",
+        "description": "Esta vista reúne Arma, Protecao, Pulso, ResultadoDeEnsaio. Arma depende de Pulso (emite). Protecao depende de Pulso (verifica afinidade). Protecao depende de ResultadoDeEnsaio (devolve). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e11 · emite e12 · verifica afinidade e13 · devolve"
+      }
+    ]
   },
   {
     "id": "03-builder",
@@ -319,7 +373,31 @@
         "url": "arquivos/03-builder/tsconfig.json"
       }
     ],
-    "download": "downloads/03-builder.zip"
+    "download": "downloads/03-builder.zip",
+    "art": {
+      "url": "/assets/cenas/03.jpg",
+      "alt": "Tessa segura o casaco do operário ferido enquanto Ivo entra na escada e uma gárgula atinge o vão."
+    },
+    "diagrams": [
+      {
+        "title": "03 · a etapas",
+        "url": "/assets/diagramas/03-01.svg",
+        "alt": "DiretorDeResgate depende de EtapasDeExpedicao (mesmas etapas por receita).",
+        "description": "Esta vista reúne EtapasDeExpedicao, DiretorDeResgate, Equipamento. DiretorDeResgate depende de EtapasDeExpedicao (mesmas etapas por receita). EtapasDeExpedicao depende de Equipamento. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · mesmas etapas por receita"
+      },
+      {
+        "title": "03 · b builders",
+        "url": "/assets/diagramas/03-02.svg",
+        "alt": "ConstrutorBase realiza EtapasDeExpedicao.",
+        "description": "Esta vista reúne EtapasDeExpedicao, ConstrutorBase, PersonagemBuilder, RelatorioBuilder. ConstrutorBase realiza EtapasDeExpedicao. PersonagemBuilder herda de ConstrutorBase. RelatorioBuilder herda de ConstrutorBase. ConstrutorBase: Copia entrada. Valida ao concluir. Build não reseta; reiniciar é explícito. RelatorioBuilder: Mesma receita; resultado textual de conferência. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "03 · c produto",
+        "url": "/assets/diagramas/03-03.svg",
+        "alt": "PersonagemBuilder depende de FichaDePersonagem (build devolve snapshot).",
+        "description": "Esta vista reúne PersonagemBuilder, FichaDePersonagem, Equipamento. PersonagemBuilder depende de FichaDePersonagem (build devolve snapshot). FichaDePersonagem compõe Equipamento. FichaDePersonagem: Ficha, itens e listas congelados em execução. Configuração, não pessoa. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e5 · build devolve snapshot"
+      }
+    ]
   },
   {
     "id": "04-prototype",
@@ -421,7 +499,31 @@
         "url": "arquivos/04-prototype/tsconfig.json"
       }
     ],
-    "download": "downloads/04-prototype.zip"
+    "download": "downloads/04-prototype.zip",
+    "art": {
+      "url": "/assets/cenas/04.jpg",
+      "alt": "Nara sustenta uma estaca enquanto Celina passa sob os juncos e um ajudante trata as folhas."
+    },
+    "diagrams": [
+      {
+        "title": "04 · a prototype",
+        "url": "/assets/diagramas/04-01.svg",
+        "alt": "Pocao realiza PocaoPrototype.",
+        "description": "Esta vista reúne PocaoPrototype, Pocao. Pocao realiza PocaoPrototype. Pocao depende de Pocao (clone cria outra instância). PocaoPrototype: personalizarLote depende deste contrato; clona antes de alterar a quantidade. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · clone cria outra instância"
+      },
+      {
+        "title": "04 · b ingredientes",
+        "url": "/assets/diagramas/04-02.svg",
+        "alt": "Pocao compõe Ingrediente (copia lista, dose e observacoes).",
+        "description": "Esta vista reúne Pocao, Ingrediente. Pocao compõe Ingrediente (copia lista, dose e observacoes). Pocao: Lote novo fornecido pelo cliente. Consulta devolve cópia defensiva. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e2 · copia lista, dose e observacoes"
+      },
+      {
+        "title": "04 · c selo",
+        "url": "/assets/diagramas/04-03.svg",
+        "alt": "Pocao mantém referência a SeloDeProcedencia (compartilha referência congelada).",
+        "description": "Esta vista reúne Pocao, SeloDeProcedencia. Pocao mantém referência a SeloDeProcedencia (compartilha referência congelada). SeloDeProcedencia: Somente strings. Object.freeze em execução. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · compartilha referência congelada"
+      }
+    ]
   },
   {
     "id": "05-singleton",
@@ -535,7 +637,31 @@
         "url": "arquivos/05-singleton/tsconfig.json"
       }
     ],
-    "download": "downloads/05-singleton.zip"
+    "download": "downloads/05-singleton.zip",
+    "art": {
+      "url": "/assets/cenas/05.jpg",
+      "alt": "Oren sustenta a trava enquanto um operário solta uma larva mineral da argola de suas chaves."
+    },
+    "diagrams": [
+      {
+        "title": "05 · a registro",
+        "url": "/assets/diagramas/05-01.svg",
+        "alt": "RegistroEmMemoria realiza Registro.",
+        "description": "Esta vista reúne Registro, RegistroEmMemoria. RegistroEmMemoria realiza Registro. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "05 · b módulo",
+        "url": "/assets/diagramas/05-02.svg",
+        "alt": "ModuloCompartilhado mantém referência a RegistroEmMemoria (cria uma vez nesta avaliação).",
+        "description": "Esta vista reúne Registro, RegistroEmMemoria, ModuloCompartilhado. ModuloCompartilhado mantém referência a RegistroEmMemoria (cria uma vez nesta avaliação). ModuloCompartilhado depende de Registro (devolve mesma referência). ModuloCompartilhado: Node ESM: módulo, não classe. Worker separado avalia seu próprio módulo. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e5 · cria uma vez nesta avaliação e6 · devolve mesma referência"
+      },
+      {
+        "title": "05 · c composição",
+        "url": "/assets/diagramas/05-03.svg",
+        "alt": "EquipeDeComportas mantém referência a Registro (recebe no construtor).",
+        "description": "Esta vista reúne Registro, EquipeDeComportas, Composicao. EquipeDeComportas mantém referência a Registro (recebe no construtor). Composicao depende de EquipeDeComportas (cria duas equipes). Composicao depende de Registro (recebe ciclo escolhido). Composicao: main escolhe new ou API compartilhada e injeta a dependência. EquipeDeComportas: Preferência de turno pertence à equipe. Ordem registra intenção local. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e2 · recebe no construtor e3 · cria duas equipes e4 · recebe ciclo escolhido"
+      }
+    ]
   },
   {
     "id": "06-adapter",
@@ -645,7 +771,31 @@
         "url": "arquivos/06-adapter/tsconfig.json"
       }
     ],
-    "download": "downloads/06-adapter.zip"
+    "download": "downloads/06-adapter.zip",
+    "art": {
+      "url": "/assets/cenas/06.jpg",
+      "alt": "Sarga aquece a crosta junto ao trilho do farol enquanto Iria, Doro e Mave aguardam atrás da marca."
+    },
+    "diagrams": [
+      {
+        "title": "06 · a target",
+        "url": "/assets/diagramas/06-01.svg",
+        "alt": "DragaoNativo e DragaoAdapter realizam a interface DragaoNovo.",
+        "description": "DragaoNovo oferece velocidadeMps(): number e atacar(pedido: PedidoDeAtaque): ResultadoDeAtaque. DragaoNativo atende ao contrato diretamente e conserva metrosPorSegundo como campo privado somente de leitura. DragaoAdapter atende ao mesmo contrato; seus membros selecionados aparecem na vista de adaptação ao legado. A relação de realização usa linha tracejada e triângulo vazio. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. DragaoNovo: liberarRochaDoFarol recebe este contrato e solicita fogo. Efeito indisponível lança RecursoSemEquivalente."
+      },
+      {
+        "title": "06 · b adaptee",
+        "url": "/assets/diagramas/06-02.svg",
+        "alt": "DragaoAdapter mantém referência a DragaoAntigo por associação direcionada.",
+        "description": "DragaoAdapter guarda antigo: DragaoAntigo como referência privada somente de leitura. A seta é associação direcionada; não declara ownership ou composição UML. velocidadeMps divide o valor em km/h por 3,6. atacar traduz o pedido e o objeto devolvido por soltarFogo(alvo: string), com rocha: string e desobstruida: boolean. O legado é uma biblioteca simulada e permanece inalterado. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. DragaoAdapter: Divide km/h por 3.6; traduz desobstruida para rochaLiberada. DragaoAntigo: Biblioteca simulada: km/h e fogo. Adapter não altera o legado. e3 · referência"
+      },
+      {
+        "title": "06 · c dados",
+        "url": "/assets/diagramas/06-03.svg",
+        "alt": "DragaoNovo depende de PedidoDeAtaque e ResultadoDeAtaque, com atributos tipados.",
+        "description": "PedidoDeAtaque declara alvo: string e efeito: \"fogo\" | \"gelo\". ResultadoDeAtaque conserva esses campos e acrescenta rochaLiberada: boolean. Os atributos dos dois contratos são somente de leitura. As setas tracejadas são dependências da interface DragaoNovo; o booleano é o resultado declarado pelo simulador, sem comprovação física. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   },
   {
     "id": "07-facade",
@@ -739,7 +889,31 @@
         "url": "arquivos/07-facade/tsconfig.json"
       }
     ],
-    "download": "downloads/07-facade.zip"
+    "download": "downloads/07-facade.zip",
+    "art": {
+      "url": "/assets/cenas/07.jpg",
+      "alt": "Bento mantém a porta aberta enquanto a mulher se aproxima e Sergo e um guarda contêm a sentinela."
+    },
+    "diagrams": [
+      {
+        "title": "07 · a preparo",
+        "url": "/assets/diagramas/07-01.svg",
+        "alt": "FachadaPreparacao mantém referência a Cozinha (solicita refeições).",
+        "description": "Esta vista reúne FachadaPreparacao, Cozinha, Arsenal. FachadaPreparacao mantém referência a Cozinha (solicita refeições). FachadaPreparacao mantém referência a Arsenal (reserva peça). FachadaPreparacao: Ordem desta operação: cozinha, arsenal, arquivo, guarda. Falha parcial não desfaz efeitos. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e1 · solicita refeições e2 · reserva peça"
+      },
+      {
+        "title": "07 · b passagem",
+        "url": "/assets/diagramas/07-02.svg",
+        "alt": "FachadaPreparacao mantém referência a Arquivo (consulta mapa).",
+        "description": "Esta vista reúne FachadaPreparacao, Arquivo, Guarda. FachadaPreparacao mantém referência a Arquivo (consulta mapa). FachadaPreparacao mantém referência a Guarda (só com reserva e mapa). Guarda: Prepara passagem no simulador; não decide acordo diplomático. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · consulta mapa e4 · só com reserva e mapa"
+      },
+      {
+        "title": "07 · c resultado",
+        "url": "/assets/diagramas/07-03.svg",
+        "alt": "FachadaPreparacao depende de ResultadoPreparacao.",
+        "description": "Esta vista reúne FachadaPreparacao, ResultadoPreparacao, EtapaPreparacao. FachadaPreparacao depende de ResultadoPreparacao. ResultadoPreparacao compõe EtapaPreparacao. EtapaPreparacao: concluida, falhou, pendente ou ignorada. Falhou não garante ausência de efeitos. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   },
   {
     "id": "08-decorator",
@@ -841,7 +1015,31 @@
         "url": "arquivos/08-decorator/tsconfig.json"
       }
     ],
-    "download": "downloads/08-decorator.zip"
+    "download": "downloads/08-decorator.zip",
+    "art": {
+      "url": "/assets/cenas/08.jpg",
+      "alt": "Dara mantém a espada como calço local enquanto Nessa atravessa a abertura e a tecelã se aproxima."
+    },
+    "diagrams": [
+      {
+        "title": "08 · a componente",
+        "url": "/assets/diagramas/08-01.svg",
+        "alt": "Espada realiza Ataque.",
+        "description": "Esta vista reúne Ataque, Espada, ResultadoAtaque. Espada realiza Ataque. Ataque depende de ResultadoAtaque. ResultadoAtaque: Valor e lista congelados. Inteiros seguros. Ordem registrada nos efeitos. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "08 · b calor",
+        "url": "/assets/diagramas/08-02.svg",
+        "alt": "MantoDeCalor realiza Ataque.",
+        "description": "Esta vista reúne Ataque, MantoDeCalor. MantoDeCalor realiza Ataque. MantoDeCalor mantém referência a Ataque (envolve e delega). MantoDeCalor: Delega uma vez; soma bônus; acrescenta efeito sem mudar resultado interno. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · envolve e delega"
+      },
+      {
+        "title": "08 · c amplificador",
+        "url": "/assets/diagramas/08-03.svg",
+        "alt": "MantoAmplificador realiza Ataque.",
+        "description": "Esta vista reúne Ataque, MantoAmplificador. MantoAmplificador realiza Ataque. MantoAmplificador mantém referência a Ataque (envolve e delega). MantoAmplificador: Delega uma vez; multiplica; ordem interna precede camada externa. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e5 · envolve e delega"
+      }
+    ]
   },
   {
     "id": "09-proxy",
@@ -943,7 +1141,31 @@
         "url": "arquivos/09-proxy/tsconfig.json"
       }
     ],
-    "download": "downloads/09-proxy.zip"
+    "download": "downloads/09-proxy.zip",
+    "art": {
+      "url": "/assets/cenas/09.jpg",
+      "alt": "O ajudante força a cunha, Ruan orienta o resgate e Vessa o ampara enquanto Cael desvia a mandíbula com a mão direita."
+    },
+    "diagrams": [
+      {
+        "title": "09 · a subject",
+        "url": "/assets/diagramas/09-01.svg",
+        "alt": "SalaReal realiza Sala.",
+        "description": "Esta vista reúne Sala, SalaReal, ProxyDeProtecao. SalaReal realiza Sala. ProxyDeProtecao mantém referência a Sala (delega somente se permitido). ProxyDeProtecao: Negativa não chama o real. Positiva devolve o resultado real sem substituí-lo. SalaReal: Acesso direto ainda permite contornar o proxy deste modelo. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · delega somente se permitido"
+      },
+      {
+        "title": "09 · b política",
+        "url": "/assets/diagramas/09-02.svg",
+        "alt": "ProxyDeProtecao realiza Sala.",
+        "description": "Esta vista reúne Sala, ProxyDeProtecao, PoliticaAcesso. ProxyDeProtecao realiza Sala. ProxyDeProtecao depende de PoliticaAcesso (recebe função injetada). PoliticaAcesso: Função injetada: Visitante para DecisaoAcesso. Não é classe concreta. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · recebe função injetada"
+      },
+      {
+        "title": "09 · c dados",
+        "url": "/assets/diagramas/09-03.svg",
+        "alt": "Sala depende de Visitante.",
+        "description": "Esta vista reúne Sala, Visitante, ResultadoEntrada. Sala depende de Visitante. Sala depende de ResultadoEntrada. Visitante: Booleano didático fornecido, sem autenticação de identidade. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   },
   {
     "id": "10-composite",
@@ -1037,7 +1259,25 @@
         "url": "arquivos/10-composite/tsconfig.json"
       }
     ],
-    "download": "downloads/10-composite.zip"
+    "download": "downloads/10-composite.zip",
+    "art": {
+      "url": "/assets/cenas/10.jpg",
+      "alt": "Otília corta o cordão da capa de Leda enquanto Alaric e a vizinha ajudam a sustentar a esteira."
+    },
+    "diagrams": [
+      {
+        "title": "10 · a operação",
+        "url": "/assets/diagramas/10-01.svg",
+        "alt": "Soldado realiza Unidade.",
+        "description": "Esta vista reúne Unidade, Soldado, EventoOrdem. Soldado realiza Unidade. Unidade depende de EventoOrdem. Soldado: Folha sem adicionar, remover ou filhos. EventoOrdem: Pré-ordem: grupo antes dos filhos; irmãos na inserção. Relatório congelado. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "10 · b agregação",
+        "url": "/assets/diagramas/10-02.svg",
+        "alt": "Formacao realiza Unidade.",
+        "description": "Esta vista reúne Unidade, Formacao. Formacao realiza Unidade. Formacao agrega Unidade (filhos do modelo); multiplicidade no destino 0..*. Formacao: Gestão aceita Soldado ou Formacao. Cada objeto tem no máximo um pai. Auto, ancestral e duplicado recusados. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · filhos do modelo"
+      }
+    ]
   },
   {
     "id": "11-bridge",
@@ -1139,7 +1379,31 @@
         "url": "arquivos/11-bridge/tsconfig.json"
       }
     ],
-    "download": "downloads/11-bridge.zip"
+    "download": "downloads/11-bridge.zip",
+    "art": {
+      "url": "/assets/cenas/11.jpg",
+      "alt": "Vera começa a cortar a amarra do molde com a mão esquerda enquanto o operador mantém a barra sobre o apoio."
+    },
+    "diagrams": [
+      {
+        "title": "11 · a formas",
+        "url": "/assets/diagramas/11-01.svg",
+        "alt": "Espada herda de Arma.",
+        "description": "Esta vista reúne Arma, Espada, Arco. Espada herda de Arma. Arco herda de Arma. Arma: Forma e gesto variam neste eixo. A mesma arma pode trocar a referência de Essencia. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "11 · b ponte",
+        "url": "/assets/diagramas/11-02.svg",
+        "alt": "Arma mantém referência a Essencia (referência à essência).",
+        "description": "Esta vista reúne Arma, Essencia. Arma mantém referência a Essencia (referência à essência). Essencia: Efeito, custo e restrição variam neste eixo. Não há classe por par. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · referência à essência"
+      },
+      {
+        "title": "11 · c essências",
+        "url": "/assets/diagramas/11-03.svg",
+        "alt": "EssenciaFogo realiza Essencia.",
+        "description": "Esta vista reúne Essencia, EssenciaFogo, EssenciaGelo. EssenciaFogo realiza Essencia. EssenciaGelo realiza Essencia. EssenciaFogo: Custo 3. Bloqueia quando nucleoMolhado. EssenciaGelo: Custo 4. Ativa no contexto molhado deste modelo. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   },
   {
     "id": "12-flyweight",
@@ -1245,7 +1509,31 @@
         "url": "arquivos/12-flyweight/tsconfig.json"
       }
     ],
-    "download": "downloads/12-flyweight.zip"
+    "download": "downloads/12-flyweight.zip",
+    "art": {
+      "url": "/assets/cenas/12.jpg",
+      "alt": "Um predador translúcido apoia as patas dianteiras na pedra enquanto Iana conduz o barco pelo canal interno e dois desenhos luminosos aparecem em postes distintos."
+    },
+    "diagrams": [
+      {
+        "title": "12 · a fábrica",
+        "url": "/assets/diagramas/12-01.svg",
+        "alt": "GuildaDosEspiritos mantém referência a EssenciaEspirito (mantém por tipo validado); multiplicidade no destino 0..3.",
+        "description": "Esta vista reúne EssenciaEspirito, GuildaDosEspiritos. GuildaDosEspiritos mantém referência a EssenciaEspirito (mantém por tipo validado); multiplicidade no destino 0..3. EssenciaEspirito: Somente tipo e cor. Object.freeze real. Recebe posição ao descrever. GuildaDosEspiritos: Map privado; valida fogo, gelo ou vento antes de consultar. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e1 · mantém por tipo validado"
+      },
+      {
+        "title": "12 · b intrínseco",
+        "url": "/assets/diagramas/12-02.svg",
+        "alt": "Aparicao mantém referência a EssenciaEspirito (compartilha intrínseco); multiplicidade no destino 1.",
+        "description": "Esta vista reúne EssenciaEspirito, Aparicao. Aparicao mantém referência a EssenciaEspirito (compartilha intrínseco); multiplicidade no destino 1. Aparicao: Duas aparições podem usar a mesma essência sem compartilhar a posição. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e2 · compartilha intrínseco"
+      },
+      {
+        "title": "12 · c extrínseco",
+        "url": "/assets/diagramas/12-03.svg",
+        "alt": "Aparicao compõe Posicao (possui extrínseco independente); multiplicidade no destino 1.",
+        "description": "Esta vista reúne Aparicao, Posicao. Aparicao compõe Posicao (possui extrínseco independente); multiplicidade no destino 1. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · possui extrínseco independente"
+      }
+    ]
   },
   {
     "id": "13-strategy",
@@ -1343,7 +1631,31 @@
         "url": "arquivos/13-strategy/tsconfig.json"
       }
     ],
-    "download": "downloads/13-strategy.zip"
+    "download": "downloads/13-strategy.zip",
+    "art": {
+      "url": "/assets/cenas/13.jpg",
+      "alt": "Rima mantém a flecha ancorada no arco enquanto Oda guarda a placa de madeira."
+    },
+    "diagrams": [
+      {
+        "title": "13 · a contexto",
+        "url": "/assets/diagramas/13-01.svg",
+        "alt": "Combatente mantém referência a EstrategiaDeAtaque (mantém referência e delega).",
+        "description": "Esta vista reúne EstrategiaDeAtaque, Combatente. Combatente mantém referência a EstrategiaDeAtaque (mantém referência e delega). Combatente: Troca referência sem reconstruir o contexto. Não importa estratégias concretas. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · mantém referência e delega"
+      },
+      {
+        "title": "13 · b políticas",
+        "url": "/assets/diagramas/13-02.svg",
+        "alt": "AtaqueEspada realiza EstrategiaDeAtaque.",
+        "description": "Esta vista reúne EstrategiaDeAtaque, AtaqueEspada, AtaqueArco, AtaqueMagia. AtaqueEspada realiza EstrategiaDeAtaque. AtaqueArco realiza EstrategiaDeAtaque. AtaqueMagia realiza EstrategiaDeAtaque. EstrategiaDeAtaque: Mesmo objetivo e contrato de resultado; técnicas podem declarar inadequação. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "13 · c alvo",
+        "url": "/assets/diagramas/13-03.svg",
+        "alt": "EstrategiaDeAtaque depende de Alvo.",
+        "description": "Esta vista reúne EstrategiaDeAtaque, Alvo. EstrategiaDeAtaque depende de Alvo. Alvo: Dados fictícios do ensaio. Distância e resistência limitam a técnica. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   },
   {
     "id": "14-state",
@@ -1441,7 +1753,37 @@
         "url": "arquivos/14-state/tsconfig.json"
       }
     ],
-    "download": "downloads/14-state.zip"
+    "download": "downloads/14-state.zip",
+    "art": {
+      "url": "/assets/cenas/14.jpg",
+      "alt": "Irene sustenta o escudo escorado na pedra enquanto Dário permanece ajoelhado e a criatura avança junto ao chão."
+    },
+    "diagrams": [
+      {
+        "title": "14 · a contexto",
+        "url": "/assets/diagramas/14-01.svg",
+        "alt": "Guerreiro mantém referência a Estado (delega ações).",
+        "description": "Esta vista reúne Guerreiro, Estado. Guerreiro mantém referência a Estado (delega ações). Guerreiro: Estado inicial injetável somente na construção; aplicação da transição privada em execução. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e1 · delega ações"
+      },
+      {
+        "title": "14 · b decisão",
+        "url": "/assets/diagramas/14-02.svg",
+        "alt": "Estado depende de Transicao (devolve decisão).",
+        "description": "Esta vista reúne Estado, Transicao. Estado depende de Transicao (devolve decisão). Transicao mantém referência a Estado (próximo). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e5 · devolve decisão e6 · próximo"
+      },
+      {
+        "title": "14 · c estados",
+        "url": "/assets/diagramas/14-03.svg",
+        "alt": "EstadoNormal realiza Estado.",
+        "description": "Esta vista reúne Estado, EstadoNormal, EstadoFurioso, EstadoExausto. EstadoNormal realiza Estado. EstadoFurioso realiza Estado. EstadoExausto realiza Estado. EstadoExausto depende de EstadoNormal (repouso protegido completo). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e10 · repouso protegido completo"
+      },
+      {
+        "title": "14 · d ciclo",
+        "url": "/assets/diagramas/14-04.svg",
+        "alt": "EstadoNormal depende de EstadoFurioso (golpe normal inicia 2).",
+        "description": "Esta vista reúne EstadoNormal, EstadoFurioso, EstadoExausto. EstadoNormal depende de EstadoFurioso (golpe normal inicia 2). EstadoFurioso depende de EstadoFurioso (golpe furioso 2 para 1). EstadoFurioso depende de EstadoExausto (golpe furioso 1 para 0). EstadoFurioso: Imutável. Descanso recusado preserva intervalos. EstadoExausto: Ataque recusado. Sem proteção informada, descanso recusado. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e7 · golpe normal inicia 2 e8 · golpe furioso 2 para 1 e9 · golpe furioso 1 para 0"
+      }
+    ]
   },
   {
     "id": "15-template-method",
@@ -1547,7 +1889,31 @@
         "url": "arquivos/15-template-method/tsconfig.json"
       }
     ],
-    "download": "downloads/15-template-method.zip"
+    "download": "downloads/15-template-method.zip",
+    "art": {
+      "url": "/assets/cenas/15.jpg",
+      "alt": "Olga sustenta a tampa sobre a caixa, com uma franja atravessando o bordo, enquanto Ema apoia o frasco preso ao cinto."
+    },
+    "diagrams": [
+      {
+        "title": "15 · a herança",
+        "url": "/assets/diagramas/15-01.svg",
+        "alt": "RitualFogo herda de Ritual.",
+        "description": "Esta vista reúne Ritual, RitualFogo, RitualGelo. RitualFogo herda de Ritual. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "15 · b resultado",
+        "url": "/assets/diagramas/15-02.svg",
+        "alt": "Ritual depende de ResultadoRitual (devolve sucesso ou falha parcial).",
+        "description": "Esta vista reúne Ritual, ResultadoRitual, Lote. Ritual depende de ResultadoRitual (devolve sucesso ou falha parcial). ResultadoRitual mantém referência a Lote (snapshot). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · devolve sucesso ou falha parcial e4 · snapshot"
+      },
+      {
+        "title": "15 · c notas",
+        "url": "/assets/diagramas/15-03.svg",
+        "alt": "RitualGelo herda de Ritual.",
+        "description": "Esta vista reúne Ritual, RitualFogo, RitualGelo, ResultadoRitual. RitualGelo herda de Ritual. Ritual: realizar chama preparar, conjurar, selar. Uma falha interrompe os passos seguintes. Não existe final em TypeScript. ResultadoRitual: Falha acrescenta etapaFalha e motivo. Sem selo quando a etapa não termina. RitualFogo: Fogo: aquecimento modelado. RitualGelo: Gelo: resfriamento modelado. Hook existe somente na versão do exercício. ResultadoRitual é um alias TS com Readonly nas duas variantes: status, lote e etapasConcluidas são propriedades somente de leitura no contrato de tipo. O array de etapas também é readonly; a proteção da referência é distinta da proteção dos elementos. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   },
   {
     "id": "16-command",
@@ -1649,7 +2015,37 @@
         "url": "arquivos/16-command/tsconfig.json"
       }
     ],
-    "download": "downloads/16-command.zip"
+    "download": "downloads/16-command.zip",
+    "art": {
+      "url": "/assets/cenas/16.jpg",
+      "alt": "Mauro usa a lança como alavanca sobre uma pedra para firmar a escora, enquanto dois guardas aguardam atrás do ressalto."
+    },
+    "diagrams": [
+      {
+        "title": "16 · a histórico",
+        "url": "/assets/diagramas/16-01.svg",
+        "alt": "Invocador mantém referência a Comando (executa e guarda sucesso).",
+        "description": "Esta vista reúne Comando, Invocador. Invocador mantém referência a Comando (executa e guarda sucesso). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e2 · executa e guarda sucesso"
+      },
+      {
+        "title": "16 · b pedido",
+        "url": "/assets/diagramas/16-02.svg",
+        "alt": "ComandoReservar realiza Comando.",
+        "description": "Esta vista reúne Comando, ComandoReservar. ComandoReservar realiza Comando. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "16 · c parcela",
+        "url": "/assets/diagramas/16-03.svg",
+        "alt": "ComandoReservar mantém referência a EstoqueMinerio (receptor).",
+        "description": "Esta vista reúne ComandoReservar, EstoqueMinerio, Reserva. ComandoReservar mantém referência a EstoqueMinerio (receptor). ComandoReservar mantém referência a Reserva (identifica parcela). EstoqueMinerio mantém referência a Reserva (reconhece identidade). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · receptor e4 · identifica parcela e5 · reconhece identidade"
+      },
+      {
+        "title": "16 · d notas",
+        "url": "/assets/diagramas/16-04.svg",
+        "alt": "Classificadores ComandoReservar, Invocador, EstoqueMinerio.",
+        "description": "Esta vista reúne ComandoReservar, Invocador, EstoqueMinerio. Invocador: LIFO limitado. Descartar entrada conserva efeito. Falha ao desfazer mantém topo. ComandoReservar: Uso único. Snapshot anterior é proveniência; undo cancela somente sua reserva intacta. EstoqueMinerio: Forja é operação distinta sem inversa neste modelo. Consumo impede cancelamento integral da mesma reserva. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   },
   {
     "id": "17-memento",
@@ -1747,7 +2143,37 @@
         "url": "arquivos/17-memento/tsconfig.json"
       }
     ],
-    "download": "downloads/17-memento.zip"
+    "download": "downloads/17-memento.zip",
+    "art": {
+      "url": "/assets/cenas/17.jpg",
+      "alt": "Lia mantém a capa do diário com a mão esquerda e transfere o devorador com a espátula direita para a chapa que Cosme aproxima."
+    },
+    "diagrams": [
+      {
+        "title": "17 · a captura",
+        "url": "/assets/diagramas/17-01.svg",
+        "alt": "Diario depende de Memoria (cria e reconhece identidade).",
+        "description": "Esta vista reúne Diario, Memoria. Diario depende de Memoria (cria e reconhece identidade). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e1 · cria e reconhece identidade"
+      },
+      {
+        "title": "17 · b guardião",
+        "url": "/assets/diagramas/17-02.svg",
+        "alt": "GuardiaoDasMemorias mantém referência a Memoria (armazena e seleciona).",
+        "description": "Esta vista reúne Memoria, GuardiaoDasMemorias. GuardiaoDasMemorias mantém referência a Memoria (armazena e seleciona). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e2 · armazena e seleciona"
+      },
+      {
+        "title": "17 · c porta",
+        "url": "/assets/diagramas/17-03.svg",
+        "alt": "Diario depende de PortaMemorias (cria wrapper real separado).",
+        "description": "Esta vista reúne Diario, PortaMemorias. Diario depende de PortaMemorias (cria wrapper real separado). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · cria wrapper real separado"
+      },
+      {
+        "title": "17 · d notas",
+        "url": "/assets/diagramas/17-04.svg",
+        "alt": "Classificadores Diario, Memoria, GuardiaoDasMemorias, PortaMemorias.",
+        "description": "Esta vista reúne Diario, Memoria, GuardiaoDasMemorias, PortaMemorias. Memoria: Vazio, congelado, protótipo nulo. Payload somente no WeakMap privado da instância de Diario. Diario: Leitura pública consulta o estado ativo, nunca um token. Restaurar substitui edições posteriores. GuardiaoDasMemorias: Não recebe Diario nem lê payload. Metadados: índice e rótulo. PortaMemorias: Wrapper sem ler/substituir em execução. Booleano compara marca de versão, não igualdade profunda. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   },
   {
     "id": "18-observer",
@@ -1841,7 +2267,37 @@
         "url": "arquivos/18-observer/tsconfig.json"
       }
     ],
-    "download": "downloads/18-observer.zip"
+    "download": "downloads/18-observer.zip",
+    "art": {
+      "url": "/assets/cenas/18.jpg",
+      "alt": "Nilo recolhe a lona junto às coxas enquanto Rute empurra a ponta do cordão sob o rolo."
+    },
+    "diagrams": [
+      {
+        "title": "18 · a inscrições",
+        "url": "/assets/diagramas/18-01.svg",
+        "alt": "Oraculo mantém referência a Inscricao (mantém mapa e snapshot).",
+        "description": "Esta vista reúne Oraculo, Observador, Inscricao. Oraculo mantém referência a Inscricao (mantém mapa e snapshot). Inscricao mantém referência a Observador (referência à função). Inscricao é um alias TS Readonly: nome e observar são propriedades somente de leitura no contrato de tipo, inclusive a referência à função observar. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e1 · mantém mapa e snapshot e2 · referência à função"
+      },
+      {
+        "title": "18 · b desligar",
+        "url": "/assets/diagramas/18-02.svg",
+        "alt": "Oraculo depende de Desligar (cria handle por inscrição).",
+        "description": "Esta vista reúne Oraculo, Desligar. Oraculo depende de Desligar (cria handle por inscrição). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · cria handle por inscrição"
+      },
+      {
+        "title": "18 · c dados",
+        "url": "/assets/diagramas/18-03.svg",
+        "alt": "Oraculo depende de Relatorio (devolve concluídos e falhos).",
+        "description": "Esta vista reúne Oraculo, Observador, Aviso, Relatorio. Oraculo depende de Relatorio (devolve concluídos e falhos). Relatorio mantém referência a Aviso (cópia congelada). Observador depende de Aviso (recebe cópia da rodada). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · devolve concluídos e falhos e5 · cópia congelada e6 · recebe cópia da rodada"
+      },
+      {
+        "title": "18 · d notas",
+        "url": "/assets/diagramas/18-04.svg",
+        "alt": "Classificadores Oraculo, Observador, Desligar.",
+        "description": "Esta vista reúne Oraculo, Observador, Desligar. Oraculo: Ordem de inscrição. Mudanças durante callback afetam próxima rodada. Reentrância no mesmo Subject é recusada. Desligar: Função sem argumentos, retorna boolean. Handle antigo não remove reinscrição. Observador: Função de Aviso para void, síncrona. Exceção é coletada, demais continuam. Não há espera de Promise. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   },
   {
     "id": "19-mediator",
@@ -1947,7 +2403,43 @@
         "url": "arquivos/19-mediator/tsconfig.json"
       }
     ],
-    "download": "downloads/19-mediator.zip"
+    "download": "downloads/19-mediator.zip",
+    "art": {
+      "url": "/assets/cenas/19.jpg",
+      "alt": "Marta manobra o gancho sobre a guia enquanto a forquilha ainda prende a borda da nadadeira esquerda."
+    },
+    "diagrams": [
+      {
+        "title": "19 · a contrato",
+        "url": "/assets/diagramas/19-01.svg",
+        "alt": "ConselhoMediator realiza Mediador.",
+        "description": "Esta vista reúne Mediador, ConselhoMediator. ConselhoMediator realiza Mediador. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "19 · b colegas",
+        "url": "/assets/diagramas/19-02.svg",
+        "alt": "Classificadores Barqueiros, Cultivadores, Guarda.",
+        "description": "Esta vista reúne Barqueiros, Cultivadores, Guarda.  Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "19 · c notificações",
+        "url": "/assets/diagramas/19-03.svg",
+        "alt": "Barqueiros mantém referência a Mediador (notifica pedido e amarras).",
+        "description": "Esta vista reúne Mediador, Barqueiros, Cultivadores, Guarda. Barqueiros mantém referência a Mediador (notifica pedido e amarras). Cultivadores mantém referência a Mediador (notifica inspeção). Guarda mantém referência a Mediador (notifica autorização). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e2 · notifica pedido e amarras e3 · notifica inspeção e4 · notifica autorização"
+      },
+      {
+        "title": "19 · d despachos",
+        "url": "/assets/diagramas/19-04.svg",
+        "alt": "ConselhoMediator mantém referência a Cultivadores (solicita inspeção).",
+        "description": "Esta vista reúne ConselhoMediator, Barqueiros, Cultivadores, Guarda. ConselhoMediator mantém referência a Cultivadores (solicita inspeção). ConselhoMediator mantém referência a Barqueiros (solicita amarras). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e5 · solicita inspeção e6 · solicita amarras"
+      },
+      {
+        "title": "19 · e limites",
+        "url": "/assets/diagramas/19-05.svg",
+        "alt": "ConselhoMediator mantém referência a Guarda (solicita autorização e abertura).",
+        "description": "Esta vista reúne ConselhoMediator, Guarda. ConselhoMediator mantém referência a Guarda (solicita autorização e abertura). ConselhoMediator: Uma composição, um pedido. Despacho seletivo, sem broadcast. Eventos fora da etapa são rejeitados. Guarda: Só o caminho mediado exige pré-condições; método público não é fronteira de segurança. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e7 · solicita autorização e abertura"
+      }
+    ]
   },
   {
     "id": "20-chain-of-responsibility",
@@ -2049,7 +2541,37 @@
         "url": "arquivos/20-chain-of-responsibility/tsconfig.json"
       }
     ],
-    "download": "downloads/20-chain-of-responsibility.zip"
+    "download": "downloads/20-chain-of-responsibility.zip",
+    "art": {
+      "url": "/assets/cenas/20.jpg",
+      "alt": "Alda mantém a mão esquerda no banco e a direita no colo enquanto a regente escuta junto ao desenho da galeria."
+    },
+    "diagrams": [
+      {
+        "title": "20 · a responsáveis",
+        "url": "/assets/diagramas/20-01.svg",
+        "alt": "Guarda realiza Handler.",
+        "description": "Esta vista reúne Handler, Guarda, Conselheira, Regencia. Guarda realiza Handler. Conselheira realiza Handler. Regencia realiza Handler. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "20 · b lista",
+        "url": "/assets/diagramas/20-02.svg",
+        "alt": "Cadeia mantém referência a Handler (lista ordenada copiada e congelada).",
+        "description": "Esta vista reúne Cadeia, Handler. Cadeia mantém referência a Handler (lista ordenada copiada e congelada). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · lista ordenada copiada e congelada"
+      },
+      {
+        "title": "20 · c resultado",
+        "url": "/assets/diagramas/20-03.svg",
+        "alt": "Cadeia depende de Resultado (primeiro terminal ou naoTratado final).",
+        "description": "Esta vista reúne Cadeia, Resultado. Cadeia depende de Resultado (primeiro terminal ou naoTratado final). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e5 · primeiro terminal ou naoTratado final"
+      },
+      {
+        "title": "20 · d limites",
+        "url": "/assets/diagramas/20-04.svg",
+        "alt": "Classificadores Cadeia, Handler, Resultado.",
+        "description": "Esta vista reúne Cadeia, Handler, Resultado. Cadeia: Controla o percurso. Não há next em cada handler. Continua só em naoTratado, interrompe em tratado ou negado. Handler: Decisão local síncrona. Nome não autentica; identidade repetida na lista é recusada. Resultado: Percurso contém somente handlers chamados nesta avaliação. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   },
   {
     "id": "21-iterator",
@@ -2159,7 +2681,43 @@
         "url": "arquivos/21-iterator/tsconfig.json"
       }
     ],
-    "download": "downloads/21-iterator.zip"
+    "download": "downloads/21-iterator.zip",
+    "art": {
+      "url": "/assets/cenas/21.jpg",
+      "alt": "Suri puxa sua fita com a mão direita enquanto segura a bengala com a esquerda; Neri mantém as mãos no tampo e o chamariz fica nos degraus exteriores."
+    },
+    "diagrams": [
+      {
+        "title": "21 · a lista",
+        "url": "/assets/diagramas/21-01.svg",
+        "alt": "ArquivoEmLista realiza ArquivoOrdens.",
+        "description": "Esta vista reúne ArquivoOrdens, ArquivoEmLista. ArquivoEmLista realiza ArquivoOrdens. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "21 · b nós",
+        "url": "/assets/diagramas/21-02.svg",
+        "alt": "ArquivoEncadeado realiza ArquivoOrdens.",
+        "description": "Esta vista reúne ArquivoOrdens, ArquivoEncadeado. ArquivoEncadeado realiza ArquivoOrdens. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "21 · c captura",
+        "url": "/assets/diagramas/21-03.svg",
+        "alt": "ArquivoEmLista depende de PercursoSnapshot (cria snapshot).",
+        "description": "Esta vista reúne ArquivoEmLista, ArquivoEncadeado, PercursoSnapshot. ArquivoEmLista depende de PercursoSnapshot (cria snapshot). ArquivoEncadeado depende de PercursoSnapshot (cria snapshot). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · cria snapshot e5 · cria snapshot"
+      },
+      {
+        "title": "21 · d avanço",
+        "url": "/assets/diagramas/21-04.svg",
+        "alt": "PercursoSnapshot realiza IteradorOrdens.",
+        "description": "Esta vista reúne IteradorOrdens, PercursoSnapshot, PassoLocal. PercursoSnapshot realiza IteradorOrdens. PassoLocal usa Readonly nas duas variantes: fim e, na variante que o possui, ordem são propriedades somente de leitura no contrato de tipo. ordem continua ausente na variante de fim. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "21 · e notas",
+        "url": "/assets/diagramas/21-05.svg",
+        "alt": "PercursoSnapshot depende de PassoLocal (devolve item ou fim).",
+        "description": "Esta vista reúne ArquivoOrdens, PercursoSnapshot, PassoLocal. PercursoSnapshot depende de PassoLocal (devolve item ou fim). ArquivoOrdens: Ordem de inserção; cada chamada captura snapshot e posição nova. PassoLocal: fim true não possui ordem. Contrato local, distinto de done/value nativos. PercursoSnapshot: Sem Symbol.iterator na base. Ponte e gerador estão somente no exercício. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e6 · devolve item ou fim"
+      }
+    ]
   },
   {
     "id": "22-visitor",
@@ -2277,7 +2835,43 @@
         "url": "arquivos/22-visitor/tsconfig.json"
       }
     ],
-    "download": "downloads/22-visitor.zip"
+    "download": "downloads/22-visitor.zip",
+    "art": {
+      "url": "/assets/cenas/22.jpg",
+      "alt": "Malu retira o pavio sem uso com a mão direita e mantém aberta a tampa da caixa apoiada no banco com a esquerda."
+    },
+    "diagrams": [
+      {
+        "title": "22 · a elementos",
+        "url": "/assets/diagramas/22-01.svg",
+        "alt": "Classificadores Guerreiro, Mago, Arqueiro.",
+        "description": "Esta vista reúne Guerreiro, Mago, Arqueiro.  Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "22 · b membro",
+        "url": "/assets/diagramas/22-02.svg",
+        "alt": "Guerreiro realiza MembroGuilda.",
+        "description": "Esta vista reúne MembroGuilda, Guerreiro, Mago, Arqueiro. Guerreiro realiza MembroGuilda. Mago realiza MembroGuilda. Arqueiro realiza MembroGuilda. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "22 · c visitantes",
+        "url": "/assets/diagramas/22-03.svg",
+        "alt": "CalcularCapacidade realiza Visitante.",
+        "description": "Esta vista reúne Visitante, CalcularCapacidade, CalcularCusto. CalcularCapacidade realiza Visitante. CalcularCusto realiza Visitante. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "22 · d despacho",
+        "url": "/assets/diagramas/22-04.svg",
+        "alt": "Guerreiro depende de Visitante (visitarGuerreiro this).",
+        "description": "Esta vista reúne Visitante, Guerreiro, Mago, Arqueiro. Guerreiro depende de Visitante (visitarGuerreiro this). Mago depende de Visitante (visitarMago this). Arqueiro depende de Visitante (visitarArqueiro this). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e6 · visitarGuerreiro this e7 · visitarMago this e8 · visitarArqueiro this"
+      },
+      {
+        "title": "22 · e notas",
+        "url": "/assets/diagramas/22-05.svg",
+        "alt": "Classificadores MembroGuilda, Visitante.",
+        "description": "Esta vista reúne MembroGuilda, Visitante. Visitante: R é parâmetro de retorno. Nas duas operações de produção é number. MembroGuilda: Elementos preparados previamente com aceitar. Quarto tipo existe somente na solução ampliada. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   },
   {
     "id": "23-interpreter",
@@ -2399,6 +2993,48 @@
         "url": "arquivos/23-interpreter/tsconfig.json"
       }
     ],
-    "download": "downloads/23-interpreter.zip"
+    "download": "downloads/23-interpreter.zip",
+    "art": {
+      "url": "/assets/cenas/23.jpg",
+      "alt": "Noa apoia a ardósia com a mão esquerda e leva o cobre ao receptáculo com a direita; Gaspar permanece no guincho e o guardião está na outra ponta do corredor."
+    },
+    "diagrams": [
+      {
+        "title": "23 · a terminais",
+        "url": "/assets/diagramas/23-01.svg",
+        "alt": "RunaFogo realiza Expressao.",
+        "description": "Esta vista reúne Expressao, RunaFogo, RunaGelo, RunaLuz. RunaFogo realiza Expressao. RunaGelo realiza Expressao. RunaLuz realiza Expressao. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "23 · b sequência",
+        "url": "/assets/diagramas/23-02.svg",
+        "alt": "Sequencia realiza Expressao.",
+        "description": "Esta vista reúne Expressao, Sequencia. Sequencia realiza Expressao. Sequencia mantém referência a Expressao (filhos copiados). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e5 · filhos copiados"
+      },
+      {
+        "title": "23 · c registros",
+        "url": "/assets/diagramas/23-03.svg",
+        "alt": "RunaFogo depende de Contexto (registra F).",
+        "description": "Esta vista reúne RunaFogo, RunaGelo, RunaLuz, Contexto. RunaFogo depende de Contexto (registra F). RunaGelo depende de Contexto (registra I). RunaLuz depende de Contexto (registra L). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e7 · registra F e8 · registra I e9 · registra L"
+      },
+      {
+        "title": "23 · d contexto",
+        "url": "/assets/diagramas/23-04.svg",
+        "alt": "ContextoArcano realiza Contexto.",
+        "description": "Esta vista reúne Contexto, ContextoArcano. ContextoArcano realiza Contexto. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      },
+      {
+        "title": "23 · e parser",
+        "url": "/assets/diagramas/23-05.svg",
+        "alt": "Parser depende de Expressao (constrói árvore sem contexto).",
+        "description": "Esta vista reúne Expressao, Parser. Parser depende de Expressao (constrói árvore sem contexto). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e10 · constrói árvore sem contexto"
+      },
+      {
+        "title": "23 · f limites",
+        "url": "/assets/diagramas/23-06.svg",
+        "alt": "Classificadores Sequencia, ContextoArcano, Parser.",
+        "description": "Esta vista reúne Sequencia, ContextoArcano, Parser. Parser: Entrada completa, sequência/grupos não vazios, posições UTF16. Função analisar cria este parser interno. Sequencia: Interpreta filhos em ordem. executar verifica custo antes do corpo; Repeticao só no exercício. ContextoArcano: Índices e registro convencionais, sem efeito físico garantido. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos."
+      }
+    ]
   }
 ]
