@@ -117,8 +117,11 @@
     ],
     "download": "downloads/01-factory-method.zip",
     "art": {
-      "url": "/assets/cenas/01.jpg",
-      "alt": "Talo alcança ajuda no posto enquanto uma enguia de água e sal rompe a passarela."
+      "url": "/assets/cenas-coloridas-v01/01-card.webp",
+      "coverUrl": "/assets/cenas-coloridas-v01/01-web.webp",
+      "alt": "Uma enguia de água azul e placas de sal rompe o cais enquanto Talo alcança o posto com o tubo de despacho.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -243,8 +246,11 @@
     ],
     "download": "downloads/02-abstract-factory.zip",
     "art": {
-      "url": "/assets/cenas/02.jpg",
-      "alt": "Saira sustenta o resgate de Dena nas nervuras de gelo enquanto a quimera volta a cabeça para a passagem."
+      "url": "/assets/cenas-coloridas-v01/02-card.webp",
+      "coverUrl": "/assets/cenas-coloridas-v01/02-web.webp",
+      "alt": "A quimera de escória ergue sua cabeça triangular sobre a fenda enquanto Saira sustenta as nervuras de gelo para Dena.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -375,8 +381,11 @@
     ],
     "download": "downloads/03-builder.zip",
     "art": {
-      "url": "/assets/cenas/03.jpg",
-      "alt": "Tessa segura o casaco do operário ferido enquanto Ivo entra na escada e uma gárgula atinge o vão."
+      "url": "/assets/cenas-coloridas-v01/03-card.webp",
+      "coverUrl": "/assets/cenas-coloridas-v01/03-web.webp",
+      "alt": "Uma gárgula de pedra investe contra a janela da torre enquanto Tessa e Ivo recolhem o operário ferido para a escada.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -501,8 +510,11 @@
     ],
     "download": "downloads/04-prototype.zip",
     "art": {
-      "url": "/assets/cenas/04.jpg",
-      "alt": "Nara sustenta uma estaca enquanto Celina passa sob os juncos e um ajudante trata as folhas."
+      "url": "/assets/cenas-coloridas-v01/04-card.webp",
+      "coverUrl": "/assets/cenas-coloridas-v01/04-web.webp",
+      "alt": "Arcos de junco cobertos de penugem e bocas sem dentes cercam Celina, enquanto Nara sustenta a estaca e a filha trata as folhas.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -639,8 +651,11 @@
     ],
     "download": "downloads/05-singleton.zip",
     "art": {
-      "url": "/assets/cenas/05.jpg",
-      "alt": "Oren sustenta a trava enquanto um operário solta uma larva mineral da argola de suas chaves."
+      "url": "/assets/cenas-coloridas-v01/05-card.webp",
+      "coverUrl": "/assets/cenas-coloridas-v01/05-web.webp",
+      "alt": "Larvas de casca granítica prendem-se à engrenagem molhada e à chave de Oren enquanto ele mantém a trava e um trabalhador as retira.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -773,8 +788,11 @@
     ],
     "download": "downloads/06-adapter.zip",
     "art": {
-      "url": "/assets/cenas/06.jpg",
-      "alt": "Sarga aquece a crosta junto ao trilho do farol enquanto Iria, Doro e Mave aguardam atrás da marca."
+      "url": "/assets/cenas-coloridas-v01/06-card.webp",
+      "coverUrl": "/assets/cenas-coloridas-v01/06-web.webp",
+      "alt": "Sarga coopera no reparo do farol, dirigindo uma chama estreita à crosta de pedra enquanto Iria e a equipe observam protegidos.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -891,8 +909,11 @@
     ],
     "download": "downloads/07-facade.zip",
     "art": {
-      "url": "/assets/cenas/07.jpg",
-      "alt": "Bento mantém a porta aberta enquanto a mulher se aproxima e Sergo e um guarda contêm a sentinela."
+      "url": "/assets/cenas-coloridas-v01/07-card.webp",
+      "coverUrl": "/assets/cenas-coloridas-v01/07-web.webp",
+      "alt": "A sentinela de pedra com braços-lâmina permanece no carro de trilhos contido pelo freio, enquanto Bento mantém aberta a porta de serviço.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -1017,8 +1038,11 @@
     ],
     "download": "downloads/08-decorator.zip",
     "art": {
-      "url": "/assets/cenas/08.jpg",
-      "alt": "Dara mantém a espada como calço local enquanto Nessa atravessa a abertura e a tecelã se aproxima."
+      "url": "/assets/cenas-coloridas-v01/08-card.webp",
+      "coverUrl": "/assets/cenas-coloridas-v01/08-web.webp",
+      "alt": "A tecelã de geada estende seus oito apêndices sobre Dara e Nessa enquanto elas abrem uma faixa estreita no gelo do túnel.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -1143,8 +1167,11 @@
     ],
     "download": "downloads/09-proxy.zip",
     "art": {
-      "url": "/assets/cenas/09.jpg",
-      "alt": "O ajudante força a cunha, Ruan orienta o resgate e Vessa o ampara enquanto Cael desvia a mandíbula com a mão direita."
+      "url": "/assets/cenas-coloridas-v01/09-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/09-web.jpg",
+      "alt": "Serpentes articuladas de bronze esmagam uma caixa na entrada azul e dourada do arquivo de Valharth.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -1261,8 +1288,11 @@
     ],
     "download": "downloads/10-composite.zip",
     "art": {
-      "url": "/assets/cenas/10.jpg",
-      "alt": "Otília corta o cordão da capa de Leda enquanto Alaric e a vizinha ajudam a sustentar a esteira."
+      "url": "/assets/cenas-coloridas-v01/10-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/10-web.jpg",
+      "alt": "Colosso de raízes carbonizadas avança pela floresta em chamas enquanto Leda e moradores retiram Otília numa esteira.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -1381,8 +1411,11 @@
     ],
     "download": "downloads/11-bridge.zip",
     "art": {
-      "url": "/assets/cenas/11.jpg",
-      "alt": "Vera começa a cortar a amarra do molde com a mão esquerda enquanto o operador mantém a barra sobre o apoio."
+      "url": "/assets/cenas-coloridas-v01/11-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/11-web.jpg",
+      "alt": "Criatura mineral de placas escuras e juntas alaranjadas pressiona uma grade nas ruínas do desfiladeiro.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -1511,8 +1544,11 @@
     ],
     "download": "downloads/12-flyweight.zip",
     "art": {
-      "url": "/assets/cenas/12.jpg",
-      "alt": "Um predador translúcido apoia as patas dianteiras na pedra enquanto Iana conduz o barco pelo canal interno e dois desenhos luminosos aparecem em postes distintos."
+      "url": "/assets/cenas-coloridas-v01/12-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/12-web.jpg",
+      "alt": "Predador translúcido de névoa segue a luz vermelha sobre a pedra enquanto Iana conduz um barco por outra referência.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -1633,8 +1669,11 @@
     ],
     "download": "downloads/13-strategy.zip",
     "art": {
-      "url": "/assets/cenas/13.jpg",
-      "alt": "Rima mantém a flecha ancorada no arco enquanto Oda guarda a placa de madeira."
+      "url": "/assets/cenas-coloridas-v01/13-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/13-web.jpg",
+      "alt": "Rima lança um pulso controlado contra a placa de um urso mecânico de vime e metal, retido por cordas na arena.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -1755,8 +1794,11 @@
     ],
     "download": "downloads/14-state.zip",
     "art": {
-      "url": "/assets/cenas/14.jpg",
-      "alt": "Irene sustenta o escudo escorado na pedra enquanto Dário permanece ajoelhado e a criatura avança junto ao chão."
+      "url": "/assets/cenas-coloridas-v01/14-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/14-web.jpg",
+      "alt": "Dário e Irene guardam a ponte diante da criatura translúcida de gelo, folhas e terra, ainda com seis apoios intactos.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -1891,8 +1933,11 @@
     ],
     "download": "downloads/15-template-method.zip",
     "art": {
-      "url": "/assets/cenas/15.jpg",
-      "alt": "Olga sustenta a tampa sobre a caixa, com uma franja atravessando o bordo, enquanto Ema apoia o frasco preso ao cinto."
+      "url": "/assets/cenas-coloridas-v01/15-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/15-web.jpg",
+      "alt": "Parasito de cristais com franjas de fogo envolve a base da reserva de sal enquanto Olga fecha a tampa e Ema sustenta o frasco selado.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -2017,8 +2062,11 @@
     ],
     "download": "downloads/16-command.zip",
     "art": {
-      "url": "/assets/cenas/16.jpg",
-      "alt": "Mauro usa a lança como alavanca sobre uma pedra para firmar a escora, enquanto dois guardas aguardam atrás do ressalto."
+      "url": "/assets/cenas-coloridas-v01/16-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/16-web.jpg",
+      "alt": "Mauro mantém uma escora com a lança talada enquanto a fera basáltica de Arkhan pressiona a grade na garganta de pedra.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -2145,8 +2193,11 @@
     ],
     "download": "downloads/17-memento.zip",
     "art": {
-      "url": "/assets/cenas/17.jpg",
-      "alt": "Lia mantém a capa do diário com a mão esquerda e transfere o devorador com a espátula direita para a chapa que Cosme aproxima."
+      "url": "/assets/cenas-coloridas-v01/17-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/17-web.jpg",
+      "alt": "Lia e Cosme contêm um devorador de tinta feito de dobras escuras entre uma espátula e uma chapa de latão, ao lado do diário iluminado em azul.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -2269,8 +2320,11 @@
     ],
     "download": "downloads/18-observer.zip",
     "art": {
-      "url": "/assets/cenas/18.jpg",
-      "alt": "Nilo recolhe a lona junto às coxas enquanto Rute empurra a ponta do cordão sob o rolo."
+      "url": "/assets/cenas-coloridas-v01/18-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/18-web.jpg",
+      "alt": "Um alado de ferrugem leva uma argola e um retalho de lona sobre o mercado de Valharth, enquanto Nilo e Rute recolhem a cobertura.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -2405,8 +2459,11 @@
     ],
     "download": "downloads/19-mediator.zip",
     "art": {
-      "url": "/assets/cenas/19.jpg",
-      "alt": "Marta manobra o gancho sobre a guia enquanto a forquilha ainda prende a borda da nadadeira esquerda."
+      "url": "/assets/cenas-coloridas-v01/19-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/19-web.jpg",
+      "alt": "A criatura lacustre de couraça azul se curva junto à grade de Azurion enquanto Marta usa um gancho para afastar o galho que prende sua nadadeira.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -2543,8 +2600,11 @@
     ],
     "download": "downloads/20-chain-of-responsibility.zip",
     "art": {
-      "url": "/assets/cenas/20.jpg",
-      "alt": "Alda mantém a mão esquerda no banco e a direita no colo enquanto a regente escuta junto ao desenho da galeria."
+      "url": "/assets/cenas-coloridas-v01/20-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/20-web.jpg",
+      "alt": "Alda e Edite atravessam a Porta dos Carros com a caixa de remédios protegida por uma pedra guarda-frio, deixando para trás a galeria interditada.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -2683,8 +2743,11 @@
     ],
     "download": "downloads/21-iterator.zip",
     "art": {
-      "url": "/assets/cenas/21.jpg",
-      "alt": "Suri puxa sua fita com a mão direita enquanto segura a bengala com a esquerda; Neri mantém as mãos no tampo e o chamariz fica nos degraus exteriores."
+      "url": "/assets/cenas-coloridas-v01/21-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/21-web.jpg",
+      "alt": "Uma massa sem rosto de papel encharcado envolve o chamariz luminoso na escada inundada, enquanto Suri usa sua bengala e consulta uma fita no arquivo seco.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -2837,8 +2900,11 @@
     ],
     "download": "downloads/22-visitor.zip",
     "art": {
-      "url": "/assets/cenas/22.jpg",
-      "alt": "Malu retira o pavio sem uso com a mão direita e mantém aberta a tampa da caixa apoiada no banco com a esquerda."
+      "url": "/assets/cenas-coloridas-v01/22-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/22-web.jpg",
+      "alt": "Malu e representantes das guildas observam focos azuis projetados por uma bancada de medição, enquanto os painéis cerâmicos em forma de estrela aguardam apagados.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {
@@ -2995,8 +3061,11 @@
     ],
     "download": "downloads/23-interpreter.zip",
     "art": {
-      "url": "/assets/cenas/23.jpg",
-      "alt": "Noa apoia a ardósia com a mão esquerda e leva o cobre ao receptáculo com a direita; Gaspar permanece no guincho e o guardião está na outra ponta do corredor."
+      "url": "/assets/cenas-coloridas-v01/23-card.jpg",
+      "coverUrl": "/assets/cenas-coloridas-v01/23-web.jpg",
+      "alt": "O guardião de pedra avança pelos trilhos do teto com seu pilão quadrado, enquanto Noa fecha o visor luminoso e se protege junto à pilastra lateral.",
+      "width": 1600,
+      "height": 900
     },
     "diagrams": [
       {

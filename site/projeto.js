@@ -233,7 +233,11 @@
       byId('study-category').textContent = `Padrão ${project.number} · ${project.category}`;
       byId('study-description').textContent = project.description;
       if (project.art?.url) {
-        byId('study-art').src = pathFromOrigin(project.art.url);
+        byId('study-art').src = pathFromOrigin(project.art.coverUrl || project.art.url);
+        if (project.art.coverUrl) {
+          byId('study-art').srcset = `${pathFromOrigin(project.art.url)} 800w, ${pathFromOrigin(project.art.coverUrl)} 1600w`;
+          byId('study-art').sizes = '(max-width: 1000px) calc(100vw - 64px), 1180px';
+        }
         byId('study-art').alt = project.art.alt || `Cena do capítulo ${project.number}`;
         byId('study-art-caption').textContent = `Cena do capítulo ${project.number} · ${project.name}`;
         byId('study-scene').hidden = false;

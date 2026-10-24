@@ -28,8 +28,8 @@
       image.src = originPath(project.art.url);
       image.alt = '';
       image.loading = 'lazy';
-      image.width = 640;
-      image.height = 213;
+      image.width = 800;
+      image.height = 450;
       art.append(image);
       card.append(art);
     }

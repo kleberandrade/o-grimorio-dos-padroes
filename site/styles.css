@@ -44,3 +44,8 @@ body{background-color:var(--night);background-image:radial-gradient(ellipse at 8
 @media(max-width:1100px){.card-art{margin:-19px -18px 20px}.project-card:has(.card-art){min-height:405px}.card-chapters{font-size:8px}}
 @media(max-width:600px){.card-art{margin:-19px -21px 19px}.project-card:has(.card-art){min-height:390px}.card-chapters{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.project-card:hover .card-art img{transform:none}}
+
+/* Cenas coloridas: composição integral, compartilhada com a capa do estudo. */
+.card-art{aspect-ratio:16/9}.card-art img{object-fit:cover}.project-card:has(.card-art){min-height:465px}
+@media(max-width:1100px){.project-card:has(.card-art){min-height:440px}}
+@media(max-width:600px){.project-card:has(.card-art){min-height:0}.project-card:has(.card-art) .card-actions{margin-top:27px}}
