@@ -55,7 +55,7 @@ Os registros da edição totalizam 354 testes aprovados. Essa contagem correspon
 
 ## Site, descoberta e livros
 
-A página inicial reúne os 23 padrões e um carrossel das duas trilogias. Os seis livros, seus micro resumos e links de compra ficam em `site/livros.json`; o carrossel troca automaticamente a cada oito segundos enquanto está visível, com pausa e setas discretas. As seis capas são cópias exatas dos assets atuais de kleberandrade.dev. A seção fica antes de Sobre o autor, sem seletor de minicapas.
+A página inicial reúne os 23 padrões e um carrossel das duas trilogias. Os seis livros, seus micro resumos e links de compra ficam em `site/livros.json`; o carrossel troca automaticamente a cada oito segundos enquanto está visível, com pausa, setas internas e seis dots. Capa e resumo transitam como uma única unidade; os seis painéis compartilham a mesma célula de grid para manter a altura estável em cada largura de tela. As seis capas são cópias exatas dos assets atuais de kleberandrade.dev. A seção fica antes de Sobre o autor, sem seletor de minicapas.
 
 Cada padrão também tem HTML próprio em `/padroes/<id>/`, com fundamentos, código inicial e diagramas disponíveis antes do JavaScript. As URLs antigas `projeto.html?id=...` têm redirecionamentos permanentes. O estudo interativo continua carregando os arquivos originais do catálogo.
 
