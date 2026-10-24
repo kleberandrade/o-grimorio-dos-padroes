@@ -10,10 +10,10 @@
   <meta property="og:type" content="website">
   <title>O Grimório dos Padrões — 23 histórias, 23 projetos</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a1527'/%3E%3Cpath d='M14 15h26l10 7v29H22l-8-7zM22 22h28M22 22v29M14 15l8 7' fill='none' stroke='%23e4bd7d' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="/styles.css?v=3">
+  <link rel="stylesheet" href="/styles.css?v=4">
   <script src="/app.js?v=3" defer></script>
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header class="site-header wrap">
     <a class="brand" href="#inicio" aria-label="O Grimório dos Padrões, início">
@@ -29,7 +29,8 @@
   </header>
 
   <main id="conteudo">
-    <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="universe-backdrop" aria-hidden="true"><img src="/assets/universo-oito-terras.webp" alt="" width="1024" height="1536" fetchpriority="high"></div>
       <div class="hero-copy">
         <p class="eyebrow"><span class="small-rule" aria-hidden="true"></span> Fantasia &amp; programação</p>
         <h1 id="hero-title">O Grimório<br>dos <em>Padrões</em></h1>
@@ -37,12 +38,8 @@
         <p class="hero-mantra">Magia é programação.<br>O mundo é código.</p>
         <p class="hero-description">Entre monstros, feitiços e escolhas que mudam destinos, uma nova maneira de compreender os padrões de projeto.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#padroes">Abrir o grimório <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="/downloads/o-grimorio-dos-padroes-projetos.zip" download>Baixar os projetos <span aria-hidden="true">↓</span></a>
-        </div>
-        <div class="book-purchase">
-          <a class="button button-outline button-small" href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro no Clube <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a>
-          <span>Edição impressa e e-book</span>
+          <a class="button button-primary" href="#padroes">Abrir grimório <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a>
         </div>
         <p class="hero-author">Um livro de <strong>Kleber de Oliveira Andrade</strong></p>
       </div>
@@ -67,7 +64,7 @@
       </div>
     </section>
 
-    <div class="editorial-divider wrap" aria-hidden="true"><span></span><svg viewBox="0 0 44 24"><path d="m22 2 8 10-8 10-8-10zM2 12h12m16 0h12M22 6v12"/></svg><span></span></div>
+
 
     <section class="about wrap section-space" id="livro" aria-labelledby="about-title">
       <div class="section-intro">
@@ -147,6 +144,7 @@ npm start</code></pre>
           <pre><code>npm run solution</code></pre>
         </div>
         <p class="terminal-note"><strong>Um projeto de cada vez.</strong> Cada pasta tem suas próprias dependências, fontes e testes. Os trechos do livro orientam a leitura; os programas completos estão nos arquivos.</p>
+        <p class="terminal-download"><a href="/downloads/o-grimorio-dos-padroes-projetos.zip" download>Baixar todos os projetos <span aria-hidden="true">↓</span></a></p>
       </div>
     </section>
 
