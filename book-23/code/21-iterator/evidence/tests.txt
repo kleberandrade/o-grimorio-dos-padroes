@@ -1,0 +1,38 @@
+
+> grimorio-21-iterator@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-21-iterator@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-21-iterator@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ ponte acrescenta Iterable nativo no exercício, sem alegar que existe na coleção base (0.653417ms)
+✔ ponte captura na chamada Symbol.iterator, antes do primeiro next; duas posições independentes (0.129166ms)
+✔ criar wrapper não captura: snapshot ocorre ao pedir o iterador (0.050792ms)
+✔ gerador captura fora do corpo preguiçoso, inclusive mutação antes do primeiro next (0.080125ms)
+✔ break chama return da ponte e não reinicia instância; coleção produz outro percurso (0.080125ms)
+✔ gerador fechado por break/return não reinicia; gerador vazio permanece esgotado (0.052791ms)
+✔ ArquivoEmLista: ordem de inserção é explícita, esgotamento e vazio permanecem fim (0.620583ms)
+✔ ArquivoEmLista: dois percursos externos têm posições independentes (0.09225ms)
+✔ ArquivoEmLista: snapshot captura antes do primeiro passo e atualização não reordena (0.079709ms)
+✔ ArquivoEmLista: entradas e resultados não expõem dados mutáveis do arquivo (0.07125ms)
+✔ ArquivoEmLista: id inválido/duplicado, descrição vazia e atualização ausente não mudam acervo (0.138417ms)
+✔ ArquivoEncadeado: ordem de inserção é explícita, esgotamento e vazio permanecem fim (0.067583ms)
+✔ ArquivoEncadeado: dois percursos externos têm posições independentes (0.043584ms)
+✔ ArquivoEncadeado: snapshot captura antes do primeiro passo e atualização não reordena (0.05175ms)
+✔ ArquivoEncadeado: entradas e resultados não expõem dados mutáveis do arquivo (0.042625ms)
+✔ ArquivoEncadeado: id inválido/duplicado, descrição vazia e atualização ausente não mudam acervo (0.077417ms)
+✔ construção direta de percurso também copia a lista recebida antes do consumo (0.042292ms)
+✔ exemplo nativo executado distingue callbacks internos de protocolo Symbol.iterator (0.071209ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 88.012791

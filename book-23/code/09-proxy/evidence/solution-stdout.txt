@@ -1,0 +1,4 @@
+Criações antes da operação: 0
+Criações após primeira operação: 1
+Criações após segunda operação: 1
+Segunda entrada: permitida | registro 2

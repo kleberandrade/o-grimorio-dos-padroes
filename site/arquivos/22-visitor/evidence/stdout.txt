@@ -1,0 +1,6 @@
+Alternativa union: capacidade 12
+Ivo: capacidade 12 | custo 16
+Lume: capacidade 12 | custo 13
+Cora: capacidade 10 | custo 20
+Total de capacidade: 34
+Total de abastecimento: 49

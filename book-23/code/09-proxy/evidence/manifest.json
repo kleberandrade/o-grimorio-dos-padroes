@@ -1,0 +1,32 @@
+{
+  "capturedAt": "2026-10-22T23:58:20.050Z",
+  "command": "node book-23/scripts/projetos.mjs 09-proxy capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "ce4085de31519e946b0190865a62d4aa8aa92f30ac2ec5418f95d47bd5dc9340",
+    "diagram.mmd": "51321c18e3051fba264d982a978f367833c626f362ac87bb849ca0430ce0f705",
+    "exercise/README.md": "e142e2c923ad8cbd547149b3f7ff1f8d8cdae51e249d18866481e1c6e8f66c1c",
+    "package-lock.json": "361bfa059ade6ef17e5f9b11e8ede9e1a559424aae2d351e5696c88eecb66a5b",
+    "package.json": "d10d00a7c77a4023ae36e4e5098491d8865ccf9130400cc13d17080e8a0fb61f",
+    "solution/main.ts": "359b466ddcf9503ec44e4e525c38528f02f01cd7fb3b3c8902e7e6dc3e2ebd1f",
+    "solution/proxy-virtual.ts": "738d253e7786b91e88de27ef2b35f5ab671c4a61d50d31bb3f0eb80aefede368",
+    "solution/virtual.test.ts": "bb6696014f85ad231a7ba3de9de33303a88a3e6adb1b9abe4a9281a5395898b9",
+    "src/contratos.ts": "13ff810506ed32e889649b9606b83d14468e01c8621cdd054108e9740eace3ec",
+    "src/main.ts": "c89a91c87577d8dcee4bab5170af83a7618b89d70c84f33f093edc6272973639",
+    "src/politica.ts": "14a4fc8708b44046d08110d1556719eefeb8b0012b3842c965158ecdb88d194e",
+    "src/proxy-protecao.ts": "04173209be9acb22d4bd0fdb6f26a1b08602e7386b5218193a6425ad2f385915",
+    "src/sala-real.ts": "03163c25286b8559c3b1782dcd7094ec21aecc832ac0cc4a29719fd4cd095660",
+    "src/servico-com-controle.ts": "3083ad85af4e0c01c1cbe6187776ec8011aa72cc284e171237e61fb052f923d7",
+    "test/protecao.test.ts": "1d287e75f98f0ac86d9a29fa9193001a757627ae6114fc3fbd2ce4db8a89ec3c",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "958dfbfd8d763a748a2b7fd24ac4ddcf2393de6e3734619a0efc33fa31d74c9b",
+    "solution-stdout.txt": "141f1cb805fa63e3ea7c8ffa7d6bdc55a083275e5873c03a7431b3d3c308ca45",
+    "tests.txt": "9b597dcc2551a46ceaf56b55021027d147266be85ca508b6670a9d5f6e5aca2c"
+  }
+}

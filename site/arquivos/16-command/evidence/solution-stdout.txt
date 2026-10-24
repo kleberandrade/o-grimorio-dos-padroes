@@ -1,0 +1,5 @@
+Falha simulada antes de registrar compensação.
+Após falha: registros 1 | histórico 1
+1: aviso | referência nenhuma | Reserva liberada para a ponte.
+2: compensacao | referência 1 | Desconsidere o aviso referenciado.
+Após compensação: registros 2 | histórico 0

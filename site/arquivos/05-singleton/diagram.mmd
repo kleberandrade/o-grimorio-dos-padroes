@@ -1,0 +1,37 @@
+classDiagram
+direction TB
+class Registro {
+  <<interface>>
+  +registrar(OrdemDeComporta)
+  +listarOrdens() OrdemDeComporta[]
+}
+class RegistroEmMemoria {
+  -OrdemDeComporta[] ordens
+  +registrar(OrdemDeComporta)
+  +listarOrdens() OrdemDeComporta[]
+}
+class EquipeDeComportas {
+  -Registro registro
+  -string equipe
+  -Turno turno
+  +definirTurno(Turno)
+  +emitirOrdem(comporta, acao) OrdemDeComporta
+}
+class ModuloCompartilhado {
+  <<module>>
+  -Registro registro
+  +obterRegistroCompartilhado() Registro
+}
+class Composicao {
+  <<module>>
+  +montarCasaDeControle(Registro)
+}
+Registro <|.. RegistroEmMemoria
+EquipeDeComportas --> Registro : recebe no construtor
+Composicao ..> EquipeDeComportas : cria duas equipes
+Composicao ..> Registro : recebe ciclo escolhido
+ModuloCompartilhado --> RegistroEmMemoria : cria uma vez nesta avaliacao
+ModuloCompartilhado ..> Registro : devolve mesma referencia
+note for ModuloCompartilhado "Node ESM: modulo, nao classe. Worker separado avalia seu proprio modulo."
+note for Composicao "main escolhe new ou API compartilhada e injeta a dependencia."
+note for EquipeDeComportas "Preferencia de turno pertence a equipe. Ordem registra intencao local."

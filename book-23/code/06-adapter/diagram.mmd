@@ -1,0 +1,39 @@
+classDiagram
+direction TB
+class DragaoNovo {
+  <<interface>>
+  +velocidadeMps() number
+  +atacar(PedidoDeAtaque) ResultadoDeAtaque
+}
+class DragaoNativo {
+  +velocidadeMps() number
+  +atacar(PedidoDeAtaque) ResultadoDeAtaque
+}
+class DragaoAdapter {
+  -DragaoAntigo antigo
+  +velocidadeMps() number
+  +atacar(PedidoDeAtaque) ResultadoDeAtaque
+}
+class DragaoAntigo {
+  +voarVelocidade() number
+  +soltarFogo(alvo) object
+}
+class PedidoDeAtaque {
+  <<interface>>
+  +string alvo
+  +fogoOuGelo efeito
+}
+class ResultadoDeAtaque {
+  <<interface>>
+  +string alvo
+  +fogoOuGelo efeito
+  +boolean rochaLiberada
+}
+DragaoNovo <|.. DragaoNativo
+DragaoNovo <|.. DragaoAdapter
+DragaoAdapter --> DragaoAntigo : composicao
+DragaoNovo ..> PedidoDeAtaque
+DragaoNovo ..> ResultadoDeAtaque
+note for DragaoNovo "liberarRochaDoFarol recebe este contrato e solicita fogo. Efeito indisponivel lanca RecursoSemEquivalente."
+note for DragaoAdapter "Divide km/h por 3.6; traduz desobstruida para rochaLiberada."
+note for DragaoAntigo "Biblioteca simulada: km/h e fogo. Adapter nao altera o legado."

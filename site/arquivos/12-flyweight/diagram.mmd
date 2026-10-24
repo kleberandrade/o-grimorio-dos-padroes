@@ -1,0 +1,30 @@
+classDiagram
+direction TB
+class EssenciaEspirito {
+  +TipoEspirito tipo
+  +string cor
+  +descrever(Posicao) DescricaoAparicao
+}
+class GuildaDosEspiritos {
+  -Map essencias
+  +obter(tipo) EssenciaEspirito
+  +quantidadeEssencias() number
+}
+class Aparicao {
+  -EssenciaEspirito essencia
+  -Posicao posicao
+  +essencia EssenciaEspirito
+  +moverPara(Posicao)
+  +descrever() DescricaoAparicao
+}
+class Posicao {
+  <<interface>>
+  +number x
+  +number y
+}
+GuildaDosEspiritos --> "0..3" EssenciaEspirito : mantem por tipo validado
+Aparicao --> "1" EssenciaEspirito : compartilha intrinseco
+Aparicao *-- "1" Posicao : possui extrinseco independente
+note for EssenciaEspirito "Somente tipo e cor. Object.freeze real. Recebe posicao ao descrever."
+note for GuildaDosEspiritos "Map privado; valida fogo, gelo ou vento antes de consultar."
+note for Aparicao "Duas aparicoes podem usar a mesma essencia sem compartilhar a posicao."

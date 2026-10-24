@@ -1,0 +1,22 @@
+{
+  "name": "grimorio-08-decorator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "26.10.0",
+    "npm": "11.19.1"
+  },
+  "packageManager": "npm@11.19.1",
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/test/*.test.js dist/solution/*.test.js",
+    "start": "npm run build && node dist/src/main.js",
+    "solution": "npm run build && node dist/solution/main.js"
+  },
+  "devDependencies": {
+    "@types/node": "26.0.0",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,4 @@
+Posto antes: tratado | responsável: Posto urgente
+Percurso: Guarda -> Posto urgente
+Posto depois: negado | responsável: Conselheira
+Percurso: Guarda -> Conselheira

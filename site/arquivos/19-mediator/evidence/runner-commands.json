@@ -1,0 +1,68 @@
+[
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "19",
+      "install"
+    ],
+    "exit": 0,
+    "stdout": "\nadded 3 packages in 299ms\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "19",
+      "check"
+    ],
+    "exit": 0,
+    "stdout": "\n> grimorio-19-mediator@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-19-mediator@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-19-mediator@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ política separada aloca por ordem, conserva limite e mostra custo da prioridade escolhida (1.150708ms)\n✔ cotas não substituem inspeção, amarras ou autorização do mediador (0.175959ms)\n✔ entradas/planos independentes e congelados; disponibilidade zero e pedidos vazios são válidos (0.089542ms)\n✔ valores inválidos e grupos duplicados após normalização são recusados (0.129833ms)\n✔ cada evento dirige somente a ação necessária, na ordem das pré-condições (0.741292ms)\n✔ confirmações precoces ou fora de ordem são rejeitadas sem despacho ou mudança de etapa (0.089917ms)\n✔ repetir pedido ou confirmação já consumida não dispara destinatários novamente (0.07225ms)\n✔ confirmação recebida sem tipo não usa string truthy no lugar de booleano (0.063875ms)\n✔ confirmação negativa de inspecao encerra recusado sem abertura (0.060208ms)\n✔ confirmação negativa de amarras encerra recusado sem abertura (0.269792ms)\n✔ confirmação negativa de autorizacao encerra recusado sem abertura (0.054417ms)\n✔ colegas conhecem mediador e seus estados mudam somente nas ações dirigidas (0.157416ms)\n✔ falha após iniciar acionamento conserva efeito parcial, não fabrica aberto nem faz retentativa (0.086334ms)\n✔ erro em destinatário anterior também encerra e impede etapas posteriores (0.091709ms)\n✔ equipe conecta uma vez; referência de montagem copiada não troca destinatários (0.106583ms)\n✔ notificação reentrante durante despacho é rejeitada sem antecipar confirmação (0.045584ms)\n✔ nova operação usa composição nova e não herda confirmações da anterior (0.046ms)\n✔ snapshots/resultados congelados não alteram coordenação ou registros anteriores (0.049458ms)\n✔ tipo de evento não autentica remetente e métodos públicos do receptor não são barreira de segurança (0.029583ms)\nℹ tests 19\nℹ suites 0\nℹ pass 19\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 86.596125\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "19",
+      "run"
+    ],
+    "exit": 0,
+    "stdout": "\n> grimorio-19-mediator@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-19-mediator@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-19-mediator@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nChamada direta: 1 pedido registrado\nAutorização precoce: rejeitado\nPedido: aguardando-inspecao\nInspeção: aguardando-amarras\nAmarras: aguardando-autorizacao\nAutorização: aberto\ncultivadores.solicitarInspecao: concluiu\nbarqueiros.solicitarAmarras: concluiu\nguarda.solicitarAutorizacao: concluiu\nguarda.abrir: concluiu\nAberta no modelo: true | acionamentos: 1\nSegundo pedido: rejeitado\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "19",
+      "solution"
+    ],
+    "exit": 0,
+    "stdout": "\n> grimorio-19-mediator@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-19-mediator@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-19-mediator@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nbarqueiros: pediu 8 | cota 8\ncultivadores: pediu 6 | cota 2\nRestante: 0\nPlanejar cotas não abriu: false\nAbertura pelo protocolo: aberto\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "19",
+      "capture"
+    ],
+    "exit": 0,
+    "stdout": "Evidências reais gravadas em code/19-mediator/evidence.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "19",
+      "verify"
+    ],
+    "exit": 0,
+    "stdout": "Fontes e evidências íntegras; testes e saídas reproduzidos.\n",
+    "stderr": ""
+  }
+]

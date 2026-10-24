@@ -1,0 +1,34 @@
+{
+  "capturedAt": "2026-10-22T23:16:27.301Z",
+  "command": "node book-23/scripts/projetos.mjs 06-adapter capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "3039a089f17d853c00c6bd80d9642660b129ef49cb9316f40fc951c9b233a6e1",
+    "diagram.mmd": "5a763d90d66a85b11ae1336a1f12c54a26e9d61ab82c8e51946fa2459eae6e38",
+    "exercise/README.md": "fc938f1168a892e25d763036664eb4517706bb0711ee322e53f5576b67d05d10",
+    "package-lock.json": "56df814b6f12742de4fcec3a0cda7e884a4df2ed7dfce58ab7bd111dee581f35",
+    "package.json": "c5a8bb2ae6227f4e716e242316f18f4ab8dd8f2aee3b18f47f1e369057e776f9",
+    "solution/adapter-maritimo.ts": "4804f9551b2af38fc81fadb7e33ab104ca57e2b82096b425dd9dc954c0812fa7",
+    "solution/fornecedor-maritimo.ts": "12fdab2a015e68789a50d9c0606bd32d44c55d41e884b8f402e429826799766d",
+    "solution/main.ts": "670293bf7cbc94c273f01125e61eb756b757ea7eeb0db2348ff6ede3e53f45c7",
+    "solution/maritimo.test.ts": "9bc97a49c147d0d564daf1224c0ddd587d4496a41f231f15e4e5ca9b83592176",
+    "src/adapter.ts": "c6f3dccafda62828b94835da020d70fcd50b5e3b6210caeeae2edad31678a316",
+    "src/cliente.ts": "5407f1063bc6ac2ace765b1358b7eb81d4168ac95344fd7096ed33f7297407cb",
+    "src/contratos.ts": "bc322b733bbf5a705266c5b594abfa8968b705b0947d3043e31f3819a169d9e5",
+    "src/legado/dragao-antigo.ts": "57b5e44d8f5cb79b52ce1bc52e6d03ff12771334992d1544139ad31948cd625a",
+    "src/main.ts": "cbb7e2d9a1b92d3112dcdb513873544f11d425af07c7965cdee4f42964c78590",
+    "src/nativo.ts": "05712028c24405f8ba5b1349c54495dc5dca111afd75b951b09770edb8cba2c8",
+    "src/validacao.ts": "18527805be3b243a008fa29bcc2527b9794e799c547368769097e918452c1160",
+    "test/adaptacao.test.ts": "83942781f305cd2580e52594926fdf0ee82232a1534068b1ea0f830c5e044d4d",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "d461b3b4f2f848721dd5cf0f76c2fd91c791b02dc3a7ad3465e250c243d36a16",
+    "solution-stdout.txt": "bf2bec464e6f96c2349d4880feb105f6027d24569d5e547619ab9e47a2cfb4df",
+    "tests.txt": "79705b56113f2938903a43c951613333eae817707c2a0191b4d49427ec32aa70"
+  }
+}

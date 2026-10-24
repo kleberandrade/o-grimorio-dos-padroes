@@ -1,0 +1,34 @@
+
+> grimorio-02-abstract-factory@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-02-abstract-factory@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-02-abstract-factory@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ a terceira família coopera com o cliente existente sem alterar seus contratos (0.809166ms)
+✔ a terceira família mantém a rejeição de mistura e intensidade inválida (0.17475ms)
+✔ brasa: produtos cooperam no mesmo contrato de ensaio (0.621083ms)
+✔ geada: produtos cooperam no mesmo contrato de ensaio (0.065125ms)
+✔ trocar a fábrica troca a família completa sem alterar o cliente (0.0665ms)
+✔ arma de brasa e proteção de geada são rejeitadas explicitamente (0.150875ms)
+✔ a mistura inversa também é rejeitada (0.062583ms)
+✔ o contrato estático da fábrica permite implementação incoerente; o ensaio rejeita em runtime (0.047416ms)
+✔ intensidade 0 é rejeitada nas duas famílias (0.049125ms)
+✔ intensidade -1 é rejeitada nas duas famílias (0.038625ms)
+✔ intensidade NaN é rejeitada nas duas famílias (0.042291ms)
+✔ intensidade Infinity é rejeitada nas duas famílias (0.061709ms)
+✔ proteção verifica intensidade também em pulso criado fora de uma arma (0.047375ms)
+✔ pulso é um valor independente que preserva intensidade fracionária válida (0.047292ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86.743542

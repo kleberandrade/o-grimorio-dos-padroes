@@ -1,0 +1,43 @@
+
+> grimorio-04-prototype@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-04-prototype@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-04-prototype@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ clone preserva subtipo e copia componente mutável sem compartilhar etiquetas (0.929125ms)
+✔ entrada e consulta do componente também são copiadas (0.061708ms)
+✔ componente e clone mantêm validação de entrada e identidade (0.224416ms)
+✔ clone preserva dados e comportamento com outra identidade de objeto e lote (0.765875ms)
+✔ personalizar o clone via cliente não reconstrói a fórmula nem modifica o original (0.088125ms)
+✔ mudar observações e adicionar ingredientes no clone não altera o original (0.082458ms)
+✔ alterar o original após clone não contamina dose, notas nem lista da cópia (0.063459ms)
+✔ construtor copia lista de entrada, objetos, dose e lista de observações (0.054708ms)
+✔ adicionar ingrediente copia também entradas recebidas após a construção (0.054125ms)
+✔ consulta devolve cópia defensiva em todos os níveis mutáveis (0.053333ms)
+✔ selo é a mesma referência imutável por decisão explícita do contrato (0.045542ms)
+✔ um selo estruturalmente válido, mas mutável, é recusado antes de compartilhar (0.173292ms)
+✔ clone rejeita lote inválido "" (0.076792ms)
+✔ clone rejeita lote inválido "  " (0.043209ms)
+✔ clone rejeita lote inválido " L-01 " (0.028916ms)
+✔ quantidade 0 é rejeitada sem alterar fórmula (0.04075ms)
+✔ quantidade -1 é rejeitada sem alterar fórmula (0.028291ms)
+✔ quantidade NaN é rejeitada sem alterar fórmula (0.364ms)
+✔ quantidade Infinity é rejeitada sem alterar fórmula (0.033458ms)
+✔ ingrediente desconhecido e nome duplicado são diagnosticados (0.048375ms)
+✔ fórmula vazia e nota vazia não são aceitas (0.040875ms)
+✔ construção direta é alternativa real quando todos os valores são conhecidos (0.035042ms)
+✔ structuredClone dos dados funciona; da instância não mantém métodos nem estado privado (0.048167ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 87.366209

@@ -1,0 +1,33 @@
+
+> grimorio-11-bridge@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-11-bridge@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-11-bridge@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ nova essência funciona com formas anteriores sem mudá-las (0.814959ms)
+✔ nova forma coopera com as duas essências anteriores e a nova (0.098708ms)
+✔ a nova forma preserva restrição e troca de essência herdadas (0.063292ms)
+✔ a matriz 2×2 combina dois eixos sem classes por par (0.649917ms)
+✔ trocar essência mantém identidade da arma e altera só seu vínculo (0.080208ms)
+✔ restrição do fogo bloqueia ambos os formatos sem produzir gesto nem cobrar custo (0.054709ms)
+✔ gelo pode ativar no mesmo contexto molhado, com custo maior declarado (0.042042ms)
+✔ novo implementador é recebido por ambas as abstrações e recebe o contexto uma vez (0.065959ms)
+✔ cada execução devolve resultado e lista independentes congelados (0.154584ms)
+✔ falha da essência é propagada sem substituir a implementação ou fabricar resultado (0.056458ms)
+✔ custo inválido ou soma fora da faixa segura é recusado (0.092125ms)
+✔ custo zero do implementador é válido e preserva o custo da forma (0.052334ms)
+✔ para uma forma fixa, a função direta compõe essência sem hierarquia adicional (0.076458ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86.894459

@@ -1,0 +1,45 @@
+{
+  "scope": "copied project only; no adjacent projects or repository scripts; includes two actual Worker contexts in tests",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 228ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-05-singleton@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-05-singleton@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-05-singleton@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ a raiz preserva ciclo singleton padrão sem escondê-lo nos serviços (0.620167ms)\n✔ a raiz permite substituir a dependência e isolar dados por instância (0.349708ms)\n✔ a API devolve a mesma identidade na mesma avaliação de módulo (0.43025ms)\n✔ o serviço usa um Registro substituto recebido, sem buscar singleton escondido (0.337083ms)\n✔ serviços distintos compartilham o registro escolhido pela composição (0.086ms)\n✔ as preferências de uma equipe não afetam a outra nem as ordens anteriores (0.052875ms)\n✔ compartilhar o objeto de preferências contamina as duas referências (0.046375ms)\n✔ novas instâncias isolam o estado sem reset global (0.058625ms)\n✔ cópias da entrada e da lista consultada protegem o histórico (0.07025ms)\n✔ ordem inválida não gera registro e equipe vazia não cria serviço (0.182417ms)\n✔ falha do registro é propagada sem retornar ordem como registrada (0.065334ms)\n✔ dois Workers têm registros próprios; nada é adicionado ao contexto pai (8.004958ms)\nℹ tests 12\nℹ suites 0\nℹ pass 12\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 102.63025\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "dist/src/main.js"
+      ],
+      "exit": 0,
+      "stdout": "Instâncias explícitas distintas: true\nAPI compartilhada mesma instância: true\nPreferência compartilhada indevida: Norte herdou noite\nPreferências locais: Sul noite | Norte dia\nOrdens no registro da casa: 2\nOutro Worker: antes 0 | depois 1 | mesma API true\nRegistro da casa após Worker: 2\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "dist/solution/main.js"
+      ],
+      "exit": 0,
+      "stdout": "Raízes com ciclo padrão compartilham registro: true\nCasa isolada: 1 ordem\nRegistro padrão: 0 ordens\n",
+      "stderr": ""
+    }
+  ]
+}

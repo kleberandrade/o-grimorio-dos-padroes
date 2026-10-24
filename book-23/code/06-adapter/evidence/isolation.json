@@ -1,0 +1,45 @@
+{
+  "scope": "copied project only; no adjacent projects or repository scripts",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 248ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-06-adapter@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-06-adapter@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-06-adapter@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ segundo fornecedor é aceito pelo cliente e converte nós em m/s (0.763042ms)\n✔ o adapter marítimo preserva alvo, falha de desobstrução e restrição do efeito (0.205875ms)\n✔ segundo fornecedor com velocidade não finita é recusado (0.051916ms)\n✔ o mesmo cliente usa o nativo e o legado adaptado com dados equivalentes (0.608459ms)\n✔ a velocidade é convertida de km/h para m/s, inclusive valores fracionários (0.065917ms)\n✔ conversão e ataque delegam uma chamada cada, com alvo normalizado (0.068042ms)\n✔ falha de desobstrução do legado não vira sucesso no contrato moderno (0.045958ms)\n✔ efeito sem equivalente é recusado antes de chamar fogo (0.160625ms)\n✔ alvo vazio não aciona o legado (0.056208ms)\n✔ velocidade legada -1 é rejeitada (0.041541ms)\n✔ velocidade legada NaN é rejeitada (0.02875ms)\n✔ velocidade legada Infinity é rejeitada (0.039292ms)\n✔ velocidade zero é válida no contrato numérico, sem prometer transporte (0.065958ms)\n✔ erro do legado é propagado sem fabricar resultado (0.054459ms)\n✔ o resultado é uma cópia congelada, sem alias do objeto retornado pelo legado (0.044208ms)\nℹ tests 15\nℹ suites 0\nℹ pass 15\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 83.429458\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "dist/src/main.js"
+      ],
+      "exit": 0,
+      "stdout": "Nativo: 10.000 m/s | Trava do farol | liberada true\nAdaptado: 10.000 m/s | Trava do farol | liberada true\nOrdem recusada: Pacto não oferece equivalente para gelo.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "dist/solution/main.js"
+      ],
+      "exit": 0,
+      "stdout": "Marítimo: 5.144 m/s | Trava do farol | liberada true\n",
+      "stderr": ""
+    }
+  ]
+}

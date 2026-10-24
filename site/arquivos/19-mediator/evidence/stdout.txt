@@ -1,0 +1,12 @@
+Chamada direta: 1 pedido registrado
+Autorização precoce: rejeitado
+Pedido: aguardando-inspecao
+Inspeção: aguardando-amarras
+Amarras: aguardando-autorizacao
+Autorização: aberto
+cultivadores.solicitarInspecao: concluiu
+barqueiros.solicitarAmarras: concluiu
+guarda.solicitarAutorizacao: concluiu
+guarda.abrir: concluiu
+Aberta no modelo: true | acionamentos: 1
+Segundo pedido: rejeitado

@@ -1,0 +1,30 @@
+{
+  "capturedAt": "2026-10-23T00:50:04.921Z",
+  "command": "node book-23/scripts/projetos.mjs 12-flyweight capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "d11776561ec5f28a2277d658528946e0fa498491d6ea549c5938e6920c12b592",
+    "diagram.mmd": "6bb0cd48c04085c87dc4a0025048913ea0c92d4e1b2770faf9bb8a9436b83fce",
+    "exercise/README.md": "5754423ad3cf87e23b23914d12e64eda56f7cfb4900b4de89acc9fa52177fd88",
+    "experiment/cenario.ts": "0d4cf2019e28b389828dc88d404ce308dac0ff84f6daaaf45b3924f1e438c376",
+    "experiment/medir.ts": "4c57cb6c090bb56c8834420e3722cb543f87e9d467720a323781f1beb42402fd",
+    "experiment/observacao.ts": "35c5db59b1020c6e785b465278ca46e7f822412cd4f519064fbe55b988976e49",
+    "package-lock.json": "b48924fbd730afc56331ba33f61d3eb064d0aa9e4a6f033255ddb7568535f15e",
+    "package.json": "4cb6ec5ade50509b8df922ee1bbf7909e90eaececde6a55d48558bd5888f621d",
+    "solution/cenario.test.ts": "c9602bdef9f9833222012a02771f3fcb75b992fd9ec614abba58fdba1cd1a3bc",
+    "solution/main.ts": "f54fc059618b5363a552b8d9f9e0458e26bdfae700373d7d908bb942fdf486ba",
+    "src/espiritos.ts": "5c4d5450fcd75b86d26eb03cea88e25f278ff4c6119f147e55cf99f7706d2bf1",
+    "src/main.ts": "0597e9b2522beb87b6e66081e805e04c5b2c5b70876d8efa4860e3310323ec63",
+    "test/compartilhamento.test.ts": "557d126b9323b30a8461299ae9a3e7e80b494fbaeca450e91c98610b54eb5b56",
+    "tsconfig.json": "f13125185d7f51d1d5ea6947f6c0c58fd135c9afaac208427da7d8e62e251e10"
+  },
+  "outputs": {
+    "stdout.txt": "bfba1e08c58dd81681618d4b23f50f198c86844ceda1f5af802e8894c78bd7db",
+    "solution-stdout.txt": "11eaadb47bd46cd2d894e9f41de91f5eac1a7928eb3237577f7c84a08efc1144",
+    "tests.txt": "94db9a5731c49a227e86d2add343b91a18fb479866bf59f13b1f072c9356892e"
+  }
+}

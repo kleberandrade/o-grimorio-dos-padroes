@@ -1,0 +1,39 @@
+
+> grimorio-19-mediator@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-19-mediator@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-19-mediator@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ política separada aloca por ordem, conserva limite e mostra custo da prioridade escolhida (0.822375ms)
+✔ cotas não substituem inspeção, amarras ou autorização do mediador (0.163584ms)
+✔ entradas/planos independentes e congelados; disponibilidade zero e pedidos vazios são válidos (0.081042ms)
+✔ valores inválidos e grupos duplicados após normalização são recusados (0.1265ms)
+✔ cada evento dirige somente a ação necessária, na ordem das pré-condições (0.731167ms)
+✔ confirmações precoces ou fora de ordem são rejeitadas sem despacho ou mudança de etapa (0.088167ms)
+✔ repetir pedido ou confirmação já consumida não dispara destinatários novamente (0.073458ms)
+✔ confirmação recebida sem tipo não usa string truthy no lugar de booleano (0.070666ms)
+✔ confirmação negativa de inspecao encerra recusado sem abertura (0.06725ms)
+✔ confirmação negativa de amarras encerra recusado sem abertura (0.036916ms)
+✔ confirmação negativa de autorizacao encerra recusado sem abertura (0.0285ms)
+✔ colegas conhecem mediador e seus estados mudam somente nas ações dirigidas (0.117625ms)
+✔ falha após iniciar acionamento conserva efeito parcial, não fabrica aberto nem faz retentativa (0.0745ms)
+✔ erro em destinatário anterior também encerra e impede etapas posteriores (0.084416ms)
+✔ equipe conecta uma vez; referência de montagem copiada não troca destinatários (0.101583ms)
+✔ notificação reentrante durante despacho é rejeitada sem antecipar confirmação (0.046459ms)
+✔ nova operação usa composição nova e não herda confirmações da anterior (0.04325ms)
+✔ snapshots/resultados congelados não alteram coordenação ou registros anteriores (0.042334ms)
+✔ tipo de evento não autentica remetente e métodos públicos do receptor não são barreira de segurança (0.028625ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 88.649417

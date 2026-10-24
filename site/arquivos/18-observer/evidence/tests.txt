@@ -1,0 +1,37 @@
+
+> grimorio-18-observer@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-18-observer@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-18-observer@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ encerrar turno remove seu conjunto, preserva vínculo externo e não admite novas inscrições (0.74925ms)
+✔ encerramento em callback mantém destinatários da rodada corrente e esvazia a seguinte (0.424209ms)
+✔ handle guardado por turno antigo não desliga reinscrição pertencente ao novo turno (0.063917ms)
+✔ reentrância continua recusada com escopo; encerramento remove o ciclo para o próximo aviso (0.078083ms)
+✔ callbacks reagem com dados distintos e em ordem de inscrição (1.044083ms)
+✔ unsubscribe remove somente sua inscrição e é repetível sem efeitos extras (0.089125ms)
+✔ mesma função ativa é duplicata; funções distintas podem ter o mesmo nome (0.181125ms)
+✔ unsubscribe antigo não remove reinscrição da mesma função (0.059875ms)
+✔ remoção antes do callback preserva rodada atual e altera só a próxima (0.069667ms)
+✔ inclusão durante callback entra somente na próxima rodada em sua nova posição (0.066208ms)
+✔ remover e reinscrever durante emissão não duplica a rodada nem permite handle antigo apagar nova (0.063166ms)
+✔ falhas síncronas são coletadas sem impedir outros, inclusive valor lançado sem Error (0.095708ms)
+✔ falha ao ler mensagem do erro usa fallback sem interromper próximos callbacks (0.074625ms)
+✔ reentrância não capturada vira falha do callback e emissão posterior continua possível (0.090917ms)
+✔ ciclo entre dois oráculos termina na recusa do que já está emitindo (0.05875ms)
+✔ aviso é copiado/congelado e observadores não alteram dado recebido pelos seguintes (0.069709ms)
+✔ entradas vazias são recusadas sem chamadas e não bloqueiam próxima emissão válida (0.056792ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 97.031417

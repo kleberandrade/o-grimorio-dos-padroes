@@ -1,0 +1,32 @@
+
+> grimorio-13-strategy@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-13-strategy@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-13-strategy@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ função e objeto de estratégia devolvem os mesmos dados nos casos adequados e inadequados (0.560958ms)
+✔ contexto funcional troca a política preservando identidade e contrato de resultado (0.364125ms)
+✔ trocar técnica conserva o contexto e muda o resultado para o mesmo alvo (0.609417ms)
+✔ uma nova estratégia funciona sem alterar o contexto e recebe dados normalizados (0.063667ms)
+✔ resistência reforçada recusa espada e arco sem custo, mas magia atende ao objetivo (0.06225ms)
+✔ intervalos de distância têm fronteiras explícitas (0.0605ms)
+✔ mesmo alvo próximo pode ter técnicas adequadas com custos diferentes, sem seleção automática (0.042875ms)
+✔ distância -1 é erro de entrada, não rejeição tática (0.151875ms)
+✔ distância NaN é erro de entrada, não rejeição tática (0.031292ms)
+✔ distância Infinity é erro de entrada, não rejeição tática (0.028166ms)
+✔ nome vazio é recusado e resultados não mutam alvo nem valores anteriores (0.093958ms)
+✔ erro de estratégia externa é propagado sem troca automática (0.086667ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.844583

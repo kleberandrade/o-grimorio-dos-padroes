@@ -1,0 +1,30 @@
+{
+  "consultadoEm": "2026-10-23",
+  "compiladorExecutado": "TypeScript 5.9.3",
+  "runtimeExecutado": "Node.js 26.10.0",
+  "limite": "Documentação oficial viva não substitui a compilação da versão local fixada. Nenhuma API de framework externo é demonstrada.",
+  "fontesPrimariasOnline": [
+    {
+      "url": "https://www.typescriptlang.org/docs/handbook/2/classes.html#readonly",
+      "publicador": "TypeScript Handbook",
+      "secaoEfetivamenteLida": "readonly",
+      "aplicacao": "Campos declarados readonly e inicializados em construtor; congelamento real é testado separadamente no projeto."
+    },
+    {
+      "url": "https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-interfaces",
+      "publicador": "TypeScript Handbook",
+      "secaoEfetivamenteLida": "Generic Types e generic interface",
+      "aplicacao": "Visitante<R> e aceitar<R> conservam tipo de retorno na compilação estrita."
+    }
+  ],
+  "fontesEditoriaisLocais": [
+    "book-23/config/plano-capitulos.json item22",
+    "book-23/docs/brief.md",
+    "book-23/docs/biblia-narrativa.md",
+    "book-23/docs/outline.md item22",
+    "book-23/docs/adendo-editorial-refactoring-guru-01.md",
+    "output/fabrica/avaliacao-grimorio-medium-2026-10-22/pareceres/tecnica.md T03",
+    "book-23/output/fabrica/desenvolvimento-01/fontes/avaliacao-medium/fontes/02.txt"
+  ],
+  "caminhosLocaisRelativosA": "raiz do repositório Books"
+}

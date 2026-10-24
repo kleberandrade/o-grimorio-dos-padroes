@@ -1,0 +1,7 @@
+Instâncias explícitas distintas: true
+API compartilhada mesma instância: true
+Preferência compartilhada indevida: Norte herdou noite
+Preferências locais: Sul noite | Norte dia
+Ordens no registro da casa: 2
+Outro Worker: antes 0 | depois 1 | mesma API true
+Registro da casa após Worker: 2

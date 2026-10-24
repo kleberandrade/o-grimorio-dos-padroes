@@ -1,0 +1,57 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 189ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-21-iterator@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-21-iterator@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-21-iterator@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ ponte acrescenta Iterable nativo no exercício, sem alegar que existe na coleção base (0.626833ms)\n✔ ponte captura na chamada Symbol.iterator, antes do primeiro next; duas posições independentes (0.126292ms)\n✔ criar wrapper não captura: snapshot ocorre ao pedir o iterador (0.045083ms)\n✔ gerador captura fora do corpo preguiçoso, inclusive mutação antes do primeiro next (0.080459ms)\n✔ break chama return da ponte e não reinicia instância; coleção produz outro percurso (0.07275ms)\n✔ gerador fechado por break/return não reinicia; gerador vazio permanece esgotado (0.050916ms)\n✔ ArquivoEmLista: ordem de inserção é explícita, esgotamento e vazio permanecem fim (0.615541ms)\n✔ ArquivoEmLista: dois percursos externos têm posições independentes (0.097375ms)\n✔ ArquivoEmLista: snapshot captura antes do primeiro passo e atualização não reordena (0.079584ms)\n✔ ArquivoEmLista: entradas e resultados não expõem dados mutáveis do arquivo (0.064417ms)\n✔ ArquivoEmLista: id inválido/duplicado, descrição vazia e atualização ausente não mudam acervo (0.139667ms)\n✔ ArquivoEncadeado: ordem de inserção é explícita, esgotamento e vazio permanecem fim (0.068417ms)\n✔ ArquivoEncadeado: dois percursos externos têm posições independentes (0.047458ms)\n✔ ArquivoEncadeado: snapshot captura antes do primeiro passo e atualização não reordena (0.04925ms)\n✔ ArquivoEncadeado: entradas e resultados não expõem dados mutáveis do arquivo (0.046ms)\n✔ ArquivoEncadeado: id inválido/duplicado, descrição vazia e atualização ausente não mudam acervo (0.079833ms)\n✔ construção direta de percurso também copia a lista recebida antes do consumo (0.044709ms)\n✔ exemplo nativo executado distingue callbacks internos de protocolo Symbol.iterator (0.073917ms)\nℹ tests 18\nℹ suites 0\nℹ pass 18\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 86.302542\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-21-iterator@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-21-iterator@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-21-iterator@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nArray nativo com for...of: 1, 2, 3\nChamadas a Symbol.iterator: após forEach/map 0 | após for...of 1\nLista: Suri 2, 1 | Neri 2\nLista: fim do snapshot true\nEncadeado: Suri 2, 1 | Neri 2\nEncadeado: fim do snapshot true\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-21-iterator@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-21-iterator@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-21-iterator@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nPonte criada antes de mutar: 1, 2\nGerador criado antes de mutar: 1, 2\nAntes de break: 1\nInstância interrompida: done true\nNovo iterador: 1, 2, 3\n",
+      "stderr": ""
+    }
+  ],
+  "stdoutComparisons": {
+    "stdout.txt": {
+      "equal": true,
+      "sha256": "3570bf2adbeb1002cae792c3b8040bddcb0c697def8371b2e35293d3242aa6bc"
+    },
+    "solution-stdout.txt": {
+      "equal": true,
+      "sha256": "4fa35e6b5139d8434851046bfcdbb4343ea6e6d937fa15694f1689376ec12f5d"
+    }
+  },
+  "recordedAt": "2026-10-23T04:38:49.321734+00:00"
+}

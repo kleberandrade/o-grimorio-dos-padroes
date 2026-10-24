@@ -1,0 +1,30 @@
+{
+  "capturedAt": "2026-10-23T00:16:20.534Z",
+  "command": "node book-23/scripts/projetos.mjs 10-composite capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "fddbf45c92e7ebb65c1bd53bcb8fd7b4967a6d454a140b307104724dc9a0964f",
+    "diagram.mmd": "fc6f3f7aa9a7a55f2d06327c4c4533f9dae2fcd8b566651727a4242b025a538e",
+    "exercise/README.md": "7c987786707781f4ca28e2c3fa014c930d9555fd21293c800c72f09bea1416d5",
+    "package-lock.json": "a20ae3cbc52f95ab3db3f95d752798e18ec05682204ee5f9806cf9fa112585dd",
+    "package.json": "330c243c6befad9031e2cd48f9a625c20b4e3346f7d31b115df0ba6c2e3f094b",
+    "solution/formacao-editavel.ts": "6e8c953fe23af794bdd7a8e46f27a29b08d6d241f730b458600d58d7bee30c19",
+    "solution/main.ts": "f22311a5ddad24c2bda6c1f48ab29490688b9c49f7bedefc8b8903c16739b565",
+    "solution/remocao.test.ts": "71a710c6b9452472ceaff1bc062b487e38fa6c78b957a4eb417828e12e91562c",
+    "src/arvore.ts": "35af2a923af3f01cd425dfc46f36a6e4846d2477fa3c82350767e9b2bd786b36",
+    "src/contratos.ts": "93ca3519e4e55c9e2a6f92801bdce2671aa66c2e388112161db773c64a707d6f",
+    "src/direto.ts": "5f52e86aa891661613f67b993f155879047b086f3900e5e0ed8fd63faa672119",
+    "src/main.ts": "fd1d1740f98ac710feafead8b1675a5f6adfb9d75cf18550a1dd95285f510538",
+    "test/arvore.test.ts": "04974c9d948b2ba6543920810320ea7c7a217ad6c41cd5e87d1663443c14473f",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "07041f269d37acdf8ab1f9dce586a7eb430a5581ec87006d26e488232d85839e",
+    "solution-stdout.txt": "2fe187c23fa41727a00b29b1bca61d905e5778aeab8485a6fe8d47c33e793dfd",
+    "tests.txt": "2377f898ea0f421b9a68ce2c23ad7440a955304e26142aff64cd2d884061d150"
+  }
+}

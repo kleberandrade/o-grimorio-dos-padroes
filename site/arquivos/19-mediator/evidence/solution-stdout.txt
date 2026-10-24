@@ -1,0 +1,5 @@
+barqueiros: pediu 8 | cota 8
+cultivadores: pediu 6 | cota 2
+Restante: 0
+Planejar cotas não abriu: false
+Abertura pelo protocolo: aberto

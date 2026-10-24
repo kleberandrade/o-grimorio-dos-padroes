@@ -1,0 +1,34 @@
+classDiagram
+    class Cadeia {
+        -elos: Handler[]
+        -processando: boolean
+        +processar(pedido) Resultado
+    }
+    class Handler {
+        <<interface>>
+        +nome: string
+        +decidir(pedido) Decisao
+    }
+    class Guarda {
+        +decidir(pedido) Decisao
+    }
+    class Conselheira {
+        +decidir(pedido) Decisao
+    }
+    class Regencia {
+        +decidir(pedido) Decisao
+    }
+    class Resultado {
+        +status
+        +motivo
+        +responsavel
+        +percurso
+    }
+    Handler <|.. Guarda
+    Handler <|.. Conselheira
+    Handler <|.. Regencia
+    Cadeia --> Handler : lista ordenada copiada e congelada
+    Cadeia ..> Resultado : primeiro terminal ou naoTratado final
+    note for Cadeia "Controla o percurso. Não há next em cada handler. Continua só em naoTratado, interrompe em tratado ou negado."
+    note for Handler "Decisão local síncrona. Nome não autentica; identidade repetida na lista é recusada."
+    note for Resultado "Percurso contém somente handlers chamados nesta avaliação."

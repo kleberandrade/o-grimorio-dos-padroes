@@ -1,0 +1,13 @@
+Chamada direta: Recolher bancas.
+Avisos de Nilo
+Aviso: Rajada prevista: recolher bancas.
+Aposentado: concluiu
+Sino: falhou | Cabo do sino rompido.
+Escriba: concluiu
+Salão: concluiu
+Aviso: Rajada próxima: manter passagem livre.
+Sino: falhou | Cabo do sino rompido.
+Escriba: concluiu
+Salão: concluiu
+Casa aposentada: 1 chamado | publicações: 2 | abrigo aberto: true
+Inscrições restantes: 3

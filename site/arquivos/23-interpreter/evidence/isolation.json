@@ -1,0 +1,57 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 166ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-23-interpreter@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-23-interpreter@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-23-interpreter@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ repetição de terminal/grupo compõe em ordem e contagem um preserva sequência (0.728292ms)\n✔ contagem zero/multidígito/ausente e sufixo duplo são recusados sem prefixo executado (0.269292ms)\n✔ custo de repetição é multiplicado sem expandir AST; orçamento recusa antes de qualquer efeito (0.13125ms)\n✔ fronteira64 é aceita;65 é recusado com estado anterior intacto (0.083583ms)\n✔ parser ampliado conserva regras de tamanho/grupos/vazio e valida toda entrada (0.08875ms)\n✔ AST manual tem terminais e sequência composta com efeitos observáveis em ordem (0.630375ms)\n✔ parser constrói AST completa sem contexto e gramática preserva esquerda para direita (0.114875ms)\n✔ desconhecidos nunca são ignorados; posições são índices UTF16, sem execução de prefixo (0.273208ms)\n✔ grupos malformados/vazios têm causa e posição definidas antes de efeitos (0.111625ms)\n✔ limites de tamanho e profundidade são verificados, incluindo suas fronteiras (0.087542ms)\n✔ orçamento é pré-verificado; toda sintaxe precede a decisão global de orçamento (0.123834ms)\n✔ orçamento opcional só reduz teto e custo de extensão inválido não chama interpretar (0.103875ms)\n✔ falha durante interpretação propaga e conserva efeitos anteriores sem executar restante (0.059833ms)\n✔ sequência copia lista de filhos e snapshots/resultados não alteram contexto anterior (0.074375ms)\n✔ switch é alternativa executável para comando único sem gramática composta (0.075125ms)\nℹ tests 15\nℹ suites 0\nℹ pass 15\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 85.224417\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-23-interpreter@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-23-interpreter@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-23-interpreter@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nComando simples: L\nComposição: LFIL | calor 1 | frio 1 | luz 2\nRecusado: SIMBOLO | posição 1 | Símbolo não reconhecido\nEfeitos do programa inválido: 0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-23-interpreter@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-23-interpreter@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-23-interpreter@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nRepetição: FIFIL | calor 2 | frio 2 | luz 1\nRecusado: ORCAMENTO | posição global 0 | Custo 81 excede orçamento ou contrato de operações 64\nEfeitos acima do orçamento: 0\n",
+      "stderr": ""
+    }
+  ],
+  "stdoutComparisons": {
+    "stdout.txt": {
+      "equal": true,
+      "sha256": "2467e9fb1407943d13926acb596a94260bc1831e33cac1fbd7cf897ef8d0e142"
+    },
+    "solution-stdout.txt": {
+      "equal": true,
+      "sha256": "30240a869a374cafeda2c0c498c66bf515bed0ff481523b357034d25baeea0d2"
+    }
+  },
+  "recordedAt": "2026-10-23T05:27:56.081530+00:00"
+}

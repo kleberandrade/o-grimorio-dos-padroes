@@ -1,0 +1,41 @@
+classDiagram
+direction TB
+class PocaoPrototype {
+  <<interface>>
+  +string lote
+  +SeloDeProcedencia selo
+  +clone(novoLote) PocaoPrototype
+  +ajustarQuantidade(nome, quantidade)
+  +anotarIngrediente(nome, nota)
+  +adicionarIngrediente(Ingrediente)
+  +consultarIngredientes() Ingrediente[]
+  +descrever() string
+}
+class Pocao {
+  -string lote
+  -SeloDeProcedencia selo
+  -Ingrediente[] ingredientes
+  +clone(novoLote) Pocao
+  +ajustarQuantidade(nome, quantidade)
+  +anotarIngrediente(nome, nota)
+  +adicionarIngrediente(Ingrediente)
+  +consultarIngredientes() Ingrediente[]
+  +descrever() string
+}
+class Ingrediente {
+  <<interface>>
+  +string nome
+  +dose
+  +string[] observacoes
+}
+class SeloDeProcedencia {
+  +string codigo
+  +string origem
+}
+PocaoPrototype <|.. Pocao
+Pocao *-- Ingrediente : copia lista, dose e observacoes
+Pocao --> SeloDeProcedencia : compartilha referencia congelada
+Pocao ..> Pocao : clone cria outra instancia
+note for PocaoPrototype "personalizarLote depende deste contrato; clona antes de alterar a quantidade."
+note for Pocao "Lote novo fornecido pelo cliente. Consulta devolve copia defensiva."
+note for SeloDeProcedencia "Somente strings. Object.freeze em execucao."

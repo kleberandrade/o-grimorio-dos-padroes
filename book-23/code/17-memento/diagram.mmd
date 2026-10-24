@@ -1,0 +1,35 @@
+classDiagram
+    class Diario {
+        -estado
+        -capturas: WeakMap
+        -marca
+        +substituir(estado)
+        +ler() EstadoDiario
+        +salvar() Memoria
+        +restaurar(memoria)
+        +correspondeCheckpoint(memoria) boolean
+        +portaMemorias() PortaMemorias
+    }
+    class Memoria {
+        <<opaque token>>
+    }
+    class GuardiaoDasMemorias {
+        -historico
+        -limite
+        +adicionar(token, rotulo)
+        +obter(indice) Memoria
+        +listar()
+    }
+    class PortaMemorias {
+        <<interface>>
+        +salvar() Memoria
+        +restaurar(memoria)
+        +correspondeCheckpoint(memoria) boolean
+    }
+    Diario ..> Memoria : cria e reconhece identidade
+    GuardiaoDasMemorias --> Memoria : armazena e seleciona
+    Diario ..> PortaMemorias : cria wrapper real separado
+    note for Memoria "Vazio, congelado, protótipo nulo. Payload somente no WeakMap privado da instância de Diario."
+    note for Diario "Leitura pública consulta o estado ativo, nunca um token. Restaurar substitui edições posteriores."
+    note for GuardiaoDasMemorias "Não recebe Diario nem lê payload. Metadados: índice e rótulo."
+    note for PortaMemorias "Wrapper sem ler/substituir em execução. Booleano compara marca de versão, não igualdade profunda."

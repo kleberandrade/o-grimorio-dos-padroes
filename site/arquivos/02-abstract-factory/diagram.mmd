@@ -1,0 +1,46 @@
+classDiagram
+direction TB
+class FabricaElemental {
+  <<interface>>
+  +criarArma() Arma
+  +criarProtecao() Protecao
+}
+class FabricaDeBrasa {
+  +criarArma() Arma
+  +criarProtecao() Protecao
+}
+class FabricaDeGeada {
+  +criarArma() Arma
+  +criarProtecao() Protecao
+}
+class Arma {
+  <<interface>>
+  +string nome
+  +string afinidade
+  +emitirPulso(intensidade) Pulso
+}
+class Protecao {
+  <<interface>>
+  +string nome
+  +string afinidade
+  +ensaiar(Pulso) ResultadoDeEnsaio
+}
+class ArmaDeBrasa
+class ArmaDeGeada
+class ProtecaoDeBrasa
+class ProtecaoDeGeada
+FabricaElemental <|.. FabricaDeBrasa
+FabricaElemental <|.. FabricaDeGeada
+Arma <|.. ArmaDeBrasa
+Arma <|.. ArmaDeGeada
+Protecao <|.. ProtecaoDeBrasa
+Protecao <|.. ProtecaoDeGeada
+FabricaDeBrasa ..> ArmaDeBrasa : cria
+FabricaDeBrasa ..> ProtecaoDeBrasa : cria
+FabricaDeGeada ..> ArmaDeGeada : cria
+FabricaDeGeada ..> ProtecaoDeGeada : cria
+Arma ..> Pulso : emite
+Protecao ..> Pulso : verifica afinidade
+Protecao ..> ResultadoDeEnsaio : devolve
+note for FabricaElemental "ensaiarKit recebe esta interface; cria arma e proteção separadamente."
+note for Protecao "Mistura rejeitada em execução. Resultado é simulação de afinidade."

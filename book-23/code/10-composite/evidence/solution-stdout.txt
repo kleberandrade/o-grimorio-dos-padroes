@@ -1,0 +1,4 @@
+Remoção presente: true
+Remoção repetida: false
+Origem: Origem -> Elora
+Destino: Destino -> Pelotão -> Alaric

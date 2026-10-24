@@ -1,0 +1,31 @@
+{
+  "capturedAt": "2026-10-23T01:34:23.407Z",
+  "command": "node book-23/scripts/projetos.mjs 14-state capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "12c3e7422aebdc312c4c424a071841efab704ec164522a5c265bd7285393803f",
+    "diagram.mmd": "eb73df78e9c5b2afa4a454d1844b2dac2a8dfde04c67478dce26a0079df7cd87",
+    "exercise/README.md": "4ca34bc3fb1c525c05b8128b195d5da68f631fa7f5e3788e59f88891c5014645",
+    "package-lock.json": "45d3d9e8ba4b6547e30898eb412e0e4883f9e37fd0d4b7bb70588f4dae574aa1",
+    "package.json": "0003aa47c934116fffa5c707869faf8d98c5c60194ad5f2645f402a45c407a2b",
+    "solution/defensivo.test.ts": "d283ef18891e3400bc217ef2844f82762e46a30ce1e3d043512484e7dec990a9",
+    "solution/defensivo.ts": "023ad8faf173975948a00440782c9f5ece9873a1fdcd876c5655ec09ad0e431e",
+    "solution/main.ts": "ce732c07f0ac3cff2f0bb056ed3f6a135283e6769db224ab091c13c16c616e56",
+    "src/contratos.ts": "fdfe9ff52e643c4f19c3587d671b1ba6d450a5aaa9419506e9399ece2cbe5687",
+    "src/estados.ts": "3240c4e68ccf8d3bca33535fbcdddb33b5a752a6285ec8018a5a628dba4529c1",
+    "src/guerreiro.ts": "5fd0b35820b53e85814f28345b7178fe75d14c3c8358489295a6ced6db65b764",
+    "src/main.ts": "d4a9748e8f37cbba848377bfbe0758cb5567282b26e0176321d846ffa46b5e9e",
+    "src/tabela.ts": "d8a6db1e921a0e8da4e53e766e27b0c515636e2bf3b8220ccd99e1c381ebd8b4",
+    "test/ciclo.test.ts": "77575a733e4bd3e30a2babab2f6c1d4f69148edc95287e9fdc96cbb3d4d65637",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "757138273eb7e3f0bf0e39cf3f24f90a23340e3803d2830f3ac7b8b33e340745",
+    "solution-stdout.txt": "ccb61bb59c7869ecbec78ff4f461225dd13ae44ef34cb6c66f40bc6dd64d46b1",
+    "tests.txt": "cd1a921118c76c25fddd1ace8b6b8a434e0a3724439b7e061cb0d3967cdacddd"
+  }
+}

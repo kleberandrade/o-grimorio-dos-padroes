@@ -1,0 +1,32 @@
+{
+  "capturedAt": "2026-10-22T23:44:25.193Z",
+  "command": "node book-23/scripts/projetos.mjs 08-decorator capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "51fbab4d7ac44ec57a4ab0bd2e16386c1d1e7eed3b7ec32e3482313ea0d19f7d",
+    "diagram.mmd": "cd4dc4c2695b62d9ce955551b1fa3f6ce69159ab6ee43ff643e53c9f9efc4a6c",
+    "exercise/README.md": "da7e5362dea919c01bf70bb9d1aedef7ba5e65c052d4e4a70654cb7b533138cd",
+    "package-lock.json": "3be9de73ecb0715a9a1228a41c2d389d659ab26114c7d54499bbfc987ef833dd",
+    "package.json": "951bcbf6c235a251a25a86bfc8eb21cdc6023a240e7d424621239bbb6246d65a",
+    "solution/limitador.test.ts": "08a159faceb7bdfa4f669fd288333c71c321af2deb75e89aa9f33a3daa52eaa8",
+    "solution/limitador.ts": "a50b76a6b04a8c860796d7386790a48428dd92799c7d6c303b3d3ee243daebc9",
+    "solution/main.ts": "41f573841b03bdebd96ef31b17bf434ee817bc5788674823091407a275601d3b",
+    "src/contratos.ts": "fab09a0375f9e86e8eb10795bd8a721a73933e7ac5a42f7511ce7d6bf3578422",
+    "src/direto.ts": "b886c274b4a1685f68bb5712003e8ce2cf08fe7c35e1948f2e2bea4fbc40a09d",
+    "src/espada.ts": "82d1ccdad6deb5cbb6e26dd427082b23e010fc8b474b471670a9872cd7b846e6",
+    "src/main.ts": "8624385a554ae238e68bafbb0722fad06c21c4fda7674c509483a578905f01df",
+    "src/mantos.ts": "3957d969bf3a94d06c497ad9a9563b7eefc44c33a1d91564d03fa897ba1b3540",
+    "src/resultado.ts": "8ece726ac44b7a8040c0f66d3d3af91912192cb858a8dd5b2a634b8c28f55431",
+    "test/composicao.test.ts": "8b75f82105594c124a07dc5af8383e3c5673e00eb671ec14da88fd425cb440b6",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "48cf0fa3db92155e85568344025f743cc5682a099b8f003bdf2eb26e4785faab",
+    "solution-stdout.txt": "b8b5a6efd89758fb15717fee2a56df4e2f5b23797bf3bab43bf88d90f112bd8c",
+    "tests.txt": "364d7bef3620fea640a45f349700f040b5469a60465024ee9fbe220c6ac104c5"
+  }
+}

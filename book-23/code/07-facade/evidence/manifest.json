@@ -1,0 +1,30 @@
+{
+  "capturedAt": "2026-10-22T23:30:12.356Z",
+  "command": "node book-23/scripts/projetos.mjs 07-facade capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "a120d9cccee6c72366e3ff4961e8a1eb88311ca8a13b4ea855692a5ab83cb5b1",
+    "diagram.mmd": "130c27f8ce6fb39ad8dabe329861502f42ee2789b9e869c69b3af930c1398c86",
+    "exercise/README.md": "b548abc816d573ac43b23dacede0b8c7925e922201305e2bec745aea1c61651b",
+    "package-lock.json": "6103ca2f26829c2ecbea293df2be8b0eea30b1e2bc1780029fdef95a4a610a83",
+    "package.json": "f663c26e6ad8507ce743b6f2c1113132a27d93a33cd625fef321d0175662d216",
+    "solution/coordenacao.test.ts": "ea6e3b6d52809f3e0c6d0f274fe98282604a04c2a78d5639b0918028e699cb87",
+    "solution/coordenacao.ts": "a6642af243dad3325e910a26629fccab003b8ed311385a5483b6f70e8f6c314e",
+    "solution/main.ts": "d465cb4dc0fefdcf22d24e83760f41df59e3249b7c29d58e7efab00ccdc2f30b",
+    "src/contratos.ts": "2162aac9389cb874a666996c25ecfc59b4083cce32d8d7db0dee501d44779e40",
+    "src/fachada.ts": "8fe9280f31b976b58c6f604adf2fdf16e037283f60740ef44b96cf7439435f39",
+    "src/main.ts": "ff9a42235202d738cbdcac4953314d86fb18c4baf7fa69ed90d7d52d56fb6f18",
+    "src/subsistemas-em-memoria.ts": "36a5f337ae3d11e9afd362ac02f2f7aa4547425742dfe4eff1e1f2e382ae77d0",
+    "test/preparacao.test.ts": "7e3afe464013049b1b839f7afaf0ff41ce3bafdf9476240a12b64da961113df3",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "c2b7bed3e632f3e86ec9d06bdf13b9e303ee4f7693a53135ab051d9cd17cbb62",
+    "solution-stdout.txt": "e6011cbf278e9ab98afa240279ac956b222cdb0ce8977684bd750fc9e3fef992",
+    "tests.txt": "468c7fcdeb038daadcf708850570745dfb32cd17703bd2fc7d8b5b032d73011e"
+  }
+}

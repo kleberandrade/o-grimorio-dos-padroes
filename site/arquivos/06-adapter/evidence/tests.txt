@@ -1,0 +1,35 @@
+
+> grimorio-06-adapter@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-06-adapter@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-06-adapter@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ segundo fornecedor é aceito pelo cliente e converte nós em m/s (0.826667ms)
+✔ o adapter marítimo preserva alvo, falha de desobstrução e restrição do efeito (0.19025ms)
+✔ segundo fornecedor com velocidade não finita é recusado (0.052667ms)
+✔ o mesmo cliente usa o nativo e o legado adaptado com dados equivalentes (0.607916ms)
+✔ a velocidade é convertida de km/h para m/s, inclusive valores fracionários (0.066333ms)
+✔ conversão e ataque delegam uma chamada cada, com alvo normalizado (0.067042ms)
+✔ falha de desobstrução do legado não vira sucesso no contrato moderno (0.044791ms)
+✔ efeito sem equivalente é recusado antes de chamar fogo (0.164084ms)
+✔ alvo vazio não aciona o legado (0.045375ms)
+✔ velocidade legada -1 é rejeitada (0.03825ms)
+✔ velocidade legada NaN é rejeitada (0.03325ms)
+✔ velocidade legada Infinity é rejeitada (0.038042ms)
+✔ velocidade zero é válida no contrato numérico, sem prometer transporte (0.064083ms)
+✔ erro do legado é propagado sem fabricar resultado (0.053667ms)
+✔ o resultado é uma cópia congelada, sem alias do objeto retornado pelo legado (0.041875ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 191.999292

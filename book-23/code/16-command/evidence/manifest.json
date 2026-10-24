@@ -1,0 +1,31 @@
+{
+  "capturedAt": "2026-10-23T02:20:39.278Z",
+  "command": "node book-23/scripts/projetos.mjs 16-command capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "37d23e7712d0db4d32a02dc5139a599c622461bf9719cd74b24de2c34811f9e8",
+    "diagram.mmd": "55ded017ef1a7d562a0d5f1e87adad2d6017e216e19d0bfb58f033e2a8fafa8c",
+    "exercise/README.md": "ed679eba63a0e1c5957ff03fc464a27ca640c47949cbb299f4fbb928dda0dcae",
+    "notas-tecnicas.md": "e2a2178d99c8a9585c2341fdad0d569676b647b1be332d55f123d706f3d30462",
+    "package-lock.json": "12882e112775ec04e5a71fbca2b6814f757594ca6336e41cd2a9246134211387",
+    "package.json": "f116d170abe0aef7b345dee59636ca88462458cd144642c2db8b06fe0f5e114f",
+    "solution/avisos.test.ts": "1e4305c1be37881e13945658c5f48d6f2211fe2c28d53325ddf5eb3f1003b7a1",
+    "solution/avisos.ts": "d9c91ba30d67755b3219019ba510c4d560e46e489de08d7b33b895386ce8cdcd",
+    "solution/main.ts": "ba0ef49f0281927c4cba14e74f048f07c2cae11eae8787311eaa462267d87a9e",
+    "src/comando.ts": "a3be33e7eaa57e191613a97c73ef8b96feebba3d7169224e65c49868b4e36223",
+    "src/estoque.ts": "81c4ba73c24994872cfca1fbd3bdfb5b20768ed2bfe24b9225ef83c5782cf339",
+    "src/invocador.ts": "2868bc416d58caea134f43b192dcff0d4b10341018bad33469001288642cd2d8",
+    "src/main.ts": "2658cf35df05d237b483c0a898137a503dfc54666cf56279a0eb4b21c26ba02d",
+    "test/command.test.ts": "a9aa80ea5e70e1d9b33997cdbe8f1867ff3cd4cf5f97c5294184f444c469d6a0",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "986615043e14fa1709fb09d5cae40c47131d8268f8e442b21fc59809c74180a2",
+    "solution-stdout.txt": "8c94464314475595dd4baa6940def7477587815f6c54abcf8fd086676ffeabe1",
+    "tests.txt": "9bfde77a214daebcb918bf75b4c8aca20e30ebc5562afacbc0cac6d3fa1bb854"
+  }
+}

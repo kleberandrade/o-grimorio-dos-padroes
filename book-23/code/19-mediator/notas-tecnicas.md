@@ -1,0 +1,7 @@
+# Registro técnico de produção — projeto 19
+
+Escopo exclusivo `code/19-mediator`, produzido em 23/10/2026. Fontes: contexto inicial019, plano/brief/bíblia/outline, adendo Guru, T06/T17 e Medium10 SHA256 `7addf39896090b27aec7cf67d54f89de12eac049297892d36f912d8efc201cd0`. Não há alteração do candidato literário ou fontes históricas.
+
+Contrato enviado cedo ao coordenador e escritor: um pedido por composição; inspeção→amarras→autorização→abertura, destinatários seletivos; confirmações repetidas/precoces e troca de equipe recusadas. Resultado distingue processado/rejeitado/falhou; negativa processada não é permissão. Falha parcial conserva acionamento e encerra sem abertura falsa/rollback. Booleanos são validados, mas tipo/interface não autentica remetentes. Portas void exigem execução síncrona; não há espera/tratamento de Promise. O exercício mantém política de cotas fora do mediador, sem afirmar extração de um método que nunca existiu na base.
+
+Verificação própria: 19 testes, sendo 15 base e quatro da solução, para destinatários/ordem, negativas, repetição, booleanos inválidos, ciclo único, falhas, reentrância, cópias e separação da política. Evidências em `evidence/` registram os seis comandos do runner e cópia isolada, com dois stdout comparados byte a byte. Saídas são geradas exclusivamente pelos programas reais, corrigindo T06. Hashes efetivos são comunicados após captura sem autorreferência. Não houve benchmark, auditoria independente atribuída ao produtor ou aprovação humana. Não alterar nem recapturar artefatos anteriores por esta entrega.

@@ -1,0 +1,45 @@
+{
+  "scope": "copied project only; no adjacent projects or repository scripts",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 238ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-03-builder@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-03-builder@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-03-builder@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ nova receita adiciona proteção especial sem mudar o contrato de etapas (0.641708ms)\n✔ a mesma extensão produz relatório e não altera a receita original (0.085375ms)\n✔ receita torre entrega ficha completa com proteção exigida (0.758458ms)\n✔ a mesma receita produz relatório em outra representação (0.08225ms)\n✔ reutilizar a receita galeria limpa etapas e não altera a ficha anterior (0.0805ms)\n✔ receita galeria também usa o relatório sem alterar a sequência (0.054583ms)\n✔ montagem manual funciona sem Director e normaliza identidade (0.056ms)\n✔ identidade ausente impede build (0.163458ms)\n✔ classe vazia impede build (0.043083ms)\n✔ vida undefined impede entrega (0.03875ms)\n✔ vida 0 impede entrega (0.079417ms)\n✔ vida -1 impede entrega (0.061084ms)\n✔ vida NaN impede entrega (0.042959ms)\n✔ vida Infinity impede entrega (0.031375ms)\n✔ missão ausente impede entrega (0.036875ms)\n✔ proteção ausente impede entrega e pode ser corrigida no mesmo rascunho (0.047ms)\n✔ proteção de torre não satisfaz missão galeria (0.282917ms)\n✔ equipamento sem nome é rejeitado mesmo declarando a proteção (0.042167ms)\n✔ entrada mutável é copiada antes do build, incluindo a lista aninhada (0.0455ms)\n✔ build mantém rascunho, mas devolve snapshots independentes (0.067375ms)\n✔ ficha e níveis aninhados bloqueiam mutação em execução (0.09475ms)\n✔ reiniciar explícito remove os obrigatórios do rascunho (0.042625ms)\n✔ relatório rejeita rascunho incompleto, sem texto que pareça pronto (0.024583ms)\n✔ objeto de opções direto produz a mesma ficha validada sem Builder (0.034458ms)\nℹ tests 24\nℹ suites 0\nℹ pass 24\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 88.882583\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "dist/src/main.js"
+      ],
+      "exit": 0,
+      "stdout": "Ficha torre: Ivo | Capa contra vento, Corda\nFicha galeria: Bia | Manto impermeável, Lanterna\nFicha anterior preservada: Ivo | missão torre\nRelatório: Ivo | resgatista | vida 100 | missão torre | Capa contra vento, Corda\nFicha incompleta rejeitada: Proteção obrigatória para torre: vento.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "dist/solution/main.js"
+      ],
+      "exit": 0,
+      "stdout": "Proteção especial: fumaca\nRelatório: Bia | resgatista | vida 100 | missão galeria | Manto impermeável, Lanterna, Máscara com filtro\nAlternativa direta: 3 equipamentos\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 245ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-10-composite@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-10-composite@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-10-composite@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ remover subárvore presente preserva descendentes e permite incluir em outra formação (0.708416ms)\n✔ remoção ausente não libera membro de outra formação nem muda ordens (0.311583ms)\n✔ retirada e nova inclusão mantêm a política de ciclos e a ordem dos irmãos restantes (0.096833ms)\n✔ folha isolada atende Unidade e não oferece gestão de filhos (0.839291ms)\n✔ dois níveis registram cada formação antes das folhas na ordem de inserção (0.110958ms)\n✔ formação vazia ainda registra sua própria entrada (0.049083ms)\n✔ auto inclusão é rejeitada sem alterar a lista (0.151458ms)\n✔ ligar descendente ao ancestral é rejeitado mesmo a três níveis (0.0695ms)\n✔ a mesma identidade não pode aparecer duas vezes no grupo (0.046333ms)\n✔ um nó não pode pertencer a dois grupos, mesmo em árvores distintas (0.049459ms)\n✔ objetos diferentes com o mesmo nome continuam sendo identidades distintas (0.042125ms)\n✔ listar membros devolve cópia do array sem liberar vínculos internos (0.062667ms)\n✔ relatórios são valores congelados, independentes entre execuções (0.114667ms)\n✔ nomes e ordens vazios são recusados (0.068542ms)\n✔ lista plana atende unidades independentes sem inventar um grupo (0.110792ms)\nℹ tests 15\nℹ suites 0\nℹ pass 15\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 84.911542\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-10-composite@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-10-composite@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-10-composite@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nFormação: Formação de Mirralis | ordem recuar\nFormação: Pelotão do Norte | ordem recuar\nSoldado: Alaric | ordem recuar\nSoldado: Elora | ordem recuar\nSoldado: Lorn | ordem recuar\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-10-composite@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-10-composite@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-10-composite@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nRemoção presente: true\nRemoção repetida: false\nOrigem: Origem -> Elora\nDestino: Destino -> Pelotão -> Alaric\n",
+      "stderr": ""
+    }
+  ]
+}

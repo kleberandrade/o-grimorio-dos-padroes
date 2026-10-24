@@ -1,0 +1,35 @@
+
+> grimorio-23-interpreter@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-23-interpreter@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-23-interpreter@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ repetição de terminal/grupo compõe em ordem e contagem um preserva sequência (0.676167ms)
+✔ contagem zero/multidígito/ausente e sufixo duplo são recusados sem prefixo executado (0.225042ms)
+✔ custo de repetição é multiplicado sem expandir AST; orçamento recusa antes de qualquer efeito (0.114625ms)
+✔ fronteira64 é aceita;65 é recusado com estado anterior intacto (0.085375ms)
+✔ parser ampliado conserva regras de tamanho/grupos/vazio e valida toda entrada (0.086459ms)
+✔ AST manual tem terminais e sequência composta com efeitos observáveis em ordem (0.622833ms)
+✔ parser constrói AST completa sem contexto e gramática preserva esquerda para direita (0.11375ms)
+✔ desconhecidos nunca são ignorados; posições são índices UTF16, sem execução de prefixo (0.214542ms)
+✔ grupos malformados/vazios têm causa e posição definidas antes de efeitos (0.099583ms)
+✔ limites de tamanho e profundidade são verificados, incluindo suas fronteiras (0.099625ms)
+✔ orçamento é pré-verificado; toda sintaxe precede a decisão global de orçamento (0.096167ms)
+✔ orçamento opcional só reduz teto e custo de extensão inválido não chama interpretar (0.103708ms)
+✔ falha durante interpretação propaga e conserva efeitos anteriores sem executar restante (0.057417ms)
+✔ sequência copia lista de filhos e snapshots/resultados não alteram contexto anterior (0.070416ms)
+✔ switch é alternativa executável para comando único sem gramática composta (0.071542ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86.135917

@@ -1,0 +1,32 @@
+{
+  "capturedAt": "2026-10-22T22:26:51.342Z",
+  "command": "node book-23/scripts/projetos.mjs 02-abstract-factory capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "04ea4df0395086839758855777a663e84ecccffd240a748e25152e48275c8895",
+    "diagram.mmd": "b8bc38f2aa3ddef2326c54de0c0de05f64be5a3cc93e3fc48f3914e31a5bc2c5",
+    "exercise/README.md": "9bc8205cea6e5e9f18db8d1f39fe572e9e984f8ecbe987588cec6c1ea2ae7f1d",
+    "package-lock.json": "8027d287ed84c62e745461418be07b76e7824725f1f50c1730a0f211b06357ff",
+    "package.json": "c81b8979ed03eb942c26ab9955e9967d63e8a6ce5478875a704588378b14a374",
+    "solution/main.ts": "9e3de0da33af1c99c5de2063e878061e9ca3f7358b3a5a314e7cc43f9fdd7ac0",
+    "solution/vento.test.ts": "a6b09d78e50494512710ff4eb991e101490273de3716353c3b6cc8419c074e5c",
+    "solution/vento.ts": "a6f0d96280d72af45db9a1615ecc6ac85763f65097dea08b2a526b1aed2b9a22",
+    "src/brasa.ts": "d35e2599442ddd71cdb40fc357a0199365397a00848c122739391130ff43d2ec",
+    "src/cliente.ts": "8e5711b5e5afbd0b8fd1208115d80f7ef5a5e58c216f31b65205c2afffd7699b",
+    "src/contratos.ts": "c1136c86d74550966e9ac13252db326c46f59287be72ac751631e2c91f5c26df",
+    "src/ensaio.ts": "d4b35c32b1df784bcd72088c75eddf94c5da11749fa52a0c75bc2127bc5d7141",
+    "src/geada.ts": "05ade57a9632c38ab329e2fbd50b6795705bc03ae348393942405f109a2c105c",
+    "src/main.ts": "07bf0707e207437db430f528880831702dbbdfbb8d6132f7a9ab2bc768205091",
+    "test/familias.test.ts": "fd99f831ce7fbf9939ab0b53a2993e95f6d3e541c9cb35c4c67d8dae71568460",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "338116d28d8c5c441c776f6d8956b134654ddec7fee614dc0bd96919b44c6d0f",
+    "solution-stdout.txt": "852d2edfc8879de21ec4ab6d6180f252199031e2e514d9ed83017ae2b74e943f",
+    "tests.txt": "831ef88cbd8b9a4607faf639d32b9da079e34fef49a3b043eb5a8cd5696e2140"
+  }
+}

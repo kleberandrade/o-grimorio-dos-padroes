@@ -1,0 +1,2 @@
+Tipos 1: sem compartilhar 6 essências | Flyweight 1 | dados iguais true
+Tipos 3: sem compartilhar 6 essências | Flyweight 3 | dados iguais true

@@ -1,0 +1,46 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 322ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-13-strategy@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-13-strategy@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-13-strategy@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ função e objeto de estratégia devolvem os mesmos dados nos casos adequados e inadequados (0.553125ms)\n✔ contexto funcional troca a política preservando identidade e contrato de resultado (0.379583ms)\n✔ trocar técnica conserva o contexto e muda o resultado para o mesmo alvo (0.603833ms)\n✔ uma nova estratégia funciona sem alterar o contexto e recebe dados normalizados (0.060542ms)\n✔ resistência reforçada recusa espada e arco sem custo, mas magia atende ao objetivo (0.060875ms)\n✔ intervalos de distância têm fronteiras explícitas (0.0625ms)\n✔ mesmo alvo próximo pode ter técnicas adequadas com custos diferentes, sem seleção automática (0.053667ms)\n✔ distância -1 é erro de entrada, não rejeição tática (0.145209ms)\n✔ distância NaN é erro de entrada, não rejeição tática (0.060666ms)\n✔ distância Infinity é erro de entrada, não rejeição tática (0.034125ms)\n✔ nome vazio é recusado e resultados não mutam alvo nem valores anteriores (0.079834ms)\n✔ erro de estratégia externa é propagado sem troca automática (0.082041ms)\nℹ tests 12\nℹ suites 0\nℹ pass 12\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 83.623917\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-13-strategy@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-13-strategy@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-13-strategy@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nespada em Corda do portão: inadequado | custo 0 | Fora do alcance de até 2 m.\narco em Corda do portão: executado | custo 2 | disparo à distância\nmagia em Selo reforçado: executado | custo 5 | pulso contra a resistência\nespada em Trava próxima: executado | custo 1 | golpe próximo\nContexto preservado: true | Rima\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-13-strategy@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-13-strategy@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-13-strategy@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nFunção direta: arco | executado | custo 2\nContexto funcional: Rima | magia | executado | custo 5\n",
+      "stderr": ""
+    }
+  ]
+}

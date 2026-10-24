@@ -1,0 +1,2 @@
+Calor -> limite: 11 | espada -> calor +3 -> limite 11
+Limite -> calor: 13 | espada -> limite 11 -> calor +3

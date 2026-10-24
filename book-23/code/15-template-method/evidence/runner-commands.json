@@ -1,0 +1,68 @@
+[
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "15",
+      "install"
+    ],
+    "exit": 0,
+    "stdout": "\nadded 3 packages in 239ms\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "15",
+      "check"
+    ],
+    "exit": 0,
+    "stdout": "\n> grimorio-15-template-method@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-15-template-method@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-15-template-method@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ hook acrescentado entre conjuração e selo pode recusar sem selo fictício (0.572917ms)\n✔ hook aprovado executa antes do selo e conclui todas as quatro etapas (0.311208ms)\n✔ hook padrão vazio é opcional para subclasse e conserva preparação/encantamento/selagem (0.056958ms)\n✔ a base chama as etapas na ordem e produz lote com encantamento e selo (0.675292ms)\n✔ fogo e gelo variam o encantamento conservando a sequência e o selo correspondente (0.069ms)\n✔ falha em prepararIngredientes interrompe etapas posteriores e não fabrica selo ou conclusão (0.073541ms)\n✔ falha em conjurarEncantamento interrompe etapas posteriores e não fabrica selo ou conclusão (0.039125ms)\n✔ falha em selar interrompe etapas posteriores e não fabrica selo ou conclusão (0.04175ms)\n✔ ingredientes vazios ou sem nome falham na preparação (0.047583ms)\n✔ entrada, resultados anteriores e execuções independentes não compartilham listas mutáveis (0.073417ms)\n✔ falha anterior não contamina execução posterior do mesmo ritual (0.044542ms)\n✔ função com callback é alternativa executável com o mesmo contrato de dados e falha (0.136917ms)\nℹ tests 12\nℹ suites 0\nℹ pass 12\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 85.502375\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "15",
+      "run"
+    ],
+    "exit": 0,
+    "stdout": "\n> grimorio-15-template-method@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-15-template-method@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-15-template-method@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nLotes de Ema\nconcluido: prepararIngredientes -> conjurarEncantamento -> selar\nEncantamento: fogo | selo: selo de fogo\nconcluido: prepararIngredientes -> conjurarEncantamento -> selar\nEncantamento: gelo | selo: selo de gelo\nFalha em prepararIngredientes: O lote requer ingredientes. | selo: null\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "15",
+      "solution"
+    ],
+    "exit": 0,
+    "stdout": "\n> grimorio-15-template-method@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-15-template-method@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-15-template-method@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nInspeção recusada: falhou | selo: null\nEtapas concluídas: prepararIngredientes -> conjurarEncantamento\nInterrompido em: aposEncantamento\nInspeção aprovada: concluido | selo: selo de fogo\nEtapas concluídas: prepararIngredientes -> conjurarEncantamento -> aposEncantamento -> selar\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "15",
+      "capture"
+    ],
+    "exit": 0,
+    "stdout": "Evidências reais gravadas em code/15-template-method/evidence.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "15",
+      "verify"
+    ],
+    "exit": 0,
+    "stdout": "Fontes e evidências íntegras; testes e saídas reproduzidos.\n",
+    "stderr": ""
+  }
+]

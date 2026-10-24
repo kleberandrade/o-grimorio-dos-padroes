@@ -1,0 +1,46 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 253ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-08-decorator@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-08-decorator@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-08-decorator@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ limitar e adicionar calor não comutam (0.864208ms)\n✔ limite é local à camada e não corrige overflow ocorrido antes dela (0.18175ms)\n✔ o núcleo funciona sozinho pelo mesmo contrato dos wrappers (0.586708ms)\n✔ calor antes da amplificação aplica (10 + 3) * 2 e registra essa ordem (0.075083ms)\n✔ inverter as camadas aplica 10 * 2 + 3, resultado e efeitos distintos (0.043917ms)\n✔ reconstruir para retirar uma camada não altera núcleo nem composição anterior (0.051875ms)\n✔ camadas repetidas são permitidas e acumulam sem deduplicação (0.050542ms)\n✔ reusar a composição não acumula efeitos entre execuções (0.05875ms)\n✔ wrapper delega uma vez e não altera o resultado recebido do componente (0.054791ms)\n✔ resultado e lista de efeitos são congelados em execução (0.143542ms)\n✔ potência e bônus -1 são recusados (0.079625ms)\n✔ potência e bônus 0.5 são recusados (0.059083ms)\n✔ potência e bônus NaN são recusados (0.036375ms)\n✔ potência e bônus Infinity são recusados (0.033625ms)\n✔ potência e bônus 9007199254740992 são recusados (0.025666ms)\n✔ fator zero ou fracionário é recusado; bônus zero, potência zero e fator um são válidos (0.044792ms)\n✔ overflow por adição ou multiplicação é recusado sem alterar o núcleo (0.050334ms)\n✔ decoradores recusam resultado numérico inválido de componente externo antes da operação (0.042042ms)\n✔ função direta reproduz a fórmula fixa sem precisar de wrappers (0.094584ms)\nℹ tests 19\nℹ suites 0\nℹ pass 19\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 84.194875\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-08-decorator@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-08-decorator@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-08-decorator@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nNúcleo: 10 | espada\nCalor -> amplificação: 26 | espada -> calor +3 -> amplificação x2\nAmplificação -> calor: 23 | espada -> amplificação x2 -> calor +3\nSem amplificador: 13 | espada -> calor +3\nComposição anterior preservada: 26\nFórmula direta (10 + 3) * 2: 26\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-08-decorator@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-08-decorator@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-08-decorator@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nCalor -> limite: 11 | espada -> calor +3 -> limite 11\nLimite -> calor: 13 | espada -> limite 11 -> calor +3\n",
+      "stderr": ""
+    }
+  ]
+}

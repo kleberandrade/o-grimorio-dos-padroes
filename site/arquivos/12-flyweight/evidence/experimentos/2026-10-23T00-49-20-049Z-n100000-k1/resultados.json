@@ -1,0 +1,592 @@
+{
+  "capturadoEm": "2026-10-23T00:49:20.049Z",
+  "comando": "npm run benchmark -- 100000 1 5",
+  "parametros": {
+    "contagem": 100000,
+    "tipos": [
+      "fogo"
+    ]
+  },
+  "repeticoes": 5,
+  "ambiente": {
+    "node": "26.10.0",
+    "v8": "14.6.202.34-node.35",
+    "npm": "11.19.1",
+    "typescript": "5.9.3",
+    "tiposNode": "26.0.0",
+    "plataforma": "darwin",
+    "arquitetura": "arm64",
+    "releaseSO": "27.0.0",
+    "cpu": "Apple M5",
+    "processosFilhosSequenciais": true
+  },
+  "metodo": {
+    "modelos": "Mesmas Aparicao/EssenciaEspirito, tipos/cores/posições; somente identidade intrínseca compartilhada difere. Strings podem ser internadas pelo runtime.",
+    "payload": "Somente tipo/cor reais do modelo; nenhum Buffer, ArrayBuffer ou payload sintético adicionado.",
+    "tempo": "performance.now em ms: construirCenario inclui validação de parâmetros, tabela quando usada, instâncias, posições e congelamento. Exclui aquecimento, startup, GC, leituras de memória, Set e hash de conferência.",
+    "memoria": "process.memoryUsage em bytes, baseline e depois com cenário retido explicitamente. GC exposto foi chamado uma vez antes e uma depois; isso não garante coleta completa ou valor exato.",
+    "categorias": "rss é processo inteiro; heapUsed/heapTotal V8; external inclui arrayBuffers. Não somar external e arrayBuffers como partes disjuntas.",
+    "controles": "Processo novo por observação; ordem dos modelos alterna entre repetições. Outras cargas do SO, JIT, alocador e GC não são totalmente controlados.",
+    "interpretacao": "Dados locais descritivos, sem limiar de ganho como teste, intervalo inferencial ou promessa universal. Deltas podem ser negativos ou inconclusivos; não comparar benchmark byte a byte em nova execução."
+  },
+  "fontesSha256": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "d11776561ec5f28a2277d658528946e0fa498491d6ea549c5938e6920c12b592",
+    "diagram.mmd": "6bb0cd48c04085c87dc4a0025048913ea0c92d4e1b2770faf9bb8a9436b83fce",
+    "exercise/README.md": "5754423ad3cf87e23b23914d12e64eda56f7cfb4900b4de89acc9fa52177fd88",
+    "experiment/cenario.ts": "0d4cf2019e28b389828dc88d404ce308dac0ff84f6daaaf45b3924f1e438c376",
+    "experiment/medir.ts": "4c57cb6c090bb56c8834420e3722cb543f87e9d467720a323781f1beb42402fd",
+    "experiment/observacao.ts": "35c5db59b1020c6e785b465278ca46e7f822412cd4f519064fbe55b988976e49",
+    "package-lock.json": "b48924fbd730afc56331ba33f61d3eb064d0aa9e4a6f033255ddb7568535f15e",
+    "package.json": "4cb6ec5ade50509b8df922ee1bbf7909e90eaececde6a55d48558bd5888f621d",
+    "solution/cenario.test.ts": "c9602bdef9f9833222012a02771f3fcb75b992fd9ec614abba58fdba1cd1a3bc",
+    "solution/main.ts": "f54fc059618b5363a552b8d9f9e0458e26bdfae700373d7d908bb942fdf486ba",
+    "src/espiritos.ts": "5c4d5450fcd75b86d26eb03cea88e25f278ff4c6119f147e55cf99f7706d2bf1",
+    "src/main.ts": "0597e9b2522beb87b6e66081e805e04c5b2c5b70876d8efa4860e3310323ec63",
+    "test/compartilhamento.test.ts": "557d126b9323b30a8461299ae9a3e7e80b494fbaeca450e91c98610b54eb5b56",
+    "tsconfig.json": "f13125185d7f51d1d5ea6947f6c0c58fd135c9afaac208427da7d8e62e251e10"
+  },
+  "resumo": {
+    "sem-compartilhar": {
+      "tempoConstrucaoMs": {
+        "minimo": 8.953917,
+        "mediana": 9.5975,
+        "maximo": 11.101458000000001
+      },
+      "deltaMemoriaBytes": {
+        "rss": {
+          "minimo": 21676032,
+          "mediana": 25018368,
+          "maximo": 26132480
+        },
+        "heapTotal": {
+          "minimo": 16384000,
+          "mediana": 19005440,
+          "maximo": 20316160
+        },
+        "heapUsed": {
+          "minimo": 12906424,
+          "mediana": 12907912,
+          "maximo": 12917920
+        },
+        "external": {
+          "minimo": 4,
+          "mediana": 4,
+          "maximo": 4
+        },
+        "arrayBuffers": {
+          "minimo": 0,
+          "mediana": 0,
+          "maximo": 0
+        }
+      }
+    },
+    "flyweight": {
+      "tempoConstrucaoMs": {
+        "minimo": 8.710458,
+        "mediana": 8.891541,
+        "maximo": 9.878792
+      },
+      "deltaMemoriaBytes": {
+        "rss": {
+          "minimo": 19218432,
+          "mediana": 19595264,
+          "maximo": 20054016
+        },
+        "heapTotal": {
+          "minimo": 14286848,
+          "mediana": 14286848,
+          "maximo": 14548992
+        },
+        "heapUsed": {
+          "minimo": 8908368,
+          "mediana": 8908456,
+          "maximo": 8908456
+        },
+        "external": {
+          "minimo": 4,
+          "mediana": 4,
+          "maximo": 4
+        },
+        "arrayBuffers": {
+          "minimo": 0,
+          "mediana": 0,
+          "maximo": 0
+        }
+      }
+    }
+  },
+  "observacoes": [
+    {
+      "modelo": "sem-compartilhar",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 8.953917,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48611328,
+          "heapTotal": 7225344,
+          "heapUsed": 4547328,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 70565888,
+          "heapTotal": 24395776,
+          "heapUsed": 17453752,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 21954560,
+          "heapTotal": 17170432,
+          "heapUsed": 12906424,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 100000,
+        "dadosSha256": "01e9a7ea971852cb419e4db02ce40c24b64eb1c7316628d1563094cb234cc8ca"
+      },
+      "repeticao": 1,
+      "posicaoNaRepeticao": 1
+    },
+    {
+      "modelo": "flyweight",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 8.755875,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48824320,
+          "heapTotal": 7749632,
+          "heapUsed": 4545840,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 68878336,
+          "heapTotal": 22036480,
+          "heapUsed": 13454296,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 20054016,
+          "heapTotal": 14286848,
+          "heapUsed": 8908456,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 1,
+        "dadosSha256": "01e9a7ea971852cb419e4db02ce40c24b64eb1c7316628d1563094cb234cc8ca"
+      },
+      "repeticao": 1,
+      "posicaoNaRepeticao": 2
+    },
+    {
+      "modelo": "flyweight",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 8.710458,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48922624,
+          "heapTotal": 7749632,
+          "heapUsed": 4545840,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 68698112,
+          "heapTotal": 22036480,
+          "heapUsed": 13454296,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 19775488,
+          "heapTotal": 14286848,
+          "heapUsed": 8908456,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 1,
+        "dadosSha256": "01e9a7ea971852cb419e4db02ce40c24b64eb1c7316628d1563094cb234cc8ca"
+      },
+      "repeticao": 2,
+      "posicaoNaRepeticao": 1
+    },
+    {
+      "modelo": "sem-compartilhar",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 9.078333999999998,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 49119232,
+          "heapTotal": 7749632,
+          "heapUsed": 4545864,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 70795264,
+          "heapTotal": 24133632,
+          "heapUsed": 17453752,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 21676032,
+          "heapTotal": 16384000,
+          "heapUsed": 12907888,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 100000,
+        "dadosSha256": "01e9a7ea971852cb419e4db02ce40c24b64eb1c7316628d1563094cb234cc8ca"
+      },
+      "repeticao": 2,
+      "posicaoNaRepeticao": 2
+    },
+    {
+      "modelo": "sem-compartilhar",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 9.5975,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48791552,
+          "heapTotal": 7749632,
+          "heapUsed": 4545840,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 73809920,
+          "heapTotal": 26755072,
+          "heapUsed": 17453752,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 25018368,
+          "heapTotal": 19005440,
+          "heapUsed": 12907912,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 100000,
+        "dadosSha256": "01e9a7ea971852cb419e4db02ce40c24b64eb1c7316628d1563094cb234cc8ca"
+      },
+      "repeticao": 3,
+      "posicaoNaRepeticao": 1
+    },
+    {
+      "modelo": "flyweight",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 9.878792,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48807936,
+          "heapTotal": 7487488,
+          "heapUsed": 4545928,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 68403200,
+          "heapTotal": 21774336,
+          "heapUsed": 13454296,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 19595264,
+          "heapTotal": 14286848,
+          "heapUsed": 8908368,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 1,
+        "dadosSha256": "01e9a7ea971852cb419e4db02ce40c24b64eb1c7316628d1563094cb234cc8ca"
+      },
+      "repeticao": 3,
+      "posicaoNaRepeticao": 2
+    },
+    {
+      "modelo": "flyweight",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 8.891541,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48906240,
+          "heapTotal": 7749632,
+          "heapUsed": 4545840,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 68485120,
+          "heapTotal": 22298624,
+          "heapUsed": 13454296,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 19578880,
+          "heapTotal": 14548992,
+          "heapUsed": 8908456,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 1,
+        "dadosSha256": "01e9a7ea971852cb419e4db02ce40c24b64eb1c7316628d1563094cb234cc8ca"
+      },
+      "repeticao": 4,
+      "posicaoNaRepeticao": 1
+    },
+    {
+      "modelo": "sem-compartilhar",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 10.61675,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48807936,
+          "heapTotal": 7225344,
+          "heapUsed": 4544856,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 74940416,
+          "heapTotal": 27541504,
+          "heapUsed": 17462776,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 26132480,
+          "heapTotal": 20316160,
+          "heapUsed": 12917920,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 100000,
+        "dadosSha256": "01e9a7ea971852cb419e4db02ce40c24b64eb1c7316628d1563094cb234cc8ca"
+      },
+      "repeticao": 4,
+      "posicaoNaRepeticao": 2
+    },
+    {
+      "modelo": "sem-compartilhar",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 11.101458000000001,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48807936,
+          "heapTotal": 6963200,
+          "heapUsed": 4546056,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 74022912,
+          "heapTotal": 27017216,
+          "heapUsed": 17455880,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 25214976,
+          "heapTotal": 20054016,
+          "heapUsed": 12909824,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 100000,
+        "dadosSha256": "01e9a7ea971852cb419e4db02ce40c24b64eb1c7316628d1563094cb234cc8ca"
+      },
+      "repeticao": 5,
+      "posicaoNaRepeticao": 1
+    },
+    {
+      "modelo": "flyweight",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 9.498000000000001,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 49037312,
+          "heapTotal": 7487488,
+          "heapUsed": 4545840,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 68255744,
+          "heapTotal": 21774336,
+          "heapUsed": 13454296,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 19218432,
+          "heapTotal": 14286848,
+          "heapUsed": 8908456,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 1,
+        "dadosSha256": "01e9a7ea971852cb419e4db02ce40c24b64eb1c7316628d1563094cb234cc8ca"
+      },
+      "repeticao": 5,
+      "posicaoNaRepeticao": 2
+    }
+  ]
+}

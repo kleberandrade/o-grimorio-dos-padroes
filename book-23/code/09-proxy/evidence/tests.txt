@@ -1,0 +1,34 @@
+
+> grimorio-09-proxy@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-09-proxy@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-09-proxy@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ virtual não cria antes do uso e reutiliza uma instância nas operações seguintes (0.370333ms)
+✔ virtualização sozinha não adiciona política de proteção (0.382875ms)
+✔ carregador que falha é propagado; próxima operação explícita pode tentar de novo (0.169ms)
+✔ falha na operação depois da carga não descarta instância nem recarrega (0.065375ms)
+✔ negativa não chama o serviço real (0.638042ms)
+✔ permissão devolve o resultado real sem substituí-lo e chama uma vez (0.070333ms)
+✔ a política é injetada e decide explicitamente, sem regra oculta baseada no nome (0.059625ms)
+✔ o real registra apenas as entradas que chegam a ele, com sequência local (0.060917ms)
+✔ chamar o real diretamente permite contornar este proxy didático (0.04675ms)
+✔ erro da política é propagado e não aciona o real (0.138459ms)
+✔ erro do serviço permitido é propagado sem fabricar entrada ou negativa (0.044ms)
+✔ nome vazio falha antes da política e nome válido é normalizado sem alterar entrada (0.079584ms)
+✔ resultados são congelados e lista devolvida não permite remover histórico interno (0.062708ms)
+✔ serviço com controle próprio implementa o mesmo Subject sem real desprotegido exposto (0.095375ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 83.525

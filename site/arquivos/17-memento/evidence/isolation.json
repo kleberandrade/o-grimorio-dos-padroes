@@ -1,0 +1,57 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 152ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-17-memento@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-17-memento@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-17-memento@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ checkpoint inicial, confirmação explícita, undo e redo restauram estados completos (1.0175ms)\n✔ edição pendente recusa navegação inclusive nas bordas, sem perder texto ou mover cursor (0.205292ms)\n✔ nova edição confirmada após undo elimina ramificação futura, não antes da confirmação (0.300041ms)\n✔ limite inclui atual, poda mais antigo e reajusta cursor; limite um não permite undo (0.081166ms)\n✔ confirmar sem edição não duplica ponto; valores iguais escritos de novo ficam pendentes (0.145459ms)\n✔ rótulo/limite inválidos e mutação de listagem não alteram cursor ou estado (0.129875ms)\n✔ restaurar recupera exatamente conteúdo, campo aninhado e lista, perdendo edições posteriores (0.8595ms)\n✔ entrada é copiada; restaurar, editar e restaurar o MESMO token preserva a captura (0.078417ms)\n✔ visões públicas congeladas não alteram estado ativo ou captura (0.070583ms)\n✔ token é opaco em execução: sem campos, símbolos, protótipo ou getter de estado (0.057667ms)\n✔ tokens de outro diário, copiados, falsificados e serializados são recusados sem mudança (0.208667ms)\n✔ guardião só guarda tokens e rótulos mínimos; limite poda mais antigo sem restaurar (0.103958ms)\n✔ índices, limites e rótulos inválidos são recusados; listagem não altera histórico (0.266ms)\n✔ porta é wrapper real sem métodos de leitura/edição do diário, não só um cast estático (0.073667ms)\n✔ marca do checkpoint distingue nova edição com valores iguais de igualdade profunda (0.05825ms)\nℹ tests 15\nℹ suites 0\nℹ pass 15\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 90.859666\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-17-memento@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-17-memento@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-17-memento@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nValor direto: Rascunho posterior. -> Anotação simples inicial.\nAntes: Anotação pessoal posterior.\nGuardião: Depoimento inicial\nCampos no token: 0\nRestaurado: A testemunha indicou o arquivo norte.\nContexto restaurado: Chronoria | depoimento\nCópia separada: Anotação pessoal posterior.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-17-memento@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-17-memento@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-17-memento@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nEdição pendente: confirme um checkpoint antes de navegar.\nUndo: B\nRedo: C\nNova ramificação: D | redo: false\nCheckpoints: Inicial, B, D\n",
+      "stderr": ""
+    }
+  ],
+  "stdoutComparisons": {
+    "stdout.txt": {
+      "equal": true,
+      "sha256": "1a852d9d2d9aeb15c154cf2652d0b4aeda4c0c5b54e87b2ecb8d4e52196e39cd"
+    },
+    "solution-stdout.txt": {
+      "equal": true,
+      "sha256": "731fcd5eab92cf56aaf20042ba0a3576f6ea7319bbd38e23f96c176150f16a20"
+    }
+  },
+  "recordedAt": "2026-10-23T02:52:38.514943+00:00"
+}

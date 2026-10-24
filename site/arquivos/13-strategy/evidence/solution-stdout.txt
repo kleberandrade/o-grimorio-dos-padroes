@@ -1,0 +1,2 @@
+Função direta: arco | executado | custo 2
+Contexto funcional: Rima | magia | executado | custo 5

@@ -1,0 +1,34 @@
+classDiagram
+direction TB
+class Ataque {
+  <<interface>>
+  +executar() ResultadoAtaque
+}
+class Espada {
+  -number potencia
+  +executar() ResultadoAtaque
+}
+class MantoDeCalor {
+  -Ataque interno
+  -number bonus
+  +executar() ResultadoAtaque
+}
+class MantoAmplificador {
+  -Ataque interno
+  -number fator
+  +executar() ResultadoAtaque
+}
+class ResultadoAtaque {
+  <<interface>>
+  +number potencia
+  +string[] efeitos
+}
+Ataque <|.. Espada
+Ataque <|.. MantoDeCalor
+Ataque <|.. MantoAmplificador
+MantoDeCalor --> Ataque : envolve por composicao
+MantoAmplificador --> Ataque : envolve por composicao
+Ataque ..> ResultadoAtaque
+note for MantoDeCalor "Delega uma vez; soma bonus; acrescenta efeito sem mudar resultado interno."
+note for MantoAmplificador "Delega uma vez; multiplica; ordem interna precede camada externa."
+note for ResultadoAtaque "Valor e lista congelados. Inteiros seguros. Ordem registrada nos efeitos."

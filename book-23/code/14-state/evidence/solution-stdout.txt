@@ -1,0 +1,3 @@
+Defensivo sem proteção: recusada | defensivo
+Contra-ataque: executada | defensivo -> normal
+Ciclo normal retomado: furioso | fúria restante 2

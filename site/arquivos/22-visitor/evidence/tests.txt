@@ -1,0 +1,32 @@
+
+> grimorio-22-visitor@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-22-visitor@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-22-visitor@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ versões ampliadas dos DOIS visitantes calculam o quarto tipo e os totais (0.348ms)
+✔ aceitar do curandeiro despacha somente visitarCurandeiro (0.548875ms)
+✔ visitas antigas preservam fórmulas e curandeiro obedece as mesmas fronteiras de entrada (0.116916ms)
+✔ aceitar despacha uma vez para o método tipado correto e entrega a identidade do elemento (0.644333ms)
+✔ capacidade e abastecimento retornam operações numéricas distintas, agregáveis e exatas (0.097291ms)
+✔ nova operação funciona sobre os mesmos elementos já preparados, sem editar seu código (0.061958ms)
+✔ alternativa union sobre poucos casos calcula os mesmos resultados sem Visitor (0.084792ms)
+✔ valores fronteira zero/cem têm resultado definido sem deduzir recursos ou distribuir estoque (0.067542ms)
+✔ nomes e índices inválidos são recusados, inclusive nos dados da alternativa (0.203708ms)
+✔ dados públicos legítimos ficam congelados; chamadas fornecidas preservam membros e array (0.081833ms)
+✔ totalizador recusa número de extensão fora do contrato e overflow sem declarar pureza universal (0.085167ms)
+✔ erro de visitante externo é propagado; efeito externo anterior não é revertido (0.066125ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.178667

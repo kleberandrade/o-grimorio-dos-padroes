@@ -1,0 +1,32 @@
+
+> grimorio-15-template-method@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-15-template-method@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-15-template-method@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ hook acrescentado entre conjuração e selo pode recusar sem selo fictício (0.585833ms)
+✔ hook aprovado executa antes do selo e conclui todas as quatro etapas (0.319833ms)
+✔ hook padrão vazio é opcional para subclasse e conserva preparação/encantamento/selagem (0.0765ms)
+✔ a base chama as etapas na ordem e produz lote com encantamento e selo (0.679375ms)
+✔ fogo e gelo variam o encantamento conservando a sequência e o selo correspondente (0.072083ms)
+✔ falha em prepararIngredientes interrompe etapas posteriores e não fabrica selo ou conclusão (0.074917ms)
+✔ falha em conjurarEncantamento interrompe etapas posteriores e não fabrica selo ou conclusão (0.041584ms)
+✔ falha em selar interrompe etapas posteriores e não fabrica selo ou conclusão (0.04425ms)
+✔ ingredientes vazios ou sem nome falham na preparação (0.04925ms)
+✔ entrada, resultados anteriores e execuções independentes não compartilham listas mutáveis (0.067958ms)
+✔ falha anterior não contamina execução posterior do mesmo ritual (0.045167ms)
+✔ função com callback é alternativa executável com o mesmo contrato de dados e falha (0.140625ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.456958

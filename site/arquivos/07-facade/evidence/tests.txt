@@ -1,0 +1,39 @@
+
+> grimorio-07-facade@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-07-facade@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-07-facade@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ decisão diplomática negativa não aciona preparação (0.548625ms)
+✔ autorização externa não transforma preparação parcial em pronta (0.454291ms)
+✔ a fachada coordena dados, efeitos e dependências pela operação de alto nível (0.747542ms)
+✔ falta de peça devolve parcial e preserva refeições e mapa sem chamar guarda (0.070208ms)
+✔ falha do ferreiro é explícita e não desfaz a cozinha nem impede consulta de mapa (0.069042ms)
+✔ falha do arquivo mantém reserva já consumida e deixa guarda pendente (0.053375ms)
+✔ falha da cozinha não bloqueia preparativos independentes, mas resultado continua parcial (0.0565ms)
+✔ uma etapa pode alterar estado e depois falhar, sem desfazer o efeito já ocorrido (0.067583ms)
+✔ guarda recusa mapa divergente e resultado relata sua falha sem rollback (0.056958ms)
+✔ zero refeições ignora cozinha explicitamente e pode concluir as demais etapas (0.047375ms)
+✔ repetir a operação não é idempotente nem uma retentativa automática (0.064167ms)
+✔ pedido com refeições -1 é recusado antes dos efeitos (0.18025ms)
+✔ pedido com refeições 0.5 é recusado antes dos efeitos (0.041125ms)
+✔ pedido com refeições NaN é recusado antes dos efeitos (0.0325ms)
+✔ pedido com refeições Infinity é recusado antes dos efeitos (0.023084ms)
+✔ pedido com refeições 9007199254740992 é recusado antes dos efeitos (0.020875ms)
+✔ nomes vazios são recusados e espaços são normalizados antes dos subsistemas (0.059334ms)
+✔ subsistemas continuam disponíveis sem fachada quando a tarefa é direta (0.447375ms)
+✔ resultado é congelado e consultas de efeitos são cópias defensivas (0.201292ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 87.2915

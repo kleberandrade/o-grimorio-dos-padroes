@@ -1,0 +1,6 @@
+Com peça: pronta
+cozinha=concluida | arsenal=concluida | arquivo=concluida | guarda=concluida
+Efeitos: refeições 4 | reservas 1 | mapas 1 | passagens 1
+Sem peça: parcial
+cozinha=concluida | arsenal=pendente | arquivo=concluida | guarda=pendente
+Efeitos: refeições 4 | reservas 0 | mapas 1 | passagens 0

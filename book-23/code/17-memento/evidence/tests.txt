@@ -1,0 +1,35 @@
+
+> grimorio-17-memento@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-17-memento@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-17-memento@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ checkpoint inicial, confirmação explícita, undo e redo restauram estados completos (1.012834ms)
+✔ edição pendente recusa navegação inclusive nas bordas, sem perder texto ou mover cursor (0.208916ms)
+✔ nova edição confirmada após undo elimina ramificação futura, não antes da confirmação (0.0955ms)
+✔ limite inclui atual, poda mais antigo e reajusta cursor; limite um não permite undo (0.075625ms)
+✔ confirmar sem edição não duplica ponto; valores iguais escritos de novo ficam pendentes (0.0575ms)
+✔ rótulo/limite inválidos e mutação de listagem não alteram cursor ou estado (0.082083ms)
+✔ restaurar recupera exatamente conteúdo, campo aninhado e lista, perdendo edições posteriores (0.928125ms)
+✔ entrada é copiada; restaurar, editar e restaurar o MESMO token preserva a captura (0.131792ms)
+✔ visões públicas congeladas não alteram estado ativo ou captura (0.076791ms)
+✔ token é opaco em execução: sem campos, símbolos, protótipo ou getter de estado (0.059667ms)
+✔ tokens de outro diário, copiados, falsificados e serializados são recusados sem mudança (0.220417ms)
+✔ guardião só guarda tokens e rótulos mínimos; limite poda mais antigo sem restaurar (0.120458ms)
+✔ índices, limites e rótulos inválidos são recusados; listagem não altera histórico (0.11975ms)
+✔ porta é wrapper real sem métodos de leitura/edição do diário, não só um cast estático (0.109166ms)
+✔ marca do checkpoint distingue nova edição com valores iguais de igualdade profunda (0.064875ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 88.0525

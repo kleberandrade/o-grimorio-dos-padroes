@@ -1,0 +1,33 @@
+{
+  "capturedAt": "2026-10-23T04:38:44.184Z",
+  "command": "node book-23/scripts/projetos.mjs 21-iterator capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "b48a78c47abf1499203bdcc4fa73e5d4cd5bfcac6d5899de2919f2d2c39a5096",
+    "diagram.mmd": "0e520d0de3cb9db41892b7feca9989dee82498ebdc6b91bb7034a49fe4791b59",
+    "exercise/README.md": "3ad06a18ed2515e0bab381727639905253236f11577462c58526214cc32a61e9",
+    "notas-tecnicas.md": "f2f5563b85d23043ba76bb0653b6e85e563c712bbba1f0ff24d442e91450a5e8",
+    "package-lock.json": "af38935c5fa74078edfa9326dbeb700acb8d99aa2e27e8d3be5674d63e522331",
+    "package.json": "172b1a55fc8c2f5633b05c584e734d8048de7b4ec213a5d385a541b94825b3ca",
+    "referencias.json": "a14f5fcc29b2f41d2a490f7996aa59b1ab8d17d115168d083db7b0fa18d280d1",
+    "solution/iteravel.test.ts": "7e6400ccbe084883de100423c5197047d04bf4ed50e241b10c6876dabc9e885b",
+    "solution/iteravel.ts": "af2f9facdb74ad2c3d24f248f6f6276a549ec7b35342c610c005933579f45c67",
+    "solution/main.ts": "76a704a892672233ac890a9a4980606d6c4ab4d978121ad83fd88c9b65297c54",
+    "src/arquivos.ts": "8fbca8266ce32109e6a748df143aaf54425670672d3ecbff6283cf8bd6f527f3",
+    "src/contratos.ts": "ad9d018cd32a3490e66c2f21bcb3cc91cc97fc020269313a2509c71ff9700524",
+    "src/main.ts": "50a972a70468c32b527ce7d571071325457d2f223769a8c407b7355d6246350e",
+    "src/nativo.ts": "81a40759b71a1bf62c1d894c795d3bc7845a6ab71487893f38bf50d81e9074e0",
+    "src/percurso.ts": "f440aa6fc92a5798286952ac7fbe5a89d2d2b5bc54ec3b39f7beb1892af2c3f5",
+    "test/iterator.test.ts": "37a5e0876bbfc34368ce0d0cba97c554350b3a5d722607779965ba6f30a4f233",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "3570bf2adbeb1002cae792c3b8040bddcb0c697def8371b2e35293d3242aa6bc",
+    "solution-stdout.txt": "4fa35e6b5139d8434851046bfcdbb4343ea6e6d937fa15694f1689376ec12f5d",
+    "tests.txt": "b2e7f0056a6d88af1822336076de2cd916d1a752d2ba997d4aaf46f2b83b6583"
+  }
+}

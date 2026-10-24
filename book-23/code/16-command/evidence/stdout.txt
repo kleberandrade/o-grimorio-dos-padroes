@@ -1,0 +1,7 @@
+Parcela consumida: disponível 8 | reservado 0 | forjado 4
+Antes da execução, histórico: 0
+Reserva de Davi: disponível 0 | reservado 8 | forjado 4
+Histórico: reservar 8
+Desfazer reserva: true
+Parcela intacta liberada: disponível 8 | reservado 0 | forjado 4
+Desfazer histórico vazio: false

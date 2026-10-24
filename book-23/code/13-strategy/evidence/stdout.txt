@@ -1,0 +1,5 @@
+espada em Corda do portão: inadequado | custo 0 | Fora do alcance de até 2 m.
+arco em Corda do portão: executado | custo 2 | disparo à distância
+magia em Selo reforçado: executado | custo 5 | pulso contra a resistência
+espada em Trava próxima: executado | custo 1 | golpe próximo
+Contexto preservado: true | Rima

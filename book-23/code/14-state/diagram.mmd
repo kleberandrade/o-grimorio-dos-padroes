@@ -1,0 +1,39 @@
+classDiagram
+    class Guerreiro {
+        -estado: Estado
+        -historico: RegistroAcao[]
+        +atacar() RegistroAcao
+        +descansar(condicao) RegistroAcao
+        +situacao()
+        +listarHistorico()
+    }
+    class Estado {
+        <<interface>>
+        +nome: string
+        +intervalosFuria: number
+        +atacar() Transicao
+        +descansar(condicao) Transicao
+    }
+    class Transicao {
+        +proximo: Estado
+        +executada: boolean
+        +efeito: string
+    }
+    class EstadoNormal
+    class EstadoFurioso {
+        +intervalosFuria: 1 ou 2
+    }
+    class EstadoExausto
+    Guerreiro --> Estado : delega ações
+    Estado <|.. EstadoNormal
+    Estado <|.. EstadoFurioso
+    Estado <|.. EstadoExausto
+    Estado ..> Transicao : devolve decisão
+    Transicao --> Estado : próximo
+    EstadoNormal ..> EstadoFurioso : golpe normal inicia 2
+    EstadoFurioso ..> EstadoFurioso : golpe furioso 2 para 1
+    EstadoFurioso ..> EstadoExausto : golpe furioso 1 para 0
+    EstadoExausto ..> EstadoNormal : repouso protegido completo
+    note for Guerreiro "Estado inicial injetável somente na construção; aplicação da transição privada em execução."
+    note for EstadoFurioso "Imutável. Descanso recusado preserva intervalos."
+    note for EstadoExausto "Ataque recusado. Sem proteção informada, descanso recusado."

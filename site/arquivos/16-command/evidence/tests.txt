@@ -1,0 +1,37 @@
+
+> grimorio-16-command@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-16-command@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-16-command@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ compensação acrescenta outro registro vinculado sem apagar aviso original (0.618417ms)
+✔ falha simulada da compensação mantém aviso e histórico; nova tentativa pode concluir (0.567ms)
+✔ repetição local da mesma instância é recusada, outra ordem pode emitir aviso igual (0.070792ms)
+✔ registros são protegidos e inválidos não produzem aviso ou compensação (0.057958ms)
+✔ executar reserva muda estado real e histórico; desfazer restitui a parcela intacta (1.439709ms)
+✔ histórico vazio retorna false sem modificar receptor (0.077333ms)
+✔ falta de estoque não produz efeito nem histórico; tentativa sem sucesso pode ser refeita (0.211458ms)
+✔ quantidades inválidas são recusadas sem efeitos e estoque inicial admite zero (0.101125ms)
+✔ repetir execução, reexecutar após undo e repetir undo são recusados sem duplicar efeito (0.079709ms)
+✔ undo usa a reserva específica, preservando outra reserva e forja posteriores (0.0805ms)
+✔ consumir 3 de uma reserva de 6 impede undo e mantém topo/evidência (0.065333ms)
+✔ consumir 6 de uma reserva de 6 impede undo e mantém topo/evidência (0.040625ms)
+✔ limite descarta entrada mais antiga, conserva seu efeito e perde undo pelo invocador (0.065833ms)
+✔ ordem LIFO desfaz duas parcelas e limites de histórico inválidos são recusados (0.094375ms)
+✔ token exige identidade e estoque de origem; copiar campos não fabrica uma reserva (0.064208ms)
+✔ forja recusa excesso e quantidade inválida sem consumir reserva (0.051541ms)
+✔ snapshots e histórico não dão acesso mutável ao estoque ou à pilha interna (0.045875ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 92.731583

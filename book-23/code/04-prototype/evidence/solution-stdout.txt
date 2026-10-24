@@ -1,0 +1,4 @@
+Armazenamento original: 20
+Armazenamento clone: 15
+Etiquetas original: Abrigo da luz
+Selo compartilhado: true

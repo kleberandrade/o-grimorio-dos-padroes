@@ -1,0 +1,39 @@
+classDiagram
+    class Mediador {
+        <<interface>>
+        +notificar(evento) Resultado
+    }
+    class ConselhoMediator {
+        -estado
+        -equipe
+        -despachos
+        +conectar(equipe)
+        +notificar(evento) Resultado
+        +snapshot()
+    }
+    class Barqueiros {
+        +pedirAbertura() Resultado
+        +confirmarAmarras(confirmadas) Resultado
+        +solicitarAmarras()
+        +snapshot()
+    }
+    class Cultivadores {
+        +confirmarInspecao(aprovada) Resultado
+        +solicitarInspecao()
+        +snapshot()
+    }
+    class Guarda {
+        +confirmarAutorizacao(concedida) Resultado
+        +solicitarAutorizacao()
+        +abrir()
+        +snapshot()
+    }
+    Mediador <|.. ConselhoMediator
+    Barqueiros --> Mediador : notifica pedido e amarras
+    Cultivadores --> Mediador : notifica inspeção
+    Guarda --> Mediador : notifica autorização
+    ConselhoMediator --> Cultivadores : solicita inspeção
+    ConselhoMediator --> Barqueiros : solicita amarras
+    ConselhoMediator --> Guarda : solicita autorização e abertura
+    note for ConselhoMediator "Uma composição, um pedido. Despacho seletivo, sem broadcast. Eventos fora da etapa são rejeitados."
+    note for Guarda "Só o caminho mediado exige pré-condições; método público não é fronteira de segurança."

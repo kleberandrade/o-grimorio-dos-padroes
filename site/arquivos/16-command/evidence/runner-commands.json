@@ -1,0 +1,68 @@
+[
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "16",
+      "install"
+    ],
+    "exit": 0,
+    "stdout": "\nadded 3 packages in 267ms\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "16",
+      "check"
+    ],
+    "exit": 0,
+    "stdout": "\n> grimorio-16-command@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-16-command@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-16-command@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ compensação acrescenta outro registro vinculado sem apagar aviso original (0.601791ms)\n✔ falha simulada da compensação mantém aviso e histórico; nova tentativa pode concluir (0.41175ms)\n✔ repetição local da mesma instância é recusada, outra ordem pode emitir aviso igual (0.092542ms)\n✔ registros são protegidos e inválidos não produzem aviso ou compensação (0.070708ms)\n✔ executar reserva muda estado real e histórico; desfazer restitui a parcela intacta (0.713875ms)\n✔ histórico vazio retorna false sem modificar receptor (0.054083ms)\n✔ falta de estoque não produz efeito nem histórico; tentativa sem sucesso pode ser refeita (0.187458ms)\n✔ quantidades inválidas são recusadas sem efeitos e estoque inicial admite zero (0.097208ms)\n✔ repetir execução, reexecutar após undo e repetir undo são recusados sem duplicar efeito (0.082708ms)\n✔ undo usa a reserva específica, preservando outra reserva e forja posteriores (0.078208ms)\n✔ consumir 3 de uma reserva de 6 impede undo e mantém topo/evidência (0.067125ms)\n✔ consumir 6 de uma reserva de 6 impede undo e mantém topo/evidência (0.045291ms)\n✔ limite descarta entrada mais antiga, conserva seu efeito e perde undo pelo invocador (0.07125ms)\n✔ ordem LIFO desfaz duas parcelas e limites de histórico inválidos são recusados (0.091542ms)\n✔ token exige identidade e estoque de origem; copiar campos não fabrica uma reserva (0.062667ms)\n✔ forja recusa excesso e quantidade inválida sem consumir reserva (0.052292ms)\n✔ snapshots e histórico não dão acesso mutável ao estoque ou à pilha interna (0.047416ms)\nℹ tests 17\nℹ suites 0\nℹ pass 17\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 84.697291\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "16",
+      "run"
+    ],
+    "exit": 0,
+    "stdout": "\n> grimorio-16-command@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-16-command@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-16-command@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nParcela consumida: disponível 8 | reservado 0 | forjado 4\nAntes da execução, histórico: 0\nReserva de Davi: disponível 0 | reservado 8 | forjado 4\nHistórico: reservar 8\nDesfazer reserva: true\nParcela intacta liberada: disponível 8 | reservado 0 | forjado 4\nDesfazer histórico vazio: false\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "16",
+      "solution"
+    ],
+    "exit": 0,
+    "stdout": "\n> grimorio-16-command@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-16-command@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-16-command@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nFalha simulada antes de registrar compensação.\nApós falha: registros 1 | histórico 1\n1: aviso | referência nenhuma | Reserva liberada para a ponte.\n2: compensacao | referência 1 | Desconsidere o aviso referenciado.\nApós compensação: registros 2 | histórico 0\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "16",
+      "capture"
+    ],
+    "exit": 0,
+    "stdout": "Evidências reais gravadas em code/16-command/evidence.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "16",
+      "verify"
+    ],
+    "exit": 0,
+    "stdout": "Fontes e evidências íntegras; testes e saídas reproduzidos.\n",
+    "stderr": ""
+  }
+]

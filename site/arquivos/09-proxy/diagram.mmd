@@ -1,0 +1,39 @@
+classDiagram
+direction TB
+class Sala {
+  <<interface>>
+  +entrar(Visitante) ResultadoEntrada
+}
+class SalaReal {
+  -EntradaPermitida[] entradas
+  +entrar(Visitante) EntradaPermitida
+  +listarEntradas() EntradaPermitida[]
+}
+class ProxyDeProtecao {
+  -Sala sala
+  -PoliticaAcesso politica
+  +entrar(Visitante) ResultadoEntrada
+}
+class Visitante {
+  <<interface>>
+  +string nome
+  +boolean mandatoValido
+}
+class PoliticaAcesso {
+  <<function type>>
+}
+class ResultadoEntrada {
+  <<union>>
+  +permitidaOuNegada estado
+  +string visitante
+}
+Sala <|.. SalaReal
+Sala <|.. ProxyDeProtecao
+ProxyDeProtecao --> Sala : delega somente se permitido
+ProxyDeProtecao ..> PoliticaAcesso : recebe funcao injetada
+Sala ..> Visitante
+Sala ..> ResultadoEntrada
+note for ProxyDeProtecao "Negativa nao chama o real. Positiva devolve o resultado real sem substitui-lo."
+note for Visitante "Booleano didatico fornecido, sem autenticacao de identidade."
+note for PoliticaAcesso "Funcao injetada: Visitante para DecisaoAcesso. Nao e classe concreta."
+note for SalaReal "Acesso direto ainda permite contornar o proxy deste modelo."

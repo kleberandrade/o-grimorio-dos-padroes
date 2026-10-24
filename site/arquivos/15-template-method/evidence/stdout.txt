@@ -1,0 +1,6 @@
+Lotes de Ema
+concluido: prepararIngredientes -> conjurarEncantamento -> selar
+Encantamento: fogo | selo: selo de fogo
+concluido: prepararIngredientes -> conjurarEncantamento -> selar
+Encantamento: gelo | selo: selo de gelo
+Falha em prepararIngredientes: O lote requer ingredientes. | selo: null

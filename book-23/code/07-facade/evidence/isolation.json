@@ -1,0 +1,45 @@
+{
+  "scope": "copied project only; no adjacent projects or repository scripts",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 234ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-07-facade@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-07-facade@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-07-facade@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ decisão diplomática negativa não aciona preparação (0.547209ms)\n✔ autorização externa não transforma preparação parcial em pronta (0.401875ms)\n✔ a fachada coordena dados, efeitos e dependências pela operação de alto nível (0.7165ms)\n✔ falta de peça devolve parcial e preserva refeições e mapa sem chamar guarda (0.070334ms)\n✔ falha do ferreiro é explícita e não desfaz a cozinha nem impede consulta de mapa (0.07025ms)\n✔ falha do arquivo mantém reserva já consumida e deixa guarda pendente (0.06025ms)\n✔ falha da cozinha não bloqueia preparativos independentes, mas resultado continua parcial (0.054125ms)\n✔ uma etapa pode alterar estado e depois falhar, sem desfazer o efeito já ocorrido (0.062667ms)\n✔ guarda recusa mapa divergente e resultado relata sua falha sem rollback (0.059666ms)\n✔ zero refeições ignora cozinha explicitamente e pode concluir as demais etapas (0.046792ms)\n✔ repetir a operação não é idempotente nem uma retentativa automática (0.064708ms)\n✔ pedido com refeições -1 é recusado antes dos efeitos (0.182417ms)\n✔ pedido com refeições 0.5 é recusado antes dos efeitos (0.038458ms)\n✔ pedido com refeições NaN é recusado antes dos efeitos (0.03325ms)\n✔ pedido com refeições Infinity é recusado antes dos efeitos (0.024625ms)\n✔ pedido com refeições 9007199254740992 é recusado antes dos efeitos (0.021375ms)\n✔ nomes vazios são recusados e espaços são normalizados antes dos subsistemas (0.054292ms)\n✔ subsistemas continuam disponíveis sem fachada quando a tarefa é direta (0.288458ms)\n✔ resultado é congelado e consultas de efeitos são cópias defensivas (0.116542ms)\nℹ tests 19\nℹ suites 0\nℹ pass 19\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 86.147583\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "dist/src/main.js"
+      ],
+      "exit": 0,
+      "stdout": "Com peça: pronta\ncozinha=concluida | arsenal=concluida | arquivo=concluida | guarda=concluida\nEfeitos: refeições 4 | reservas 1 | mapas 1 | passagens 1\nSem peça: parcial\ncozinha=concluida | arsenal=pendente | arquivo=concluida | guarda=pendente\nEfeitos: refeições 4 | reservas 0 | mapas 1 | passagens 0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "dist/solution/main.js"
+      ],
+      "exit": 0,
+      "stdout": "Visita sem autorização: nao-autorizada\nVisita autorizada: preparação parcial\n",
+      "stderr": ""
+    }
+  ]
+}

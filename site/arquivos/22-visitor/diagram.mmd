@@ -1,0 +1,39 @@
+classDiagram
+    class MembroGuilda {
+        <<interface>>
+        +nome: string
+        +aceitar(visitante) R
+    }
+    class Visitante {
+        <<interface generic R>>
+        +visitarGuerreiro(guerreiro) R
+        +visitarMago(mago) R
+        +visitarArqueiro(arqueiro) R
+    }
+    class Guerreiro {
+        +nome
+        +forca
+        +aceitar(visitante) R
+    }
+    class Mago {
+        +nome
+        +mana
+        +aceitar(visitante) R
+    }
+    class Arqueiro {
+        +nome
+        +pontaria
+        +aceitar(visitante) R
+    }
+    class CalcularCapacidade
+    class CalcularCusto
+    MembroGuilda <|.. Guerreiro
+    MembroGuilda <|.. Mago
+    MembroGuilda <|.. Arqueiro
+    Visitante <|.. CalcularCapacidade
+    Visitante <|.. CalcularCusto
+    Guerreiro ..> Visitante : visitarGuerreiro this
+    Mago ..> Visitante : visitarMago this
+    Arqueiro ..> Visitante : visitarArqueiro this
+    note for Visitante "R é parâmetro de retorno. Nas duas operações de produção é number."
+    note for MembroGuilda "Elementos preparados previamente com aceitar. Quarto tipo existe somente na solução ampliada."

@@ -1,0 +1,31 @@
+{
+  "capturedAt": "2026-10-23T01:12:51.186Z",
+  "command": "node book-23/scripts/projetos.mjs 13-strategy capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "d00c75e8f2a9d85cc8ec6ac1d85c21cc4b94895a049cd5bd027514152787f5f6",
+    "diagram.mmd": "9387f7d1cabc1d3f67deae49369e4e50d46e3b42818d114732da70ab31632d54",
+    "exercise/README.md": "9be90f56dd555d9236e5374028af5202ae6d898dbdacf82f64bd978acb90f7de",
+    "package-lock.json": "523308c22a54bb2c1fb4a6b4d0c3ad6474449c746973f61f4ae67a26b7fb4c9a",
+    "package.json": "989205ac8c7db78dcaa258253c53ea21e3b7847ee7421350bbee81a1f3792bcb",
+    "solution/funcional.test.ts": "6a6000fa46efda99721672cec584f312969f49ba8e76ea00b21133e9c4e437cb",
+    "solution/funcional.ts": "ac6694fb55e76044efbb47c2bc02bc7fe0547754c5095f2810363681f50abc06",
+    "solution/main.ts": "62ab2db6d3646a54299be87047fc3b331fccf66588fb8b92241d4d5b12270738",
+    "src/combatente.ts": "aa065e15f289eb52935f20314a0f55fb7080c014432ced9572cd123bb6f30a3b",
+    "src/contratos.ts": "a62406e8c6814e7398b94ac604ba6f30258b31252eeed338fe88ff44a3580c2e",
+    "src/estrategias.ts": "0e0bfbdf04fd3f27b2a29cc779cef89bf0797e8d155afd090c322bce2ca9caba",
+    "src/main.ts": "9bbe2ae3bdcdf5a264b417b496748b79136e84e102c81111dbc5852d0515ffcb",
+    "src/resultado.ts": "52e668f4c8ce11f0bf79ff583a581f090230310924105ba050105d504bfcc4fc",
+    "test/taticas.test.ts": "059641569ae60a49122ee689e1c080764caabc4f568132db98083af749c84096",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "93869089f7a055bad83d808abb59be37b576cbc4d5a10c1b387a8b3b1370a1ee",
+    "solution-stdout.txt": "7595c5131d7884612951d0a621098aa177e9ddbcae39e0f1bac740958edfa619",
+    "tests.txt": "f66e47858c6a1494010f5c2080c9ac7f6e910971bf6f5cb3b7fe1beab6ffcf88"
+  }
+}

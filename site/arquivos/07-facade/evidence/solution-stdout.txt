@@ -1,0 +1,2 @@
+Visita sem autorização: nao-autorizada
+Visita autorizada: preparação parcial

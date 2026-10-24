@@ -1,0 +1,3 @@
+brasa | Lâmina de brasa + Escudo de brasa | intensidade 3 | compatível
+geada | Lâmina de geada + Escudo de geada | intensidade 3 | compatível
+Mistura rejeitada: Afinidades incompatíveis: brasa / geada.

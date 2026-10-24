@@ -1,0 +1,31 @@
+classDiagram
+direction TB
+class Unidade {
+  <<interface>>
+  +executarOrdem(ordem) EventoOrdem[]
+}
+class Soldado {
+  -string nome
+  +executarOrdem(ordem) EventoOrdem[]
+}
+class Formacao {
+  -string nome
+  -NoDaArvore[] membros
+  +adicionar(NoDaArvore)
+  +listarMembros() NoDaArvore[]
+  +executarOrdem(ordem) EventoOrdem[]
+  #desvincularMembro(NoDaArvore) boolean
+}
+class EventoOrdem {
+  <<interface>>
+  +formacaoOuSoldado tipo
+  +string nome
+  +string ordem
+}
+Unidade <|.. Soldado
+Unidade <|.. Formacao
+Formacao o-- "0..*" Unidade : filhos do modelo
+Unidade ..> EventoOrdem
+note for Formacao "Gestao aceita Soldado ou Formacao. Cada objeto tem no maximo um pai. Auto, ancestral e duplicado recusados."
+note for Soldado "Folha sem adicionar, remover ou filhos."
+note for EventoOrdem "Pre-ordem: grupo antes dos filhos; irmaos na insercao. Relatorio congelado."

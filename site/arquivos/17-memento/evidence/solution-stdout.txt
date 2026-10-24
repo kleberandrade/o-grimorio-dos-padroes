@@ -1,0 +1,5 @@
+Edição pendente: confirme um checkpoint antes de navegar.
+Undo: B
+Redo: C
+Nova ramificação: D | redo: false
+Checkpoints: Inicial, B, D

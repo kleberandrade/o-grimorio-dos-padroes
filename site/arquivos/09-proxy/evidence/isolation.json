@@ -1,0 +1,46 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 141ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-09-proxy@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-09-proxy@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-09-proxy@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ virtual não cria antes do uso e reutiliza uma instância nas operações seguintes (0.334834ms)\n✔ virtualização sozinha não adiciona política de proteção (0.327875ms)\n✔ carregador que falha é propagado; próxima operação explícita pode tentar de novo (0.177333ms)\n✔ falha na operação depois da carga não descarta instância nem recarrega (0.064875ms)\n✔ negativa não chama o serviço real (0.5575ms)\n✔ permissão devolve o resultado real sem substituí-lo e chama uma vez (0.060166ms)\n✔ a política é injetada e decide explicitamente, sem regra oculta baseada no nome (0.055ms)\n✔ o real registra apenas as entradas que chegam a ele, com sequência local (0.059959ms)\n✔ chamar o real diretamente permite contornar este proxy didático (0.046166ms)\n✔ erro da política é propagado e não aciona o real (0.133625ms)\n✔ erro do serviço permitido é propagado sem fabricar entrada ou negativa (0.047542ms)\n✔ nome vazio falha antes da política e nome válido é normalizado sem alterar entrada (0.090292ms)\n✔ resultados são congelados e lista devolvida não permite remover histórico interno (0.05975ms)\n✔ serviço com controle próprio implementa o mesmo Subject sem real desprotegido exposto (0.093458ms)\nℹ tests 14\nℹ suites 0\nℹ pass 14\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 84.452375\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-09-proxy@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-09-proxy@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-09-proxy@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nNobre sem mandato: negada\nEntradas no real após negativa: 0\nMecânico com mandato: permitida\nEntradas no real após permissão: 1\nAcesso direto ao real sem mandato: permitida\nEntradas no real após acesso direto: 2\nServiço com controle próprio sem mandato: negada\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-09-proxy@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-09-proxy@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-09-proxy@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nCriações antes da operação: 0\nCriações após primeira operação: 1\nCriações após segunda operação: 1\nSegunda entrada: permitida | registro 2\n",
+      "stderr": ""
+    }
+  ]
+}

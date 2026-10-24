@@ -1,0 +1,5 @@
+Ficha torre: Ivo | Capa contra vento, Corda
+Ficha galeria: Bia | Manto impermeável, Lanterna
+Ficha anterior preservada: Ivo | missão torre
+Relatório: Ivo | resgatista | vida 100 | missão torre | Capa contra vento, Corda
+Ficha incompleta rejeitada: Proteção obrigatória para torre: vento.

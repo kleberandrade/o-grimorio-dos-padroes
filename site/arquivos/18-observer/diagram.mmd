@@ -1,0 +1,35 @@
+classDiagram
+    class Oraculo {
+        -inscritos: Map
+        -emitindo: boolean
+        +inscrever(nome, observar) Desligar
+        +numeroInscricoes() number
+        +emitir(aviso) Relatorio
+    }
+    class Observador {
+        <<callback>>
+    }
+    class Desligar {
+        <<callback>>
+    }
+    class Inscricao {
+        +nome: string
+        +observar: Observador
+    }
+    class Aviso {
+        +mensagem: string
+        +local: string
+    }
+    class Relatorio {
+        +aviso: Aviso
+        +reacoes
+    }
+    Oraculo --> Inscricao : mantém mapa e snapshot
+    Inscricao --> Observador : referência à função
+    Oraculo ..> Desligar : cria handle por inscrição
+    Oraculo ..> Relatorio : devolve concluídos e falhos
+    Relatorio --> Aviso : cópia congelada
+    Observador ..> Aviso : recebe cópia da rodada
+    note for Oraculo "Ordem de inscrição. Mudanças durante callback afetam próxima rodada. Reentrância no mesmo Subject é recusada."
+    note for Desligar "Função sem argumentos, retorna boolean. Handle antigo não remove reinscrição."
+    note for Observador "Função de Aviso para void, síncrona. Exceção é coletada, demais continuam. Não há espera de Promise."

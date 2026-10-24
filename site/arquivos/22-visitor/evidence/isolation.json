@@ -1,0 +1,57 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 157ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-22-visitor@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-22-visitor@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-22-visitor@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ versões ampliadas dos DOIS visitantes calculam o quarto tipo e os totais (0.361917ms)\n✔ aceitar do curandeiro despacha somente visitarCurandeiro (0.3475ms)\n✔ visitas antigas preservam fórmulas e curandeiro obedece as mesmas fronteiras de entrada (0.142958ms)\n✔ aceitar despacha uma vez para o método tipado correto e entrega a identidade do elemento (0.618584ms)\n✔ capacidade e abastecimento retornam operações numéricas distintas, agregáveis e exatas (0.097709ms)\n✔ nova operação funciona sobre os mesmos elementos já preparados, sem editar seu código (0.060417ms)\n✔ alternativa union sobre poucos casos calcula os mesmos resultados sem Visitor (0.0855ms)\n✔ valores fronteira zero/cem têm resultado definido sem deduzir recursos ou distribuir estoque (0.063542ms)\n✔ nomes e índices inválidos são recusados, inclusive nos dados da alternativa (0.209ms)\n✔ dados públicos legítimos ficam congelados; chamadas fornecidas preservam membros e array (0.077125ms)\n✔ totalizador recusa número de extensão fora do contrato e overflow sem declarar pureza universal (0.078667ms)\n✔ erro de visitante externo é propagado; efeito externo anterior não é revertido (0.070583ms)\nℹ tests 12\nℹ suites 0\nℹ pass 12\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 90.509875\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-22-visitor@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-22-visitor@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-22-visitor@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nAlternativa union: capacidade 12\nIvo: capacidade 12 | custo 16\nLume: capacidade 12 | custo 13\nCora: capacidade 10 | custo 20\nTotal de capacidade: 34\nTotal de abastecimento: 49\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-22-visitor@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-22-visitor@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-22-visitor@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nIvo: capacidade 12 | custo 16\nLume: capacidade 12 | custo 13\nCora: capacidade 10 | custo 20\nNeve: capacidade 6 | custo 17\nQuatro tipos: capacidade 40 | abastecimento 66\n",
+      "stderr": ""
+    }
+  ],
+  "stdoutComparisons": {
+    "stdout.txt": {
+      "equal": true,
+      "sha256": "cc74a4654359aeb5b344295f7d727213e0f82268282749d170feee412ed5df4b"
+    },
+    "solution-stdout.txt": {
+      "equal": true,
+      "sha256": "90b317cd051847b6b6d196785b9779a744102c9915f44fe0fb0ac1f7b838cc44"
+    }
+  },
+  "recordedAt": "2026-10-23T05:04:58.719486+00:00"
+}

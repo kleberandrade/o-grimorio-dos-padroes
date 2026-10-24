@@ -1,0 +1,44 @@
+
+> grimorio-03-builder@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-03-builder@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-03-builder@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ nova receita adiciona proteção especial sem mudar o contrato de etapas (0.615084ms)
+✔ a mesma extensão produz relatório e não altera a receita original (0.08425ms)
+✔ receita torre entrega ficha completa com proteção exigida (0.671709ms)
+✔ a mesma receita produz relatório em outra representação (0.075583ms)
+✔ reutilizar a receita galeria limpa etapas e não altera a ficha anterior (0.074708ms)
+✔ receita galeria também usa o relatório sem alterar a sequência (0.059042ms)
+✔ montagem manual funciona sem Director e normaliza identidade (0.054583ms)
+✔ identidade ausente impede build (0.161083ms)
+✔ classe vazia impede build (0.042042ms)
+✔ vida undefined impede entrega (0.044583ms)
+✔ vida 0 impede entrega (0.038375ms)
+✔ vida -1 impede entrega (0.057916ms)
+✔ vida NaN impede entrega (0.197917ms)
+✔ vida Infinity impede entrega (0.072792ms)
+✔ missão ausente impede entrega (0.099833ms)
+✔ proteção ausente impede entrega e pode ser corrigida no mesmo rascunho (0.081625ms)
+✔ proteção de torre não satisfaz missão galeria (0.406166ms)
+✔ equipamento sem nome é rejeitado mesmo declarando a proteção (0.075166ms)
+✔ entrada mutável é copiada antes do build, incluindo a lista aninhada (0.053708ms)
+✔ build mantém rascunho, mas devolve snapshots independentes (0.082375ms)
+✔ ficha e níveis aninhados bloqueiam mutação em execução (0.084708ms)
+✔ reiniciar explícito remove os obrigatórios do rascunho (0.033375ms)
+✔ relatório rejeita rascunho incompleto, sem texto que pareça pronto (0.069292ms)
+✔ objeto de opções direto produz a mesma ficha validada sem Builder (0.04475ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 89.749958

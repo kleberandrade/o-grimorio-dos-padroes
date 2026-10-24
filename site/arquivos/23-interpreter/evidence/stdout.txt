@@ -1,0 +1,4 @@
+Comando simples: L
+Composição: LFIL | calor 1 | frio 1 | luz 2
+Recusado: SIMBOLO | posição 1 | Símbolo não reconhecido
+Efeitos do programa inválido: 0

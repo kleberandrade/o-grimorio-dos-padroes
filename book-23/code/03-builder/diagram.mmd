@@ -1,0 +1,53 @@
+classDiagram
+direction TB
+class EtapasDeExpedicao {
+  <<interface>>
+  +reiniciar()
+  +definirIdentidade(nome, classe)
+  +definirVida(vida)
+  +definirMissao(missao)
+  +adicionarEquipamento(Equipamento)
+}
+class DiretorDeResgate {
+  +prepararTorre(EtapasDeExpedicao, nome)
+  +prepararGaleria(EtapasDeExpedicao, nome)
+}
+class ConstrutorBase {
+  <<abstract>>
+  -DadosEmConstrucao dados
+  +reiniciar()
+  +definirIdentidade(nome, classe)
+  +definirVida(vida)
+  +definirMissao(missao)
+  +adicionarEquipamento(Equipamento)
+  #concluirFicha() FichaDePersonagem
+}
+class PersonagemBuilder {
+  +build() FichaDePersonagem
+}
+class RelatorioBuilder {
+  +build() string
+}
+class FichaDePersonagem {
+  <<interface>>
+  +string nome
+  +string classe
+  +number vida
+  +Missao missao
+  +Equipamento[] equipamentos
+}
+class Equipamento {
+  <<interface>>
+  +string nome
+  +string[] protecoes
+}
+EtapasDeExpedicao <|.. ConstrutorBase
+ConstrutorBase <|-- PersonagemBuilder
+ConstrutorBase <|-- RelatorioBuilder
+DiretorDeResgate ..> EtapasDeExpedicao : mesmas etapas por receita
+PersonagemBuilder ..> FichaDePersonagem : build devolve snapshot
+FichaDePersonagem *-- Equipamento
+EtapasDeExpedicao ..> Equipamento
+note for ConstrutorBase "Copia entrada. Valida ao concluir. Build não reseta; reiniciar é explícito."
+note for RelatorioBuilder "Mesma receita; resultado textual de conferência."
+note for FichaDePersonagem "Ficha, itens e listas congelados em execução. Configuração, não pessoa."

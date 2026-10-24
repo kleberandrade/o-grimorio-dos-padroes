@@ -1,0 +1,32 @@
+{
+  "capturedAt": "2026-10-23T01:53:46.543Z",
+  "command": "node book-23/scripts/projetos.mjs 15-template-method capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "3da6f0de50189a2b64c7369df48fb1aebf59997a9634cfbbfa55fe3634abb13d",
+    "diagram.mmd": "4ea223a50e7f4b9e30b9ea73b012630fbf2c17df1f893aa61fbf7a3e7312f771",
+    "exercise/README.md": "4fda5f87efca935859aa8100463bb35b29b2392a90a0c4cd564df1fd2e434572",
+    "notas-tecnicas.md": "a0aefe2dad7a2e75bfb4157967b59d1929209f44e4f101115a180b41aea6452c",
+    "package-lock.json": "03de2de9e414ada82f088671cc88e6892a1e2f38aa952778a913ba3b67e373d7",
+    "package.json": "ea6fbc82f1dd3841cb0e92b4be239cae456fe392c7e5dbe341852bfdd9a13cb0",
+    "solution/hook.test.ts": "8eab29b7237041289e44d97c3bb50c9d4ee87ffd4fc64a5ac34e3a9abd6da26d",
+    "solution/inspecao.ts": "512a3ca5dce2f5192f1b51c2507b1ae208ac8605ce78fa20f898327787ec9ebe",
+    "solution/main.ts": "b4f66d4bfda064daf34be2786cf8df3e6456151cda1a9e895af32f208b97c273",
+    "solution/ritual-com-hook.ts": "3785971050f35dd8f667889048cbace57ee0460e5fef568e41fb6ac9e5b37e9e",
+    "src/contratos.ts": "b1f5bb8d1043cae74a7a170af9502974c90a90ce4698b94809749e10e903b769",
+    "src/funcao.ts": "036a50807a19181caf154fb719680d160a6d077cf143bec6c78287d207c891ce",
+    "src/main.ts": "0566873ffef6137b3d9cdb3971c8b034dc6e2fc48bf5b933abfab9aa5291b66f",
+    "src/ritual.ts": "021127550bf98b8b082651247fad2d7258d779726f609dcf7a9b391634235dd5",
+    "test/ritual.test.ts": "d659a8928495f5772172f1989a14741c05aaf0cd09eaf792d0ff94d1cc58945b",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "28658618e66d540a0881099b221ea17d883a600a28309257f70d5138e26df379",
+    "solution-stdout.txt": "6202762c9aa2b89909b8ad7d26c968d606e726e5df069f196ce031c473f43310",
+    "tests.txt": "1063d6298f4daf2b70fd4bbdb3ca7b02cb5f411892701ca9f0fbeaa282eabf71"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 248ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-14-state@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-14-state@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-14-state@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ estado defensivo inicial faz contra-ataque e retoma o ciclo normal sem alterar outros estados (1.161125ms)\n✔ defensivo mantém guarda sem proteção e pode encerrar com descanso protegido completo (0.068125ms)\n✔ ciclo padrão: golpe normal inicia dois intervalos, consumidos por dois golpes furiosos (0.808792ms)\n✔ exaustão recusa ataques repetidos sem registrar sucesso ou alterar estado (0.097625ms)\n✔ descanso protegido completo recupera exausto, sem proteção não recupera (0.066125ms)\n✔ tentar descansar em fúria não consome os intervalos nem muda o estado (0.063083ms)\n✔ normal descansa com proteção sem entrar em fúria; sem proteção recusa (0.047916ms)\n✔ dois contextos podem receber o mesmo EstadoFurioso imutável sem dividir contador mutável (0.046167ms)\n✔ snapshot e histórico não expõem mutação, e não existe setEstado público (0.05575ms)\n✔ erro de estado externo é propagado sem registrar ação ou mudar o estado interno (0.147208ms)\n✔ alternativa de tabela reproduz todas as ações dos estados fornecidos (0.123208ms)\n✔ nome vazio é recusado (0.087833ms)\nℹ tests 12\nℹ suites 0\nℹ pass 12\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 85.133166\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-14-state@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-14-state@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-14-state@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nVigia: Dário\natacar: executada | normal -> furioso | fúria restante 2\natacar: executada | furioso -> furioso | fúria restante 1\natacar: executada | furioso -> exausto | fúria restante 0\natacar: recusada | exausto -> exausto | fúria restante 0\ndescansar: recusada | exausto -> exausto | fúria restante 0\ndescansar: executada | exausto -> normal | fúria restante 0\nAtaques executados no histórico: 3\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-14-state@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-14-state@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-14-state@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nDefensivo sem proteção: recusada | defensivo\nContra-ataque: executada | defensivo -> normal\nCiclo normal retomado: furioso | fúria restante 2\n",
+      "stderr": ""
+    }
+  ],
+  "stdoutComparisons": {
+    "stdout.txt": {
+      "equal": true,
+      "sha256": "757138273eb7e3f0bf0e39cf3f24f90a23340e3803d2830f3ac7b8b33e340745"
+    },
+    "solution-stdout.txt": {
+      "equal": true,
+      "sha256": "ccb61bb59c7869ecbec78ff4f461225dd13ae44ef34cb6c66f40bc6dd64d46b1"
+    }
+  },
+  "recordedAt": "2026-10-23T01:34:41.663437+00:00"
+}

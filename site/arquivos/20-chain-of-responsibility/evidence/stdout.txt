@@ -1,0 +1,10 @@
+Responsável conhecido, chamada direta: tratado
+passagem: negado | responsável: Regência
+Percurso: Guarda=naoTratado -> Conselheira=naoTratado -> Regência=negado
+Galeria interna interditada; requer outro pedido para rota alternativa.
+passagem: tratado | responsável: Guarda
+Percurso: Guarda=tratado
+Passagem pela Porta dos Carros autorizada no modelo.
+audiencia: naoTratado | responsável: nenhum
+Percurso: Guarda=naoTratado -> Conselheira=naoTratado -> Regência=naoTratado
+Nenhum elo responsável nesta cadeia.

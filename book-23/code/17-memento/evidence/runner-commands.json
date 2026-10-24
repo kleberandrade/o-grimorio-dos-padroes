@@ -1,0 +1,68 @@
+[
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "17",
+      "install"
+    ],
+    "exit": 0,
+    "stdout": "\nadded 3 packages in 275ms\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "17",
+      "check"
+    ],
+    "exit": 0,
+    "stdout": "\n> grimorio-17-memento@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-17-memento@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-17-memento@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ checkpoint inicial, confirmação explícita, undo e redo restauram estados completos (1.16975ms)\n✔ edição pendente recusa navegação inclusive nas bordas, sem perder texto ou mover cursor (0.514792ms)\n✔ nova edição confirmada após undo elimina ramificação futura, não antes da confirmação (0.120958ms)\n✔ limite inclui atual, poda mais antigo e reajusta cursor; limite um não permite undo (0.082792ms)\n✔ confirmar sem edição não duplica ponto; valores iguais escritos de novo ficam pendentes (0.066ms)\n✔ rótulo/limite inválidos e mutação de listagem não alteram cursor ou estado (0.085291ms)\n✔ restaurar recupera exatamente conteúdo, campo aninhado e lista, perdendo edições posteriores (1.173792ms)\n✔ entrada é copiada; restaurar, editar e restaurar o MESMO token preserva a captura (0.100375ms)\n✔ visões públicas congeladas não alteram estado ativo ou captura (0.085416ms)\n✔ token é opaco em execução: sem campos, símbolos, protótipo ou getter de estado (0.057791ms)\n✔ tokens de outro diário, copiados, falsificados e serializados são recusados sem mudança (0.220292ms)\n✔ guardião só guarda tokens e rótulos mínimos; limite poda mais antigo sem restaurar (0.115083ms)\n✔ índices, limites e rótulos inválidos são recusados; listagem não altera histórico (0.094125ms)\n✔ porta é wrapper real sem métodos de leitura/edição do diário, não só um cast estático (0.072292ms)\n✔ marca do checkpoint distingue nova edição com valores iguais de igualdade profunda (0.072916ms)\nℹ tests 15\nℹ suites 0\nℹ pass 15\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 87.920959\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "17",
+      "run"
+    ],
+    "exit": 0,
+    "stdout": "\n> grimorio-17-memento@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-17-memento@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-17-memento@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nValor direto: Rascunho posterior. -> Anotação simples inicial.\nAntes: Anotação pessoal posterior.\nGuardião: Depoimento inicial\nCampos no token: 0\nRestaurado: A testemunha indicou o arquivo norte.\nContexto restaurado: Chronoria | depoimento\nCópia separada: Anotação pessoal posterior.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "17",
+      "solution"
+    ],
+    "exit": 0,
+    "stdout": "\n> grimorio-17-memento@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-17-memento@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-17-memento@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nEdição pendente: confirme um checkpoint antes de navegar.\nUndo: B\nRedo: C\nNova ramificação: D | redo: false\nCheckpoints: Inicial, B, D\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "17",
+      "capture"
+    ],
+    "exit": 0,
+    "stdout": "Evidências reais gravadas em code/17-memento/evidence.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "book-23/scripts/projetos.mjs",
+      "17",
+      "verify"
+    ],
+    "exit": 0,
+    "stdout": "Fontes e evidências íntegras; testes e saídas reproduzidos.\n",
+    "stderr": ""
+  }
+]

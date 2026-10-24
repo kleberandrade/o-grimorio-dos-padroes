@@ -1,0 +1,32 @@
+classDiagram
+    class Ritual {
+        <<abstract>>
+        +realizar(ingredientes) ResultadoRitual
+        #prepararIngredientes(ingredientes)
+        #conjurarEncantamento(ingredientes)*
+        #selar(encantamento)
+    }
+    class RitualFogo {
+        #conjurarEncantamento(ingredientes)
+    }
+    class RitualGelo {
+        #conjurarEncantamento(ingredientes)
+    }
+    class ResultadoRitual {
+        +status
+        +lote
+        +etapasConcluidas
+    }
+    class Lote {
+        +ingredientesPreparados
+        +encantamento
+        +selo
+    }
+    Ritual <|-- RitualFogo
+    Ritual <|-- RitualGelo
+    Ritual ..> ResultadoRitual : devolve sucesso ou falha parcial
+    ResultadoRitual --> Lote : snapshot
+    note for Ritual "realizar chama preparar, conjurar, selar. Uma falha interrompe os passos seguintes. Não existe final em TypeScript."
+    note for ResultadoRitual "Falha acrescenta etapaFalha e motivo. Sem selo quando a etapa não termina."
+    note for RitualFogo "Fogo: aquecimento modelado."
+    note for RitualGelo "Gelo: resfriamento modelado. Hook existe somente na versão do exercício."

@@ -1,0 +1,42 @@
+classDiagram
+direction TB
+class FachadaPreparacao {
+  -Subsistemas subsistemas
+  +prepararMissao(PedidoPreparacao) ResultadoPreparacao
+}
+class Cozinha {
+  <<interface>>
+  +prepararRefeicoes(missao, quantidade)
+}
+class Arsenal {
+  <<interface>>
+  +reservarPeca(missao, peca) boolean
+}
+class Arquivo {
+  <<interface>>
+  +buscarMapa(rota) Mapa
+}
+class Guarda {
+  <<interface>>
+  +prepararPassagem(missao, rota, Mapa)
+}
+class ResultadoPreparacao {
+  <<interface>>
+  +prontaOuParcial estado
+  +EtapaPreparacao[] etapas
+}
+class EtapaPreparacao {
+  <<interface>>
+  +string nome
+  +estadoDaEtapa estado
+  +string detalhe
+}
+FachadaPreparacao --> Cozinha : solicita refeicoes
+FachadaPreparacao --> Arsenal : reserva peca
+FachadaPreparacao --> Arquivo : consulta mapa
+FachadaPreparacao --> Guarda : so com reserva e mapa
+FachadaPreparacao ..> ResultadoPreparacao
+ResultadoPreparacao *-- EtapaPreparacao
+note for FachadaPreparacao "Ordem desta operacao: cozinha, arsenal, arquivo, guarda. Falha parcial nao desfaz efeitos."
+note for EtapaPreparacao "concluida, falhou, pendente ou ignorada. Falhou nao garante ausencia de efeitos."
+note for Guarda "Prepara passagem no simulador; nao decide acordo diplomatico."

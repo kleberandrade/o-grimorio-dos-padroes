@@ -1,0 +1,45 @@
+{
+  "scope": "copied project only; no adjacent projects or repository scripts",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 236ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-02-abstract-factory@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-02-abstract-factory@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-02-abstract-factory@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ a terceira família coopera com o cliente existente sem alterar seus contratos (0.946666ms)\n✔ a terceira família mantém a rejeição de mistura e intensidade inválida (0.185542ms)\n✔ brasa: produtos cooperam no mesmo contrato de ensaio (0.640667ms)\n✔ geada: produtos cooperam no mesmo contrato de ensaio (0.066625ms)\n✔ trocar a fábrica troca a família completa sem alterar o cliente (0.118666ms)\n✔ arma de brasa e proteção de geada são rejeitadas explicitamente (0.174417ms)\n✔ a mistura inversa também é rejeitada (0.053958ms)\n✔ o contrato estático da fábrica permite implementação incoerente; o ensaio rejeita em runtime (0.052709ms)\n✔ intensidade 0 é rejeitada nas duas famílias (0.053ms)\n✔ intensidade -1 é rejeitada nas duas famílias (0.045875ms)\n✔ intensidade NaN é rejeitada nas duas famílias (0.047791ms)\n✔ intensidade Infinity é rejeitada nas duas famílias (0.075833ms)\n✔ proteção verifica intensidade também em pulso criado fora de uma arma (0.083459ms)\n✔ pulso é um valor independente que preserva intensidade fracionária válida (0.172375ms)\nℹ tests 14\nℹ suites 0\nℹ pass 14\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 92.484667\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "dist/src/main.js"
+      ],
+      "exit": 0,
+      "stdout": "brasa | Lâmina de brasa + Escudo de brasa | intensidade 3 | compatível\ngeada | Lâmina de geada + Escudo de geada | intensidade 3 | compatível\nMistura rejeitada: Afinidades incompatíveis: brasa / geada.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "dist/solution/main.js"
+      ],
+      "exit": 0,
+      "stdout": "vento | Lâmina de vento + Escudo de vento | intensidade 3 | compatível\n",
+      "stderr": ""
+    }
+  ]
+}

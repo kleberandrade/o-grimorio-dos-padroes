@@ -1,0 +1,6 @@
+Núcleo: 10 | espada
+Calor -> amplificação: 26 | espada -> calor +3 -> amplificação x2
+Amplificação -> calor: 23 | espada -> amplificação x2 -> calor +3
+Sem amplificador: 13 | espada -> calor +3
+Composição anterior preservada: 26
+Fórmula direta (10 + 3) * 2: 26

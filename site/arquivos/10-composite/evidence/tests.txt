@@ -1,0 +1,35 @@
+
+> grimorio-10-composite@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-10-composite@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-10-composite@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ remover subárvore presente preserva descendentes e permite incluir em outra formação (0.670875ms)
+✔ remoção ausente não libera membro de outra formação nem muda ordens (0.343709ms)
+✔ retirada e nova inclusão mantêm a política de ciclos e a ordem dos irmãos restantes (0.102ms)
+✔ folha isolada atende Unidade e não oferece gestão de filhos (0.919458ms)
+✔ dois níveis registram cada formação antes das folhas na ordem de inserção (0.110041ms)
+✔ formação vazia ainda registra sua própria entrada (0.046833ms)
+✔ auto inclusão é rejeitada sem alterar a lista (0.157958ms)
+✔ ligar descendente ao ancestral é rejeitado mesmo a três níveis (0.066583ms)
+✔ a mesma identidade não pode aparecer duas vezes no grupo (0.044791ms)
+✔ um nó não pode pertencer a dois grupos, mesmo em árvores distintas (0.050042ms)
+✔ objetos diferentes com o mesmo nome continuam sendo identidades distintas (0.040875ms)
+✔ listar membros devolve cópia do array sem liberar vínculos internos (0.05525ms)
+✔ relatórios são valores congelados, independentes entre execuções (0.123541ms)
+✔ nomes e ordens vazios são recusados (0.071709ms)
+✔ lista plana atende unidades independentes sem inventar um grupo (0.054667ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 87.117625

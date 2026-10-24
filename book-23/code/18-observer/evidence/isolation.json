@@ -1,0 +1,57 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 159ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-18-observer@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-18-observer@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-18-observer@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ encerrar turno remove seu conjunto, preserva vínculo externo e não admite novas inscrições (0.682291ms)\n✔ encerramento em callback mantém destinatários da rodada corrente e esvazia a seguinte (0.333458ms)\n✔ handle guardado por turno antigo não desliga reinscrição pertencente ao novo turno (0.078083ms)\n✔ reentrância continua recusada com escopo; encerramento remove o ciclo para o próximo aviso (0.083792ms)\n✔ callbacks reagem com dados distintos e em ordem de inscrição (0.977417ms)\n✔ unsubscribe remove somente sua inscrição e é repetível sem efeitos extras (0.069167ms)\n✔ mesma função ativa é duplicata; funções distintas podem ter o mesmo nome (0.157291ms)\n✔ unsubscribe antigo não remove reinscrição da mesma função (0.055416ms)\n✔ remoção antes do callback preserva rodada atual e altera só a próxima (0.063042ms)\n✔ inclusão durante callback entra somente na próxima rodada em sua nova posição (0.058916ms)\n✔ remover e reinscrever durante emissão não duplica a rodada nem permite handle antigo apagar nova (0.063625ms)\n✔ falhas síncronas são coletadas sem impedir outros, inclusive valor lançado sem Error (0.071ms)\n✔ falha ao ler mensagem do erro usa fallback sem interromper próximos callbacks (0.076208ms)\n✔ reentrância não capturada vira falha do callback e emissão posterior continua possível (0.083167ms)\n✔ ciclo entre dois oráculos termina na recusa do que já está emitindo (0.05225ms)\n✔ aviso é copiado/congelado e observadores não alteram dado recebido pelos seguintes (0.064459ms)\n✔ entradas vazias são recusadas sem chamadas e não bloqueiam próxima emissão válida (0.050583ms)\nℹ tests 17\nℹ suites 0\nℹ pass 17\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 85.106208\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-18-observer@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-18-observer@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-18-observer@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nChamada direta: Recolher bancas.\nAvisos de Nilo\nAviso: Rajada prevista: recolher bancas.\nAposentado: concluiu\nSino: falhou | Cabo do sino rompido.\nEscriba: concluiu\nSalão: concluiu\nAviso: Rajada próxima: manter passagem livre.\nSino: falhou | Cabo do sino rompido.\nEscriba: concluiu\nSalão: concluiu\nCasa aposentada: 1 chamado | publicações: 2 | abrigo aberto: true\nInscrições restantes: 3\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-18-observer@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-18-observer@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-18-observer@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nRodada atual: Fim do turno, Escriba do turno\nVínculos removidos: 2 | avisos escritos: 1\nPróxima rodada: 0 reações\nEncerrar novamente: 0\nEscopo já encerrado.\n",
+      "stderr": ""
+    }
+  ],
+  "stdoutComparisons": {
+    "stdout.txt": {
+      "equal": true,
+      "sha256": "11b03c666c3402fc7517847e63e7f1d9ae7866f802c029b299e0e57bac6d7c49"
+    },
+    "solution-stdout.txt": {
+      "equal": true,
+      "sha256": "987bb7d2196527a46c70de74aa228e2720b38199783f4feefdf3a20767126fc5"
+    }
+  },
+  "recordedAt": "2026-10-23T03:25:52.585151+00:00"
+}

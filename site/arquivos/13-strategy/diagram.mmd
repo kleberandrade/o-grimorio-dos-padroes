@@ -1,0 +1,36 @@
+classDiagram
+direction TB
+class EstrategiaDeAtaque {
+  <<interface>>
+  +atacar(Alvo) ResultadoAtaque
+}
+class Combatente {
+  -string nome
+  -EstrategiaDeAtaque estrategia
+  +estrategiaAtual() EstrategiaDeAtaque
+  +trocarEstrategia(EstrategiaDeAtaque)
+  +atacar(Alvo) ResultadoAtaque
+}
+class AtaqueEspada {
+  +atacar(Alvo) ResultadoAtaque
+}
+class AtaqueArco {
+  +atacar(Alvo) ResultadoAtaque
+}
+class AtaqueMagia {
+  +atacar(Alvo) ResultadoAtaque
+}
+class Alvo {
+  <<interface>>
+  +string nome
+  +number distanciaMetros
+  +comumOuReforcada resistencia
+}
+EstrategiaDeAtaque <|.. AtaqueEspada
+EstrategiaDeAtaque <|.. AtaqueArco
+EstrategiaDeAtaque <|.. AtaqueMagia
+Combatente --> EstrategiaDeAtaque : compoe e delega
+EstrategiaDeAtaque ..> Alvo
+note for Combatente "Troca referencia sem reconstruir o contexto. Nao importa estrategias concretas."
+note for EstrategiaDeAtaque "Mesmo objetivo e contrato de resultado; tecnicas podem declarar inadequacao."
+note for Alvo "Dados ficticios do ensaio. Distancia e resistencia limitam a tecnica."

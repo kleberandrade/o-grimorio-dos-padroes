@@ -1,0 +1,30 @@
+{
+  "manifestoFuncionalSha256": "a22c0dabe3e2f95f3ca7db030d82f4f68b7f517af4d638bbdbcba9b11e890b65",
+  "experimentos": [
+    {
+      "arquivo": "evidence/experimentos/2026-10-23T00-49-17-789Z-n100000-k3/resultados.json",
+      "sha256": "a0dd320b385c1bdff7d9f60ee24360d761469cc4fba4b3f75fcf677a5b0e82ec",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo",
+          "gelo",
+          "vento"
+        ]
+      },
+      "repeticoes": 5
+    },
+    {
+      "arquivo": "evidence/experimentos/2026-10-23T00-49-20-049Z-n100000-k1/resultados.json",
+      "sha256": "e1413e4ee47c828012493aab3697fab5f13fc0e58cda7a3cba2daf2a77b9be13",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo"
+        ]
+      },
+      "repeticoes": 5
+    }
+  ],
+  "nota": "Observações variáveis preservadas; não comparar números byte a byte em nova execução."
+}

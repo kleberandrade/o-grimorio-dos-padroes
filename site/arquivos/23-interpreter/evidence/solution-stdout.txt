@@ -1,0 +1,3 @@
+Repetição: FIFIL | calor 2 | frio 2 | luz 1
+Recusado: ORCAMENTO | posição global 0 | Custo 81 excede orçamento ou contrato de operações 64
+Efeitos acima do orçamento: 0

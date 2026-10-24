@@ -1,0 +1,38 @@
+classDiagram
+direction TB
+class Arma {
+  <<abstract>>
+  -Essencia essencia
+  +trocarEssencia(Essencia)
+  +essenciaAtual() Essencia
+  #usar(forma, gesto, custoBase, ContextoUso) ResultadoUso
+  +empunhar(ContextoUso)* ResultadoUso
+}
+class Espada {
+  +empunhar(ContextoUso) ResultadoUso
+}
+class Arco {
+  +empunhar(ContextoUso) ResultadoUso
+}
+class Essencia {
+  <<interface>>
+  +string nome
+  +ativar(ContextoUso) Ativacao
+}
+class EssenciaFogo {
+  +string nome
+  +ativar(ContextoUso) Ativacao
+}
+class EssenciaGelo {
+  +string nome
+  +ativar(ContextoUso) Ativacao
+}
+Arma <|-- Espada
+Arma <|-- Arco
+Arma --> Essencia : ponte por composicao
+Essencia <|.. EssenciaFogo
+Essencia <|.. EssenciaGelo
+note for Arma "Forma e gesto variam neste eixo. A mesma arma pode trocar a referencia de Essencia."
+note for Essencia "Efeito, custo e restricao variam neste eixo. Nao ha classe por par."
+note for EssenciaFogo "Custo 3. Bloqueia quando nucleoMolhado."
+note for EssenciaGelo "Custo 4. Ativa no contexto molhado deste modelo."

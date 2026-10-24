@@ -1,0 +1,31 @@
+{
+  "capturedAt": "2026-10-22T22:11:57.999Z",
+  "command": "node book-23/scripts/projetos.mjs 01-factory-method capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "6dcdbc5f9943971ce31c7775a5441e5908439ba1582ff8327294e326c3c5de1d",
+    "diagram.mmd": "91c9a8e90f89c8a4f21173af77e8c960be6ad22c15574293553465a09e02d8f1",
+    "exercise/README.md": "d3c9ec57d9bf2328d23117bc6c80669c64db3dddfb01a085bdeb5270712a11c6",
+    "package-lock.json": "dbc537d769d877ef71d6bff625c4fb4836f4a846e276f04cd091ff8e404aea2f",
+    "package.json": "dfb0ed32f242b2445c56b205840b9e3777448043562ab2590e4547828b4c1158",
+    "solution/corvo.test.ts": "94a0c46da38cbf74c8e3aa1e1ae4f31f31efab9274f96b86fca5bf5edbedc641",
+    "solution/corvo.ts": "4e76117ad5b430cebdd023e920d20499d94a0adb7ed2a2766e1775b613f20a65",
+    "solution/main.ts": "148a6408857c7c413e607ef5ffb61c317ed46ee7e56d7a83e3c4b0929ad0b534",
+    "src/cliente.ts": "48b3bc89df7582cab6298cdf75294f854450a482371f32f41cfd7be94a862df4",
+    "src/contratos.ts": "c844e7d3cbdb7ab04b6c49c8d4f6e2d7da65411aa7767ac0d08000c1db284ea6",
+    "src/correio-em-memoria.ts": "ef78c43e57267299a365f63b7adc978315cc91fed585fa579f4325cf6ee0c36f",
+    "src/criadores.ts": "55effd2833ec4ac61f751ae59535d040b40a8fe0f82d01a5b6533f55be4a7236",
+    "src/main.ts": "e9859c7e9b6b6b4779c05c2fe5fa6a13a3e06fbc370ef2e45a89b548e967fc30",
+    "src/mensageiros.ts": "29b4d1c6caab2bcad5e6ef3d5d73a2869b6c8ac4d1402e949bfb68f190925ad0",
+    "test/envio.test.ts": "b7c03a6066da105e449049a0b6451f784eb0ca2259d2d6c948b93f2bcbc7e776",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "53cd370e3cc9b56b30e36a003576ba14ad646f563b35db4643ccd37f8f8215cb",
+    "solution-stdout.txt": "49e6aa32fc8915b92b8c86ec4108381d5c3c93c618c1855b6a46e999b3af8b9b",
+    "tests.txt": "b4697f059f0354281faf8b903117033429c6ef840a4ea65edea5c1f99edf8b68"
+  }
+}

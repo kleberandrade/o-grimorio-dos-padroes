@@ -1,0 +1,39 @@
+
+> grimorio-08-decorator@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-08-decorator@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-08-decorator@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ limitar e adicionar calor não comutam (1.271541ms)
+✔ limite é local à camada e não corrige overflow ocorrido antes dela (0.213042ms)
+✔ o núcleo funciona sozinho pelo mesmo contrato dos wrappers (0.609792ms)
+✔ calor antes da amplificação aplica (10 + 3) * 2 e registra essa ordem (0.078042ms)
+✔ inverter as camadas aplica 10 * 2 + 3, resultado e efeitos distintos (0.050083ms)
+✔ reconstruir para retirar uma camada não altera núcleo nem composição anterior (0.052584ms)
+✔ camadas repetidas são permitidas e acumulam sem deduplicação (0.0545ms)
+✔ reusar a composição não acumula efeitos entre execuções (0.06525ms)
+✔ wrapper delega uma vez e não altera o resultado recebido do componente (0.053083ms)
+✔ resultado e lista de efeitos são congelados em execução (0.145208ms)
+✔ potência e bônus -1 são recusados (0.082541ms)
+✔ potência e bônus 0.5 são recusados (0.06075ms)
+✔ potência e bônus NaN são recusados (0.035875ms)
+✔ potência e bônus Infinity são recusados (0.032ms)
+✔ potência e bônus 9007199254740992 são recusados (0.026042ms)
+✔ fator zero ou fracionário é recusado; bônus zero, potência zero e fator um são válidos (0.043666ms)
+✔ overflow por adição ou multiplicação é recusado sem alterar o núcleo (0.049375ms)
+✔ decoradores recusam resultado numérico inválido de componente externo antes da operação (0.330792ms)
+✔ função direta reproduz a fórmula fixa sem precisar de wrappers (0.082792ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 122.123167

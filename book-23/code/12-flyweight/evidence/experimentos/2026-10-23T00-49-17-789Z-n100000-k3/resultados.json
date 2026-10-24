@@ -1,0 +1,614 @@
+{
+  "capturadoEm": "2026-10-23T00:49:17.789Z",
+  "comando": "npm run benchmark -- 100000 3 5",
+  "parametros": {
+    "contagem": 100000,
+    "tipos": [
+      "fogo",
+      "gelo",
+      "vento"
+    ]
+  },
+  "repeticoes": 5,
+  "ambiente": {
+    "node": "26.10.0",
+    "v8": "14.6.202.34-node.35",
+    "npm": "11.19.1",
+    "typescript": "5.9.3",
+    "tiposNode": "26.0.0",
+    "plataforma": "darwin",
+    "arquitetura": "arm64",
+    "releaseSO": "27.0.0",
+    "cpu": "Apple M5",
+    "processosFilhosSequenciais": true
+  },
+  "metodo": {
+    "modelos": "Mesmas Aparicao/EssenciaEspirito, tipos/cores/posições; somente identidade intrínseca compartilhada difere. Strings podem ser internadas pelo runtime.",
+    "payload": "Somente tipo/cor reais do modelo; nenhum Buffer, ArrayBuffer ou payload sintético adicionado.",
+    "tempo": "performance.now em ms: construirCenario inclui validação de parâmetros, tabela quando usada, instâncias, posições e congelamento. Exclui aquecimento, startup, GC, leituras de memória, Set e hash de conferência.",
+    "memoria": "process.memoryUsage em bytes, baseline e depois com cenário retido explicitamente. GC exposto foi chamado uma vez antes e uma depois; isso não garante coleta completa ou valor exato.",
+    "categorias": "rss é processo inteiro; heapUsed/heapTotal V8; external inclui arrayBuffers. Não somar external e arrayBuffers como partes disjuntas.",
+    "controles": "Processo novo por observação; ordem dos modelos alterna entre repetições. Outras cargas do SO, JIT, alocador e GC não são totalmente controlados.",
+    "interpretacao": "Dados locais descritivos, sem limiar de ganho como teste, intervalo inferencial ou promessa universal. Deltas podem ser negativos ou inconclusivos; não comparar benchmark byte a byte em nova execução."
+  },
+  "fontesSha256": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "d11776561ec5f28a2277d658528946e0fa498491d6ea549c5938e6920c12b592",
+    "diagram.mmd": "6bb0cd48c04085c87dc4a0025048913ea0c92d4e1b2770faf9bb8a9436b83fce",
+    "exercise/README.md": "5754423ad3cf87e23b23914d12e64eda56f7cfb4900b4de89acc9fa52177fd88",
+    "experiment/cenario.ts": "0d4cf2019e28b389828dc88d404ce308dac0ff84f6daaaf45b3924f1e438c376",
+    "experiment/medir.ts": "4c57cb6c090bb56c8834420e3722cb543f87e9d467720a323781f1beb42402fd",
+    "experiment/observacao.ts": "35c5db59b1020c6e785b465278ca46e7f822412cd4f519064fbe55b988976e49",
+    "package-lock.json": "b48924fbd730afc56331ba33f61d3eb064d0aa9e4a6f033255ddb7568535f15e",
+    "package.json": "4cb6ec5ade50509b8df922ee1bbf7909e90eaececde6a55d48558bd5888f621d",
+    "solution/cenario.test.ts": "c9602bdef9f9833222012a02771f3fcb75b992fd9ec614abba58fdba1cd1a3bc",
+    "solution/main.ts": "f54fc059618b5363a552b8d9f9e0458e26bdfae700373d7d908bb942fdf486ba",
+    "src/espiritos.ts": "5c4d5450fcd75b86d26eb03cea88e25f278ff4c6119f147e55cf99f7706d2bf1",
+    "src/main.ts": "0597e9b2522beb87b6e66081e805e04c5b2c5b70876d8efa4860e3310323ec63",
+    "test/compartilhamento.test.ts": "557d126b9323b30a8461299ae9a3e7e80b494fbaeca450e91c98610b54eb5b56",
+    "tsconfig.json": "f13125185d7f51d1d5ea6947f6c0c58fd135c9afaac208427da7d8e62e251e10"
+  },
+  "resumo": {
+    "sem-compartilhar": {
+      "tempoConstrucaoMs": {
+        "minimo": 9.591959,
+        "mediana": 9.726333,
+        "maximo": 10.258292
+      },
+      "deltaMemoriaBytes": {
+        "rss": {
+          "minimo": 21610496,
+          "mediana": 22020096,
+          "maximo": 22380544
+        },
+        "heapTotal": {
+          "minimo": 16908288,
+          "mediana": 16908288,
+          "maximo": 17170432
+        },
+        "heapUsed": {
+          "minimo": 12907520,
+          "mediana": 12907824,
+          "maximo": 12909424
+        },
+        "external": {
+          "minimo": 4,
+          "mediana": 4,
+          "maximo": 4
+        },
+        "arrayBuffers": {
+          "minimo": 0,
+          "mediana": 0,
+          "maximo": 0
+        }
+      }
+    },
+    "flyweight": {
+      "tempoConstrucaoMs": {
+        "minimo": 8.963874999999998,
+        "mediana": 9.034334000000001,
+        "maximo": 9.270665999999999
+      },
+      "deltaMemoriaBytes": {
+        "rss": {
+          "minimo": 19496960,
+          "mediana": 20037632,
+          "maximo": 20119552
+        },
+        "heapTotal": {
+          "minimo": 14024704,
+          "mediana": 14286848,
+          "maximo": 14548992
+        },
+        "heapUsed": {
+          "minimo": 8908312,
+          "mediana": 8908424,
+          "maximo": 8908448
+        },
+        "external": {
+          "minimo": 4,
+          "mediana": 4,
+          "maximo": 4
+        },
+        "arrayBuffers": {
+          "minimo": 0,
+          "mediana": 0,
+          "maximo": 0
+        }
+      }
+    }
+  },
+  "observacoes": [
+    {
+      "modelo": "sem-compartilhar",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo",
+          "gelo",
+          "vento"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 9.726333,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48709632,
+          "heapTotal": 7487488,
+          "heapUsed": 4546760,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 70451200,
+          "heapTotal": 24657920,
+          "heapUsed": 17454280,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 21741568,
+          "heapTotal": 17170432,
+          "heapUsed": 12907520,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 100000,
+        "dadosSha256": "e2b7bfbd1f4ccedb0ecd25565d1ca5e114ec2b1e1b5b23e25a04948761b3d627"
+      },
+      "repeticao": 1,
+      "posicaoNaRepeticao": 1
+    },
+    {
+      "modelo": "flyweight",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo",
+          "gelo",
+          "vento"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 9.270665999999999,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48889856,
+          "heapTotal": 7487488,
+          "heapUsed": 4546456,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 68976640,
+          "heapTotal": 21512192,
+          "heapUsed": 13454904,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 20086784,
+          "heapTotal": 14024704,
+          "heapUsed": 8908448,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 3,
+        "dadosSha256": "e2b7bfbd1f4ccedb0ecd25565d1ca5e114ec2b1e1b5b23e25a04948761b3d627"
+      },
+      "repeticao": 1,
+      "posicaoNaRepeticao": 2
+    },
+    {
+      "modelo": "flyweight",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo",
+          "gelo",
+          "vento"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 9.021959000000003,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 49168384,
+          "heapTotal": 7749632,
+          "heapUsed": 4546480,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 69287936,
+          "heapTotal": 22298624,
+          "heapUsed": 13454904,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 20119552,
+          "heapTotal": 14548992,
+          "heapUsed": 8908424,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 3,
+        "dadosSha256": "e2b7bfbd1f4ccedb0ecd25565d1ca5e114ec2b1e1b5b23e25a04948761b3d627"
+      },
+      "repeticao": 2,
+      "posicaoNaRepeticao": 1
+    },
+    {
+      "modelo": "sem-compartilhar",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo",
+          "gelo",
+          "vento"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 10.258292,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48873472,
+          "heapTotal": 7225344,
+          "heapUsed": 4546760,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 70893568,
+          "heapTotal": 24133632,
+          "heapUsed": 17454280,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 22020096,
+          "heapTotal": 16908288,
+          "heapUsed": 12907520,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 100000,
+        "dadosSha256": "e2b7bfbd1f4ccedb0ecd25565d1ca5e114ec2b1e1b5b23e25a04948761b3d627"
+      },
+      "repeticao": 2,
+      "posicaoNaRepeticao": 2
+    },
+    {
+      "modelo": "sem-compartilhar",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo",
+          "gelo",
+          "vento"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 9.737583,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48726016,
+          "heapTotal": 7749632,
+          "heapUsed": 4546456,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 70877184,
+          "heapTotal": 24657920,
+          "heapUsed": 17454280,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 22151168,
+          "heapTotal": 16908288,
+          "heapUsed": 12907824,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 100000,
+        "dadosSha256": "e2b7bfbd1f4ccedb0ecd25565d1ca5e114ec2b1e1b5b23e25a04948761b3d627"
+      },
+      "repeticao": 3,
+      "posicaoNaRepeticao": 1
+    },
+    {
+      "modelo": "flyweight",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo",
+          "gelo",
+          "vento"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 8.963874999999998,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48873472,
+          "heapTotal": 7487488,
+          "heapUsed": 4546456,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 68370432,
+          "heapTotal": 21774336,
+          "heapUsed": 13454904,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 19496960,
+          "heapTotal": 14286848,
+          "heapUsed": 8908448,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 3,
+        "dadosSha256": "e2b7bfbd1f4ccedb0ecd25565d1ca5e114ec2b1e1b5b23e25a04948761b3d627"
+      },
+      "repeticao": 3,
+      "posicaoNaRepeticao": 2
+    },
+    {
+      "modelo": "flyweight",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo",
+          "gelo",
+          "vento"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 9.034334000000001,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48988160,
+          "heapTotal": 7749632,
+          "heapUsed": 4546480,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 69025792,
+          "heapTotal": 22036480,
+          "heapUsed": 13454904,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 20037632,
+          "heapTotal": 14286848,
+          "heapUsed": 8908424,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 3,
+        "dadosSha256": "e2b7bfbd1f4ccedb0ecd25565d1ca5e114ec2b1e1b5b23e25a04948761b3d627"
+      },
+      "repeticao": 4,
+      "posicaoNaRepeticao": 1
+    },
+    {
+      "modelo": "sem-compartilhar",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo",
+          "gelo",
+          "vento"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 9.648542000000003,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48807936,
+          "heapTotal": 7225344,
+          "heapUsed": 4546944,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 70418432,
+          "heapTotal": 24133632,
+          "heapUsed": 17456352,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 21610496,
+          "heapTotal": 16908288,
+          "heapUsed": 12909408,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 100000,
+        "dadosSha256": "e2b7bfbd1f4ccedb0ecd25565d1ca5e114ec2b1e1b5b23e25a04948761b3d627"
+      },
+      "repeticao": 4,
+      "posicaoNaRepeticao": 2
+    },
+    {
+      "modelo": "sem-compartilhar",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo",
+          "gelo",
+          "vento"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 9.591959,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48758784,
+          "heapTotal": 7487488,
+          "heapUsed": 4547024,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 71139328,
+          "heapTotal": 24395776,
+          "heapUsed": 17456448,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 22380544,
+          "heapTotal": 16908288,
+          "heapUsed": 12909424,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 100000,
+        "dadosSha256": "e2b7bfbd1f4ccedb0ecd25565d1ca5e114ec2b1e1b5b23e25a04948761b3d627"
+      },
+      "repeticao": 5,
+      "posicaoNaRepeticao": 1
+    },
+    {
+      "modelo": "flyweight",
+      "parametros": {
+        "contagem": 100000,
+        "tipos": [
+          "fogo",
+          "gelo",
+          "vento"
+        ]
+      },
+      "node": "26.10.0",
+      "v8": "14.6.202.34-node.35",
+      "flags": [
+        "--expose-gc"
+      ],
+      "gcDisponivel": true,
+      "gcChamadas": 2,
+      "tempoConstrucaoMs": 9.229167,
+      "memoriaBytes": {
+        "antes": {
+          "rss": 48840704,
+          "heapTotal": 6963200,
+          "heapUsed": 4546688,
+          "external": 2205584,
+          "arrayBuffers": 143759
+        },
+        "depois": {
+          "rss": 68747264,
+          "heapTotal": 21512192,
+          "heapUsed": 13455000,
+          "external": 2205588,
+          "arrayBuffers": 143759
+        },
+        "delta": {
+          "rss": 19906560,
+          "heapTotal": 14548992,
+          "heapUsed": 8908312,
+          "external": 4,
+          "arrayBuffers": 0
+        }
+      },
+      "conferencia": {
+        "contagem": 100000,
+        "essenciasUnicas": 3,
+        "dadosSha256": "e2b7bfbd1f4ccedb0ecd25565d1ca5e114ec2b1e1b5b23e25a04948761b3d627"
+      },
+      "repeticao": 5,
+      "posicaoNaRepeticao": 2
+    }
+  ]
+}

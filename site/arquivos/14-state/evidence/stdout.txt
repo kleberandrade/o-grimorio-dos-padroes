@@ -1,0 +1,8 @@
+Vigia: Dário
+atacar: executada | normal -> furioso | fúria restante 2
+atacar: executada | furioso -> furioso | fúria restante 1
+atacar: executada | furioso -> exausto | fúria restante 0
+atacar: recusada | exausto -> exausto | fúria restante 0
+descansar: recusada | exausto -> exausto | fúria restante 0
+descansar: executada | exausto -> normal | fúria restante 0
+Ataques executados no histórico: 3

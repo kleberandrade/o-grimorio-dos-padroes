@@ -1,0 +1,40 @@
+classDiagram
+    class ArquivoOrdens {
+        <<interface>>
+        +criarPercurso() IteradorOrdens
+    }
+    class IteradorOrdens {
+        <<interface>>
+        +proximo() PassoLocal
+    }
+    class ArquivoEmLista {
+        -ordens: Ordem[]
+        +adicionar(ordem)
+        +atualizar(ordem)
+        +criarPercurso() IteradorOrdens
+    }
+    class ArquivoEncadeado {
+        -primeiro
+        -ultimo
+        +adicionar(ordem)
+        +atualizar(ordem)
+        +criarPercurso() IteradorOrdens
+    }
+    class PercursoSnapshot {
+        -ordens
+        -indice
+        +proximo() PassoLocal
+    }
+    class PassoLocal {
+        +fim: boolean
+        +ordem
+    }
+    ArquivoOrdens <|.. ArquivoEmLista
+    ArquivoOrdens <|.. ArquivoEncadeado
+    IteradorOrdens <|.. PercursoSnapshot
+    ArquivoEmLista ..> PercursoSnapshot : cria snapshot
+    ArquivoEncadeado ..> PercursoSnapshot : cria snapshot
+    PercursoSnapshot ..> PassoLocal : devolve item ou fim
+    note for ArquivoOrdens "Ordem de inserção; cada chamada captura snapshot e posição nova."
+    note for PassoLocal "fim true não possui ordem. Contrato local, distinto de done/value nativos."
+    note for PercursoSnapshot "Sem Symbol.iterator na base. Ponte e gerador estão somente no exercício."

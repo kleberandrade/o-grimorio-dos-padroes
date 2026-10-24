@@ -1,0 +1,14 @@
+{
+  "consultadoEm": "2026-10-23",
+  "publicador": "TC39 — ECMAScript Language Specification",
+  "edicaoExibidaNaConsulta": "ECMAScript 2027, documento vivo",
+  "runtimeExecutado": "Node.js 26.10.0",
+  "limite": "Não se afirma conformidade completa do runtime com a edição viva. Somente os exemplos mínimos deste projeto foram executados.",
+  "fontes": [
+    { "url": "https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-common-iteration-interfaces", "secao": "Iterable, Iterator e IteratorResult", "evidencia": "solution/iteravel.ts e solution/iteravel.test.ts" },
+    { "url": "https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-generatorstart", "secao": "GeneratorStart; GeneratorResume e GeneratorResumeAbrupt também consultados", "evidencia": "fábrica gerarSnapshot, testes de captura pré-next e encerramento" },
+    { "url": "https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.foreach", "secao": "Array.prototype.forEach", "evidencia": "src/nativo.ts e test/iterator.test.ts" },
+    { "url": "https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map", "secao": "Array.prototype.map", "evidencia": "src/nativo.ts e test/iterator.test.ts" },
+    { "url": "https://tc39.es/ecma262/multipage/ecmascript-language-statements-and-declarations.html#sec-for-in-and-for-of-statements", "secao": "ForIn/OfHeadEvaluation e ForIn/OfBodyEvaluation", "evidencia": "for...of instrumentado; break da ponte/gerador em solution/iteravel.test.ts" }
+  ]
+}

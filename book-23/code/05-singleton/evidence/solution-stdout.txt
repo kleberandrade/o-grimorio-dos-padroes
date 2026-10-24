@@ -1,0 +1,3 @@
+Raízes com ciclo padrão compartilham registro: true
+Casa isolada: 1 ordem
+Registro padrão: 0 ordens

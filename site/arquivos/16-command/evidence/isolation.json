@@ -1,0 +1,57 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 146ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-16-command@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-16-command@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-16-command@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ compensação acrescenta outro registro vinculado sem apagar aviso original (0.610833ms)\n✔ falha simulada da compensação mantém aviso e histórico; nova tentativa pode concluir (0.415625ms)\n✔ repetição local da mesma instância é recusada, outra ordem pode emitir aviso igual (0.1025ms)\n✔ registros são protegidos e inválidos não produzem aviso ou compensação (0.073334ms)\n✔ executar reserva muda estado real e histórico; desfazer restitui a parcela intacta (0.725209ms)\n✔ histórico vazio retorna false sem modificar receptor (0.054667ms)\n✔ falta de estoque não produz efeito nem histórico; tentativa sem sucesso pode ser refeita (0.1895ms)\n✔ quantidades inválidas são recusadas sem efeitos e estoque inicial admite zero (0.10025ms)\n✔ repetir execução, reexecutar após undo e repetir undo são recusados sem duplicar efeito (0.085042ms)\n✔ undo usa a reserva específica, preservando outra reserva e forja posteriores (0.07875ms)\n✔ consumir 3 de uma reserva de 6 impede undo e mantém topo/evidência (0.063458ms)\n✔ consumir 6 de uma reserva de 6 impede undo e mantém topo/evidência (0.043541ms)\n✔ limite descarta entrada mais antiga, conserva seu efeito e perde undo pelo invocador (0.070875ms)\n✔ ordem LIFO desfaz duas parcelas e limites de histórico inválidos são recusados (0.090583ms)\n✔ token exige identidade e estoque de origem; copiar campos não fabrica uma reserva (0.062584ms)\n✔ forja recusa excesso e quantidade inválida sem consumir reserva (0.051667ms)\n✔ snapshots e histórico não dão acesso mutável ao estoque ou à pilha interna (0.049125ms)\nℹ tests 17\nℹ suites 0\nℹ pass 17\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 83.31325\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-16-command@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-16-command@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-16-command@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nParcela consumida: disponível 8 | reservado 0 | forjado 4\nAntes da execução, histórico: 0\nReserva de Davi: disponível 0 | reservado 8 | forjado 4\nHistórico: reservar 8\nDesfazer reserva: true\nParcela intacta liberada: disponível 8 | reservado 0 | forjado 4\nDesfazer histórico vazio: false\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-16-command@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-16-command@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-16-command@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nFalha simulada antes de registrar compensação.\nApós falha: registros 1 | histórico 1\n1: aviso | referência nenhuma | Reserva liberada para a ponte.\n2: compensacao | referência 1 | Desconsidere o aviso referenciado.\nApós compensação: registros 2 | histórico 0\n",
+      "stderr": ""
+    }
+  ],
+  "stdoutComparisons": {
+    "stdout.txt": {
+      "equal": true,
+      "sha256": "986615043e14fa1709fb09d5cae40c47131d8268f8e442b21fc59809c74180a2"
+    },
+    "solution-stdout.txt": {
+      "equal": true,
+      "sha256": "8c94464314475595dd4baa6940def7477587815f6c54abcf8fd086676ffeabe1"
+    }
+  },
+  "recordedAt": "2026-10-23T02:20:44.252782+00:00"
+}

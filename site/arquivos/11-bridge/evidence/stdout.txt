@@ -1,0 +1,6 @@
+espada + fogo: executado | custo 4 | corte -> calor
+espada + gelo: executado | custo 5 | corte -> frio
+arco + fogo: executado | custo 5 | disparo -> calor
+arco + gelo: executado | custo 6 | disparo -> frio
+Troca: mesma arma true | mesma essência injetada true | custo 5
+Núcleo molhado com fogo: bloqueado | custo 0 | Fogo não ativa com núcleo molhado.

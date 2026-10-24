@@ -1,0 +1,7 @@
+Nobre sem mandato: negada
+Entradas no real após negativa: 0
+Mecânico com mandato: permitida
+Entradas no real após permissão: 1
+Acesso direto ao real sem mandato: permitida
+Entradas no real após acesso direto: 2
+Serviço com controle próprio sem mandato: negada

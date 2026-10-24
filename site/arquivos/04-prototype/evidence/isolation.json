@@ -1,0 +1,45 @@
+{
+  "scope": "copied project only; no adjacent projects or repository scripts",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 235ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-04-prototype@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-04-prototype@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-04-prototype@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ clone preserva subtipo e copia componente mutável sem compartilhar etiquetas (0.6445ms)\n✔ entrada e consulta do componente também são copiadas (0.063709ms)\n✔ componente e clone mantêm validação de entrada e identidade (0.164833ms)\n✔ clone preserva dados e comportamento com outra identidade de objeto e lote (0.735625ms)\n✔ personalizar o clone via cliente não reconstrói a fórmula nem modifica o original (0.0795ms)\n✔ mudar observações e adicionar ingredientes no clone não altera o original (0.072417ms)\n✔ alterar o original após clone não contamina dose, notas nem lista da cópia (0.064ms)\n✔ construtor copia lista de entrada, objetos, dose e lista de observações (0.065375ms)\n✔ adicionar ingrediente copia também entradas recebidas após a construção (0.048958ms)\n✔ consulta devolve cópia defensiva em todos os níveis mutáveis (0.043667ms)\n✔ selo é a mesma referência imutável por decisão explícita do contrato (0.04475ms)\n✔ um selo estruturalmente válido, mas mutável, é recusado antes de compartilhar (0.164916ms)\n✔ clone rejeita lote inválido \"\" (0.077083ms)\n✔ clone rejeita lote inválido \"  \" (0.043333ms)\n✔ clone rejeita lote inválido \" L-01 \" (0.029625ms)\n✔ quantidade 0 é rejeitada sem alterar fórmula (0.087708ms)\n✔ quantidade -1 é rejeitada sem alterar fórmula (0.065291ms)\n✔ quantidade NaN é rejeitada sem alterar fórmula (0.315458ms)\n✔ quantidade Infinity é rejeitada sem alterar fórmula (0.0385ms)\n✔ ingrediente desconhecido e nome duplicado são diagnosticados (0.070708ms)\n✔ fórmula vazia e nota vazia não são aceitas (0.048209ms)\n✔ construção direta é alternativa real quando todos os valores são conhecidos (0.047584ms)\n✔ structuredClone dos dados funciona; da instância não mantém métodos nem estado privado (0.057292ms)\nℹ tests 23\nℹ suites 0\nℹ pass 23\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 86.058042\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "dist/src/main.js"
+      ],
+      "exit": 0,
+      "stdout": "Original: L-01 | Musgo de sal: 2 gramas; Extrato de junco: 4 gotas | selo NARA-07\nClone personalizado: L-02 | Musgo de sal: 3 gramas; Extrato de junco: 4 gotas | selo NARA-07\nSelo compartilhado: true\nNotas do original: Fórmula preservada\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "dist/solution/main.js"
+      ],
+      "exit": 0,
+      "stdout": "Armazenamento original: 20\nArmazenamento clone: 15\nEtiquetas original: Abrigo da luz\nSelo compartilhado: true\n",
+      "stderr": ""
+    }
+  ]
+}

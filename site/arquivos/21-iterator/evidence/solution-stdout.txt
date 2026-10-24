@@ -1,0 +1,5 @@
+Ponte criada antes de mutar: 1, 2
+Gerador criado antes de mutar: 1, 2
+Antes de break: 1
+Instância interrompida: done true
+Novo iterador: 1, 2, 3

@@ -1,0 +1,29 @@
+
+> grimorio-01-factory-method@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-01-factory-method@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-01-factory-method@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ corvo amplia os canais preservando o cliente e a operação comum (0.839959ms)
+✔ corvo herda a rejeição de entrada inválida sem gerar entrega (0.175167ms)
+✔ o mesmo cliente preserva conteúdo e destino ao trocar criadores (0.934ms)
+✔ a operação comum normaliza espaços sem alterar o pedido original (0.069708ms)
+✔ destino vazio não gera entrega (0.165375ms)
+✔ mensagem vazio não gera entrega (0.038792ms)
+✔ um terceiro criador usa o mesmo cliente e a operação herdada (0.064709ms)
+✔ a falha do correio é propagada sem fabricar comprovante de sucesso (0.048125ms)
+✔ a lista devolvida e o pedido não permitem corromper o histórico local (0.043084ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 87.99825

@@ -1,0 +1,45 @@
+classDiagram
+    class Expressao {
+        <<interface>>
+        +operacoes() number
+        +interpretar(contexto)
+    }
+    class RunaFogo
+    class RunaGelo
+    class RunaLuz
+    class Sequencia {
+        -filhas: Expressao[]
+        -operacoes
+        +operacoes() number
+        +interpretar(contexto)
+    }
+    class Contexto {
+        <<interface>>
+        +registrar(simbolo)
+    }
+    class ContextoArcano {
+        -calor
+        -frio
+        -luz
+        -sequencia
+        +registrar(simbolo)
+        +snapshot()
+    }
+    class Parser {
+        -texto
+        -indice
+        +analisar() Expressao
+    }
+    Expressao <|.. RunaFogo
+    Expressao <|.. RunaGelo
+    Expressao <|.. RunaLuz
+    Expressao <|.. Sequencia
+    Sequencia --> Expressao : filhos copiados
+    Contexto <|.. ContextoArcano
+    RunaFogo ..> Contexto : registra F
+    RunaGelo ..> Contexto : registra I
+    RunaLuz ..> Contexto : registra L
+    Parser ..> Expressao : constrói árvore sem contexto
+    note for Parser "Entrada completa, sequência/grupos não vazios, posições UTF16. Função analisar cria este parser interno."
+    note for Sequencia "Interpreta filhos em ordem. executar verifica custo antes do corpo; Repeticao só no exercício."
+    note for ContextoArcano "Índices e registro convencionais, sem efeito físico garantido."

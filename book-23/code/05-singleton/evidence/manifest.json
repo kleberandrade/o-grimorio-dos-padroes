@@ -1,0 +1,35 @@
+{
+  "capturedAt": "2026-10-23T06:46:32.649Z",
+  "command": "node book-23/scripts/projetos.mjs 05-singleton capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "4fea45b18ca8481d4e278a983841db28c58f3ebb60423a9b466f5e6b0bb75801",
+    "diagram.mmd": "1d1724dec9385d82bad462661f555e9a7b83cea6ca7305900b406499e65da905",
+    "exercise/README.md": "1353d24706f5933101e6cac89a03fb9fe6d095dfdf0eac0514a7c0fb36db3a3f",
+    "package-lock.json": "b9dcec78eaf76ec69ee823bcf84bb23266ba89c2fd1203fb73b49051566fda54",
+    "package.json": "bdd659902ba3d3d091dffaf1016dadcbca2593f341bc52bcd1ebcc2de9d6de3f",
+    "solution/main.ts": "260c8a5e9248623c432151f152ba40629e37457c073244c10d7dcdde4896d41f",
+    "solution/raiz.test.ts": "8e5d40c092e551884fa359c738012e1fe9d61c812ce435fa1dc0dbae32290c0d",
+    "solution/raiz.ts": "b1e7833d6cf68e9fddaf3b7def309d0ebb088661df7122c65528d71001fdfd12",
+    "src/composicao.ts": "6d372ebd8a9675e819d0dbe5cbf275aebaac70623d00937071ce28d22bb2b462",
+    "src/contextos.ts": "0d54ced99b672bb7a521b34bfdb633b4cbf2609ebef45ccde2c93296b8a9f131",
+    "src/contratos.ts": "3bee91fbc547ee9664bdfad73e559dcdf81746a484a00be12d447f89e052a419",
+    "src/equipe.ts": "07922cd47f4fa3dc055de26a52af18705c40f890fb89f7315b650c5cadd634bc",
+    "src/main.ts": "c4a474ad312fc996c6b63d18ad60f34e9e5d44527a2fd563218d75cabd871ef5",
+    "src/modulo-compartilhado.ts": "92277c5139edfd02cac218a8ff7a390f09ddcef7cec996a9b02180566088cdb4",
+    "src/preferencia-compartilhada.ts": "38d006a81b0e2a9a8568dfd2ec736f34aba008a02131487e1dc63394d5616497",
+    "src/registro.ts": "38d8a9b717dd806b3268d99a7d7452c2a9fbd385d3baa06e7f9e442695570fcd",
+    "src/sonda-worker.ts": "9242ad2261887bcd73edebc738311f5a4639941e79e68a681ae99339fd72a9aa",
+    "test/registro.test.ts": "ba6e8be616b5f060f895b4ab0292f8c3b9a1fe9740abe32fb9202f89f1b161a3",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "06fd8aa9cd611abcbb62fb02cb9ec254ba8d1e5c251ad0ff28fe0c03b2b99475",
+    "solution-stdout.txt": "94772a9751e08e6b56e9910104cbf5bbd4a7a1926a46ccef7f895ff43bfcc409",
+    "tests.txt": "233c93ba0666a8b57416fdd3c10d50547591ac0dd850934662d94674cbc22016"
+  }
+}

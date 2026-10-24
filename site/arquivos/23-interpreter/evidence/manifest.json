@@ -1,0 +1,36 @@
+{
+  "capturedAt": "2026-10-23T05:27:51.100Z",
+  "command": "node book-23/scripts/projetos.mjs 23-interpreter capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "652679b5680121609fb6db3439b68e754d5db1c16765f8513b1d60b5df98f961",
+    "diagram.mmd": "fe76a61332a4973829cf7b463bb28baf6905fd9e66f4f8dc72e8a16f3f9a2cb9",
+    "exercise/README.md": "517f1ea32f02d732596bec30e5678b70dd1e7bb14d42ee96903a99a100a9ccdc",
+    "notas-tecnicas.md": "24ea3819f89404b819fbd0ddc753346511421ae595e6b92ce4c69a912868108e",
+    "package-lock.json": "bceac3d0099e2b95f63bc047d2cc81e688b1cb61cc3981029ebd7a03b3fd5e18",
+    "package.json": "af15a4b17f416d12f79d6b77e899c812ebe3ec4154cb1aa06cc584133c1eb07d",
+    "referencias.json": "d2f83af65dc26779aabb39caaae5c49d6346c464b17ee8ae6a85c6f7ded4c27e",
+    "solution/conjurar.ts": "e2594f78d97e9cedab3d680c138a160d6fbc84ae52e2f0af5d3d141d992fdc2f",
+    "solution/main.ts": "bb5a82e7214cc247f70201bc58f6ba939d122d984d240d11d026a6b8c34818ef",
+    "solution/parser-ampliado.ts": "8378adcc1c4c721bd4d2de3056e53546b790d1f53c85d515d5edfd25711bf36b",
+    "solution/repeticao.test.ts": "8975ed27ad0e9b0b80f9412b999ba70498ddfed77672c6626b3ffcaa40a6efb8",
+    "solution/repeticao.ts": "ad8bc850215a784aa4d394cacdd03f7188f31a024acc3f1f537d7d84d18b54cc",
+    "src/executar.ts": "f05afddb863d686796defdf5d6caed0240bf0310086601ba89de2811ab2b95d8",
+    "src/expressoes.ts": "150fa8603db8d4f85a4a2cc7cdd9d2338f4dd54c8decaa2daf9cbd89ba49348e",
+    "src/limites.ts": "e167326978c98f63ba3c78d7b36160dab606bfc43b3d52c59fa81ec242d6fdf9",
+    "src/main.ts": "d0b0db235754a3b43e0bbeb615d9e995e0b34c2f8d799b5ac98225c60f62aa57",
+    "src/parser.ts": "432714fb97e29d74259dd61f85b55cfb6d9b317cdfa064881e53b2fd02ae1140",
+    "src/simples.ts": "bfd5c3e2e94abb8fb3a4834e9cdc967595f67a45ce6c8209edca0a35573436ac",
+    "test/interpreter.test.ts": "51dec8162439c0ecd1c4c0fed07dcafd5ecd71f9626b79c9161ea16a1c0a48f7",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "2467e9fb1407943d13926acb596a94260bc1831e33cac1fbd7cf897ef8d0e142",
+    "solution-stdout.txt": "30240a869a374cafeda2c0c498c66bf515bed0ff481523b357034d25baeea0d2",
+    "tests.txt": "1177116f03a84f50a3f9e9e3123188cd619e49cf53249fcc28c1b3a2f2e6ed46"
+  }
+}

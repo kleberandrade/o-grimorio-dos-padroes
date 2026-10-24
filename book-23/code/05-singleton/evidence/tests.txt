@@ -1,0 +1,32 @@
+
+> grimorio-05-singleton@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-05-singleton@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-05-singleton@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ a raiz preserva ciclo singleton padrão sem escondê-lo nos serviços (0.301125ms)
+✔ a raiz permite substituir a dependência e isolar dados por instância (0.287417ms)
+✔ a API devolve a mesma identidade na mesma avaliação de módulo (0.347041ms)
+✔ o serviço usa um Registro substituto recebido, sem buscar singleton escondido (0.286459ms)
+✔ serviços distintos compartilham o registro escolhido pela composição (0.068167ms)
+✔ as preferências de uma equipe não afetam a outra nem as ordens anteriores (0.050042ms)
+✔ compartilhar o objeto de preferências contamina as duas referências (0.038959ms)
+✔ novas instâncias isolam o estado sem reset global (0.042416ms)
+✔ cópias da entrada e da lista consultada protegem o histórico (0.064458ms)
+✔ ordem inválida não gera registro e equipe vazia não cria serviço (0.168875ms)
+✔ falha do registro é propagada sem retornar ordem como registrada (0.0565ms)
+✔ dois Workers têm registros próprios; nada é adicionado ao contexto pai (10.376667ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 92.462333

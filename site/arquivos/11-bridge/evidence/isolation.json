@@ -1,0 +1,46 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 267ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-11-bridge@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-11-bridge@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-11-bridge@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ nova essência funciona com formas anteriores sem mudá-las (0.881917ms)\n✔ nova forma coopera com as duas essências anteriores e a nova (0.10625ms)\n✔ a nova forma preserva restrição e troca de essência herdadas (0.062208ms)\n✔ a matriz 2×2 combina dois eixos sem classes por par (0.649833ms)\n✔ trocar essência mantém identidade da arma e altera só seu vínculo (0.079584ms)\n✔ restrição do fogo bloqueia ambos os formatos sem produzir gesto nem cobrar custo (0.055292ms)\n✔ gelo pode ativar no mesmo contexto molhado, com custo maior declarado (0.044083ms)\n✔ novo implementador é recebido por ambas as abstrações e recebe o contexto uma vez (0.094083ms)\n✔ cada execução devolve resultado e lista independentes congelados (0.164458ms)\n✔ falha da essência é propagada sem substituir a implementação ou fabricar resultado (0.054166ms)\n✔ custo inválido ou soma fora da faixa segura é recusado (0.094083ms)\n✔ custo zero do implementador é válido e preserva o custo da forma (0.052458ms)\n✔ para uma forma fixa, a função direta compõe essência sem hierarquia adicional (0.081292ms)\nℹ tests 13\nℹ suites 0\nℹ pass 13\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 94.128917\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-11-bridge@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-11-bridge@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-11-bridge@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nespada + fogo: executado | custo 4 | corte -> calor\nespada + gelo: executado | custo 5 | corte -> frio\narco + fogo: executado | custo 5 | disparo -> calor\narco + gelo: executado | custo 6 | disparo -> frio\nTroca: mesma arma true | mesma essência injetada true | custo 5\nNúcleo molhado com fogo: bloqueado | custo 0 | Fogo não ativa com núcleo molhado.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-11-bridge@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-11-bridge@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-11-bridge@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nespada + vento: executado | custo 3 | corte -> impulso\narco + vento: executado | custo 4 | disparo -> impulso\nescudo + fogo: executado | custo 5 | aparar -> calor\nescudo + gelo: executado | custo 6 | aparar -> frio\nescudo + vento: executado | custo 4 | aparar -> impulso\n",
+      "stderr": ""
+    }
+  ]
+}

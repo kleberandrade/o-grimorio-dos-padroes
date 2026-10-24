@@ -1,0 +1,5 @@
+Inspeção recusada: falhou | selo: null
+Etapas concluídas: prepararIngredientes -> conjurarEncantamento
+Interrompido em: aposEncantamento
+Inspeção aprovada: concluido | selo: selo de fogo
+Etapas concluídas: prepararIngredientes -> conjurarEncantamento -> aposEncantamento -> selar

@@ -1,0 +1,43 @@
+classDiagram
+    class Comando {
+        <<interface>>
+        +descricao
+        +executar()
+        +desfazer()
+    }
+    class ComandoReservar {
+        -estoque
+        -quantidade
+        -reserva
+        -antes
+        +executar()
+        +desfazer()
+        +situacao()
+    }
+    class Invocador {
+        -historico
+        -limite
+        +executar(comando)
+        +desfazerUltimo() boolean
+        +listarHistorico()
+    }
+    class EstoqueMinerio {
+        -reservas
+        -disponivel
+        -forjado
+        +reservar(quantidade) Reserva
+        +cancelar(reserva)
+        +forjar(reserva, quantidade)
+        +snapshot() SnapshotEstoque
+    }
+    class Reserva {
+        +quantidade
+    }
+    Comando <|.. ComandoReservar
+    Invocador --> Comando : executa e guarda sucesso
+    ComandoReservar --> EstoqueMinerio : receptor
+    ComandoReservar --> Reserva : identifica parcela
+    EstoqueMinerio --> Reserva : reconhece identidade
+    note for Invocador "LIFO limitado. Descartar entrada conserva efeito. Falha ao desfazer mantém topo."
+    note for ComandoReservar "Uso único. Snapshot anterior é proveniência; undo cancela somente sua reserva intacta."
+    note for EstoqueMinerio "Forja é operação distinta sem inversa neste modelo. Consumo impede cancelamento integral da mesma reserva."

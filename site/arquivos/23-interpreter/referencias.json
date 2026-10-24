@@ -1,0 +1,20 @@
+{
+  "consultadoEm": "2026-10-23",
+  "gramatica": "Criação didática original deste projeto. Não é gramática ECMAScript nem atribuída à TC39 ou a uma leitura integral do livro GoF.",
+  "runtimeExecutado": "Node.js 26.10.0",
+  "compiladorExecutado": "TypeScript 5.9.3",
+  "fontesPrimariasOnline": [
+    {
+      "url": "https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-string-type",
+      "publicador": "TC39 — ECMAScript Language Specification, documento vivo",
+      "aplicacaoLimitada": "Representação de strings em unidades de 16 bits para esclarecer a política de índice UTF16 do código. Não fornece a gramática do projeto nem certifica segurança ou conformidade completa do runtime."
+    }
+  ],
+  "fontesEditoriaisLocais": [
+    "Medium04 integral preservado no corpus do livro",
+    "plano23 e docs brief/biblia/outline do book-23",
+    "parecer regente T10",
+    "adendo editorial Refactoring.Guru",
+    "contexto inicial023"
+  ]
+}

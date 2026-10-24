@@ -1,0 +1,32 @@
+
+> grimorio-14-state@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-14-state@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-14-state@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ estado defensivo inicial faz contra-ataque e retoma o ciclo normal sem alterar outros estados (0.7935ms)
+✔ defensivo mantém guarda sem proteção e pode encerrar com descanso protegido completo (0.070542ms)
+✔ ciclo padrão: golpe normal inicia dois intervalos, consumidos por dois golpes furiosos (0.629917ms)
+✔ exaustão recusa ataques repetidos sem registrar sucesso ou alterar estado (0.118292ms)
+✔ descanso protegido completo recupera exausto, sem proteção não recupera (0.075958ms)
+✔ tentar descansar em fúria não consome os intervalos nem muda o estado (0.072084ms)
+✔ normal descansa com proteção sem entrar em fúria; sem proteção recusa (0.050542ms)
+✔ dois contextos podem receber o mesmo EstadoFurioso imutável sem dividir contador mutável (0.048917ms)
+✔ snapshot e histórico não expõem mutação, e não existe setEstado público (0.053708ms)
+✔ erro de estado externo é propagado sem registrar ação ou mudar o estado interno (0.17775ms)
+✔ alternativa de tabela reproduz todas as ações dos estados fornecidos (0.130042ms)
+✔ nome vazio é recusado (0.107041ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86.369

@@ -1,0 +1,57 @@
+{
+  "scope": "copied project only; npm ci ignore-scripts, tests, npm start and npm run solution; direct program stdout also compared byte-for-byte",
+  "node": "v26.10.0",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "stdout": "\nadded 3 packages in 163ms\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-20-chain-of-responsibility@0.1.0 test\n> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js\n\n\n> grimorio-20-chain-of-responsibility@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-20-chain-of-responsibility@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\n✔ novo elo antes da decisão comum trata; depois da negativa terminal não é chamado (0.68225ms)\n✔ posto encaminha pedidos normais e excesso; limite extraordinário de dez é explícito (0.075083ms)\n✔ urgência não faz posto decidir passagem ou revogar interdição da galeria (0.075958ms)\n✔ primeiro responsável que trata interrompe sem chamar elos posteriores (0.644958ms)\n✔ negativa é terminal e não deixa próximo elo revogar decisão silenciosamente (0.060041ms)\n✔ exceção de galeria percorre três elos e recebe negativa; alternativa exige outro pedido (0.085459ms)\n✔ provisões têm limite explícito e não são confundidas com passagem (0.056084ms)\n✔ fim sem responsável e cadeia vazia devolvem naoTratado explícito (0.061333ms)\n✔ conteúdo textual com palavra invasão não vira detector de ameaça ou autenticação (0.046041ms)\n✔ pedido inválido é erro de dados antes de decidir, não negativa de autorização (0.124209ms)\n✔ lista configurada é copiada; identidade duplicada é recusada e nomes iguais não são identidade (0.067458ms)\n✔ nome e função são capturados na montagem; estado fechado de extensão não é congelado genericamente (0.056333ms)\n✔ pedido e resultado têm cópias/congelamento dos dados declarados (0.093042ms)\n✔ repetir pedido reavalia handlers; não implica idempotência de efeitos externos (0.065875ms)\n✔ reentrância na mesma cadeia é recusada; falha propaga sem rollback e libera próxima avaliação (0.126333ms)\n✔ status de extensão incompatível é erro, não falso desfecho de negócio (0.044834ms)\nℹ tests 16\nℹ suites 0\nℹ pass 16\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 87.616083\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "start"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-20-chain-of-responsibility@0.1.0 start\n> npm run build && node dist/src/main.js\n\n\n> grimorio-20-chain-of-responsibility@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-20-chain-of-responsibility@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nResponsável conhecido, chamada direta: tratado\npassagem: negado | responsável: Regência\nPercurso: Guarda=naoTratado -> Conselheira=naoTratado -> Regência=negado\nGaleria interna interditada; requer outro pedido para rota alternativa.\npassagem: tratado | responsável: Guarda\nPercurso: Guarda=tratado\nPassagem pela Porta dos Carros autorizada no modelo.\naudiencia: naoTratado | responsável: nenhum\nPercurso: Guarda=naoTratado -> Conselheira=naoTratado -> Regência=naoTratado\nNenhum elo responsável nesta cadeia.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "solution"
+      ],
+      "exit": 0,
+      "stdout": "\n> grimorio-20-chain-of-responsibility@0.1.0 solution\n> npm run build && node dist/solution/main.js\n\n\n> grimorio-20-chain-of-responsibility@0.1.0 build\n> npm run clean && tsc -p tsconfig.json\n\n\n> grimorio-20-chain-of-responsibility@0.1.0 clean\n> node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"\n\nPosto antes: tratado | responsável: Posto urgente\nPercurso: Guarda -> Posto urgente\nPosto depois: negado | responsável: Conselheira\nPercurso: Guarda -> Conselheira\n",
+      "stderr": ""
+    }
+  ],
+  "stdoutComparisons": {
+    "stdout.txt": {
+      "equal": true,
+      "sha256": "780ff5e20e054c2e5700fb41c5759f668cc0ec906171c6cd4dd3172ad2704ef8"
+    },
+    "solution-stdout.txt": {
+      "equal": true,
+      "sha256": "26cc0fdca23d104c29251b793913ce8f00314bc108d803d48b95efde0b3851e2"
+    }
+  },
+  "recordedAt": "2026-10-23T04:16:16.527419+00:00"
+}

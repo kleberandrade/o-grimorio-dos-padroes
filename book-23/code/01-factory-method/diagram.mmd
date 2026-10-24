@@ -1,0 +1,44 @@
+classDiagram
+direction TB
+class CriadorDeNotificacoes {
+  <<abstract>>
+  #Correio correio
+  +enviar(PedidoDeEnvio) Comprovante
+  #criarMensageiro()* Mensageiro
+}
+class CriadorDeCristal {
+  #criarMensageiro() Mensageiro
+}
+class CriadorDePergaminho {
+  #criarMensageiro() Mensageiro
+}
+class Mensageiro {
+  <<interface>>
+  +entregar(PedidoDeEnvio) Comprovante
+}
+class MensageiroDeCristal {
+  +entregar(PedidoDeEnvio) Comprovante
+}
+class MensageiroDePergaminho {
+  +entregar(PedidoDeEnvio) Comprovante
+}
+class Correio {
+  <<interface>>
+  +entregar(canal, PedidoDeEnvio) Comprovante
+}
+class CorreioEmMemoria {
+  +entregar(canal, PedidoDeEnvio) Comprovante
+  +listarEntregas() Comprovante[]
+}
+CriadorDeNotificacoes <|-- CriadorDeCristal
+CriadorDeNotificacoes <|-- CriadorDePergaminho
+Mensageiro <|.. MensageiroDeCristal
+Mensageiro <|.. MensageiroDePergaminho
+CriadorDeNotificacoes ..> Mensageiro : enviar usa produto
+CriadorDeCristal ..> MensageiroDeCristal : cria
+CriadorDePergaminho ..> MensageiroDePergaminho : cria
+MensageiroDeCristal --> Correio
+MensageiroDePergaminho --> Correio
+CriadorDeNotificacoes --> Correio
+Correio <|.. CorreioEmMemoria
+note for CriadorDeNotificacoes "enviar valida e normaliza; chama criarMensageiro; delega entregar."

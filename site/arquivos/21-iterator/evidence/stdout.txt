@@ -1,0 +1,6 @@
+Array nativo com for...of: 1, 2, 3
+Chamadas a Symbol.iterator: após forEach/map 0 | após for...of 1
+Lista: Suri 2, 1 | Neri 2
+Lista: fim do snapshot true
+Encadeado: Suri 2, 1 | Neri 2
+Encadeado: fim do snapshot true

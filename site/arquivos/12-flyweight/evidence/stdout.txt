@@ -1,0 +1,10 @@
+fogo (vermelho) em [12, 56]
+gelo (azul) em [44, 9]
+fogo (vermelho) em [73, 20]
+Fogo compartilha identidade: true
+Primeira movida: [13, 57]
+Terceira preservada: [73, 20]
+Essências na fábrica: 2
+Recusado: Tipo de espírito não suportado: constructor.
+Recusado: Tipo de espírito não suportado: __proto__.
+Recusado: Tipo de espírito não suportado: sombra.

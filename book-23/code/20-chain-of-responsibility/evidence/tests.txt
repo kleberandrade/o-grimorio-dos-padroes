@@ -1,0 +1,36 @@
+
+> grimorio-20-chain-of-responsibility@0.1.0 test
+> npm run build && node --test dist/test/*.test.js dist/solution/*.test.js
+
+
+> grimorio-20-chain-of-responsibility@0.1.0 build
+> npm run clean && tsc -p tsconfig.json
+
+
+> grimorio-20-chain-of-responsibility@0.1.0 clean
+> node -e "require('node:fs').rmSync('dist', { recursive: true, force: true })"
+
+✔ novo elo antes da decisão comum trata; depois da negativa terminal não é chamado (0.9005ms)
+✔ posto encaminha pedidos normais e excesso; limite extraordinário de dez é explícito (0.075959ms)
+✔ urgência não faz posto decidir passagem ou revogar interdição da galeria (0.081708ms)
+✔ primeiro responsável que trata interrompe sem chamar elos posteriores (0.674709ms)
+✔ negativa é terminal e não deixa próximo elo revogar decisão silenciosamente (0.064334ms)
+✔ exceção de galeria percorre três elos e recebe negativa; alternativa exige outro pedido (0.084792ms)
+✔ provisões têm limite explícito e não são confundidas com passagem (0.058167ms)
+✔ fim sem responsável e cadeia vazia devolvem naoTratado explícito (0.061333ms)
+✔ conteúdo textual com palavra invasão não vira detector de ameaça ou autenticação (0.047167ms)
+✔ pedido inválido é erro de dados antes de decidir, não negativa de autorização (0.125625ms)
+✔ lista configurada é copiada; identidade duplicada é recusada e nomes iguais não são identidade (0.062917ms)
+✔ nome e função são capturados na montagem; estado fechado de extensão não é congelado genericamente (0.063083ms)
+✔ pedido e resultado têm cópias/congelamento dos dados declarados (0.089208ms)
+✔ repetir pedido reavalia handlers; não implica idempotência de efeitos externos (0.063667ms)
+✔ reentrância na mesma cadeia é recusada; falha propaga sem rollback e libera próxima avaliação (0.123416ms)
+✔ status de extensão incompatível é erro, não falso desfecho de negócio (0.051917ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86.963083

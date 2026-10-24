@@ -1,0 +1,32 @@
+{
+  "capturedAt": "2026-10-22T22:38:13.264Z",
+  "command": "node book-23/scripts/projetos.mjs 03-builder capture",
+  "node": "26.10.0",
+  "npm": "11.19.1",
+  "typescript": "Version 5.9.3",
+  "inputs": {
+    ".gitignore": "790e3169bc19b046fe55ba1da6d13b976c28363c8c00462a2195fe5faf260910",
+    ".nvmrc": "10e4e07fe7b63d3da1d899ea0f9a7a3d78c116051fae44b9f245a53d6f665a41",
+    "README.md": "921cc9e2caea45bcca189205ac7ec231e5afb540994e36c983390c9c2c3a06cd",
+    "diagram.mmd": "1f8c2b4daebaf9fa10db0577c81a803f7d9f179a41be8bc73567ee2f2b334e74",
+    "exercise/README.md": "d9499738c86a113e385a8bf2ecbfea47f24f4bec847c5729a591af72c07d6af9",
+    "package-lock.json": "157b0dcb8e9a3a2c5a5486534e30bdd131030bec38f9148eeb3e10bb32e0fb4a",
+    "package.json": "acfaf54a8c67406400da1024e57d964a0a9c3e9155215707a10ea1644c940b48",
+    "solution/main.ts": "1ad8e46096830ad38b180a8af31eb9f27df62c32fe2fdc9f3406f8590c5d4f79",
+    "solution/protecao-especial.test.ts": "7c76d359d9567f660ec7bc681504604366fd7c20f2aaef18a620dd7327d7a891",
+    "solution/protecao-especial.ts": "fa5cd50ff5d432d4a5a3c15e575dbaae5059ed4c0c0fb4721ac32a090ad35f2e",
+    "src/builders.ts": "04beb4d79d5c237b57e1b287029269ac65dcdca5378c52ad4098c8b75ce486af",
+    "src/contratos.ts": "70a0525527ae19b130cf9ea680aa5832c32056372436a7a9fbab61dedb11e2a6",
+    "src/direto.ts": "1e16ebc589e809c702b48843f67a54b667344439656c4266f731bd75df7de9e2",
+    "src/diretor.ts": "9452facceab32cdcd0a3b25a74fb13844fb65c0a472457d31f3446be688eeacb",
+    "src/main.ts": "9c34171818208e6780c0711017d6f40cfae3b85625f8ab4fa94ffd94185ba982",
+    "src/validacao.ts": "50edc3358b4133df782e967a596094d27cebace8f67ec82646ef4e83c9f8f6d2",
+    "test/construcao.test.ts": "2e66858f442da1cac710af579e503b1a9be45c226d918c5a3264744966496bf5",
+    "tsconfig.json": "bf5247c2dae20d97a3ccc27efce6ee92f20a4e4d747e42eba37622657f7dc766"
+  },
+  "outputs": {
+    "stdout.txt": "754f99d035e094a3572ca0041cf1b83d9856c1578744ccfc4e259f9a3b1c279c",
+    "solution-stdout.txt": "073faa8393cdf5f11e09e7a9fc3209631f1bf6471766152591a5bfb08ba6ad75",
+    "tests.txt": "95d7c9d1815b470741dcd6fd67ed9769ce195030819ae6a4b0b2ac65d87e1b25"
+  }
+}

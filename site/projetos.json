@@ -1,0 +1,2404 @@
+[
+  {
+    "id": "01-factory-method",
+    "number": "01",
+    "name": "Factory Method",
+    "category": "Criacionais",
+    "description": "variar a criação do mensageiro mantendo a operação comum de envio.",
+    "files": [
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/01-factory-method/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/01-factory-method/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/01-factory-method/diagram.mmd"
+      },
+      {
+        "path": "evidence/historico/pre-reparo-teste/envio.test.ts",
+        "url": "arquivos/01-factory-method/evidence/historico/pre-reparo-teste/envio.test.ts"
+      },
+      {
+        "path": "evidence/historico/pre-reparo-teste/manifest.json",
+        "url": "arquivos/01-factory-method/evidence/historico/pre-reparo-teste/manifest.json"
+      },
+      {
+        "path": "evidence/historico/pre-reparo-teste/solution-stdout.txt",
+        "url": "arquivos/01-factory-method/evidence/historico/pre-reparo-teste/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/historico/pre-reparo-teste/stdout.txt",
+        "url": "arquivos/01-factory-method/evidence/historico/pre-reparo-teste/stdout.txt"
+      },
+      {
+        "path": "evidence/historico/pre-reparo-teste/tests.txt",
+        "url": "arquivos/01-factory-method/evidence/historico/pre-reparo-teste/tests.txt"
+      },
+      {
+        "path": "evidence/historico/reparo-teste-mutation.json",
+        "url": "arquivos/01-factory-method/evidence/historico/reparo-teste-mutation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/01-factory-method/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/01-factory-method/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/01-factory-method/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/01-factory-method/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/01-factory-method/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/01-factory-method/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/01-factory-method/package.json"
+      },
+      {
+        "path": "solution/corvo.test.ts",
+        "url": "arquivos/01-factory-method/solution/corvo.test.ts"
+      },
+      {
+        "path": "solution/corvo.ts",
+        "url": "arquivos/01-factory-method/solution/corvo.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/01-factory-method/solution/main.ts"
+      },
+      {
+        "path": "src/cliente.ts",
+        "url": "arquivos/01-factory-method/src/cliente.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/01-factory-method/src/contratos.ts"
+      },
+      {
+        "path": "src/correio-em-memoria.ts",
+        "url": "arquivos/01-factory-method/src/correio-em-memoria.ts"
+      },
+      {
+        "path": "src/criadores.ts",
+        "url": "arquivos/01-factory-method/src/criadores.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/01-factory-method/src/main.ts"
+      },
+      {
+        "path": "src/mensageiros.ts",
+        "url": "arquivos/01-factory-method/src/mensageiros.ts"
+      },
+      {
+        "path": "test/envio.test.ts",
+        "url": "arquivos/01-factory-method/test/envio.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/01-factory-method/tsconfig.json"
+      }
+    ],
+    "download": "downloads/01-factory-method.zip"
+  },
+  {
+    "id": "02-abstract-factory",
+    "number": "02",
+    "name": "Abstract Factory",
+    "category": "Criacionais",
+    "description": "fornecer armas e proteções de famílias compatíveis.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/02-abstract-factory/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/02-abstract-factory/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/02-abstract-factory/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/02-abstract-factory/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/02-abstract-factory/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/02-abstract-factory/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/02-abstract-factory/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/02-abstract-factory/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/02-abstract-factory/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/02-abstract-factory/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/02-abstract-factory/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/02-abstract-factory/package.json"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/02-abstract-factory/solution/main.ts"
+      },
+      {
+        "path": "solution/vento.test.ts",
+        "url": "arquivos/02-abstract-factory/solution/vento.test.ts"
+      },
+      {
+        "path": "solution/vento.ts",
+        "url": "arquivos/02-abstract-factory/solution/vento.ts"
+      },
+      {
+        "path": "src/brasa.ts",
+        "url": "arquivos/02-abstract-factory/src/brasa.ts"
+      },
+      {
+        "path": "src/cliente.ts",
+        "url": "arquivos/02-abstract-factory/src/cliente.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/02-abstract-factory/src/contratos.ts"
+      },
+      {
+        "path": "src/ensaio.ts",
+        "url": "arquivos/02-abstract-factory/src/ensaio.ts"
+      },
+      {
+        "path": "src/geada.ts",
+        "url": "arquivos/02-abstract-factory/src/geada.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/02-abstract-factory/src/main.ts"
+      },
+      {
+        "path": "test/familias.test.ts",
+        "url": "arquivos/02-abstract-factory/test/familias.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/02-abstract-factory/tsconfig.json"
+      }
+    ],
+    "download": "downloads/02-abstract-factory.zip"
+  },
+  {
+    "id": "03-builder",
+    "number": "03",
+    "name": "Builder",
+    "category": "Criacionais",
+    "description": "construir por etapas uma ficha ou um relatório usando receitas de expedição.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/03-builder/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/03-builder/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/03-builder/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/03-builder/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/03-builder/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/03-builder/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/03-builder/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/03-builder/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/03-builder/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/03-builder/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/03-builder/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/03-builder/package.json"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/03-builder/solution/main.ts"
+      },
+      {
+        "path": "solution/protecao-especial.test.ts",
+        "url": "arquivos/03-builder/solution/protecao-especial.test.ts"
+      },
+      {
+        "path": "solution/protecao-especial.ts",
+        "url": "arquivos/03-builder/solution/protecao-especial.ts"
+      },
+      {
+        "path": "src/builders.ts",
+        "url": "arquivos/03-builder/src/builders.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/03-builder/src/contratos.ts"
+      },
+      {
+        "path": "src/direto.ts",
+        "url": "arquivos/03-builder/src/direto.ts"
+      },
+      {
+        "path": "src/diretor.ts",
+        "url": "arquivos/03-builder/src/diretor.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/03-builder/src/main.ts"
+      },
+      {
+        "path": "src/validacao.ts",
+        "url": "arquivos/03-builder/src/validacao.ts"
+      },
+      {
+        "path": "test/construcao.test.ts",
+        "url": "arquivos/03-builder/test/construcao.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/03-builder/tsconfig.json"
+      }
+    ],
+    "download": "downloads/03-builder.zip"
+  },
+  {
+    "id": "04-prototype",
+    "number": "04",
+    "name": "Prototype",
+    "category": "Criacionais",
+    "description": "clonar e personalizar uma fórmula, com cópia dos dados mutáveis e selo imutável compartilhado.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/04-prototype/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/04-prototype/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/04-prototype/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/04-prototype/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/04-prototype/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/04-prototype/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/04-prototype/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/04-prototype/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/04-prototype/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/04-prototype/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/04-prototype/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/04-prototype/package.json"
+      },
+      {
+        "path": "solution/armazenamento.test.ts",
+        "url": "arquivos/04-prototype/solution/armazenamento.test.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/04-prototype/solution/main.ts"
+      },
+      {
+        "path": "solution/pocao-com-armazenamento.ts",
+        "url": "arquivos/04-prototype/solution/pocao-com-armazenamento.ts"
+      },
+      {
+        "path": "src/cliente.ts",
+        "url": "arquivos/04-prototype/src/cliente.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/04-prototype/src/contratos.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/04-prototype/src/main.ts"
+      },
+      {
+        "path": "src/pocao.ts",
+        "url": "arquivos/04-prototype/src/pocao.ts"
+      },
+      {
+        "path": "src/selo.ts",
+        "url": "arquivos/04-prototype/src/selo.ts"
+      },
+      {
+        "path": "src/validacao.ts",
+        "url": "arquivos/04-prototype/src/validacao.ts"
+      },
+      {
+        "path": "test/clonagem.test.ts",
+        "url": "arquivos/04-prototype/test/clonagem.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/04-prototype/tsconfig.json"
+      }
+    ],
+    "download": "downloads/04-prototype.zip"
+  },
+  {
+    "id": "05-singleton",
+    "number": "05",
+    "name": "Singleton",
+    "category": "Criacionais",
+    "description": "escolher o ciclo de vida de um registro, com acesso compartilhado por avaliação do módulo e dependências injetadas.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/05-singleton/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/05-singleton/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/05-singleton/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/05-singleton/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/05-singleton/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/05-singleton/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/05-singleton/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/05-singleton/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/05-singleton/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/05-singleton/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/05-singleton/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/05-singleton/package.json"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/05-singleton/solution/main.ts"
+      },
+      {
+        "path": "solution/raiz.test.ts",
+        "url": "arquivos/05-singleton/solution/raiz.test.ts"
+      },
+      {
+        "path": "solution/raiz.ts",
+        "url": "arquivos/05-singleton/solution/raiz.ts"
+      },
+      {
+        "path": "src/composicao.ts",
+        "url": "arquivos/05-singleton/src/composicao.ts"
+      },
+      {
+        "path": "src/contextos.ts",
+        "url": "arquivos/05-singleton/src/contextos.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/05-singleton/src/contratos.ts"
+      },
+      {
+        "path": "src/equipe.ts",
+        "url": "arquivos/05-singleton/src/equipe.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/05-singleton/src/main.ts"
+      },
+      {
+        "path": "src/modulo-compartilhado.ts",
+        "url": "arquivos/05-singleton/src/modulo-compartilhado.ts"
+      },
+      {
+        "path": "src/preferencia-compartilhada.ts",
+        "url": "arquivos/05-singleton/src/preferencia-compartilhada.ts"
+      },
+      {
+        "path": "src/registro.ts",
+        "url": "arquivos/05-singleton/src/registro.ts"
+      },
+      {
+        "path": "src/sonda-worker.ts",
+        "url": "arquivos/05-singleton/src/sonda-worker.ts"
+      },
+      {
+        "path": "test/registro.test.ts",
+        "url": "arquivos/05-singleton/test/registro.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/05-singleton/tsconfig.json"
+      }
+    ],
+    "download": "downloads/05-singleton.zip"
+  },
+  {
+    "id": "06-adapter",
+    "number": "06",
+    "name": "Adapter",
+    "category": "Estruturais",
+    "description": "adaptar um fornecedor legado ao contrato esperado, incluindo conversão de velocidade.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/06-adapter/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/06-adapter/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/06-adapter/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/06-adapter/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/06-adapter/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/06-adapter/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/06-adapter/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/06-adapter/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/06-adapter/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/06-adapter/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/06-adapter/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/06-adapter/package.json"
+      },
+      {
+        "path": "solution/adapter-maritimo.ts",
+        "url": "arquivos/06-adapter/solution/adapter-maritimo.ts"
+      },
+      {
+        "path": "solution/fornecedor-maritimo.ts",
+        "url": "arquivos/06-adapter/solution/fornecedor-maritimo.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/06-adapter/solution/main.ts"
+      },
+      {
+        "path": "solution/maritimo.test.ts",
+        "url": "arquivos/06-adapter/solution/maritimo.test.ts"
+      },
+      {
+        "path": "src/adapter.ts",
+        "url": "arquivos/06-adapter/src/adapter.ts"
+      },
+      {
+        "path": "src/cliente.ts",
+        "url": "arquivos/06-adapter/src/cliente.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/06-adapter/src/contratos.ts"
+      },
+      {
+        "path": "src/legado/dragao-antigo.ts",
+        "url": "arquivos/06-adapter/src/legado/dragao-antigo.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/06-adapter/src/main.ts"
+      },
+      {
+        "path": "src/nativo.ts",
+        "url": "arquivos/06-adapter/src/nativo.ts"
+      },
+      {
+        "path": "src/validacao.ts",
+        "url": "arquivos/06-adapter/src/validacao.ts"
+      },
+      {
+        "path": "test/adaptacao.test.ts",
+        "url": "arquivos/06-adapter/test/adaptacao.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/06-adapter/tsconfig.json"
+      }
+    ],
+    "download": "downloads/06-adapter.zip"
+  },
+  {
+    "id": "07-facade",
+    "number": "07",
+    "name": "Facade",
+    "category": "Estruturais",
+    "description": "coordenar quatro subsistemas numa preparação, informando etapas prontas ou parciais.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/07-facade/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/07-facade/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/07-facade/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/07-facade/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/07-facade/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/07-facade/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/07-facade/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/07-facade/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/07-facade/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/07-facade/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/07-facade/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/07-facade/package.json"
+      },
+      {
+        "path": "solution/coordenacao.test.ts",
+        "url": "arquivos/07-facade/solution/coordenacao.test.ts"
+      },
+      {
+        "path": "solution/coordenacao.ts",
+        "url": "arquivos/07-facade/solution/coordenacao.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/07-facade/solution/main.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/07-facade/src/contratos.ts"
+      },
+      {
+        "path": "src/fachada.ts",
+        "url": "arquivos/07-facade/src/fachada.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/07-facade/src/main.ts"
+      },
+      {
+        "path": "src/subsistemas-em-memoria.ts",
+        "url": "arquivos/07-facade/src/subsistemas-em-memoria.ts"
+      },
+      {
+        "path": "test/preparacao.test.ts",
+        "url": "arquivos/07-facade/test/preparacao.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/07-facade/tsconfig.json"
+      }
+    ],
+    "download": "downloads/07-facade.zip"
+  },
+  {
+    "id": "08-decorator",
+    "number": "08",
+    "name": "Decorator",
+    "category": "Estruturais",
+    "description": "compor efeitos de ataque e observar como a ordem das camadas muda o resultado.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/08-decorator/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/08-decorator/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/08-decorator/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/08-decorator/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/08-decorator/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/08-decorator/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/08-decorator/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/08-decorator/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/08-decorator/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/08-decorator/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/08-decorator/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/08-decorator/package.json"
+      },
+      {
+        "path": "solution/limitador.test.ts",
+        "url": "arquivos/08-decorator/solution/limitador.test.ts"
+      },
+      {
+        "path": "solution/limitador.ts",
+        "url": "arquivos/08-decorator/solution/limitador.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/08-decorator/solution/main.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/08-decorator/src/contratos.ts"
+      },
+      {
+        "path": "src/direto.ts",
+        "url": "arquivos/08-decorator/src/direto.ts"
+      },
+      {
+        "path": "src/espada.ts",
+        "url": "arquivos/08-decorator/src/espada.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/08-decorator/src/main.ts"
+      },
+      {
+        "path": "src/mantos.ts",
+        "url": "arquivos/08-decorator/src/mantos.ts"
+      },
+      {
+        "path": "src/resultado.ts",
+        "url": "arquivos/08-decorator/src/resultado.ts"
+      },
+      {
+        "path": "test/composicao.test.ts",
+        "url": "arquivos/08-decorator/test/composicao.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/08-decorator/tsconfig.json"
+      }
+    ],
+    "download": "downloads/08-decorator.zip"
+  },
+  {
+    "id": "09-proxy",
+    "number": "09",
+    "name": "Proxy",
+    "category": "Estruturais",
+    "description": "controlar a delegação ao serviço; o exercício apresenta carregamento virtual síncrono.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/09-proxy/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/09-proxy/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/09-proxy/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/09-proxy/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/09-proxy/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/09-proxy/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/09-proxy/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/09-proxy/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/09-proxy/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/09-proxy/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/09-proxy/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/09-proxy/package.json"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/09-proxy/solution/main.ts"
+      },
+      {
+        "path": "solution/proxy-virtual.ts",
+        "url": "arquivos/09-proxy/solution/proxy-virtual.ts"
+      },
+      {
+        "path": "solution/virtual.test.ts",
+        "url": "arquivos/09-proxy/solution/virtual.test.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/09-proxy/src/contratos.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/09-proxy/src/main.ts"
+      },
+      {
+        "path": "src/politica.ts",
+        "url": "arquivos/09-proxy/src/politica.ts"
+      },
+      {
+        "path": "src/proxy-protecao.ts",
+        "url": "arquivos/09-proxy/src/proxy-protecao.ts"
+      },
+      {
+        "path": "src/sala-real.ts",
+        "url": "arquivos/09-proxy/src/sala-real.ts"
+      },
+      {
+        "path": "src/servico-com-controle.ts",
+        "url": "arquivos/09-proxy/src/servico-com-controle.ts"
+      },
+      {
+        "path": "test/protecao.test.ts",
+        "url": "arquivos/09-proxy/test/protecao.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/09-proxy/tsconfig.json"
+      }
+    ],
+    "download": "downloads/09-proxy.zip"
+  },
+  {
+    "id": "10-composite",
+    "number": "10",
+    "name": "Composite",
+    "category": "Estruturais",
+    "description": "aplicar uma ordem a folhas e formações numa árvore parte-todo.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/10-composite/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/10-composite/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/10-composite/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/10-composite/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/10-composite/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/10-composite/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/10-composite/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/10-composite/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/10-composite/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/10-composite/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/10-composite/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/10-composite/package.json"
+      },
+      {
+        "path": "solution/formacao-editavel.ts",
+        "url": "arquivos/10-composite/solution/formacao-editavel.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/10-composite/solution/main.ts"
+      },
+      {
+        "path": "solution/remocao.test.ts",
+        "url": "arquivos/10-composite/solution/remocao.test.ts"
+      },
+      {
+        "path": "src/arvore.ts",
+        "url": "arquivos/10-composite/src/arvore.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/10-composite/src/contratos.ts"
+      },
+      {
+        "path": "src/direto.ts",
+        "url": "arquivos/10-composite/src/direto.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/10-composite/src/main.ts"
+      },
+      {
+        "path": "test/arvore.test.ts",
+        "url": "arquivos/10-composite/test/arvore.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/10-composite/tsconfig.json"
+      }
+    ],
+    "download": "downloads/10-composite.zip"
+  },
+  {
+    "id": "11-bridge",
+    "number": "11",
+    "name": "Bridge",
+    "category": "Estruturais",
+    "description": "combinar formas de arma e essências em dois eixos de variação.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/11-bridge/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/11-bridge/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/11-bridge/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/11-bridge/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/11-bridge/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/11-bridge/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/11-bridge/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/11-bridge/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/11-bridge/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/11-bridge/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/11-bridge/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/11-bridge/package.json"
+      },
+      {
+        "path": "solution/extensoes.test.ts",
+        "url": "arquivos/11-bridge/solution/extensoes.test.ts"
+      },
+      {
+        "path": "solution/extensoes.ts",
+        "url": "arquivos/11-bridge/solution/extensoes.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/11-bridge/solution/main.ts"
+      },
+      {
+        "path": "src/armas.ts",
+        "url": "arquivos/11-bridge/src/armas.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/11-bridge/src/contratos.ts"
+      },
+      {
+        "path": "src/direto.ts",
+        "url": "arquivos/11-bridge/src/direto.ts"
+      },
+      {
+        "path": "src/essencias.ts",
+        "url": "arquivos/11-bridge/src/essencias.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/11-bridge/src/main.ts"
+      },
+      {
+        "path": "src/resultado.ts",
+        "url": "arquivos/11-bridge/src/resultado.ts"
+      },
+      {
+        "path": "test/ponte.test.ts",
+        "url": "arquivos/11-bridge/test/ponte.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/11-bridge/tsconfig.json"
+      }
+    ],
+    "download": "downloads/11-bridge.zip"
+  },
+  {
+    "id": "12-flyweight",
+    "number": "12",
+    "name": "Flyweight",
+    "category": "Estruturais",
+    "description": "compartilhar essências imutáveis entre aparições com posições próprias e comparar modelos num experimento separado.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/12-flyweight/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/12-flyweight/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/12-flyweight/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/12-flyweight/diagram.mmd"
+      },
+      {
+        "path": "evidence/experimentos/2026-10-23T00-49-17-789Z-n100000-k3/resultados.json",
+        "url": "arquivos/12-flyweight/evidence/experimentos/2026-10-23T00-49-17-789Z-n100000-k3/resultados.json"
+      },
+      {
+        "path": "evidence/experimentos/2026-10-23T00-49-20-049Z-n100000-k1/resultados.json",
+        "url": "arquivos/12-flyweight/evidence/experimentos/2026-10-23T00-49-20-049Z-n100000-k1/resultados.json"
+      },
+      {
+        "path": "evidence/experimentos/indice.json",
+        "url": "arquivos/12-flyweight/evidence/experimentos/indice.json"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/12-flyweight/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/12-flyweight/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/12-flyweight/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/12-flyweight/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/12-flyweight/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/12-flyweight/exercise/README.md"
+      },
+      {
+        "path": "experiment/cenario.ts",
+        "url": "arquivos/12-flyweight/experiment/cenario.ts"
+      },
+      {
+        "path": "experiment/medir.ts",
+        "url": "arquivos/12-flyweight/experiment/medir.ts"
+      },
+      {
+        "path": "experiment/observacao.ts",
+        "url": "arquivos/12-flyweight/experiment/observacao.ts"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/12-flyweight/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/12-flyweight/package.json"
+      },
+      {
+        "path": "solution/cenario.test.ts",
+        "url": "arquivos/12-flyweight/solution/cenario.test.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/12-flyweight/solution/main.ts"
+      },
+      {
+        "path": "src/espiritos.ts",
+        "url": "arquivos/12-flyweight/src/espiritos.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/12-flyweight/src/main.ts"
+      },
+      {
+        "path": "test/compartilhamento.test.ts",
+        "url": "arquivos/12-flyweight/test/compartilhamento.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/12-flyweight/tsconfig.json"
+      }
+    ],
+    "download": "downloads/12-flyweight.zip"
+  },
+  {
+    "id": "13-strategy",
+    "number": "13",
+    "name": "Strategy",
+    "category": "Comportamentais",
+    "description": "trocar a política de ataque sem trocar a identidade do contexto.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/13-strategy/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/13-strategy/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/13-strategy/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/13-strategy/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/13-strategy/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/13-strategy/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/13-strategy/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/13-strategy/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/13-strategy/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/13-strategy/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/13-strategy/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/13-strategy/package.json"
+      },
+      {
+        "path": "solution/funcional.test.ts",
+        "url": "arquivos/13-strategy/solution/funcional.test.ts"
+      },
+      {
+        "path": "solution/funcional.ts",
+        "url": "arquivos/13-strategy/solution/funcional.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/13-strategy/solution/main.ts"
+      },
+      {
+        "path": "src/combatente.ts",
+        "url": "arquivos/13-strategy/src/combatente.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/13-strategy/src/contratos.ts"
+      },
+      {
+        "path": "src/estrategias.ts",
+        "url": "arquivos/13-strategy/src/estrategias.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/13-strategy/src/main.ts"
+      },
+      {
+        "path": "src/resultado.ts",
+        "url": "arquivos/13-strategy/src/resultado.ts"
+      },
+      {
+        "path": "test/taticas.test.ts",
+        "url": "arquivos/13-strategy/test/taticas.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/13-strategy/tsconfig.json"
+      }
+    ],
+    "download": "downloads/13-strategy.zip"
+  },
+  {
+    "id": "14-state",
+    "number": "14",
+    "name": "State",
+    "category": "Comportamentais",
+    "description": "variar ações e transições conforme o estado atual de um guerreiro.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/14-state/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/14-state/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/14-state/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/14-state/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/14-state/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/14-state/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/14-state/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/14-state/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/14-state/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/14-state/exercise/README.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/14-state/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/14-state/package.json"
+      },
+      {
+        "path": "solution/defensivo.test.ts",
+        "url": "arquivos/14-state/solution/defensivo.test.ts"
+      },
+      {
+        "path": "solution/defensivo.ts",
+        "url": "arquivos/14-state/solution/defensivo.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/14-state/solution/main.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/14-state/src/contratos.ts"
+      },
+      {
+        "path": "src/estados.ts",
+        "url": "arquivos/14-state/src/estados.ts"
+      },
+      {
+        "path": "src/guerreiro.ts",
+        "url": "arquivos/14-state/src/guerreiro.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/14-state/src/main.ts"
+      },
+      {
+        "path": "src/tabela.ts",
+        "url": "arquivos/14-state/src/tabela.ts"
+      },
+      {
+        "path": "test/ciclo.test.ts",
+        "url": "arquivos/14-state/test/ciclo.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/14-state/tsconfig.json"
+      }
+    ],
+    "download": "downloads/14-state.zip"
+  },
+  {
+    "id": "15-template-method",
+    "number": "15",
+    "name": "Template Method",
+    "category": "Comportamentais",
+    "description": "manter a sequência do ritual na base e especializar sua conjuração.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/15-template-method/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/15-template-method/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/15-template-method/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/15-template-method/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/15-template-method/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/15-template-method/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/runner-commands.json",
+        "url": "arquivos/15-template-method/evidence/runner-commands.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/15-template-method/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/15-template-method/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/15-template-method/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/15-template-method/exercise/README.md"
+      },
+      {
+        "path": "notas-tecnicas.md",
+        "url": "arquivos/15-template-method/notas-tecnicas.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/15-template-method/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/15-template-method/package.json"
+      },
+      {
+        "path": "solution/hook.test.ts",
+        "url": "arquivos/15-template-method/solution/hook.test.ts"
+      },
+      {
+        "path": "solution/inspecao.ts",
+        "url": "arquivos/15-template-method/solution/inspecao.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/15-template-method/solution/main.ts"
+      },
+      {
+        "path": "solution/ritual-com-hook.ts",
+        "url": "arquivos/15-template-method/solution/ritual-com-hook.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/15-template-method/src/contratos.ts"
+      },
+      {
+        "path": "src/funcao.ts",
+        "url": "arquivos/15-template-method/src/funcao.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/15-template-method/src/main.ts"
+      },
+      {
+        "path": "src/ritual.ts",
+        "url": "arquivos/15-template-method/src/ritual.ts"
+      },
+      {
+        "path": "test/ritual.test.ts",
+        "url": "arquivos/15-template-method/test/ritual.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/15-template-method/tsconfig.json"
+      }
+    ],
+    "download": "downloads/15-template-method.zip"
+  },
+  {
+    "id": "16-command",
+    "number": "16",
+    "name": "Command",
+    "category": "Comportamentais",
+    "description": "guardar solicitações de reserva e desfazer somente parcelas ainda intactas num histórico limitado.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/16-command/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/16-command/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/16-command/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/16-command/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/16-command/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/16-command/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/runner-commands.json",
+        "url": "arquivos/16-command/evidence/runner-commands.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/16-command/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/16-command/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/16-command/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/16-command/exercise/README.md"
+      },
+      {
+        "path": "notas-tecnicas.md",
+        "url": "arquivos/16-command/notas-tecnicas.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/16-command/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/16-command/package.json"
+      },
+      {
+        "path": "solution/avisos.test.ts",
+        "url": "arquivos/16-command/solution/avisos.test.ts"
+      },
+      {
+        "path": "solution/avisos.ts",
+        "url": "arquivos/16-command/solution/avisos.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/16-command/solution/main.ts"
+      },
+      {
+        "path": "src/comando.ts",
+        "url": "arquivos/16-command/src/comando.ts"
+      },
+      {
+        "path": "src/estoque.ts",
+        "url": "arquivos/16-command/src/estoque.ts"
+      },
+      {
+        "path": "src/invocador.ts",
+        "url": "arquivos/16-command/src/invocador.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/16-command/src/main.ts"
+      },
+      {
+        "path": "test/command.test.ts",
+        "url": "arquivos/16-command/test/command.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/16-command/tsconfig.json"
+      }
+    ],
+    "download": "downloads/16-command.zip"
+  },
+  {
+    "id": "17-memento",
+    "number": "17",
+    "name": "Memento",
+    "category": "Comportamentais",
+    "description": "guardar tokens opacos de capturas e restaurar o estado declarado de um diário.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/17-memento/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/17-memento/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/17-memento/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/17-memento/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/17-memento/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/17-memento/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/runner-commands.json",
+        "url": "arquivos/17-memento/evidence/runner-commands.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/17-memento/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/17-memento/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/17-memento/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/17-memento/exercise/README.md"
+      },
+      {
+        "path": "notas-tecnicas.md",
+        "url": "arquivos/17-memento/notas-tecnicas.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/17-memento/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/17-memento/package.json"
+      },
+      {
+        "path": "solution/linha-do-tempo.test.ts",
+        "url": "arquivos/17-memento/solution/linha-do-tempo.test.ts"
+      },
+      {
+        "path": "solution/linha-do-tempo.ts",
+        "url": "arquivos/17-memento/solution/linha-do-tempo.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/17-memento/solution/main.ts"
+      },
+      {
+        "path": "src/diario.ts",
+        "url": "arquivos/17-memento/src/diario.ts"
+      },
+      {
+        "path": "src/guardiao.ts",
+        "url": "arquivos/17-memento/src/guardiao.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/17-memento/src/main.ts"
+      },
+      {
+        "path": "test/memento.test.ts",
+        "url": "arquivos/17-memento/test/memento.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/17-memento/tsconfig.json"
+      }
+    ],
+    "download": "downloads/17-memento.zip"
+  },
+  {
+    "id": "18-observer",
+    "number": "18",
+    "name": "Observer",
+    "category": "Comportamentais",
+    "description": "inscrever e remover callbacks que reagem a um aviso, com regras de rodada e falha.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/18-observer/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/18-observer/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/18-observer/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/18-observer/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/18-observer/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/18-observer/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/runner-commands.json",
+        "url": "arquivos/18-observer/evidence/runner-commands.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/18-observer/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/18-observer/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/18-observer/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/18-observer/exercise/README.md"
+      },
+      {
+        "path": "notas-tecnicas.md",
+        "url": "arquivos/18-observer/notas-tecnicas.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/18-observer/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/18-observer/package.json"
+      },
+      {
+        "path": "solution/escopo.test.ts",
+        "url": "arquivos/18-observer/solution/escopo.test.ts"
+      },
+      {
+        "path": "solution/escopo.ts",
+        "url": "arquivos/18-observer/solution/escopo.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/18-observer/solution/main.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/18-observer/src/main.ts"
+      },
+      {
+        "path": "src/oraculo.ts",
+        "url": "arquivos/18-observer/src/oraculo.ts"
+      },
+      {
+        "path": "test/observer.test.ts",
+        "url": "arquivos/18-observer/test/observer.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/18-observer/tsconfig.json"
+      }
+    ],
+    "download": "downloads/18-observer.zip"
+  },
+  {
+    "id": "19-mediator",
+    "number": "19",
+    "name": "Mediator",
+    "category": "Comportamentais",
+    "description": "coordenar destinatários e ações de um protocolo por etapa, sem retransmitir tudo a todos.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/19-mediator/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/19-mediator/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/19-mediator/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/19-mediator/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/19-mediator/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/19-mediator/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/runner-commands.json",
+        "url": "arquivos/19-mediator/evidence/runner-commands.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/19-mediator/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/19-mediator/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/19-mediator/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/19-mediator/exercise/README.md"
+      },
+      {
+        "path": "notas-tecnicas.md",
+        "url": "arquivos/19-mediator/notas-tecnicas.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/19-mediator/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/19-mediator/package.json"
+      },
+      {
+        "path": "solution/cotas.test.ts",
+        "url": "arquivos/19-mediator/solution/cotas.test.ts"
+      },
+      {
+        "path": "solution/cotas.ts",
+        "url": "arquivos/19-mediator/solution/cotas.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/19-mediator/solution/main.ts"
+      },
+      {
+        "path": "src/colegas.ts",
+        "url": "arquivos/19-mediator/src/colegas.ts"
+      },
+      {
+        "path": "src/conselho.ts",
+        "url": "arquivos/19-mediator/src/conselho.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/19-mediator/src/contratos.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/19-mediator/src/main.ts"
+      },
+      {
+        "path": "src/montagem.ts",
+        "url": "arquivos/19-mediator/src/montagem.ts"
+      },
+      {
+        "path": "test/mediator.test.ts",
+        "url": "arquivos/19-mediator/test/mediator.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/19-mediator/tsconfig.json"
+      }
+    ],
+    "download": "downloads/19-mediator.zip"
+  },
+  {
+    "id": "20-chain-of-responsibility",
+    "number": "20",
+    "name": "Chain of Responsibility",
+    "category": "Comportamentais",
+    "description": "percorrer postos e encerrar no primeiro tratamento ou recusa terminal, sem confundir recusa com falta de resposta.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/20-chain-of-responsibility/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/20-chain-of-responsibility/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/20-chain-of-responsibility/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/20-chain-of-responsibility/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/20-chain-of-responsibility/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/20-chain-of-responsibility/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/runner-commands.json",
+        "url": "arquivos/20-chain-of-responsibility/evidence/runner-commands.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/20-chain-of-responsibility/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/20-chain-of-responsibility/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/20-chain-of-responsibility/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/20-chain-of-responsibility/exercise/README.md"
+      },
+      {
+        "path": "notas-tecnicas.md",
+        "url": "arquivos/20-chain-of-responsibility/notas-tecnicas.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/20-chain-of-responsibility/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/20-chain-of-responsibility/package.json"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/20-chain-of-responsibility/solution/main.ts"
+      },
+      {
+        "path": "solution/posto-urgente.ts",
+        "url": "arquivos/20-chain-of-responsibility/solution/posto-urgente.ts"
+      },
+      {
+        "path": "solution/posto.test.ts",
+        "url": "arquivos/20-chain-of-responsibility/solution/posto.test.ts"
+      },
+      {
+        "path": "src/cadeia.ts",
+        "url": "arquivos/20-chain-of-responsibility/src/cadeia.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/20-chain-of-responsibility/src/contratos.ts"
+      },
+      {
+        "path": "src/handlers.ts",
+        "url": "arquivos/20-chain-of-responsibility/src/handlers.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/20-chain-of-responsibility/src/main.ts"
+      },
+      {
+        "path": "test/chain.test.ts",
+        "url": "arquivos/20-chain-of-responsibility/test/chain.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/20-chain-of-responsibility/tsconfig.json"
+      }
+    ],
+    "download": "downloads/20-chain-of-responsibility.zip"
+  },
+  {
+    "id": "21-iterator",
+    "number": "21",
+    "name": "Iterator",
+    "category": "Comportamentais",
+    "description": "consultar duas representações por capturas de dados e cursores independentes; a ponte para o protocolo nativo e o gerador ficam no exercício.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/21-iterator/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/21-iterator/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/21-iterator/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/21-iterator/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/21-iterator/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/21-iterator/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/runner-commands.json",
+        "url": "arquivos/21-iterator/evidence/runner-commands.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/21-iterator/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/21-iterator/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/21-iterator/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/21-iterator/exercise/README.md"
+      },
+      {
+        "path": "notas-tecnicas.md",
+        "url": "arquivos/21-iterator/notas-tecnicas.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/21-iterator/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/21-iterator/package.json"
+      },
+      {
+        "path": "referencias.json",
+        "url": "arquivos/21-iterator/referencias.json"
+      },
+      {
+        "path": "solution/iteravel.test.ts",
+        "url": "arquivos/21-iterator/solution/iteravel.test.ts"
+      },
+      {
+        "path": "solution/iteravel.ts",
+        "url": "arquivos/21-iterator/solution/iteravel.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/21-iterator/solution/main.ts"
+      },
+      {
+        "path": "src/arquivos.ts",
+        "url": "arquivos/21-iterator/src/arquivos.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/21-iterator/src/contratos.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/21-iterator/src/main.ts"
+      },
+      {
+        "path": "src/nativo.ts",
+        "url": "arquivos/21-iterator/src/nativo.ts"
+      },
+      {
+        "path": "src/percurso.ts",
+        "url": "arquivos/21-iterator/src/percurso.ts"
+      },
+      {
+        "path": "test/iterator.test.ts",
+        "url": "arquivos/21-iterator/test/iterator.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/21-iterator/tsconfig.json"
+      }
+    ],
+    "download": "downloads/21-iterator.zip"
+  },
+  {
+    "id": "22-visitor",
+    "number": "22",
+    "name": "Visitor",
+    "category": "Comportamentais",
+    "description": "aplicar operações distintas a três tipos preparados com aceitar e explicitar o custo de incluir um quarto tipo.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/22-visitor/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/22-visitor/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/22-visitor/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/22-visitor/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/22-visitor/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/22-visitor/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/runner-commands.json",
+        "url": "arquivos/22-visitor/evidence/runner-commands.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/22-visitor/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/22-visitor/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/22-visitor/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/22-visitor/exercise/README.md"
+      },
+      {
+        "path": "notas-tecnicas.md",
+        "url": "arquivos/22-visitor/notas-tecnicas.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/22-visitor/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/22-visitor/package.json"
+      },
+      {
+        "path": "referencias.json",
+        "url": "arquivos/22-visitor/referencias.json"
+      },
+      {
+        "path": "solution/ampliacao.test.ts",
+        "url": "arquivos/22-visitor/solution/ampliacao.test.ts"
+      },
+      {
+        "path": "solution/contratos-ampliados.ts",
+        "url": "arquivos/22-visitor/solution/contratos-ampliados.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/22-visitor/solution/main.ts"
+      },
+      {
+        "path": "solution/membros-ampliados.ts",
+        "url": "arquivos/22-visitor/solution/membros-ampliados.ts"
+      },
+      {
+        "path": "solution/visitantes-ampliados.ts",
+        "url": "arquivos/22-visitor/solution/visitantes-ampliados.ts"
+      },
+      {
+        "path": "src/contratos.ts",
+        "url": "arquivos/22-visitor/src/contratos.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/22-visitor/src/main.ts"
+      },
+      {
+        "path": "src/membros.ts",
+        "url": "arquivos/22-visitor/src/membros.ts"
+      },
+      {
+        "path": "src/union.ts",
+        "url": "arquivos/22-visitor/src/union.ts"
+      },
+      {
+        "path": "src/visitantes.ts",
+        "url": "arquivos/22-visitor/src/visitantes.ts"
+      },
+      {
+        "path": "test/visitor.test.ts",
+        "url": "arquivos/22-visitor/test/visitor.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/22-visitor/tsconfig.json"
+      }
+    ],
+    "download": "downloads/22-visitor.zip"
+  },
+  {
+    "id": "23-interpreter",
+    "number": "23",
+    "name": "Interpreter",
+    "category": "Comportamentais",
+    "description": "construir e interpretar expressões de uma gramática pequena, com análise completa e orçamento antes dos efeitos; a repetição pertence ao exercício.",
+    "files": [
+      {
+        "path": ".gitignore",
+        "url": "arquivos/23-interpreter/gitignore.txt"
+      },
+      {
+        "path": ".nvmrc",
+        "url": "arquivos/23-interpreter/nvmrc.txt"
+      },
+      {
+        "path": "README.md",
+        "url": "arquivos/23-interpreter/README.md"
+      },
+      {
+        "path": "diagram.mmd",
+        "url": "arquivos/23-interpreter/diagram.mmd"
+      },
+      {
+        "path": "evidence/isolation.json",
+        "url": "arquivos/23-interpreter/evidence/isolation.json"
+      },
+      {
+        "path": "evidence/manifest.json",
+        "url": "arquivos/23-interpreter/evidence/manifest.json"
+      },
+      {
+        "path": "evidence/runner-commands.json",
+        "url": "arquivos/23-interpreter/evidence/runner-commands.json"
+      },
+      {
+        "path": "evidence/solution-stdout.txt",
+        "url": "arquivos/23-interpreter/evidence/solution-stdout.txt"
+      },
+      {
+        "path": "evidence/stdout.txt",
+        "url": "arquivos/23-interpreter/evidence/stdout.txt"
+      },
+      {
+        "path": "evidence/tests.txt",
+        "url": "arquivos/23-interpreter/evidence/tests.txt"
+      },
+      {
+        "path": "exercise/README.md",
+        "url": "arquivos/23-interpreter/exercise/README.md"
+      },
+      {
+        "path": "notas-tecnicas.md",
+        "url": "arquivos/23-interpreter/notas-tecnicas.md"
+      },
+      {
+        "path": "package-lock.json",
+        "url": "arquivos/23-interpreter/package-lock.json"
+      },
+      {
+        "path": "package.json",
+        "url": "arquivos/23-interpreter/package.json"
+      },
+      {
+        "path": "referencias.json",
+        "url": "arquivos/23-interpreter/referencias.json"
+      },
+      {
+        "path": "solution/conjurar.ts",
+        "url": "arquivos/23-interpreter/solution/conjurar.ts"
+      },
+      {
+        "path": "solution/main.ts",
+        "url": "arquivos/23-interpreter/solution/main.ts"
+      },
+      {
+        "path": "solution/parser-ampliado.ts",
+        "url": "arquivos/23-interpreter/solution/parser-ampliado.ts"
+      },
+      {
+        "path": "solution/repeticao.test.ts",
+        "url": "arquivos/23-interpreter/solution/repeticao.test.ts"
+      },
+      {
+        "path": "solution/repeticao.ts",
+        "url": "arquivos/23-interpreter/solution/repeticao.ts"
+      },
+      {
+        "path": "src/executar.ts",
+        "url": "arquivos/23-interpreter/src/executar.ts"
+      },
+      {
+        "path": "src/expressoes.ts",
+        "url": "arquivos/23-interpreter/src/expressoes.ts"
+      },
+      {
+        "path": "src/limites.ts",
+        "url": "arquivos/23-interpreter/src/limites.ts"
+      },
+      {
+        "path": "src/main.ts",
+        "url": "arquivos/23-interpreter/src/main.ts"
+      },
+      {
+        "path": "src/parser.ts",
+        "url": "arquivos/23-interpreter/src/parser.ts"
+      },
+      {
+        "path": "src/simples.ts",
+        "url": "arquivos/23-interpreter/src/simples.ts"
+      },
+      {
+        "path": "test/interpreter.test.ts",
+        "url": "arquivos/23-interpreter/test/interpreter.test.ts"
+      },
+      {
+        "path": "tsconfig.json",
+        "url": "arquivos/23-interpreter/tsconfig.json"
+      }
+    ],
+    "download": "downloads/23-interpreter.zip"
+  }
+]

@@ -1,0 +1,5 @@
+espada + vento: executado | custo 3 | corte -> impulso
+arco + vento: executado | custo 4 | disparo -> impulso
+escudo + fogo: executado | custo 5 | aparar -> calor
+escudo + gelo: executado | custo 6 | aparar -> frio
+escudo + vento: executado | custo 4 | aparar -> impulso
