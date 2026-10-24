@@ -12,7 +12,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/01-factory-method/README.md"
+        "url": "arquivos/01-factory-method/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -60,7 +60,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/01-factory-method/exercise/README.md"
+        "url": "arquivos/01-factory-method/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -134,7 +134,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/02-abstract-factory/README.md"
+        "url": "arquivos/02-abstract-factory/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -162,7 +162,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/02-abstract-factory/exercise/README.md"
+        "url": "arquivos/02-abstract-factory/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -236,7 +236,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/03-builder/README.md"
+        "url": "arquivos/03-builder/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -264,7 +264,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/03-builder/exercise/README.md"
+        "url": "arquivos/03-builder/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -338,7 +338,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/04-prototype/README.md"
+        "url": "arquivos/04-prototype/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -366,7 +366,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/04-prototype/exercise/README.md"
+        "url": "arquivos/04-prototype/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -440,7 +440,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/05-singleton/README.md"
+        "url": "arquivos/05-singleton/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -468,7 +468,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/05-singleton/exercise/README.md"
+        "url": "arquivos/05-singleton/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -554,7 +554,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/06-adapter/README.md"
+        "url": "arquivos/06-adapter/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -582,7 +582,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/06-adapter/exercise/README.md"
+        "url": "arquivos/06-adapter/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -664,7 +664,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/07-facade/README.md"
+        "url": "arquivos/07-facade/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -692,7 +692,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/07-facade/exercise/README.md"
+        "url": "arquivos/07-facade/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -758,7 +758,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/08-decorator/README.md"
+        "url": "arquivos/08-decorator/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -786,7 +786,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/08-decorator/exercise/README.md"
+        "url": "arquivos/08-decorator/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -860,7 +860,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/09-proxy/README.md"
+        "url": "arquivos/09-proxy/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -888,7 +888,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/09-proxy/exercise/README.md"
+        "url": "arquivos/09-proxy/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -962,7 +962,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/10-composite/README.md"
+        "url": "arquivos/10-composite/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -990,7 +990,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/10-composite/exercise/README.md"
+        "url": "arquivos/10-composite/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -1056,7 +1056,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/11-bridge/README.md"
+        "url": "arquivos/11-bridge/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -1084,7 +1084,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/11-bridge/exercise/README.md"
+        "url": "arquivos/11-bridge/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -1158,7 +1158,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/12-flyweight/README.md"
+        "url": "arquivos/12-flyweight/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -1198,7 +1198,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/12-flyweight/exercise/README.md"
+        "url": "arquivos/12-flyweight/exercise/README.md.txt"
       },
       {
         "path": "experiment/cenario.ts",
@@ -1264,7 +1264,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/13-strategy/README.md"
+        "url": "arquivos/13-strategy/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -1292,7 +1292,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/13-strategy/exercise/README.md"
+        "url": "arquivos/13-strategy/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -1362,7 +1362,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/14-state/README.md"
+        "url": "arquivos/14-state/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -1390,7 +1390,7 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/14-state/exercise/README.md"
+        "url": "arquivos/14-state/exercise/README.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -1460,7 +1460,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/15-template-method/README.md"
+        "url": "arquivos/15-template-method/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -1492,11 +1492,11 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/15-template-method/exercise/README.md"
+        "url": "arquivos/15-template-method/exercise/README.md.txt"
       },
       {
         "path": "notas-tecnicas.md",
-        "url": "arquivos/15-template-method/notas-tecnicas.md"
+        "url": "arquivos/15-template-method/notas-tecnicas.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -1566,7 +1566,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/16-command/README.md"
+        "url": "arquivos/16-command/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -1598,11 +1598,11 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/16-command/exercise/README.md"
+        "url": "arquivos/16-command/exercise/README.md.txt"
       },
       {
         "path": "notas-tecnicas.md",
-        "url": "arquivos/16-command/notas-tecnicas.md"
+        "url": "arquivos/16-command/notas-tecnicas.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -1668,7 +1668,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/17-memento/README.md"
+        "url": "arquivos/17-memento/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -1700,11 +1700,11 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/17-memento/exercise/README.md"
+        "url": "arquivos/17-memento/exercise/README.md.txt"
       },
       {
         "path": "notas-tecnicas.md",
-        "url": "arquivos/17-memento/notas-tecnicas.md"
+        "url": "arquivos/17-memento/notas-tecnicas.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -1766,7 +1766,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/18-observer/README.md"
+        "url": "arquivos/18-observer/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -1798,11 +1798,11 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/18-observer/exercise/README.md"
+        "url": "arquivos/18-observer/exercise/README.md.txt"
       },
       {
         "path": "notas-tecnicas.md",
-        "url": "arquivos/18-observer/notas-tecnicas.md"
+        "url": "arquivos/18-observer/notas-tecnicas.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -1860,7 +1860,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/19-mediator/README.md"
+        "url": "arquivos/19-mediator/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -1892,11 +1892,11 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/19-mediator/exercise/README.md"
+        "url": "arquivos/19-mediator/exercise/README.md.txt"
       },
       {
         "path": "notas-tecnicas.md",
-        "url": "arquivos/19-mediator/notas-tecnicas.md"
+        "url": "arquivos/19-mediator/notas-tecnicas.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -1966,7 +1966,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/20-chain-of-responsibility/README.md"
+        "url": "arquivos/20-chain-of-responsibility/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -1998,11 +1998,11 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/20-chain-of-responsibility/exercise/README.md"
+        "url": "arquivos/20-chain-of-responsibility/exercise/README.md.txt"
       },
       {
         "path": "notas-tecnicas.md",
-        "url": "arquivos/20-chain-of-responsibility/notas-tecnicas.md"
+        "url": "arquivos/20-chain-of-responsibility/notas-tecnicas.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -2068,7 +2068,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/21-iterator/README.md"
+        "url": "arquivos/21-iterator/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -2100,11 +2100,11 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/21-iterator/exercise/README.md"
+        "url": "arquivos/21-iterator/exercise/README.md.txt"
       },
       {
         "path": "notas-tecnicas.md",
-        "url": "arquivos/21-iterator/notas-tecnicas.md"
+        "url": "arquivos/21-iterator/notas-tecnicas.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -2178,7 +2178,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/22-visitor/README.md"
+        "url": "arquivos/22-visitor/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -2210,11 +2210,11 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/22-visitor/exercise/README.md"
+        "url": "arquivos/22-visitor/exercise/README.md.txt"
       },
       {
         "path": "notas-tecnicas.md",
-        "url": "arquivos/22-visitor/notas-tecnicas.md"
+        "url": "arquivos/22-visitor/notas-tecnicas.md.txt"
       },
       {
         "path": "package-lock.json",
@@ -2296,7 +2296,7 @@
       },
       {
         "path": "README.md",
-        "url": "arquivos/23-interpreter/README.md"
+        "url": "arquivos/23-interpreter/README.md.txt"
       },
       {
         "path": "diagram.mmd",
@@ -2328,11 +2328,11 @@
       },
       {
         "path": "exercise/README.md",
-        "url": "arquivos/23-interpreter/exercise/README.md"
+        "url": "arquivos/23-interpreter/exercise/README.md.txt"
       },
       {
         "path": "notas-tecnicas.md",
-        "url": "arquivos/23-interpreter/notas-tecnicas.md"
+        "url": "arquivos/23-interpreter/notas-tecnicas.md.txt"
       },
       {
         "path": "package-lock.json",
