@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Iterator em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Iterator com fantasia e TypeScript: consultar duas representações por capturas de dados e cursores independentes; a ponte para o protocolo nativo e o gerador ficam no exercício. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/21-iterator/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Iterator em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Iterator com fantasia e TypeScript: consultar duas representações por capturas de dados e cursores independentes; a ponte para o protocolo nativo e o gerador ficam no exercício. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/21-iterator/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/21-iterator-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/21-iterator-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Uma massa sem rosto de papel encharcado envolve o chamariz luminoso na escada inundada, enquanto Suri usa sua bengala e consulta uma fita no arquivo seco.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Iterator em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Iterator com fantasia e TypeScript: consultar duas representações por capturas de dados e cursores independentes; a ponte para o protocolo nativo e o gerador ficam no exercício. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/21-iterator-v01.jpg">
+  <meta name="twitter:image:alt" content="Uma massa sem rosto de papel encharcado envolve o chamariz luminoso na escada inundada, enquanto Suri usa sua bengala e consulta uma fita no arquivo seco.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/21-iterator/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/21-iterator/", "headline": "Iterator — O Grimório dos Padrões", "description": "Aprenda Iterator com fantasia e TypeScript: consultar duas representações por capturas de dados e cursores independentes; a ponte para o protocolo nativo e o gerador ficam no exercício. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/21-iterator-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Iterator", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/21-iterator/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="21-iterator">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 21 · Comportamentais</p><h1 id="study-title">Iterator</h1><p id="study-description">consultar duas representações por capturas de dados e cursores independentes; a ponte para o protocolo nativo e o gerador ficam no exercício.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/21-web.jpg" srcset="/assets/cenas-coloridas-v01/21-card.jpg 800w, /assets/cenas-coloridas-v01/21-web.jpg 1600w" sizes="100vw" alt="Uma massa sem rosto de papel encharcado envolve o chamariz luminoso na escada inundada, enquanto Suri usa sua bengala e consulta uma fita no arquivo seco." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 21 · Iterator</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>21 — Iterator: O Viajante das Coleções</h3>
+<p>Suri e Neri precisam percorrer o mesmo lote sem mover a posição um do outro. <code>ArquivoEmLista</code> armazena ordens num array; <code>ArquivoEncadeado</code> usa nós com próximo e referências de início/fim. Ambos oferecem <code>criarPercurso()</code> e ocultam esses armazenamentos do cliente. O percurso percorre registros locais; não confirma onde uma família está nem realiza resgate.</p>
+<h3>A solução nativa primeiro</h3>
+<p>Se um array já atende ao contrato, <code>for...of</code> nativo pode bastar. <code>src/nativo.ts</code> executa um exemplo mínimo real: instrumenta o <code>Symbol.iterator</code> de um array e compara <code>forEach</code>, <code>map</code> e <code>for...of</code>. Os dois primeiros usam callbacks sobre os elementos do array; <code>map</code> produz outro array. O <code>for...of</code> usa o protocolo de iteração. No exemplo, o contador permanece zero após <code>forEach</code>/<code>map</code> e chega a um após <code>for...of</code>. Esses métodos de callback não são, por si, o protocolo Iterator. <a href="https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.foreach" target="_blank" rel="noopener noreferrer">Algoritmos de arrays</a>, <a href="https://tc39.es/ecma262/multipage/ecmascript-language-statements-and-declarations.html#sec-for-in-and-for-of-statements" target="_blank" rel="noopener noreferrer">for...of</a>.</p>
+<p>O benefício adicional deste projeto é um contrato comum para <strong>duas representações reais</strong>, com snapshot no instante definido e posição independente. Não é recomendação de envolver todo array numa classe. Quando o comportamento nativo já resolve, a classe extra acrescenta custo sem benefício necessário.</p>
+<h3>Executar</h3>
+<p>Versões declaradas e utilizadas: Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>. Lock, <code>.nvmrc</code>, <code>.gitignore</code> e configuração ESM NodeNext estrita são próprios; nenhum outro projeto é importado.</p>
+<p>Na pasta <code>book-23/code/21-iterator</code>:</p>
+<pre><code>npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+npm run solution</code></pre>
+<p>Na raiz do repositório:</p>
+<pre><code>node book-23/scripts/projetos.mjs 21 install
+node book-23/scripts/projetos.mjs 21 check
+node book-23/scripts/projetos.mjs 21 run
+node book-23/scripts/projetos.mjs 21 solution
+node book-23/scripts/projetos.mjs 21 capture
+node book-23/scripts/projetos.mjs 21 verify</code></pre>
+<p><code>evidence/manifest.json</code> vincula versões/fontes/testes/stdout por SHA256. <code>stdout.txt</code> e <code>solution-stdout.txt</code> vêm dos programas reais. <code>runner-commands.json</code> registra os seis comandos do runner; <code>isolation.json</code> registra instalação/testes/programas numa cópia temporária só deste projeto e comparação byte a byte das duas saídas. Tempos de teste variam; não houve benchmark. Evidências do produtor não são auditoria independente ou aprovação humana.</p>
+<h3>Contrato local da base</h3>
+<p><code>Ordem</code> contém <code>id</code> inteiro positivo seguro e <code>descricao</code> string não vazia. <code>adicionar()</code> copia/normaliza/congela esses campos e recusa id duplicado naquele arquivo. <code>atualizar()</code> exige id existente, substitui a descrição e <strong>mantém a posição de inserção</strong>. Id não representa ordem cronológica nem critério de classificação: inserir2 e depois1 produz2,1. Descrição não localiza pessoa ou prova entrega de ordem.</p>
+<p><code>ArquivoOrdens</code> expõe apenas <code>criarPercurso(): IteradorOrdens</code>. O cliente consumidor não precisa de acesso aos nós ou ao array. As classes concretas também oferecem as operações de edição à composição que as possui.</p>
+<p>Cada chamada de <code>criarPercurso()</code> captura imediatamente um snapshot por valor dos campos declarados e cria um <code>PercursoSnapshot</code> com índice próprio. O método <code>proximo()</code> devolve <code>PassoLocal</code>: <code>{ fim: false, ordem }</code> enquanto há item, e <code>{ fim: true }</code> quando acaba. Vazio já começa em fim; chamadas posteriores permanecem fim. Não há reset ou retorno ao início da mesma instância. Criar outro percurso é outra operação, com outro índice e um novo snapshot.</p>
+<p>Uma adição ou atualização após a criação do percurso não altera suas ordens, <strong>mesmo antes do primeiro passo</strong>. Um novo percurso vê o estado novo. Essa política evita que a referência ao array mutável da fonte autoral faça o cursor antigo observar inserções posteriores. Dois percursos criados antes de uma edição veem o mesmo lote e avançam independentemente.</p>
+<p>O contrato local tem intenção de Iterator GoF, mas não é o protocolo JavaScript: usa <code>proximo</code>/<code>fim</code>/<code>ordem</code> e não fornece <code>[Symbol.iterator]</code> na base. Os testes verificam essa ausência. Não se deve passar a coleção base diretamente a <code>for...of</code> fingindo que a ponte já existe.</p>
+<h3>Ponte e gerador no exercício</h3>
+<p>No protocolo nativo, <code>Iterable</code> fornece <code>[Symbol.iterator]()</code> e o iterador devolve objetos com <code>done</code>/<code>value</code> em <code>next()</code>. <code>solution/iteravel.ts</code> implementa essa ponte explicitamente em <code>ArquivoIterable</code>. Cada chamada a seu <code>[Symbol.iterator]()</code> cria o percurso/snapshot naquele instante; <strong>construir o wrapper não captura</strong>. O objeto iterador retornado é também iterável, devolvendo a si mesmo. <a href="https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-common-iteration-interfaces" target="_blank" rel="noopener noreferrer">Interfaces de iteração</a>.</p>
+<p><code>gerarSnapshot(origem)</code> é uma fábrica normal: captura o percurso primeiro e depois devolve uma <code>function*</code>. O corpo do gerador só avança quando retomado; por isso a captura não fica dentro dele. Testamos a edição entre criação e primeiro <code>next()</code>. <a href="https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-generatorstart" target="_blank" rel="noopener noreferrer">GeneratorStart/GeneratorResume</a>.</p>
+<p>A ponte implementa <code>return()</code> terminal. <code>break</code> no <code>for...of</code> desse iterador o encerra; tentar percorrer <strong>a mesma instância</strong> novamente não a reinicia. O gerador também fica fechado depois de <code>break</code>/<code>return</code>. Chamar outra vez <code>[Symbol.iterator]()</code> no wrapper, ou criar outro gerador pela fábrica, é que produz novo percurso. Não há promessa de retomada de gerador encerrado ou cursor remoto.</p>
+<h3>Cópias, limites e custos</h3>
+<p>As ordens possuem apenas número e string; são copiadas/congeladas na entrada e na captura. A lista interna do snapshot e os resultados <code>PassoLocal</code> são congelados. O índice privado muda a cada passo. As cópias não são uma clonagem profunda genérica de classes, recursos ou campos arbitrários. Nós da lista encadeada não são expostos; atualizar um deles substitui sua ordem sem tocar no snapshot antigo.</p>
+<p>Na ponte, os objetos <code>IteratorResult</code> são congelados pelo código do exercício. Os objetos de resultado criados pelo <strong>gerador nativo não recebem `Object.freeze`</strong> deste projeto; as ordens que ele entrega continuam congeladas. <code>readonly</code>/interfaces são verificações estáticas, enquanto campos <code>#</code> protegem representação e posição em execução; isso não promete segurança contra código hostil que altere protótipos ou dependências.</p>
+<p>Criar um percurso copia N registros e ocupa memória proporcional a N, mesmo que só se leia o primeiro. A implementação encadeada primeiro reúne referências num array temporário e depois constrói a cópia do snapshot; não é um cursor de memória constante. Cada iterador retém seu snapshot enquanto permanecer alcançável, inclusive depois do fim na implementação local. Não há garantia de descarte imediato no <code>return()</code> da ponte ou de prazo de coleta de lixo.</p>
+<p>Buscar id para duplicata/atualização percorre o armazenamento na implementação fornecida; adicionar não é apresentado como ganho de desempenho da lista encadeada. O passo do <code>PercursoSnapshot</code> consulta uma posição e cria um pequeno resultado, sem revisitar a coleção original. Muitos snapshots simultâneos custam memória; uma visão ao vivo ou percurso nativo simples pode ser mais apropriado se seu contrato for suficiente. Não houve medição de velocidade ou memória.</p>
+<p>Tudo é síncrono, local e finito conforme o conteúdo armazenado. Não há paginação, acesso remoto, conexão de banco, falha de rede, cancelamento assíncrono ou controle de concorrência distribuída. APIs remotas e cursores de banco exigem contratos próprios; a semelhança do nome iterator não transfere essas garantias.</p>
+<p>Iterator oferece percurso; Visitor organiza operações sobre tipos que aceitam visitas, normalmente usando um percurso para alcançá-los. Não são substitutos automáticos. Uma coleção nativamente iterável e um gerador podem cumprir o percurso sem uma classe manual, desde que a política de captura e encerramento seja a desejada.</p>
+<h3>Fontes efetivamente consultadas</h3>
+<p>Consulta em <strong>23/10/2026</strong>, TC39 ECMAScript, documento vivo então rotulado <strong>ECMAScript2027</strong>. Essa referência não certifica que toda a edição esteja implementada no Node26.10.0. Somente as operações demonstradas foram executadas nesse runtime. URLs, seções e vínculos com os testes estão registrados em <code>referencias.json</code>; não há framework externo ou API suposta.</p>
+<h3>Arquivos</h3>
+<p><code>src/contratos.ts</code>: dados/contrato local. <code>src/arquivos.ts</code>: array e nós encadeados. <code>src/percurso.ts</code>: snapshot e posição externa. <code>src/nativo.ts</code>: comparação nativa executável. <code>src/main.ts</code>: exemplo real. <code>test/iterator.test.ts</code>: contratos comuns às duas representações. <code>solution/iteravel.ts</code>: ponte/gerador adicionais; programa/testes separados. <code>diagram.mmd</code>: apenas a base, sem atribuir <code>Symbol.iterator</code> às coleções originais.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { ArquivoEmLista, ArquivoEncadeado } from &quot;./arquivos.js&quot;;
+import { demonstrarNativo } from &quot;./nativo.js&quot;;
+
+const nativo = demonstrarNativo();
+console.log(`Array nativo com for...of: ${nativo.porProtocolo.join(&quot;, &quot;)}`);
+console.log(`Chamadas a Symbol.iterator: após forEach/map ${nativo.aposCallbacks} | após for...of ${nativo.aposForOf}`);
+for (const [nome, arquivo] of [[&quot;Lista&quot;, new ArquivoEmLista()], [&quot;Encadeado&quot;, new ArquivoEncadeado()]] as const) {
+  arquivo.adicionar({ id: 2, descricao: &quot;Retirada registrada&quot; });
+  arquivo.adicionar({ id: 1, descricao: &quot;Endereço de abrigo anotado&quot; });
+  const suri = arquivo.criarPercurso();
+  const neri = arquivo.criarPercurso();
+  arquivo.adicionar({ id: 3, descricao: &quot;Registro posterior&quot; });
+  const primeiro = suri.proximo();
+  const segundo = suri.proximo();
+  const independente = neri.proximo();
+  console.log(`${nome}: Suri ${primeiro.fim ? &quot;fim&quot; : primeiro.ordem.id}, ${segundo.fim ? &quot;fim&quot; : segundo.ordem.id} | Neri ${independente.fim ? &quot;fim&quot; : independente.ordem.id}`);
+  console.log(`${nome}: fim do snapshot ${suri.proximo().fim}`);
+}
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/21-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/21-01.svg" alt="ArquivoEmLista realiza ArquivoOrdens." loading="lazy"></a><figcaption>21 · a lista</figcaption><p class="study-diagram-description">Esta vista reúne ArquivoOrdens, ArquivoEmLista. ArquivoEmLista realiza ArquivoOrdens. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure><figure class="study-diagram"><a href="/assets/diagramas/21-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/21-02.svg" alt="ArquivoEncadeado realiza ArquivoOrdens." loading="lazy"></a><figcaption>21 · b nós</figcaption><p class="study-diagram-description">Esta vista reúne ArquivoOrdens, ArquivoEncadeado. ArquivoEncadeado realiza ArquivoOrdens. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure><figure class="study-diagram"><a href="/assets/diagramas/21-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/21-03.svg" alt="ArquivoEmLista depende de PercursoSnapshot (cria snapshot)." loading="lazy"></a><figcaption>21 · c captura</figcaption><p class="study-diagram-description">Esta vista reúne ArquivoEmLista, ArquivoEncadeado, PercursoSnapshot. ArquivoEmLista depende de PercursoSnapshot (cria snapshot). ArquivoEncadeado depende de PercursoSnapshot (cria snapshot). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · cria snapshot e5 · cria snapshot</p></figure><figure class="study-diagram"><a href="/assets/diagramas/21-04.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/21-04.svg" alt="PercursoSnapshot realiza IteradorOrdens." loading="lazy"></a><figcaption>21 · d avanço</figcaption><p class="study-diagram-description">Esta vista reúne IteradorOrdens, PercursoSnapshot, PassoLocal. PercursoSnapshot realiza IteradorOrdens. PassoLocal usa Readonly nas duas variantes: fim e, na variante que o possui, ordem são propriedades somente de leitura no contrato de tipo. ordem continua ausente na variante de fim. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure><figure class="study-diagram"><a href="/assets/diagramas/21-05.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/21-05.svg" alt="PercursoSnapshot depende de PassoLocal (devolve item ou fim)." loading="lazy"></a><figcaption>21 · e notas</figcaption><p class="study-diagram-description">Esta vista reúne ArquivoOrdens, PercursoSnapshot, PassoLocal. PercursoSnapshot depende de PassoLocal (devolve item ou fim). ArquivoOrdens: Ordem de inserção; cada chamada captura snapshot e posição nova. PassoLocal: fim true não possui ordem. Contrato local, distinto de done/value nativos. PercursoSnapshot: Sem Symbol.iterator na base. Ponte e gerador estão somente no exercício. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e6 · devolve item ou fim</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — Ponte ao protocolo JavaScript e gerador</h3>
+<p>Acrescente suporte nativo ao percurso <strong>num wrapper separado</strong>, sem alegar que a base já tem <code>[Symbol.iterator]</code>. Compare a implementação manual da ponte com um gerador que preserve o mesmo instante de snapshot.</p>
+<p>Critérios:</p>
+<ol>
+<li><code>ArquivoIterable</code> recebe <code>ArquivoOrdens</code> e implementa <code>[Symbol.iterator]()</code> devolvendo um iterador novo a cada chamada. Capture nessa chamada, antes do primeiro <code>next</code>, e traduza <code>fim/ordem</code> para <code>done/value</code>.</li>
+<li>O iterador retornado também deve ser iterável e fornecer <code>return()</code> terminal. <code>break</code> encerra essa instância; criar outro iterador não é reiniciar o anterior.</li>
+<li><code>gerarSnapshot</code> deve ser uma fábrica <strong>não geradora</strong> que captura o percurso e só depois devolve o gerador. Não ponha a captura dentro do corpo preguiçoso.</li>
+<li>Teste edição entre criação e primeiro <code>next</code> nas duas variantes, independência, vazio, esgotamento e <code>break</code>/<code>return</code>.</li>
+<li>Explique a diferença entre criação do wrapper e criação do percurso, e entre Iterator GoF local e protocolo JavaScript.</li>
+</ol>
+<h3>Resposta comentada</h3>
+<p><code>solution/iteravel.ts</code> adapta o contrato local em <code>ArquivoIterable</code>: snapshot ao chamar <code>[Symbol.iterator]</code>, fechamento por flag privada na closure e retorno da própria instância em seu <code>[Symbol.iterator]</code>. O wrapper não é o arquivo original. Cada percurso nativo novo recebe um snapshot novo; repetir uma instância esgotada não recria posição.</p>
+<p><code>gerarSnapshot</code> chama <code>origem.criarPercurso()</code> <strong>antes</strong> de invocar a função geradora interna. A declaração dessa função não executa imediatamente seu corpo; o snapshot já capturado fica disponível quando ela avança. Assim, a mutação após a fábrica e antes do primeiro passo não entra no lote. Essa fronteira é verificada com contador de capturas e comparação dos dados, não inferida só da saída.</p>
+<p>A base não precisou ser alterada: a ponte e a fábrica são novos arquivos que compõem <code>ArquivoOrdens</code>. O diagrama principal permanece sem <code>Iterable</code> nas classes da base. A solução não afirma que objetos <code>IteratorResult</code> do gerador são congelados; as ordens entregues são as cópias congeladas do percurso.</p>
+<p>Execute <code>npm test</code> e <code>npm run solution</code>. Quando uma coleção nativa já oferece a política necessária, usar diretamente <code>for...of</code> é mais simples. Nem o wrapper nem o gerador eliminam o custo do snapshot deste projeto ou implementam iteração assíncrona. Referências primárias e evidência do exemplo nativo estão em <code>../referencias.json</code> e <code>../src/nativo.ts</code>.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/21-iterator
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/21-iterator.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/20-chain-of-responsibility/"><small>Padrão anterior</small><span>20 · Chain of Responsibility</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/22-visitor/"><small>Próximo padrão</small><span>22 · Visitor</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

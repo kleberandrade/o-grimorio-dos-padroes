@@ -40,5 +40,284 @@
         }
       ]
     }
+  ],
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "01-factory-method"
+        }
+      ],
+      "destination": "/padroes/01-factory-method/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "02-abstract-factory"
+        }
+      ],
+      "destination": "/padroes/02-abstract-factory/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "03-builder"
+        }
+      ],
+      "destination": "/padroes/03-builder/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "04-prototype"
+        }
+      ],
+      "destination": "/padroes/04-prototype/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "05-singleton"
+        }
+      ],
+      "destination": "/padroes/05-singleton/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "06-adapter"
+        }
+      ],
+      "destination": "/padroes/06-adapter/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "07-facade"
+        }
+      ],
+      "destination": "/padroes/07-facade/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "08-decorator"
+        }
+      ],
+      "destination": "/padroes/08-decorator/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "09-proxy"
+        }
+      ],
+      "destination": "/padroes/09-proxy/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "10-composite"
+        }
+      ],
+      "destination": "/padroes/10-composite/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "11-bridge"
+        }
+      ],
+      "destination": "/padroes/11-bridge/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "12-flyweight"
+        }
+      ],
+      "destination": "/padroes/12-flyweight/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "13-strategy"
+        }
+      ],
+      "destination": "/padroes/13-strategy/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "14-state"
+        }
+      ],
+      "destination": "/padroes/14-state/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "15-template-method"
+        }
+      ],
+      "destination": "/padroes/15-template-method/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "16-command"
+        }
+      ],
+      "destination": "/padroes/16-command/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "17-memento"
+        }
+      ],
+      "destination": "/padroes/17-memento/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "18-observer"
+        }
+      ],
+      "destination": "/padroes/18-observer/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "19-mediator"
+        }
+      ],
+      "destination": "/padroes/19-mediator/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "20-chain-of-responsibility"
+        }
+      ],
+      "destination": "/padroes/20-chain-of-responsibility/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "21-iterator"
+        }
+      ],
+      "destination": "/padroes/21-iterator/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "22-visitor"
+        }
+      ],
+      "destination": "/padroes/22-visitor/",
+      "permanent": true
+    },
+    {
+      "source": "/projeto.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "23-interpreter"
+        }
+      ],
+      "destination": "/padroes/23-interpreter/",
+      "permanent": true
+    }
   ]
 }

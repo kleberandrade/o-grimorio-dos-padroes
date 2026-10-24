@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Flyweight em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Flyweight com fantasia e TypeScript: compartilhar essências imutáveis entre aparições com posições próprias e comparar modelos num experimento separado. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/12-flyweight/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Flyweight em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Flyweight com fantasia e TypeScript: compartilhar essências imutáveis entre aparições com posições próprias e comparar modelos num experimento separado. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/12-flyweight/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/12-flyweight-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/12-flyweight-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Predador translúcido de névoa segue a luz vermelha sobre a pedra enquanto Iana conduz um barco por outra referência.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flyweight em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Flyweight com fantasia e TypeScript: compartilhar essências imutáveis entre aparições com posições próprias e comparar modelos num experimento separado. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/12-flyweight-v01.jpg">
+  <meta name="twitter:image:alt" content="Predador translúcido de névoa segue a luz vermelha sobre a pedra enquanto Iana conduz um barco por outra referência.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/12-flyweight/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/12-flyweight/", "headline": "Flyweight — O Grimório dos Padrões", "description": "Aprenda Flyweight com fantasia e TypeScript: compartilhar essências imutáveis entre aparições com posições próprias e comparar modelos num experimento separado. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/12-flyweight-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Flyweight", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/12-flyweight/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="12-flyweight">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 12 · Estruturais</p><h1 id="study-title">Flyweight</h1><p id="study-description">compartilhar essências imutáveis entre aparições com posições próprias e comparar modelos num experimento separado.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/12-web.jpg" srcset="/assets/cenas-coloridas-v01/12-card.jpg 800w, /assets/cenas-coloridas-v01/12-web.jpg 1600w" sizes="100vw" alt="Predador translúcido de névoa segue a luz vermelha sobre a pedra enquanto Iana conduz um barco por outra referência." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 12 · Flyweight</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>12 — Flyweight: Mapa de espíritos compartilhados</h3>
+<p><code>EssenciaEspirito</code> contém o estado intrínseco tipo/cor e é congelada em execução. <code>Aparicao</code> guarda uma referência à essência e sua própria posição extrínseca. <code>GuildaDosEspiritos</code> mantém um <code>Map</code> privado por tipo validado. Mover uma aparição não altera a posição de outra que usa a mesma essência.</p>
+<h3>Executar e verificar</h3>
+<p>Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>, lock próprio. Dentro deste diretório:</p>
+<pre><code>npm ci --ignore-scripts
+npm test
+npm start
+npm run solution
+npm run benchmark -- 100000 3 5</code></pre>
+<p>Da raiz Books:</p>
+<pre><code>node book-23/scripts/projetos.mjs 12 install
+node book-23/scripts/projetos.mjs 12 check
+node book-23/scripts/projetos.mjs 12 capture
+node book-23/scripts/projetos.mjs 12 verify</code></pre>
+<p>O build limpa <code>dist</code>, compila ES2022/ESM com TypeScript estrito e executa testes Node sobre JavaScript. Não importa outros capítulos. <code>exercise/</code> fica fora da compilação oficial; o programa de solução é compilado e testado separadamente do exemplo-base. O runner confere somente stdout funcional determinístico; não exige que medições de desempenho repitam os mesmos números.</p>
+<h3>Fontes e papéis</h3>
+<ul>
+<li><code>src/espiritos.ts</code>: Flyweight, Factory, contexto de ocorrência e dados de descrição.</li>
+<li><code>src/main.ts</code>: identidades, deslocamento independente, cache e tipos recusados, sem <code>Math.random</code>.</li>
+<li><code>test/compartilhamento.test.ts</code>: identidade, congelamento real, posições, cópias e nomes especiais.</li>
+<li><code>experiment/cenario.ts</code>: dois modelos semanticamente equivalentes e conferência dos dados/identidades.</li>
+<li><code>experiment/observacao.ts</code>: observação de um modelo em processo filho com dados retidos.</li>
+<li><code>experiment/medir.ts</code>: repetições, processos separados, agregação, metadados e preservação dos resultados.</li>
+<li><code>solution/</code>: conferência funcional de cardinalidade e testes da equivalência dos modelos.</li>
+<li><code>exercise/README.md</code>: protocolo de medição e interpretação dos resultados.</li>
+<li><code>diagram.mmd</code>: fonte lógica editável; renderização e QA visual na etapa própria.</li>
+<li><code>evidence/</code>: stdout funcional, testes, manifesto e isolamento. Medições ficam em <code>evidence/experimentos/</code> com capturas datadas próprias.</li>
+</ul>
+<h3>Intrínseco, extrínseco e cache</h3>
+<p>Os tipos são <code>fogo</code>, <code>gelo</code> e <code>vento</code>, com cores <code>vermelho</code>, <code>azul</code> e <code>branco</code>. A fábrica valida o nome antes de consultar o <code>Map</code>. <code>constructor</code>, <code>__proto__</code>, <code>toString</code> e desconhecidos são recusados sem criar uma essência. O Map não consulta propriedades herdadas de um objeto literal. A quantidade de essências é por instância da fábrica, não uma unicidade global.</p>
+<p>As duas propriedades intrínsecas são strings e a própria essência passa por <code>Object.freeze</code>. O teste tenta alterá-las em execução; <code>readonly</code> TypeScript não é a única proteção. Uma essência mutável estruturalmente compatível é recusada pelo contexto. A essência não guarda posição e a recebe quando produz uma descrição.</p>
+<p><code>Aparicao</code> copia as coordenadas na construção e em <code>moverPara()</code>. O deslocamento substitui apenas sua posição, preservando a essência compartilhada. A descrição é um valor congelado novo, sem expor a posição interna. Coordenadas precisam ser finitas; são dados de mapa local, sem escala física, rota marítima ou garantia de segurança. As APIs são tipadas e não validam JSON arbitrário ou manipulações externas de protótipos.</p>
+<p>A tabela é parte da gestão de compartilhamento. Cache pode guardar qualquer resultado para evitar recalculá-lo; isso sozinho não separa estado intrínseco e extrínseco. Aqui o Flyweight é a essência imutável que várias ocorrências usam simultaneamente. Pool normalmente empresta e recebe de volta objetos para reutilizar seu ciclo de vida; a fábrica deste projeto não reserva exclusividade, não empresta aparições nem recebe objetos devolvidos.</p>
+<h3>Experimento real separado</h3>
+<p><code>npm run benchmark -- [contagem] [cardinalidade] [repeticoes]</code> gera observações novas. A contagem suportada pelo instrumento é de 1 a 1000000, cardinalidade de 1 a 3 e repetições de 1 a 20. Os limites são do instrumento didático, não capacidade máxima certificada do padrão. O padrão de execução usa 100000 aparições, três tipos e cinco repetições de cada modelo.</p>
+<p>Cada observação usa <strong>processo filho próprio</strong>, as mesmas classes, os mesmos tipos/cores e posições determinísticas. Só difere criar uma essência por aparição ou consultar a fábrica. Não há payload sintético inflado, Buffer ou ArrayBuffer de aplicação; strings iguais podem ser internadas. O cenário e a tabela quando usada permanecem vivos por referência global no processo filho durante a leitura final.</p>
+<p>Memória registra <code>process.memoryUsage()</code> antes/depois e deltas em <strong>bytes</strong>: <code>rss</code>, <code>heapTotal</code>, <code>heapUsed</code>, <code>external</code>, <code>arrayBuffers</code>. RSS descreve o processo; as categorias V8 não representam toda a memória. <code>arrayBuffers</code> já faz parte de <code>external</code>; elas não devem ser somadas como parcelas independentes. Mesmo sem buffers de aplicação, o runtime pode registrar memória externa. Deltas negativos ou variações do alocador não são ocultados.</p>
+<p>O instrumento usa <code>--expose-gc</code>, verificado no runtime fixado, e exige que <code>global.gc</code> esteja disponível. Solicita uma coleta antes do baseline e uma depois da construção, fora do intervalo de tempo. Isso não garante uma coleta completa, um heap mínimo, liberação imediata ao sistema operacional ou medição byte-exata reproduzível. Flags V8 não têm estabilidade garantida; esta execução é sustentada pelo Node efetivamente observado.</p>
+<p>Tempo usa <code>performance.now()</code> em <strong>milissegundos</strong>, do início ao fim de <code>construirCenario()</code>. Inclui validação de parâmetros, criação da tabela quando usada, consultas, instâncias, posições e congelamento. Exclui inicialização do processo, aquecimento, GC, leituras de memória e a conferência por hash/identidades. Mede tempo decorrido, não CPU exclusiva. A comparação semântica acontece depois da leitura de memória e não infla o conjunto medido.</p>
+<p>O JSON preserva cada baseline, leitura final, delta, tempo, versões, flags, plataforma, CPU, parâmetros e ordem das observações. Agrega mínimo, mediana e máximo por modelo. A ordem alterna entre repetições para reduzir um viés simples de sequência; outras cargas do sistema, JIT e GC não são totalmente controlados. Não há limiar mínimo de economia ou velocidade em teste algum. Qualquer resultado pertence àquela carga e execução; pode ser inconclusivo. O instrumento não afirma ganho universal.</p>
+<h3>Custo e alternativa</h3>
+<p>O compartilhamento custa tabela, consulta, validação, referências e uma política de ciclo de vida. Na implementação atual existem no máximo três essências por fábrica; uma aplicação com cardinalidade crescente precisaria de outra política de gestão e medição. Flyweight pode não se justificar com poucas ocorrências, pouca repetição ou intrínseco pequeno.</p>
+<p>A alternativa sem compartilhar é uma implementação real do experimento: cada <code>Aparicao</code> recebe uma nova <code>EssenciaEspirito</code> com os mesmos dados. O hash prova equivalência dos valores usados, sem comparar identidade, que é justamente a diferença estudada. A estrutura não elimina o custo de cada ocorrência ou posição. Não se promete uma alma humana compartilhada, uma economia física de cristais ou efeito no mar.</p>
+<h3>Fontes primárias e limites da evidência</h3>
+<p>Consultas de 22/10/2026: <a href="https://nodejs.org/api/process.html#processmemoryusage" target="_blank" rel="noopener noreferrer">Node — process.memoryUsage</a>, <a href="https://nodejs.org/api/perf_hooks.html#performancenow" target="_blank" rel="noopener noreferrer">Node — performance.now</a> e <a href="https://nodejs.org/api/cli.html#useful-v8-options" target="_blank" rel="noopener noreferrer">Node — opções V8</a>. Documentação corrente observada em <strong>26.12.1</strong>, enquanto a implementação/flag/medições são verificadas em <strong>26.10.0</strong>; não se assume equivalência integral das versões.</p>
+<p>Hashes e testes vinculam código, saídas e observações, sem constituir auditoria técnica independente ou aprovação do autor. Medições variáveis não são copiadas para o stdout funcional nem comparadas byte a byte em nova execução.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { Aparicao, GuildaDosEspiritos } from &quot;./espiritos.js&quot;;
+
+const guilda = new GuildaDosEspiritos();
+const primeira = new Aparicao(guilda.obter(&quot;fogo&quot;), { x: 12, y: 56 });
+const segunda = new Aparicao(guilda.obter(&quot;gelo&quot;), { x: 44, y: 9 });
+const terceira = new Aparicao(guilda.obter(&quot;fogo&quot;), { x: 73, y: 20 });
+for (const aparicao of [primeira, segunda, terceira]) {
+  const dados = aparicao.descrever();
+  console.log(`${dados.tipo} (${dados.cor}) em [${dados.x}, ${dados.y}]`);
+}
+console.log(`Fogo compartilha identidade: ${primeira.essencia === terceira.essencia}`);
+primeira.moverPara({ x: 13, y: 57 });
+console.log(`Primeira movida: [${primeira.descrever().x}, ${primeira.descrever().y}]`);
+console.log(`Terceira preservada: [${terceira.descrever().x}, ${terceira.descrever().y}]`);
+console.log(`Essências na fábrica: ${guilda.quantidadeEssencias()}`);
+for (const tipo of [&quot;constructor&quot;, &quot;__proto__&quot;, &quot;sombra&quot;]) {
+  try { guilda.obter(tipo); }
+  catch (erro: unknown) {
+    if (!(erro instanceof Error)) throw erro;
+    console.log(`Recusado: ${erro.message}`);
+  }
+}
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/12-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/12-01.svg" alt="GuildaDosEspiritos mantém referência a EssenciaEspirito (mantém por tipo validado); multiplicidade no destino 0..3." loading="lazy"></a><figcaption>12 · a fábrica</figcaption><p class="study-diagram-description">Esta vista reúne EssenciaEspirito, GuildaDosEspiritos. GuildaDosEspiritos mantém referência a EssenciaEspirito (mantém por tipo validado); multiplicidade no destino 0..3. EssenciaEspirito: Somente tipo e cor. Object.freeze real. Recebe posição ao descrever. GuildaDosEspiritos: Map privado; valida fogo, gelo ou vento antes de consultar. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e1 · mantém por tipo validado</p></figure><figure class="study-diagram"><a href="/assets/diagramas/12-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/12-02.svg" alt="Aparicao mantém referência a EssenciaEspirito (compartilha intrínseco); multiplicidade no destino 1." loading="lazy"></a><figcaption>12 · b intrínseco</figcaption><p class="study-diagram-description">Esta vista reúne EssenciaEspirito, Aparicao. Aparicao mantém referência a EssenciaEspirito (compartilha intrínseco); multiplicidade no destino 1. Aparicao: Duas aparições podem usar a mesma essência sem compartilhar a posição. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e2 · compartilha intrínseco</p></figure><figure class="study-diagram"><a href="/assets/diagramas/12-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/12-03.svg" alt="Aparicao compõe Posicao (possui extrínseco independente); multiplicidade no destino 1." loading="lazy"></a><figcaption>12 · c extrínseco</figcaption><p class="study-diagram-description">Esta vista reúne Aparicao, Posicao. Aparicao compõe Posicao (possui extrínseco independente); multiplicidade no destino 1. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · possui extrínseco independente</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — Medir antes de prometer</h3>
+<p>Compare os modelos com e sem compartilhamento na <strong>mesma carga</strong> antes de afirmar qualquer ganho. O experimento fornecido constrói exatamente as mesmas aparições, tipos, cores e posições nos dois modelos; somente a identidade compartilhada das essências muda.</p>
+<p>Após <code>npm ci --ignore-scripts</code>, execute:</p>
+<pre><code>npm run benchmark -- 100000 3 5
+npm run benchmark -- 100000 1 5</code></pre>
+<p>Os argumentos são contagem, cardinalidade de tipos suportados e repetições por modelo. Não mude simultaneamente posição, contagem e payload para tentar favorecer uma versão. O segundo comando varia apenas a cardinalidade em relação ao primeiro; cada experimento continua comparando dois modelos equivalentes.</p>
+<p>Critérios verificáveis:</p>
+<ul>
+<li>Registre processos separados, versões, parâmetros, unidades, baseline, deltas e observações completas.</li>
+<li>Confira que os hashes dos dados são iguais entre os modelos e que as contagens de aparições coincidem.</li>
+<li>Verifique as identidades intrínsecas: sem compartilhar há uma essência por aparição; com Flyweight há uma por tipo utilizado.</li>
+<li>Relate tempo de construção separadamente de memória retida; não some categorias de memória sobrepostas.</li>
+<li>Compare mínimo, mediana e máximo das repetições, descrevendo variação e limites.</li>
+<li>Aceite resultado pequeno, contraditório ou inconclusivo; não transforme uma porcentagem mínima de ganho em teste de correção.</li>
+</ul>
+<p><code>npm run solution</code> mostra uma conferência funcional determinística com seis aparições e cardinalidades 1 e 3. As medições reais ficam separadas em <code>evidence/experimentos/&lt;captura&gt;/resultados.json</code>; não fazem parte do stdout funcional e não precisam repetir os mesmos bytes em outra máquina ou execução.</p>
+<h3>Resposta metodológica comentada</h3>
+<p>Os dois modelos usam as mesmas classes <code>Aparicao</code> e <code>EssenciaEspirito</code>. A versão independente constrói uma essência nova para cada ocorrência; a outra consulta a fábrica. O programa não adiciona texturas falsas, buffers grandes ou payload sintético para inflar uma diferença: o intrínseco permanece apenas tipo/cor, e strings iguais podem ser internadas pelo runtime. Uma diferença pequena também é um resultado válido.</p>
+<p>Cada observação roda em processo novo, com a mesma sequência determinística de tipos e posições. A ordem dos modelos alterna entre repetições. O cenário permanece retido explicitamente durante a leitura de memória; o hash e o conjunto de identidades são calculados depois, fora da medição. GC exposto é solicitado, mas isso não garante coleta completa, heap mínimo ou RSS exato.</p>
+<p>O intervalo de tempo inclui validação, tabela quando usada, construção de objetos e congelamento. Não inclui inicialização do processo, aquecimento, GC, leituras de memória ou conferência de hash. <code>performance.now()</code> mede tempo decorrido, não CPU exclusiva. A mediana resume estas amostras locais; não é evidência universal nem análise estatística de significância.</p>
+<p>Com poucos objetos ou pouca repetição, manter e consultar a tabela pode não compensar. A cardinalidade suportada desta implementação é de até três tipos: variar entre 1 e 3 não demonstra o custo de uma cardinalidade ilimitada. Não invente outros tipos sem mudar e testar o contrato.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/12-flyweight
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/12-flyweight.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/11-bridge/"><small>Padrão anterior</small><span>11 · Bridge</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/13-strategy/"><small>Próximo padrão</small><span>13 · Strategy</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

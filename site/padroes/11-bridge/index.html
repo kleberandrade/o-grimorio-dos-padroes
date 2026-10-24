@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Bridge em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Bridge com fantasia e TypeScript: combinar formas de arma e essências em dois eixos de variação. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/11-bridge/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Bridge em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Bridge com fantasia e TypeScript: combinar formas de arma e essências em dois eixos de variação. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/11-bridge/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/11-bridge-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/11-bridge-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Criatura mineral de placas escuras e juntas alaranjadas pressiona uma grade nas ruínas do desfiladeiro.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bridge em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Bridge com fantasia e TypeScript: combinar formas de arma e essências em dois eixos de variação. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/11-bridge-v01.jpg">
+  <meta name="twitter:image:alt" content="Criatura mineral de placas escuras e juntas alaranjadas pressiona uma grade nas ruínas do desfiladeiro.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/11-bridge/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/11-bridge/", "headline": "Bridge — O Grimório dos Padrões", "description": "Aprenda Bridge com fantasia e TypeScript: combinar formas de arma e essências em dois eixos de variação. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/11-bridge-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Bridge", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/11-bridge/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="11-bridge">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 11 · Estruturais</p><h1 id="study-title">Bridge</h1><p id="study-description">combinar formas de arma e essências em dois eixos de variação.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/11-web.jpg" srcset="/assets/cenas-coloridas-v01/11-card.jpg 800w, /assets/cenas-coloridas-v01/11-web.jpg 1600w" sizes="100vw" alt="Criatura mineral de placas escuras e juntas alaranjadas pressiona uma grade nas ruínas do desfiladeiro." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 11 · Bridge</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>11 — Bridge: Armas e essências independentes</h3>
+<p><code>Arma</code> é a abstração de alto nível e mantém uma <code>Essencia</code> por composição. Espada e Arco variam forma, gesto e custo-base; Fogo e Gelo variam efeito, custo e restrição de ativação. Nenhuma classe representa um par específico.</p>
+<h3>Executar</h3>
+<p>Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>, lock próprio. Dentro deste diretório:</p>
+<pre><code>npm ci --ignore-scripts
+npm test
+npm start
+npm run solution</code></pre>
+<p>Da raiz Books:</p>
+<pre><code>node book-23/scripts/projetos.mjs 11 install
+node book-23/scripts/projetos.mjs 11 check
+node book-23/scripts/projetos.mjs 11 capture
+node book-23/scripts/projetos.mjs 11 verify</code></pre>
+<p>O build limpa <code>dist</code>, compila ES2022/ESM com TypeScript estrito e testa o JavaScript emitido com Node. Nenhum capítulo vizinho é importado. <code>exercise/</code> fica fora da compilação da solução oficial.</p>
+<h3>Papéis e arquivos</h3>
+<ul>
+<li><code>src/armas.ts</code>: Abstraction <code>Arma</code> e Refined Abstractions <code>Espada</code>/<code>Arco</code>.</li>
+<li><code>src/contratos.ts</code>: Implementor <code>Essencia</code>, contexto e resultados discriminados.</li>
+<li><code>src/essencias.ts</code>: Concrete Implementors <code>EssenciaFogo</code>/<code>EssenciaGelo</code>.</li>
+<li><code>src/resultado.ts</code>: combinação dos resultados da forma e da implementação, com limites numéricos.</li>
+<li><code>src/direto.ts</code>: alternativa de função para uma forma fixa.</li>
+<li><code>src/main.ts</code>: matriz 2×2, troca de essência mantendo a arma e restrição observável.</li>
+<li><code>test/ponte.test.ts</code>: matriz, identidade, independência dos resultados, nova implementação e erros.</li>
+<li><code>exercise/</code> e <code>solution/</code>: Escudo e Vento, com cinco pares novos testados.</li>
+<li><code>diagram.mmd</code>: fonte editável dos dois eixos; renderização e QA visual na etapa de arte.</li>
+<li><code>evidence/</code>: stdout real, testes, manifesto e execução em cópia isolada.</li>
+</ul>
+<h3>Comportamento e contrato entre os eixos</h3>
+<p>O custo-base da Espada é 1 e seu gesto é <code>corte</code>; o Arco custa 2 e produz <code>disparo</code>. Fogo custa 3 e acrescenta <code>calor</code>; Gelo custa 4 e acrescenta <code>frio</code>. Com núcleo seco, os quatro pares produzem custos 4, 5, 5 e 6. Os efeitos são dados de resultado ordenados como gesto da forma → efeito da essência.</p>
+<p>Nesta versão fictícia, fogo <strong>não ativa com núcleo molhado</strong> e gelo pode ativar nesse contexto. Um bloqueio devolve estado <code>bloqueado</code>, motivo, custo zero e lista vazia de efeitos; o gesto não é declarado executado. Em caso ativo, o resultado tem estado <code>executado</code>, forma, essência, custo e efeitos. O custo não é descontado de nenhum estoque ou reserva: é um índice de contabilização do ensaio, sem unidade física.</p>
+<p><code>trocarEssencia()</code> muda explicitamente a referência guardada na mesma arma. O teste prova a identidade da arma, a referência exata da essência injetada e que outra arma usando a essência anterior conserva seu vínculo. Não se reconstrói nem se altera a essência anterior. A troca não modifica valores de resultados já entregues.</p>
+<p>Cada execução das implementações fornecidas cria um resultado e uma lista de efeitos novos e congelados. Os dados são strings/números, sem outro nível mutável nessa saída. O contexto não é guardado na arma. As essências fornecidas não acumulam estado, mas o contrato não garante pureza de implementações externas: uma essência pode ter seu próprio estado, efeitos ou falhas. Exceções são propagadas, sem retorno de sucesso ou mudança automática de essência.</p>
+<p>Custos ativos e sua soma precisam ser inteiros seguros não negativos; zero é válido para uma essência de teste. Valor inválido ou soma fora da faixa segura lança erro. A validação se limita ao contrato numérico deste modelo, não é um validador genérico de JSON, uma verificação física de armas ou um mecanismo de segurança.</p>
+<h3>Extensões, alternativas e custos</h3>
+<p>Adicionar Vento e Escudo requer uma classe por eixo e testes das combinações relevantes. Não se edita Espada, Arco, Fogo ou Gelo. A independência tem uma condição: a nova implementação precisa atender <code>Essencia</code> e as formas precisam usar o contrato combinado. Um recurso novo que exija outra capacidade pode forçar mudanças desse contrato; Bridge não garante compatibilidade universal.</p>
+<p>Dois eixos acrescentam tipos, dependências e combinações a verificar. Se só uma forma existe e apenas a essência varia, <code>empunharEspadaDireta()</code> compõe a essência por uma função; o teste compara seu resultado ao da Espada. Não é necessário criar uma hierarquia para uma segunda dimensão sem pressão real de evolução.</p>
+<p>Adapter reconcilia interfaces existentes que não atendem ao contrato esperado. Aqui formas e essências foram projetadas para cooperar desde o início por uma interface comum. Strategy costuma encapsular uma política ou algoritmo substituível em um contexto. Bridge separa dois eixos de abstrações e implementações que precisam evoluir; poder trocar um objeto em execução é uma característica estrutural compartilhada, não a definição da intenção.</p>
+<p>As regras de fogo, gelo e custo são convenções novas do projeto, não propriedades químicas ou físicas. O código não conduz um ataque real, testa material, preserva uma ponte ou garante segurança de transporte. Não há inferência de ganho de desempenho ou economia de memória. Testes e hashes ligam a saída às fontes executadas; não substituem auditoria técnica independente ou aprovação do autor.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { Arco, Espada } from &quot;./armas.js&quot;;
+import { EssenciaFogo, EssenciaGelo } from &quot;./essencias.js&quot;;
+
+for (const Forma of [Espada, Arco]) {
+  for (const essencia of [new EssenciaFogo(), new EssenciaGelo()]) {
+    const resultado = new Forma(essencia).empunhar({ nucleoMolhado: false });
+    console.log(`${resultado.forma} + ${resultado.essencia}: ${resultado.estado} | custo ${resultado.custo} | ${resultado.efeitos.join(&quot; -&gt; &quot;)}`);
+  }
+}
+
+const fogo = new EssenciaFogo();
+const gelo = new EssenciaGelo();
+const espada = new Espada(fogo);
+const mesmaArma = espada;
+espada.trocarEssencia(gelo);
+const trocada = espada.empunhar({ nucleoMolhado: true });
+console.log(`Troca: mesma arma ${espada === mesmaArma} | mesma essência injetada ${espada.essenciaAtual() === gelo} | custo ${trocada.custo}`);
+
+const bloqueado = new Espada(fogo).empunhar({ nucleoMolhado: true });
+if (bloqueado.estado === &quot;bloqueado&quot;) console.log(`Núcleo molhado com fogo: ${bloqueado.estado} | custo ${bloqueado.custo} | ${bloqueado.motivo}`);
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/11-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/11-01.svg" alt="Espada herda de Arma." loading="lazy"></a><figcaption>11 · a formas</figcaption><p class="study-diagram-description">Esta vista reúne Arma, Espada, Arco. Espada herda de Arma. Arco herda de Arma. Arma: Forma e gesto variam neste eixo. A mesma arma pode trocar a referência de Essencia. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure><figure class="study-diagram"><a href="/assets/diagramas/11-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/11-02.svg" alt="Arma mantém referência a Essencia (referência à essência)." loading="lazy"></a><figcaption>11 · b ponte</figcaption><p class="study-diagram-description">Esta vista reúne Arma, Essencia. Arma mantém referência a Essencia (referência à essência). Essencia: Efeito, custo e restrição variam neste eixo. Não há classe por par. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · referência à essência</p></figure><figure class="study-diagram"><a href="/assets/diagramas/11-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/11-03.svg" alt="EssenciaFogo realiza Essencia." loading="lazy"></a><figcaption>11 · c essências</figcaption><p class="study-diagram-description">Esta vista reúne Essencia, EssenciaFogo, EssenciaGelo. EssenciaFogo realiza Essencia. EssenciaGelo realiza Essencia. EssenciaFogo: Custo 3. Bloqueia quando nucleoMolhado. EssenciaGelo: Custo 4. Ativa no contexto molhado deste modelo. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — Uma forma e uma essência novas</h3>
+<p>Adicione <code>Escudo extends Arma</code>, com gesto <code>aparar</code> e custo de forma 2. Adicione também <code>EssenciaVento implements Essencia</code>, com custo de ativação 2 e efeito <code>impulso</code>, sem a restrição de núcleo molhado neste modelo.</p>
+<p>Critérios verificáveis:</p>
+<ul>
+<li>Espada e Arco existentes aceitam a nova essência e produzem custos 3 e 4, respectivamente.</li>
+<li>Escudo aceita Fogo, Gelo e Vento, com custos 5, 6 e 4.</li>
+<li>Escudo de fogo preserva o bloqueio com núcleo molhado; trocar sua essência por vento libera o uso sem construir outro escudo.</li>
+<li>Resultados seguem o contrato comum e preservam efeitos próprios da forma e da essência.</li>
+<li>Conte classes adicionadas, classes existentes alteradas e combinações cobertas por teste.</li>
+<li>Explique por que uma função basta quando só há uma forma fixa.</li>
+</ul>
+<p>Compare com <code>solution/extensoes.ts</code> e <code>solution/extensoes.test.ts</code>; execute <code>npm run solution</code>. Tentativas em <code>exercise/</code> ficam fora do build oficial.</p>
+<h3>Resposta comentada</h3>
+<p>Foram adicionadas <strong>duas classes</strong>, uma em cada eixo: <code>Escudo</code> e <code>EssenciaVento</code>. Nenhuma definição das classes existentes precisou ser editada. Os pontos de composição e testes são novos códigos de uso; isso não significa que nenhuma linha de código foi acrescentada ao projeto.</p>
+<p>A matriz passa de quatro para nove combinações possíveis entre três formas e três essências. Os quatro pares anteriores são testados no projeto-base e os cinco novos na solução. Não foram criadas classes <code>EscudoDeFogo</code>, <code>EscudoDeGelo</code> ou <code>EspadaDeVento</code>.</p>
+<p>Essa independência depende do contrato combinado entre os eixos. Uma essência que exigisse outra capacidade de todas as formas poderia cobrar uma mudança de interface e reconferência das implementações. O padrão não promete encaixe universal de qualquer novo recurso.</p>
+<p>Para uma única forma, <code>empunharEspadaDireta()</code> demonstra uma função que compõe a essência sem acrescentar a hierarquia de <code>Arma</code>. Criar dois eixos abstratos sem duas pressões reais de variação acrescentaria indireção desnecessária.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/11-bridge
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/11-bridge.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/10-composite/"><small>Padrão anterior</small><span>10 · Composite</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/12-flyweight/"><small>Próximo padrão</small><span>12 · Flyweight</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

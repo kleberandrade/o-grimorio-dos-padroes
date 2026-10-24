@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Strategy em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Strategy com fantasia e TypeScript: trocar a política de ataque sem trocar a identidade do contexto. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/13-strategy/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Strategy em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Strategy com fantasia e TypeScript: trocar a política de ataque sem trocar a identidade do contexto. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/13-strategy/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/13-strategy-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/13-strategy-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Rima lança um pulso controlado contra a placa de um urso mecânico de vime e metal, retido por cordas na arena.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Strategy em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Strategy com fantasia e TypeScript: trocar a política de ataque sem trocar a identidade do contexto. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/13-strategy-v01.jpg">
+  <meta name="twitter:image:alt" content="Rima lança um pulso controlado contra a placa de um urso mecânico de vime e metal, retido por cordas na arena.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/13-strategy/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/13-strategy/", "headline": "Strategy — O Grimório dos Padrões", "description": "Aprenda Strategy com fantasia e TypeScript: trocar a política de ataque sem trocar a identidade do contexto. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/13-strategy-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Strategy", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/13-strategy/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="13-strategy">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 13 · Comportamentais</p><h1 id="study-title">Strategy</h1><p id="study-description">trocar a política de ataque sem trocar a identidade do contexto.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/13-web.jpg" srcset="/assets/cenas-coloridas-v01/13-card.jpg 800w, /assets/cenas-coloridas-v01/13-web.jpg 1600w" sizes="100vw" alt="Rima lança um pulso controlado contra a placa de um urso mecânico de vime e metal, retido por cordas na arena." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 13 · Strategy</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>13 — Strategy: Táticas de ataque intercambiáveis</h3>
+<p><code>Combatente</code> compõe uma <code>EstrategiaDeAtaque</code> e delega a operação sem conhecer Espada, Arco ou Magia. A estratégia recebe um alvo estruturado e devolve resultado e custo. A troca altera a política, preservando a identidade e o nome do contexto.</p>
+<h3>Executar</h3>
+<p>Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>, lock próprio. Dentro deste diretório:</p>
+<pre><code>npm ci --ignore-scripts
+npm test
+npm start
+npm run solution</code></pre>
+<p>Da raiz Books:</p>
+<pre><code>node book-23/scripts/projetos.mjs 13 install
+node book-23/scripts/projetos.mjs 13 check
+node book-23/scripts/projetos.mjs 13 capture
+node book-23/scripts/projetos.mjs 13 verify</code></pre>
+<p>O build limpa <code>dist</code>, compila ES2022/ESM com TypeScript estrito e testa o JavaScript emitido com Node. Não importa capítulos vizinhos; <code>exercise/</code> fica fora da compilação da solução oficial.</p>
+<h3>Fontes e papéis</h3>
+<ul>
+<li><code>src/contratos.ts</code>: Strategy, alvo estruturado e resultado discriminado.</li>
+<li><code>src/estrategias.ts</code>: três políticas concretas com o mesmo objetivo de ataque no ensaio.</li>
+<li><code>src/combatente.ts</code>: Context com referência injetada e troca explícita.</li>
+<li><code>src/resultado.ts</code>: normalização de entrada e resultados congelados.</li>
+<li><code>src/main.ts</code>: inadequação, troca para arco, resistência que pede magia e alternativa próxima de menor custo.</li>
+<li><code>test/taticas.test.ts</code>: identidade, contrato, extensão, fronteiras, custo e falhas.</li>
+<li><code>exercise/</code> e <code>solution/</code>: técnica como função, chamada direta e contexto funcional.</li>
+<li><code>diagram.mmd</code>: fonte lógica do projeto-base; renderização e QA visual na etapa de arte.</li>
+<li><code>evidence/</code>: stdout real, testes, manifesto e execução em cópia isolada.</li>
+</ul>
+<h3>Regras do ensaio</h3>
+<p>O alvo tem nome, distância não negativa finita em metros e resistência <code>comum</code> ou <code>reforcada</code>. Nome vazio ou distância inválida são erros de entrada. Nome e dados são copiados para um valor congelado antes da delegação; as estratégias concretas também validam quando chamadas diretamente.</p>
+<ul>
+<li><strong>Espada:</strong> alcance de 0 a 2 m, resistência comum, custo 1.</li>
+<li><strong>Arco:</strong> intervalo de 2 a 30 m, resistência comum, custo 2.</li>
+<li><strong>Magia:</strong> alcance de 0 a 15 m, ambas as resistências, custo 5.</li>
+</ul>
+<p>Os extremos são inclusivos. Técnica inadequada devolve estado <code>inadequado</code>, custo zero e motivo, sem declarar o efeito executado. Técnica adequada devolve estado <code>executado</code>, técnica, alvo, custo e efeito. Custos são índices inteiros do modelo: não há estoque, flechas, reserva de mana ou dedução automática implementados. O código não garante acerto físico, abertura de passagem ou segurança de um alvo real.</p>
+<p>A mesma intenção não significa que qualquer técnica sirva a qualquer entrada. Todas compartilham o contrato, inclusive a possibilidade de inadequação. Um alvo comum a 2 m admite as três, com custos diferentes; quem escolhe precisa considerar o contexto. O programa não seleciona automaticamente a técnica ótima nem troca a referência após rejeição ou exceção.</p>
+<h3>Troca, dados e extensões</h3>
+<p><code>trocarEstrategia()</code> altera somente a referência do contexto. <code>estrategiaAtual()</code> permite observar essa identidade; o teste prova que uma estratégia nova funciona sem editar <code>Combatente</code>. O contexto recebe a dependência por contrato, sem importar classes concretas. Uma exceção de estratégia externa é propagada e não dispara fallback.</p>
+<p>As estratégias fornecidas criam resultados congelados, independentes entre chamadas, e não modificam o alvo ou resultados antigos. Isso não valida a implementação de qualquer estratégia externa nem garante pureza, ausência de I/O ou segurança de código arbitrário. Campos <code>#</code> mantêm o estado interno das classes fornecidas; tipos TypeScript não substituem validação de JSON ou fronteiras de aplicação.</p>
+<p>A solução demonstra uma função de arco com os mesmos dados, resultado e regras, testada contra o objeto. Uma chamada direta à função é uma alternativa real para uma operação estável. O contexto funcional conserva a intenção de substituir política e usa uma closure; o objeto congelado não torna imutável a variável de função que a operação de troca modifica explicitamente.</p>
+<h3>Custos e comparações</h3>
+<p>Strategy acrescenta contratos, objetos ou funções e a responsabilidade de escolher. Pode ser excesso quando só há uma operação estável ou uma seleção curta de opções claras. Não se precisa transformar todo ramo condicional em uma classe, nem prometer que todas as técnicas sejam equivalentes em efeito para todos os alvos.</p>
+<p>State organiza comportamento condicionado pelo estado e por suas transições. Strategy encapsula políticas intercambiáveis para uma operação. Quem decide trocar pode variar nos dois casos; “um muda sozinho e o outro pelo cliente” é uma heurística, não definição absoluta. Template Method fixa um esqueleto herdado e permite variar passos; aqui o contexto delega a política inteira por composição.</p>
+<p>Bridge separa dois eixos de abstrações e implementações que precisam evoluir, como formas e essências no projeto anterior. Aqui não há uma segunda hierarquia de formas: há um contexto e uma família de políticas para seu ataque. Desenho semelhante e substituição em execução não determinam a intenção.</p>
+<p>As regras de distância/resistência são ficcionais. Não se usa hashing como alternativa equivalente a criptografia reversível: um contrato comum precisa preservar a finalidade, não apenas um nome de método. Testes e hashes ligam saídas às fontes executadas; não substituem auditoria técnica independente nem aprovação autoral, sem promessas de desempenho ou segurança.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { Combatente } from &quot;./combatente.js&quot;;
+import type { ResultadoAtaque } from &quot;./contratos.js&quot;;
+import { AtaqueArco, AtaqueEspada, AtaqueMagia } from &quot;./estrategias.js&quot;;
+
+function imprimir(resultado: ResultadoAtaque): void {
+  console.log(`${resultado.tecnica} em ${resultado.alvo}: ${resultado.estado} | custo ${resultado.custo} | ${resultado.estado === &quot;executado&quot; ? resultado.efeito : resultado.motivo}`);
+}
+const rima = new Combatente(&quot;Rima&quot;, new AtaqueEspada());
+const mesmoContexto = rima;
+const corda = { nome: &quot;Corda do portão&quot;, distanciaMetros: 12, resistencia: &quot;comum&quot; } as const;
+imprimir(rima.atacar(corda));
+rima.trocarEstrategia(new AtaqueArco());
+imprimir(rima.atacar(corda));
+rima.trocarEstrategia(new AtaqueMagia());
+imprimir(rima.atacar({ nome: &quot;Selo reforçado&quot;, distanciaMetros: 6, resistencia: &quot;reforcada&quot; }));
+rima.trocarEstrategia(new AtaqueEspada());
+imprimir(rima.atacar({ nome: &quot;Trava próxima&quot;, distanciaMetros: 1, resistencia: &quot;comum&quot; }));
+console.log(`Contexto preservado: ${rima === mesmoContexto} | ${rima.nome}`);
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/13-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/13-01.svg" alt="Combatente mantém referência a EstrategiaDeAtaque (mantém referência e delega)." loading="lazy"></a><figcaption>13 · a contexto</figcaption><p class="study-diagram-description">Esta vista reúne EstrategiaDeAtaque, Combatente. Combatente mantém referência a EstrategiaDeAtaque (mantém referência e delega). Combatente: Troca referência sem reconstruir o contexto. Não importa estratégias concretas. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · mantém referência e delega</p></figure><figure class="study-diagram"><a href="/assets/diagramas/13-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/13-02.svg" alt="AtaqueEspada realiza EstrategiaDeAtaque." loading="lazy"></a><figcaption>13 · b políticas</figcaption><p class="study-diagram-description">Esta vista reúne EstrategiaDeAtaque, AtaqueEspada, AtaqueArco, AtaqueMagia. AtaqueEspada realiza EstrategiaDeAtaque. AtaqueArco realiza EstrategiaDeAtaque. AtaqueMagia realiza EstrategiaDeAtaque. EstrategiaDeAtaque: Mesmo objetivo e contrato de resultado; técnicas podem declarar inadequação. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure><figure class="study-diagram"><a href="/assets/diagramas/13-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/13-03.svg" alt="EstrategiaDeAtaque depende de Alvo." loading="lazy"></a><figcaption>13 · c alvo</figcaption><p class="study-diagram-description">Esta vista reúne EstrategiaDeAtaque, Alvo. EstrategiaDeAtaque depende de Alvo. Alvo: Dados fictícios do ensaio. Distância e resistência limitam a técnica. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — A estratégia pode ser uma função</h3>
+<p>Reimplemente a técnica de arco como <code>EstrategiaFuncional = (alvo: Alvo) =&gt; ResultadoAtaque</code>. Use os mesmos limites, mensagens e dados do <code>AtaqueArco</code>. Primeiro chame a função diretamente; depois mostre um contexto que recebe uma função e permite trocá-la.</p>
+<p>Critérios verificáveis:</p>
+<ul>
+<li>Função e objeto devolvem resultados equivalentes para alvo adequado, perto demais, longe demais e reforçado.</li>
+<li>O mesmo contrato de dados e resultado continua explícito.</li>
+<li>Trocar a função preserva a identidade e o nome do contexto funcional.</li>
+<li>Resultado fornecido pelas implementações do exercício mantém os custos e congelamento do projeto.</li>
+<li>Explique quando uma chamada direta à função basta e quando guardar uma política substituível no contexto é útil.</li>
+</ul>
+<p>Compare com <code>solution/funcional.ts</code> e <code>solution/funcional.test.ts</code>; execute <code>npm run solution</code>. Tentativas em <code>exercise/</code> ficam fora da compilação da solução oficial.</p>
+<h3>Resposta comentada</h3>
+<p><code>ataqueArcoFuncao()</code> implementa as mesmas regras do objeto e é testada contra ele. JavaScript permite passar a função como valor, sem criar uma classe só para uma operação. A intenção de encapsular uma política substituível continua sendo Strategy; funções e objetos são formas de representá-la.</p>
+<p><code>criarContextoFuncional()</code> guarda a função numa variável de closure. O objeto retornado é congelado, mas a operação explícita de troca altera essa variável, não as propriedades do objeto. Isso não torna o contexto puro ou sem estado; torna a escolha de política explícita. A nova função precisa cumprir o contrato, assim como uma nova classe.</p>
+<p>Se a aplicação chama sempre a mesma função estável, não precisa de um contexto de troca. Uma seleção curta e clara também pode ser suficiente quando existem poucas opções estáveis; a presença de um <code>if</code> ou <code>switch</code> não exige por si só um padrão.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/13-strategy
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/13-strategy.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/12-flyweight/"><small>Padrão anterior</small><span>12 · Flyweight</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/14-state/"><small>Próximo padrão</small><span>14 · State</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

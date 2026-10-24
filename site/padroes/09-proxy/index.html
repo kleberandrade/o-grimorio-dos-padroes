@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Proxy em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Proxy com fantasia e TypeScript: controlar a delegação ao serviço; o exercício apresenta carregamento virtual síncrono. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/09-proxy/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Proxy em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Proxy com fantasia e TypeScript: controlar a delegação ao serviço; o exercício apresenta carregamento virtual síncrono. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/09-proxy/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/09-proxy-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/09-proxy-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Serpentes articuladas de bronze esmagam uma caixa na entrada azul e dourada do arquivo de Valharth.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Proxy em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Proxy com fantasia e TypeScript: controlar a delegação ao serviço; o exercício apresenta carregamento virtual síncrono. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/09-proxy-v01.jpg">
+  <meta name="twitter:image:alt" content="Serpentes articuladas de bronze esmagam uma caixa na entrada azul e dourada do arquivo de Valharth.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/09-proxy/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/09-proxy/", "headline": "Proxy — O Grimório dos Padrões", "description": "Aprenda Proxy com fantasia e TypeScript: controlar a delegação ao serviço; o exercício apresenta carregamento virtual síncrono. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/09-proxy-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Proxy", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/09-proxy/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="09-proxy">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 09 · Estruturais</p><h1 id="study-title">Proxy</h1><p id="study-description">controlar a delegação ao serviço; o exercício apresenta carregamento virtual síncrono.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/09-web.jpg" srcset="/assets/cenas-coloridas-v01/09-card.jpg 800w, /assets/cenas-coloridas-v01/09-web.jpg 1600w" sizes="100vw" alt="Serpentes articuladas de bronze esmagam uma caixa na entrada azul e dourada do arquivo de Valharth." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 09 · Proxy</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>09 — Proxy: Acesso controlado ao salão real</h3>
+<p>Subject <code>Sala</code> oferece <code>entrar(Visitante)</code>. <code>SalaReal</code> registra entradas; <code>ProxyDeProtecao</code> implementa o mesmo contrato, consulta uma política injetada e só delega quando ela permite. A variante virtual mora separadamente na solução do exercício.</p>
+<h3>Executar</h3>
+<p>Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>, lock independente. Dentro deste projeto:</p>
+<pre><code>npm ci --ignore-scripts
+npm test
+npm start
+npm run solution</code></pre>
+<p>Da raiz Books:</p>
+<pre><code>node book-23/scripts/projetos.mjs 09 install
+node book-23/scripts/projetos.mjs 09 check
+node book-23/scripts/projetos.mjs 09 capture
+node book-23/scripts/projetos.mjs 09 verify</code></pre>
+<p>O build limpa <code>dist</code> e compila ES2022/ESM com TypeScript estrito. Testes Node executam o JavaScript emitido. Não há importações de capítulos vizinhos; tentativas em <code>exercise/</code> ficam fora do build oficial.</p>
+<h3>Fontes e papéis</h3>
+<ul>
+<li><code>src/contratos.ts</code>: Subject <code>Sala</code>, visitante, decisões e resultados discriminados.</li>
+<li><code>src/sala-real.ts</code>: Real Subject com histórico observável.</li>
+<li><code>src/proxy-protecao.ts</code>: Protection Proxy por composição.</li>
+<li><code>src/politica.ts</code>: política didática por mandato informado e normalização dos nomes.</li>
+<li><code>src/servico-com-controle.ts</code>: alternativa com verificação no próprio serviço, sem um objeto real desprotegido exposto por ele.</li>
+<li><code>src/main.ts</code>: negativa, permissão, contagem e bypass direto demonstrado.</li>
+<li><code>test/protecao.test.ts</code>: chamadas, identidade do resultado, decisões, erros, histórico e alternativa.</li>
+<li><code>exercise/</code> e <code>solution/</code>: Virtual Proxy com carregador síncrono injetado e seus testes.</li>
+<li><code>diagram.mmd</code>: fonte lógica editável; renderização e QA visual pertencem à etapa de arte.</li>
+<li><code>evidence/</code>: stdout real, testes, manifesto e execução em cópia isolada.</li>
+</ul>
+<h3>Contrato de entrada e política</h3>
+<p><code>Visitante</code> contém nome e <code>mandatoValido</code>, um booleano fornecido. Nomes vazios geram erro; nomes válidos são normalizados sem modificar o pedido original. A política recebe uma cópia congelada com esses valores e devolve <code>{permitida, motivo}</code>. O proxy não classifica nome, ofício, título, aparência ou simpatia como merecimento moral.</p>
+<p>Se a política nega, o resultado é <code>{estado: &#x27;negada&#x27;, visitante, motivo}</code> congelado e o real não é acionado. Se permite, o proxy chama a sala uma vez e devolve <strong>o mesmo objeto de resultado</strong> retornado por ela. Não fabrica número de registro nem converte um erro em sucesso. Exceções da política e da sala são propagadas; falha da política impede a delegação.</p>
+<p><code>SalaReal</code> guarda um registro sequencial local por entrada, com número, nome e estado <code>permitida</code>. As entradas são congeladas e a lista consultada é defensiva. O registro é um efeito local em memória, sem persistência, comprovação física ou auditoria externa. A negativa devolvida permite ao cliente documentá-la, mas o proxy não cria um diário persistente por conta própria.</p>
+<h3>Fronteira didática</h3>
+<p><code>mandatoValido</code> <strong>não autentica identidade</strong>, não verifica assinatura ou documento e não representa uma fronteira de segurança. O cliente pode fornecer <code>true</code>. Além disso, chamar <code>SalaReal.entrar()</code> diretamente contorna a política: há teste e demonstração explícitos. Uma política recebida também não torna confiáveis implementações arbitrárias do serviço ou do chamador.</p>
+<p>Controles reais de identidade, autorização, dados confiáveis e caminhos de acesso pertencem ao desenho da aplicação de produção; este modelo não os implementa nem os substitui. Seu propósito é observar a decisão de delegação e o contrato comum. Não abre portas físicas, não aciona a válvula e não garante drenagem ou segurança de um edifício. Os dados são tipados, sem validação genérica de JSON ou mecanismos de defesa para entradas externas arbitrárias.</p>
+<p><code>SalaComControleProprio</code> mostra uma alternativa simples: a verificação integra o serviço e ele não entrega ao cliente um Real Subject separado que ignore a decisão. Isso elimina o bypass específico do exemplo por aquela API; a mesma política booleana continua didática e não ganha autenticação ou garantias de produção por estar em outro lugar.</p>
+<h3>Proteção e virtualização</h3>
+<p>O proxy de proteção recebe uma sala já criada. Não é Virtual Proxy nem carregamento tardio. <code>ProxyVirtual</code>, separado em <code>solution/</code>, recebe <code>() =&gt; Sala</code>, carrega na primeira operação e reutiliza a instância. Ele não adiciona política de proteção, e o teste demonstra entrada sem mandato no real dessa variante.</p>
+<p>O carregamento é estritamente síncrono. Se o carregador lança erro, a referência continua ausente e outra chamada explícita pode tentar novamente. Se a carga deu certo, mas a operação da sala falha, a instância permanece guardada e as próximas chamadas não recarregam. A primeira operação carrega antes de delegar qualquer validação ao serviço; nome inválido não é promessa de impedir a carga. Não há Promise, tratamento de corrida assíncrona, retentativa automática, invalidação ou benchmark de criação.</p>
+<h3>Custos e comparações</h3>
+<p>Proxy acrescenta uma camada, uma política de ciclo de vida ou delegação e mais um caminho que precisa ser compreendido. Quando o serviço pode aplicar seu controle de forma simples e apropriada ao contexto, uma camada separada pode não se justificar.</p>
+<p>Decorator também pode conservar a interface, mas sua intenção é acrescentar responsabilidades ao comportamento; aqui a intenção é controlar acesso ou adiar criação. Adapter traduz interfaces incompatíveis; este Proxy mantém <code>Sala</code> em ambos os lados. Semelhança estrutural não torna as intenções equivalentes.</p>
+<p>Testes, stdout e hashes vinculam execução às fontes. Não são auditoria técnica independente nem aprovação autoral, e não estabelecem segurança ou desempenho de uma integração real.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { politicaPorMandato } from &quot;./politica.js&quot;;
+import { ProxyDeProtecao } from &quot;./proxy-protecao.js&quot;;
+import { SalaReal } from &quot;./sala-real.js&quot;;
+import { SalaComControleProprio } from &quot;./servico-com-controle.js&quot;;
+
+const real = new SalaReal();
+const proxy = new ProxyDeProtecao(real, politicaPorMandato);
+console.log(`Nobre sem mandato: ${proxy.entrar({ nome: &quot;Nobre&quot;, mandatoValido: false }).estado}`);
+console.log(`Entradas no real após negativa: ${real.listarEntradas().length}`);
+console.log(`Mecânico com mandato: ${proxy.entrar({ nome: &quot;Mecânico&quot;, mandatoValido: true }).estado}`);
+console.log(`Entradas no real após permissão: ${real.listarEntradas().length}`);
+
+// Demonstra o limite: o real exposto não verifica a política por conta própria.
+const direta = real.entrar({ nome: &quot;Entrada lateral&quot;, mandatoValido: false });
+console.log(`Acesso direto ao real sem mandato: ${direta.estado}`);
+console.log(`Entradas no real após acesso direto: ${real.listarEntradas().length}`);
+const integrado = new SalaComControleProprio(politicaPorMandato);
+console.log(`Serviço com controle próprio sem mandato: ${integrado.entrar({ nome: &quot;Visitante&quot;, mandatoValido: false }).estado}`);
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/09-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/09-01.svg" alt="SalaReal realiza Sala." loading="lazy"></a><figcaption>09 · a subject</figcaption><p class="study-diagram-description">Esta vista reúne Sala, SalaReal, ProxyDeProtecao. SalaReal realiza Sala. ProxyDeProtecao mantém referência a Sala (delega somente se permitido). ProxyDeProtecao: Negativa não chama o real. Positiva devolve o resultado real sem substituí-lo. SalaReal: Acesso direto ainda permite contornar o proxy deste modelo. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · delega somente se permitido</p></figure><figure class="study-diagram"><a href="/assets/diagramas/09-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/09-02.svg" alt="ProxyDeProtecao realiza Sala." loading="lazy"></a><figcaption>09 · b política</figcaption><p class="study-diagram-description">Esta vista reúne Sala, ProxyDeProtecao, PoliticaAcesso. ProxyDeProtecao realiza Sala. ProxyDeProtecao depende de PoliticaAcesso (recebe função injetada). PoliticaAcesso: Função injetada: Visitante para DecisaoAcesso. Não é classe concreta. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · recebe função injetada</p></figure><figure class="study-diagram"><a href="/assets/diagramas/09-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/09-03.svg" alt="Sala depende de Visitante." loading="lazy"></a><figcaption>09 · c dados</figcaption><p class="study-diagram-description">Esta vista reúne Sala, Visitante, ResultadoEntrada. Sala depende de Visitante. Sala depende de ResultadoEntrada. Visitante: Booleano didático fornecido, sem autenticação de identidade. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — Adiar a criação não é autorizar</h3>
+<p>Em uma variante <strong>separada</strong>, implemente <code>ProxyVirtual</code> com o mesmo Subject <code>Sala</code>. Receba um carregador síncrono <code>() =&gt; Sala</code>, em vez de uma sala já criada. A primeira operação deve chamar o carregador; as seguintes devem reutilizar a instância retornada.</p>
+<p>Critérios verificáveis:</p>
+<ul>
+<li>Construir o proxy não chama o carregador nem cria uma <code>SalaReal</code> antecipadamente.</li>
+<li>Após a primeira <code>entrar()</code>, existe exatamente uma instância criada; após outra operação, continua uma e há duas entradas no mesmo serviço real.</li>
+<li>Virtualização sozinha não acrescenta autorização: um <code>SalaReal</code> sem controle próprio continua permitindo a entrada sem mandato.</li>
+<li>Erro no carregador é propagado e não preenche a instância guardada; uma nova operação explícita pode tentar carregar outra vez.</li>
+<li>Erro na operação de uma sala já carregada não descarta a instância nem dispara uma carga extra.</li>
+<li>Explique a intenção de proteção versus a intenção de adiar a criação.</li>
+</ul>
+<p>Compare com <code>solution/proxy-virtual.ts</code> e <code>solution/virtual.test.ts</code>; execute <code>npm run solution</code>. <code>exercise/</code> fica fora da compilação da resposta oficial.</p>
+<h3>Resposta comentada</h3>
+<p><code>ProxyVirtual</code> guarda o resultado de uma carga bem-sucedida e delega a mesma operação. Não há callback de carregamento assíncrono, Promise, coalescência de chamadas concorrentes, invalidação ou garantia de economia medida. Uma falha de carga só é tentada outra vez quando o cliente faz uma nova chamada; não existe retentativa automática dentro da mesma operação.</p>
+<p>O objeto é carregado antes de delegar a primeira operação. Portanto, uma primeira chamada com nome inválido ainda cria a sala, que depois rejeita a entrada pelo contrato do serviço. O exercício não promete validar o pedido antes da carga.</p>
+<p>O carregador é uma dependência injetada e deve devolver um <code>Sala</code> válido. Receber um objeto já pronto eliminaria a parte tardia da criação; por isso o teste cria <code>SalaReal</code> efetivamente dentro do carregador e verifica a ausência de instâncias antes do uso.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/09-proxy
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/09-proxy.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/08-decorator/"><small>Padrão anterior</small><span>08 · Decorator</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/10-composite/"><small>Próximo padrão</small><span>10 · Composite</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

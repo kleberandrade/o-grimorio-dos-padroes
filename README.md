@@ -51,3 +51,14 @@ Abra http://localhost:4173. Os arquivos em `site/arquivos/` são cópias das fon
 Os registros da edição totalizam 354 testes aprovados. Essa contagem corresponde às execuções editoriais registradas nas evidências dos projetos, não a uma nova execução disparada ao acessar a página. A landing oferece consulta e download; a execução dos projetos acontece localmente.
 
 © Kleber de Oliveira Andrade. Acesso público não acrescenta uma licença de uso ao material. O manuscrito integral, PDFs e EPUBs não fazem parte deste repositório.
+
+
+## Site, descoberta e livros
+
+A página inicial reúne os 23 padrões e um carrossel das duas trilogias. Os seis livros, seus micro resumos e links de compra ficam em `site/livros.json`; o carrossel tem troca manual por padrão e reprodução opcional. As capas são arquivos públicos derivados proporcionalmente das frentes existentes.
+
+Cada padrão também tem HTML próprio em `/padroes/<id>/`, com fundamentos, código inicial e diagramas disponíveis antes do JavaScript. As URLs antigas `projeto.html?id=...` têm redirecionamentos permanentes. O estudo interativo continua carregando os arquivos originais do catálogo.
+
+Após alterar o catálogo, os livros ou os modelos HTML, execute `python3 scripts/build-seo.py` (Python, Pillow e `rsvg-convert`). O comando atualiza as 23 páginas estáticas, o catálogo inicial, o carrossel, as 24 imagens sociais de 1200 × 630, os metadados, `robots.txt`, `sitemap.xml` e os redirecionamentos. Os arquivos gerados ficam versionados; a hospedagem permanece estática, sem dependências de execução.
+
+`site/motion.js` controla entradas de seções e cards. A magia em código, o movimento do livro e o relevo do cenário usam CSS; a preferência por movimento reduzido desativa os efeitos. A reprodução do carrossel pausa fora da tela, durante leitura por foco/ponteiro e com a aba oculta.

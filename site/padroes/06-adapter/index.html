@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Adapter em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Adapter com fantasia e TypeScript: adaptar um fornecedor legado ao contrato esperado, incluindo conversão de velocidade. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/06-adapter/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Adapter em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Adapter com fantasia e TypeScript: adaptar um fornecedor legado ao contrato esperado, incluindo conversão de velocidade. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/06-adapter/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/06-adapter-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/06-adapter-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sarga coopera no reparo do farol, dirigindo uma chama estreita à crosta de pedra enquanto Iria e a equipe observam protegidos.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Adapter em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Adapter com fantasia e TypeScript: adaptar um fornecedor legado ao contrato esperado, incluindo conversão de velocidade. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/06-adapter-v01.jpg">
+  <meta name="twitter:image:alt" content="Sarga coopera no reparo do farol, dirigindo uma chama estreita à crosta de pedra enquanto Iria e a equipe observam protegidos.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/06-adapter/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/06-adapter/", "headline": "Adapter — O Grimório dos Padrões", "description": "Aprenda Adapter com fantasia e TypeScript: adaptar um fornecedor legado ao contrato esperado, incluindo conversão de velocidade. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/06-adapter-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Adapter", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/06-adapter/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="06-adapter">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 06 · Estruturais</p><h1 id="study-title">Adapter</h1><p id="study-description">adaptar um fornecedor legado ao contrato esperado, incluindo conversão de velocidade.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/06-web.webp" srcset="/assets/cenas-coloridas-v01/06-card.webp 800w, /assets/cenas-coloridas-v01/06-web.webp 1600w" sizes="100vw" alt="Sarga coopera no reparo do farol, dirigindo uma chama estreita à crosta de pedra enquanto Iria e a equipe observam protegidos." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 06 · Adapter</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>06 — Adapter: Integração de dragões legados</h3>
+<p>O cliente usa <code>DragaoNovo</code>, com velocidade em <strong>m/s</strong> e ataque que devolve resultado. <code>DragaoAdapter</code> compõe <code>DragaoAntigo</code>, converte <strong>km/h</strong> para <strong>m/s</strong>, traduz o alvo e o resultado de fogo, sem editar a biblioteca legada. Uma implementação nativa atende ao mesmo contrato diretamente.</p>
+<h3>Executar</h3>
+<p>Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>, lock próprio. Dentro deste diretório:</p>
+<pre><code>npm ci --ignore-scripts
+npm test
+npm start
+npm run solution</code></pre>
+<p>Da raiz Books:</p>
+<pre><code>node book-23/scripts/projetos.mjs 06 install
+node book-23/scripts/projetos.mjs 06 check
+node book-23/scripts/projetos.mjs 06 capture
+node book-23/scripts/projetos.mjs 06 verify</code></pre>
+<p>O build limpa <code>dist</code>, usa <code>tsc</code> local estrito para ES2022/ESM e testa o JavaScript emitido com <code>node:test</code>. Não importa capítulos vizinhos. Tentativas em <code>exercise/</code> ficam fora da compilação da resposta.</p>
+<h3>Papéis e arquivos</h3>
+<ul>
+<li><code>src/contratos.ts</code>: Target <code>DragaoNovo</code>, pedido, resultado e erro de recurso indisponível.</li>
+<li><code>src/legado/dragao-antigo.ts</code>: Adaptee, biblioteca simulada que só oferece velocidade em km/h e fogo.</li>
+<li><code>src/adapter.ts</code>: Adapter por composição, com conversão numérica e delegação.</li>
+<li><code>src/nativo.ts</code>: implementação nativa do Target, sem camada de tradução.</li>
+<li><code>src/cliente.ts</code>: <code>liberarRochaDoFarol()</code>, cliente independente de fornecedor.</li>
+<li><code>src/validacao.ts</code>: valores de velocidade e alvo não vazio.</li>
+<li><code>src/main.ts</code>: mesmo cliente para nativo/adaptado e ordem sem equivalente recusada.</li>
+<li><code>test/adaptacao.test.ts</code>: conversão, contrato comum, chamadas delegadas, erros e fidelidade do resultado.</li>
+<li><code>exercise/</code> e <code>solution/</code>: segundo fornecedor em nós, outro adaptador e testes.</li>
+<li><code>diagram.mmd</code>: fonte editável das relações do código-base; renderização e QA visual ficam na etapa própria.</li>
+<li><code>evidence/</code>: stdout real, testes, manifesto e execução em cópia isolada.</li>
+</ul>
+<h3>Contrato do cenário novo</h3>
+<p>O arquivo legado é uma biblioteca <strong>simulada para este livro</strong>, com unidade declarada em seu contrato. Não é reprodução literal do snippet do Medium: aquele exemplo devolvia <code>100</code> sem declarar uma unidade. A convenção de km/h e o resultado observável são parte desta reescrita; não se afirma que aquele <code>100</code> originalmente significava km/h.</p>
+<p>O adaptador recebe a biblioteca e só usa suas operações públicas. <code>voarVelocidade()</code> retorna km/h; o adaptador divide por <code>3.6</code>. <code>soltarFogo(alvo)</code> retorna <code>{rocha, desobstruida}</code>; o adaptador traduz para <code>{alvo, efeito: &#x27;fogo&#x27;, rochaLiberada}</code>. O campo booleano é preservado, inclusive quando o fornecedor relata <code>false</code>. O resultado é copiado e congelado, sem manter alias mutável do retorno legado.</p>
+<p><code>DragaoNovo.atacar()</code> permite pedir <code>fogo</code> ou <code>gelo</code>, com possibilidade contratual de lançar <code>RecursoSemEquivalente</code> quando o pacto não oferecer aquele efeito. Os dois fornecedores-base oferecem fogo e recusam gelo; não se inventa um equivalente. A recusa acontece antes de delegar a operação. Alvos vazios são rejeitados antes de chamar o legado. Exceções do fornecedor são propagadas.</p>
+<p><code>liberarRochaDoFarol()</code> consulta a velocidade e solicita fogo sobre um identificador de rocha. Retorna dados locais do ensaio. Não transporta pessoas, não movimenta o contrapeso, não modela cabos, massa, forças ou dano térmico e não confirma que um farol físico foi liberado. A narrativa contém o resgate e o pacto; o código demonstra a tradução do contrato disponível. <code>rochaLiberada</code> é o resultado declarado pelo simulador, sem sensores ou comprovação física.</p>
+<p>Velocidade negativa ou não finita é inválida; zero é aceito como valor numérico e não prova capacidade de transporte. Entradas são tipadas; o programa não valida JSON arbitrário nem decide se qualquer objeto nomeado é uma rocha. <code>private</code> nos parâmetros de construtor é checagem TypeScript, não barreira de segurança em execução.</p>
+<h3>Números, teste e alternativa</h3>
+<p>O caso 36 km/h → 10 m/s permite igualdade numérica no exemplo executado. Casos fracionários são testados com tolerância absoluta <code>1e-12</code> m/s nos valores pequenos usados. A solução converte nós pelo fator <code>1852 / 3600</code> e só arredonda a apresentação com <code>toFixed(3)</code>. Não se afirma que todos os números flutuantes tenham equivalência decimal exata, nem se escolhe tolerância para medições reais.</p>
+<p>Adapter acrescenta uma camada e regras de tradução que precisam acompanhar os contratos. Se você controla as duas APIs e pode mudar uma delas de modo compatível com seus consumidores, uma alteração direta pode eliminar a necessidade da camada. Uma função que devolve um objeto com <code>velocidadeMps</code> e <code>atacar</code> também pode ser um adaptador; a classe aqui explicita composição e papéis. Os testes usam fornecedores substitutos para observar dados e delegações sem modificar o legado.</p>
+<p>Facade oferece entrada conveniente para subsistemas; Adapter atende a um contrato já esperado por um cliente. Bridge separa dimensões de variação planejadas para evoluir; Adapter reconcilia interfaces existentes. A presença de composição ou de uma classe chamada ponte não define essas intenções por si.</p>
+<h3>Referência e rastreabilidade</h3>
+<p>O fator do exercício é conferido no <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si" target="_blank" rel="noopener noreferrer">NIST Guide to the SI — unidades fora do SI</a>: um nó corresponde a uma milha náutica por hora, com <code>1852 / 3600</code> m/s. Consulta em 22/10/2026. A conversão é verificada também pela execução dos testes no runtime fixado.</p>
+<p>Saídas e hashes vinculam a execução às fontes. Não representam auditoria técnica independente, aprovação do autor, benchmark ou garantia de integração com uma biblioteca externa real.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { DragaoAdapter } from &quot;./adapter.js&quot;;
+import { liberarRochaDoFarol } from &quot;./cliente.js&quot;;
+import { DragaoAntigo } from &quot;./legado/dragao-antigo.js&quot;;
+import { DragaoNativo } from &quot;./nativo.js&quot;;
+
+for (const [nome, dragao] of [
+  [&quot;Nativo&quot;, new DragaoNativo()],
+  [&quot;Adaptado&quot;, new DragaoAdapter(new DragaoAntigo())],
+] as const) {
+  const ensaio = liberarRochaDoFarol(dragao, &quot;Trava do farol&quot;);
+  console.log(`${nome}: ${ensaio.velocidadeMps.toFixed(3)} m/s | ${ensaio.resultado.alvo} | liberada ${ensaio.resultado.rochaLiberada}`);
+}
+
+try {
+  new DragaoAdapter(new DragaoAntigo()).atacar({ alvo: &quot;Trava do farol&quot;, efeito: &quot;gelo&quot; });
+} catch (erro: unknown) {
+  if (!(erro instanceof Error)) throw erro;
+  console.log(`Ordem recusada: ${erro.message}`);
+}
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/06-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/06-01.svg" alt="DragaoNativo e DragaoAdapter realizam a interface DragaoNovo." loading="lazy"></a><figcaption>06 · a target</figcaption><p class="study-diagram-description">DragaoNovo oferece velocidadeMps(): number e atacar(pedido: PedidoDeAtaque): ResultadoDeAtaque. DragaoNativo atende ao contrato diretamente e conserva metrosPorSegundo como campo privado somente de leitura. DragaoAdapter atende ao mesmo contrato; seus membros selecionados aparecem na vista de adaptação ao legado. A relação de realização usa linha tracejada e triângulo vazio. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. DragaoNovo: liberarRochaDoFarol recebe este contrato e solicita fogo. Efeito indisponível lança RecursoSemEquivalente.</p></figure><figure class="study-diagram"><a href="/assets/diagramas/06-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/06-02.svg" alt="DragaoAdapter mantém referência a DragaoAntigo por associação direcionada." loading="lazy"></a><figcaption>06 · b adaptee</figcaption><p class="study-diagram-description">DragaoAdapter guarda antigo: DragaoAntigo como referência privada somente de leitura. A seta é associação direcionada; não declara ownership ou composição UML. velocidadeMps divide o valor em km/h por 3,6. atacar traduz o pedido e o objeto devolvido por soltarFogo(alvo: string), com rocha: string e desobstruida: boolean. O legado é uma biblioteca simulada e permanece inalterado. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. DragaoAdapter: Divide km/h por 3.6; traduz desobstruida para rochaLiberada. DragaoAntigo: Biblioteca simulada: km/h e fogo. Adapter não altera o legado. e3 · referência</p></figure><figure class="study-diagram"><a href="/assets/diagramas/06-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/06-03.svg" alt="DragaoNovo depende de PedidoDeAtaque e ResultadoDeAtaque, com atributos tipados." loading="lazy"></a><figcaption>06 · c dados</figcaption><p class="study-diagram-description">PedidoDeAtaque declara alvo: string e efeito: &quot;fogo&quot; | &quot;gelo&quot;. ResultadoDeAtaque conserva esses campos e acrescenta rochaLiberada: boolean. Os atributos dos dois contratos são somente de leitura. As setas tracejadas são dependências da interface DragaoNovo; o booleano é o resultado declarado pelo simulador, sem comprovação física. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — O fornecedor marítimo</h3>
+<p>Integre um segundo fornecedor que informa velocidade em <strong>nós</strong> e expõe <code>aquecerRocha(identificador)</code> em vez de <code>soltarFogo(alvo)</code>. Ele também oferece somente fogo.</p>
+<p>Critérios verificáveis:</p>
+<ul>
+<li>Um novo adaptador por composição atende <code>DragaoNovo</code>; <code>liberarRochaDoFarol()</code> não muda.</li>
+<li>10 nós produzem aproximadamente <code>5.144444444444444</code> m/s; compare com tolerância, não como igualdade decimal exata geral.</li>
+<li>O fator usado é <code>1852 / 3600</code>, sem arredondamento antecipado.</li>
+<li>O alvo chega ao fornecedor normalizado e a indicação de liberação é preservada, inclusive quando for <code>false</code>.</li>
+<li>Pedido de gelo é recusado antes de acionar o fornecedor.</li>
+<li>Velocidade não finita é diagnosticada.</li>
+<li>Nenhuma edição é necessária na biblioteca antiga ou no fornecedor marítimo.</li>
+</ul>
+<p>Compare com <code>solution/fornecedor-maritimo.ts</code>, <code>solution/adapter-maritimo.ts</code> e <code>solution/maritimo.test.ts</code>. Execute <code>npm run solution</code>. <code>exercise/</code> fica fora do build oficial para não compilar a tentativa junto da resposta.</p>
+<h3>Resposta comentada</h3>
+<p>O adaptador converte os dados e a chamada, não apenas os nomes: nós viram m/s, <code>identificador</code> vira <code>alvo</code> e <code>liberada</code> vira <code>rochaLiberada</code>. O erro do efeito sem equivalente mantém o limite do pacto. O cliente não precisa saber de qual fornecedor veio o resultado.</p>
+<p>O programa formata a velocidade com três casas decimais só na saída humana. O teste mantém o resultado numérico e usa tolerância absoluta de <code>1e-12</code> m/s para esse caso pequeno. Isso não declara uma tolerância física universal nem valida velocidade de um animal real.</p>
+<p>Se ambos os contratos forem controlados pela mesma equipe, alterar a API diretamente pode ser mais claro que manter duas superfícies e um adaptador. Uma função ou um objeto literal também poderia cumprir <code>DragaoNovo</code>; uma classe não é exigência do mecanismo de adaptação por composição.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/06-adapter
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/06-adapter.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/05-singleton/"><small>Padrão anterior</small><span>05 · Singleton</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/07-facade/"><small>Próximo padrão</small><span>07 · Facade</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

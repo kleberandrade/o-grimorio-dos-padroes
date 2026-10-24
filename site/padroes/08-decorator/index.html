@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Decorator em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Decorator com fantasia e TypeScript: compor efeitos de ataque e observar como a ordem das camadas muda o resultado. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/08-decorator/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Decorator em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Decorator com fantasia e TypeScript: compor efeitos de ataque e observar como a ordem das camadas muda o resultado. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/08-decorator/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/08-decorator-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/08-decorator-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A tecelã de geada estende seus oito apêndices sobre Dara e Nessa enquanto elas abrem uma faixa estreita no gelo do túnel.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Decorator em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Decorator com fantasia e TypeScript: compor efeitos de ataque e observar como a ordem das camadas muda o resultado. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/08-decorator-v01.jpg">
+  <meta name="twitter:image:alt" content="A tecelã de geada estende seus oito apêndices sobre Dara e Nessa enquanto elas abrem uma faixa estreita no gelo do túnel.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/08-decorator/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/08-decorator/", "headline": "Decorator — O Grimório dos Padrões", "description": "Aprenda Decorator com fantasia e TypeScript: compor efeitos de ataque e observar como a ordem das camadas muda o resultado. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/08-decorator-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Decorator", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/08-decorator/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="08-decorator">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 08 · Estruturais</p><h1 id="study-title">Decorator</h1><p id="study-description">compor efeitos de ataque e observar como a ordem das camadas muda o resultado.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/08-web.webp" srcset="/assets/cenas-coloridas-v01/08-card.webp 800w, /assets/cenas-coloridas-v01/08-web.webp 1600w" sizes="100vw" alt="A tecelã de geada estende seus oito apêndices sobre Dara e Nessa enquanto elas abrem uma faixa estreita no gelo do túnel." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 08 · Decorator</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>08 — Decorator: Combinação de efeitos de combate</h3>
+<p><code>Ataque.executar()</code> devolve uma potência e uma sequência de efeitos. <code>Espada</code> funciona como núcleo; <code>MantoDeCalor</code> e <code>MantoAmplificador</code> envolvem outro <code>Ataque</code>, mantêm a mesma interface e modificam seu resultado sem alterar o objeto interno.</p>
+<h3>Executar</h3>
+<p>Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>, lock próprio. Dentro deste diretório:</p>
+<pre><code>npm ci --ignore-scripts
+npm test
+npm start
+npm run solution</code></pre>
+<p>Da raiz Books:</p>
+<pre><code>node book-23/scripts/projetos.mjs 08 install
+node book-23/scripts/projetos.mjs 08 check
+node book-23/scripts/projetos.mjs 08 capture
+node book-23/scripts/projetos.mjs 08 verify</code></pre>
+<p>O build limpa <code>dist</code>, compila ES2022/ESM com TypeScript estrito e executa os testes Node sobre JavaScript emitido. Nenhum projeto vizinho é importado. <code>exercise/</code> fica separado da solução e fora do build oficial.</p>
+<h3>Papéis e fontes</h3>
+<ul>
+<li><code>src/contratos.ts</code>: Component <code>Ataque</code> e seu resultado.</li>
+<li><code>src/espada.ts</code>: Concrete Component <code>Espada</code>, utilizável sozinho.</li>
+<li><code>src/mantos.ts</code>: Concrete Decorators por composição; não há subclasses para cada combinação.</li>
+<li><code>src/resultado.ts</code>: validação numérica e cópia/congelamento dos valores de saída.</li>
+<li><code>src/direto.ts</code>: função executável para a alternativa de fórmula fixa, sem wrappers.</li>
+<li><code>src/main.ts</code>: duas ordens, núcleo, composição reconstruída e alternativa direta.</li>
+<li><code>test/composicao.test.ts</code>: aritmética, ordem, reuso, duplicação de camadas, delegação e limites.</li>
+<li><code>exercise/</code> e <code>solution/</code>: efeito limitador não comutativo, demonstração e testes.</li>
+<li><code>diagram.mmd</code>: fonte lógica editável do código-base; renderização e QA visual pertencem à etapa de arte.</li>
+<li><code>evidence/</code>: stdout real, testes, manifesto e execução em cópia isolada.</li>
+</ul>
+<h3>Ordem e resultados observáveis</h3>
+<p>O núcleo tem potência 10, o calor soma 3 e a amplificação multiplica por 2. A operação delega primeiro ao componente interno e aplica a camada externa depois:</p>
+<ul>
+<li><code>new MantoAmplificador(new MantoDeCalor(espada, 3), 2)</code> calcula <code>(10 + 3) * 2 = 26</code> e registra <code>espada → calor +3 → amplificação x2</code>.</li>
+<li><code>new MantoDeCalor(new MantoAmplificador(espada, 2), 3)</code> calcula <code>10 * 2 + 3 = 23</code> e registra <code>espada → amplificação x2 → calor +3</code>.</li>
+</ul>
+<p>Cada wrapper chama o interno uma vez e acrescenta sua responsabilidade. Resultados são valores retornados e testados, não apenas mensagens de console. Os mantos não deduplicam camadas: dois calores +3 produzem 16; dois amplificadores ×2 produzem 40 sobre o núcleo 10.</p>
+<p>As implementações fornecidas não acumulam estado entre execuções. Cada chamada cria outro resultado e outra lista de efeitos, congelados com <code>Object.freeze</code>. Strings na lista não exigem outra camada de cópia. Mesmo quando um colaborador externo devolve uma lista mutável, o decorator copia a lista e não edita o resultado recebido. Isso não promete tornar determinístico ou imutável qualquer <code>Ataque</code> externo com estado próprio.</p>
+<h3>Retirada e fronteiras numéricas</h3>
+<p>Retirar um manto é construir outra composição a partir das referências que o cliente preservou. <code>new MantoDeCalor(espada, 3)</code> devolve 13 sem editar a composição anterior de 26. A espada continua devolvendo 10. Não há <code>desempilhar()</code> que descubra e modifique silenciosamente uma cadeia existente, nem restauração de objetos destruídos na narrativa.</p>
+<p>Potência e bônus devem ser inteiros seguros não negativos; fator deve ser inteiro seguro pelo menos 1. Potência zero, bônus zero e fator 1 são válidos. Frações, negativos, <code>NaN</code>, infinitos e valores fora da faixa de inteiros seguros são rejeitados. O resultado interno é validado antes da operação; cada resultado aritmético é validado antes de ser devolvido. Se a adição ou multiplicação sair da faixa permitida, a chamada lança erro em vez de publicar um valor impreciso como válido. O código usa <code>number</code>, não <code>BigInt</code> nem aproximação de quantidades fracionárias.</p>
+<p>Esses valores são índices abstratos de um modelo fictício, sem unidade de energia, força ou temperatura. O cálculo não garante resistência de um túnel, segurança física, sucesso de resgate ou dano real. Os campos internos usam <code>#</code> em execução; entradas e colaboradores obedecem ao contrato tipado, não são um parser de JSON arbitrário.</p>
+<h3>Custos e alternativas</h3>
+<p>Wrappers acrescentam objetos e uma ordem de execução que pode ser difícil de rastrear em cadeias longas. O cliente precisa conservar referências e saber qual composição quer reconstruir. Se a fórmula sempre for soma e depois multiplicação, <code>calcularPotenciaDireta(10, 3, 2)</code> resolve com menos estrutura e é testada produzindo 26. Essa função não expõe combinações dinâmicas ou histórico de efeitos; não é anunciada como equivalente para todos os usos dos decorators.</p>
+<p>Proxy pode oferecer o mesmo contrato para controlar acesso, carregamento ou encaminhamento ao serviço. Aqui a intenção é acrescentar responsabilidades de cálculo, não decidir quem pode atacar. Chain of Responsibility normalmente encaminha ou decide o tratamento de uma solicitação; esta composição acumula responsabilidades e devolve o resultado do encadeamento interno. A ordem de métodos ou o nome middleware não basta para classificar uma API: não se afirma que todo middleware seja Decorator.</p>
+<p>Captura e hashes ligam saídas às fontes executadas. Não substituem auditoria técnica independente nem aprovação autoral; não há benchmark ou promessa de desempenho.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import type { Ataque } from &quot;./contratos.js&quot;;
+import { calcularPotenciaDireta } from &quot;./direto.js&quot;;
+import { Espada } from &quot;./espada.js&quot;;
+import { MantoAmplificador, MantoDeCalor } from &quot;./mantos.js&quot;;
+
+const espada = new Espada(10);
+const somaAntesDeMultiplicar = new MantoAmplificador(new MantoDeCalor(espada, 3), 2);
+const multiplicaAntesDeSomar = new MantoDeCalor(new MantoAmplificador(espada, 2), 3);
+// Retirar é reconstruir outra composição, sem editar a já existente.
+const somenteCalor = new MantoDeCalor(espada, 3);
+
+for (const [nome, ataque] of [
+  [&quot;Núcleo&quot;, espada],
+  [&quot;Calor -&gt; amplificação&quot;, somaAntesDeMultiplicar],
+  [&quot;Amplificação -&gt; calor&quot;, multiplicaAntesDeSomar],
+  [&quot;Sem amplificador&quot;, somenteCalor],
+] satisfies [string, Ataque][]) {
+  const resultado = ataque.executar();
+  console.log(`${nome}: ${resultado.potencia} | ${resultado.efeitos.join(&quot; -&gt; &quot;)}`);
+}
+console.log(`Composição anterior preservada: ${somaAntesDeMultiplicar.executar().potencia}`);
+console.log(`Fórmula direta (10 + 3) * 2: ${calcularPotenciaDireta(10, 3, 2)}`);
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/08-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/08-01.svg" alt="Espada realiza Ataque." loading="lazy"></a><figcaption>08 · a componente</figcaption><p class="study-diagram-description">Esta vista reúne Ataque, Espada, ResultadoAtaque. Espada realiza Ataque. Ataque depende de ResultadoAtaque. ResultadoAtaque: Valor e lista congelados. Inteiros seguros. Ordem registrada nos efeitos. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure><figure class="study-diagram"><a href="/assets/diagramas/08-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/08-02.svg" alt="MantoDeCalor realiza Ataque." loading="lazy"></a><figcaption>08 · b calor</figcaption><p class="study-diagram-description">Esta vista reúne Ataque, MantoDeCalor. MantoDeCalor realiza Ataque. MantoDeCalor mantém referência a Ataque (envolve e delega). MantoDeCalor: Delega uma vez; soma bônus; acrescenta efeito sem mudar resultado interno. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · envolve e delega</p></figure><figure class="study-diagram"><a href="/assets/diagramas/08-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/08-03.svg" alt="MantoAmplificador realiza Ataque." loading="lazy"></a><figcaption>08 · c amplificador</figcaption><p class="study-diagram-description">Esta vista reúne Ataque, MantoAmplificador. MantoAmplificador realiza Ataque. MantoAmplificador mantém referência a Ataque (envolve e delega). MantoAmplificador: Delega uma vez; multiplica; ordem interna precede camada externa. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e5 · envolve e delega</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — O limite também tem posição</h3>
+<p>Crie <code>MantoLimitador</code>, um wrapper que implementa <code>Ataque</code>, recebe um ataque interno e um teto inteiro seguro não negativo. Sua potência é <code>Math.min(potenciaInterna, teto)</code> e o resultado acrescenta o efeito <code>limite N</code> depois dos efeitos internos.</p>
+<p>Critérios verificáveis:</p>
+<ul>
+<li>Com núcleo 10, calor +3 e teto 11, calor → limite produz 11; limite → calor produz 13.</li>
+<li>Cada ordem preserva o histórico correto dos efeitos e não modifica a espada.</li>
+<li>O teto precisa obedecer às mesmas fronteiras de representação numérica do projeto.</li>
+<li>Teto zero é válido; o resultado é congelado pelo mesmo helper.</li>
+<li>Uma camada externa de limite não pode ocultar um overflow já recusado pelo componente interno.</li>
+<li>Explique por que limitar antes de somar não garante teto para o resultado final.</li>
+</ul>
+<p>Compare com <code>solution/limitador.ts</code> e <code>solution/limitador.test.ts</code>. Execute <code>npm run solution</code>. Tentativas em <code>exercise/</code> não são compiladas com a resposta oficial.</p>
+<h3>Resposta comentada</h3>
+<p>O novo decorator conserva o contrato <code>Ataque</code> e usa composição. Ele limita somente o resultado que recebe naquele ponto. Por isso <code>min(10 + 3, 11) = 11</code>, mas <code>min(10, 11) + 3 = 13</code>. A lista de efeitos revela a ordem, em vez de registrar apenas o número final.</p>
+<p>Uma composição que já estourou a faixa permitida lança erro antes de entregar um resultado ao limitador. O wrapper não recupera essa execução nem desfaz efeitos de um componente externo arbitrário. Nas implementações fornecidas, executar só calcula valores e não muda o núcleo ou qualquer camada.</p>
+<p>Para uma fórmula fixa e conhecida, uma função é uma alternativa menor. O teste de <code>calcularPotenciaDireta()</code> no projeto-base demonstra isso. Os wrappers acrescentam valor quando a combinação de responsabilidades precisa ser montada e reutilizada por meio do contrato comum.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/08-decorator
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/08-decorator.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/07-facade/"><small>Padrão anterior</small><span>07 · Facade</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/09-proxy/"><small>Próximo padrão</small><span>09 · Proxy</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

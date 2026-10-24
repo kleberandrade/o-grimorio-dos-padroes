@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Interpreter em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Interpreter com fantasia e TypeScript: construir e interpretar expressões de uma gramática pequena, com análise completa e orçamento antes dos efeitos; a repetição pertence ao exercício. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/23-interpreter/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Interpreter em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Interpreter com fantasia e TypeScript: construir e interpretar expressões de uma gramática pequena, com análise completa e orçamento antes dos efeitos; a repetição pertence ao exercício. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/23-interpreter/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/23-interpreter-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/23-interpreter-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="O guardião de pedra avança pelos trilhos do teto com seu pilão quadrado, enquanto Noa fecha o visor luminoso e se protege junto à pilastra lateral.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Interpreter em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Interpreter com fantasia e TypeScript: construir e interpretar expressões de uma gramática pequena, com análise completa e orçamento antes dos efeitos; a repetição pertence ao exercício. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/23-interpreter-v01.jpg">
+  <meta name="twitter:image:alt" content="O guardião de pedra avança pelos trilhos do teto com seu pilão quadrado, enquanto Noa fecha o visor luminoso e se protege junto à pilastra lateral.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/23-interpreter/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/23-interpreter/", "headline": "Interpreter — O Grimório dos Padrões", "description": "Aprenda Interpreter com fantasia e TypeScript: construir e interpretar expressões de uma gramática pequena, com análise completa e orçamento antes dos efeitos; a repetição pertence ao exercício. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/23-interpreter-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Interpreter", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/23-interpreter/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="23-interpreter">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 23 · Comportamentais</p><h1 id="study-title">Interpreter</h1><p id="study-description">construir e interpretar expressões de uma gramática pequena, com análise completa e orçamento antes dos efeitos; a repetição pertence ao exercício.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/23-web.jpg" srcset="/assets/cenas-coloridas-v01/23-card.jpg 800w, /assets/cenas-coloridas-v01/23-web.jpg 1600w" sizes="100vw" alt="O guardião de pedra avança pelos trilhos do teto com seu pilão quadrado, enquanto Noa fecha o visor luminoso e se protege junto à pilastra lateral." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 23 · Interpreter</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>23 — Interpreter: A Linguagem dos Antigos</h3>
+<p>A pequena linguagem deste projeto é <strong>uma criação didática nossa</strong>, com F, I e L em sequências e grupos. Terminais registram calor, frio ou luz convencionais num contexto; a expressão não terminal interpreta seus filhos em ordem. O parser constrói a árvore e não recebe contexto. Só depois de analisar toda a entrada e verificar o orçamento, a função de entrada inicia a interpretação.</p>
+<p>Não se usa <code>eval</code>, <code>Function</code>, compilador geral ou serviço externo. Os contadores não são temperatura, energia, engenharia física ou abertura automática de abrigo. Restaurar efeitos do mundo não faz parte deste contrato.</p>
+<h3>A alternativa simples primeiro</h3>
+<p><code>src/simples.ts</code> oferece um <code>switch</code> para um único comando conhecido. <code>src/main.ts</code> executa essa alternativa antes da composição. Se só existem poucas ordens independentes, sem grupos ou regras compostas, esse despacho é suficiente. Interpreter cobra uma gramática, expressões e manutenção; não é obrigatório fabricar AST para qualquer chamada.</p>
+<h3>Executar</h3>
+<p>Versões declaradas e utilizadas: Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>. Lock, <code>.nvmrc</code>, <code>.gitignore</code> e configuração ESM NodeNext estrita são próprios, sem imports de outros projetos.</p>
+<p>Na pasta <code>book-23/code/23-interpreter</code>:</p>
+<pre><code>npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+npm run solution</code></pre>
+<p>Na raiz do repositório:</p>
+<pre><code>node book-23/scripts/projetos.mjs 23 install
+node book-23/scripts/projetos.mjs 23 check
+node book-23/scripts/projetos.mjs 23 run
+node book-23/scripts/projetos.mjs 23 solution
+node book-23/scripts/projetos.mjs 23 capture
+node book-23/scripts/projetos.mjs 23 verify</code></pre>
+<p><code>evidence/stdout.txt</code> e <code>solution-stdout.txt</code> são saídas reais dos programas. <code>manifest.json</code> vincula fontes/versões/testes/saídas por SHA256. <code>runner-commands.json</code> registra os seis comandos do runner; <code>isolation.json</code> registra instalação/testes/programas numa cópia temporária contendo só este projeto e a comparação byte a byte dos stdout. Tempos de teste variam; não houve benchmark. Evidências do produtor não atribuem auditoria independente nem aprovação humana.</p>
+<h3>Gramática base original</h3>
+<pre><code>programa   := sequencia EOF
+sequencia  := termo { termo }
+termo      := &quot;F&quot; | &quot;I&quot; | &quot;L&quot; | &quot;(&quot; sequencia &quot;)&quot;</code></pre>
+<p>A justaposição significa execução da esquerda para a direita. Os únicos separadores ignorados são <strong>espaço U+0020, tab U+0009, LF U+000A e CR U+000D</strong>. Eles podem ocorrer entre tokens e nas bordas. VT, FF, espaço não separável, letras minúsculas e demais símbolos não fazem parte da linguagem; não são ignorados.</p>
+<p>Texto vazio, texto só de separadores e grupos vazios são inválidos. <code>L(FI)L</code> representa L,F,I,L. A base <strong>não admite repetição</strong>; <code>F*2</code> é erro no asterisco. Cada programa deve ter até256 unidades UTF16, contando separadores, e no máximo oito grupos simultaneamente aninhados. O nono abre além da profundidade permitida e é recusado. <code>validarTexto</code> verifica tamanho antes da análise sintática.</p>
+<h3>Análise, AST e interpretação</h3>
+<p><code>analisar(texto): Expressao</code> usa um parser descendente pequeno, escrito para esta gramática. <code>Parser</code> é interno ao módulo; o cliente recebe uma AST de <code>RunaFogo</code>, <code>RunaGelo</code>, <code>RunaLuz</code> e <code>Sequencia</code>. Grupos resultam em sequências aninhadas; não há classe adicional de grupo. O parser consome a entrada inteira, inclusive a verificação de fechamento e de símbolos depois de uma composição válida.</p>
+<p><code>Expressao</code> oferece <code>operacoes()</code> e <code>interpretar(contexto)</code>. Cada terminal custa uma aplicação; <code>Sequencia</code> guarda os filhos e a soma de seus custos. <code>test/interpreter.test.ts</code> também monta uma AST manual para mostrar a composição separadamente do parser.</p>
+<p><code>executar(expressao, contexto, limite=64)</code> verifica custo inteiro positivo seguro e limite antes de chamar <code>interpretar</code>. O limite configurável só pode reduzir o teto, entre1 e64. <code>conjurar(texto, ContextoArcano)</code> faz análise completa, execução prevalidada e depois devolve snapshot do contexto. Uma fonte com65 terminais seguidos de X recebe erro de símbolo em X antes de qualquer decisão de orçamento, pois a análise toda precede a execução.</p>
+<p>O teto se refere ao <strong>programa desta chamada</strong>, não à vida inteira de um contexto. <code>ContextoArcano</code> acumula aplicações válidas entre chamadas; criar outra instância inicia contadores zerados. O snapshot copia e congela a sequência de símbolos e informa contadores independentes de calor/frio/luz. Não há cálculo termodinâmico de compensação entre F e I.</p>
+<h3>Diagnósticos e posições</h3>
+<p><code>ErroPrograma</code> contém <code>codigo</code>, <code>posicao</code> e <code>causa</code>. A posição é índice <strong>zero-based em unidades UTF16 da string de entrada</strong>, não número de bytes, coluna visual ou contagem de caracteres percebidos. EOF usa <code>texto.length</code>. Um emoji pode ocupar duas unidades; <code>F😀I</code> acusa símbolo inválido no índice1. A escolha segue a representação de strings usada pelo código JavaScript, não uma promessa de editor Unicode completo. <a href="https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-ecmascript-language-types-string-type" target="_blank" rel="noopener noreferrer">ECMAScript — String Type</a>.</p>
+<p>Códigos da base: <code>TAMANHO</code>, <code>SIMBOLO</code>, <code>FECHAMENTO</code>, <code>ABERTURA</code>, <code>VAZIO</code>, <code>PROFUNDIDADE</code> e <code>ORCAMENTO</code>. O exercício também usa <code>REPETICAO</code>. Grupo sem fechamento aponta EOF e sua causa informa onde ele abriu. Grupo vazio aponta o fechamento que não tem conteúdo. Fechamento sem grupo aponta o próprio símbolo. Texto longo aponta256, primeira posição fora do tamanho aceito.</p>
+<p><strong>Orçamento usa posição global0</strong>, por convenção: não atribui o total a um símbolo específico. A causa informa custo e limite; é diagnóstico da execução prevista da AST inteira. Erros de configuração ou de construção manual de AST têm exceções próprias de programação e não fingem possuir uma posição em texto que não receberam.</p>
+<h3>Falhas sem prefixo e limites dessa garantia</h3>
+<p>Entrada sintaticamente inválida ou acima dos limites de análise não é interpretada. Custo acima do orçamento também não chama o corpo das expressões. O teste verifica contexto vazio ou estado anterior intacto, incluindo um prefixo L seguido de uma repetição que estouraria o orçamento.</p>
+<p>Essa garantia vale para as expressões fornecidas/parser, com custos corretos. <strong>Não é proteção contra extensão hostil</strong> que mente em <code>operacoes()</code>, realiza efeitos ao calcular custo ou muda seu comportamento depois de compor uma sequência. Os contratos TypeScript não provam pureza. Chamar <code>interpretar()</code> diretamente numa AST também não faz a pré-verificação do wrapper; essa API existe para a colaboração entre expressões, sem barreira de segurança contra o cliente que escolhe ignorar o caminho validado.</p>
+<p>Se um contexto ou expressão falhar <strong>depois de começar</strong> a interpretação, a exceção propaga e os efeitos anteriores podem permanecer. O teste com contexto externo mantém F e I antes de uma falha em I e não executa L. Validar toda sintaxe antes de começar não fornece rollback, transação, compensação ou segurança química/física.</p>
+<h3>Exercício de repetição</h3>
+<p>A solução em <code>solution/</code> acrescenta <code>Repeticao</code> e uma versão ampliada do parser. Não altera a gramática ou os imports da base. <code>operacoes()</code> multiplica custo pelo contador sem copiar o corpo várias vezes na AST. O orçamento continua64; aninhamentos de multiplicações grandes podem ser analisados e recusados sem executar suas aplicações previstas. O enunciado detalha gramática, exemplos e fronteiras.</p>
+<h3>Dados, custos e quando recusar</h3>
+<p>Os terminais fornecidos são imutáveis. <code>Sequencia</code> copia/congela a lista de referências a filhos, guarda custo calculado e congela a instância; os filhos produzidos pelo parser também são expressões imutáveis fornecidas. Não há clonagem profunda genérica de objetos arbitrários. <code>Repeticao</code> mantém uma referência ao corpo, contador e custo, sem expansão. <code>readonly</code> orienta o compilador; campos <code>#</code> e congelamento protegem somente os dados descritos, sem proteção geral contra código hostil que altere protótipos/dependências.</p>
+<p>Análise usa trabalho/armazenamento proporcional ao texto e seus nós, sob256 unidades e profundidade8. A árvore de grupos conserva custos locais; não é uma ferramenta para gramáticas complexas, precedências abertas ou idiomas naturais. A interpretação fornecida realiza até o orçamento de chamadas terminais por execução validada. O contexto mantém um registro acumulado e snapshots copiam sua sequência; ele cresce com novas execuções e não possui histórico limitado ou coleta imediata garantida.</p>
+<p>Uma linguagem maior pode pedir uma ferramenta de parsing apropriada e outro contrato de validação/execução, em vez de estender indefinidamente este parser. O parser <strong>constrói</strong> a árvore; Interpreter <strong>avalia</strong> as expressões segundo seu contexto. Não se deve chamar o parser de intérprete completo só por reconhecer símbolos. Command encapsula uma solicitação executável; aqui os objetos representam produções de uma gramática e sua composição. Compartilhar um método de execução não torna as intenções equivalentes.</p>
+<p>Tudo é síncrono, sem rede, persistência, recursos externos ou espera de Promise. Métodos de extensão que retornam trabalho assíncrono não recebem garantias deste fluxo. Nenhuma leitura integral de GoF, especificação da linguagem criada ou API externa é inventada como fonte: a gramática é autoral deste projeto; consulta primária limitada à representação de strings está registrada em <code>referencias.json</code>.</p>
+<h3>Arquivos</h3>
+<p><code>src/limites.ts</code>: constantes e diagnósticos. <code>src/expressoes.ts</code>: terminais, sequência e contexto. <code>src/parser.ts</code>: análise base sem contexto. <code>src/executar.ts</code>: pré-verificação e entrada completa. <code>src/simples.ts</code>: alternativa. <code>src/main.ts</code>: programa real. <code>test/interpreter.test.ts</code>: AST, ordem, sintaxe, posição, limites e falhas. <code>solution/</code>: expressão repetida/parser ampliado/entrada/programa/testes separados. <code>diagram.mmd</code>: somente a base.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { ContextoArcano } from &quot;./expressoes.js&quot;;
+import { conjurar } from &quot;./executar.js&quot;;
+import { ErroPrograma } from &quot;./limites.js&quot;;
+import { aplicarComando } from &quot;./simples.js&quot;;
+
+const simples = new ContextoArcano(); aplicarComando(&quot;L&quot;, simples);
+console.log(`Comando simples: ${simples.snapshot().sequencia.join(&quot;&quot;)}`);
+const contexto = new ContextoArcano();
+const resultado = conjurar(&quot;L(FI)L&quot;, contexto);
+console.log(`Composição: ${resultado.sequencia.join(&quot;&quot;)} | calor ${resultado.calor} | frio ${resultado.frio} | luz ${resultado.luz}`);
+const recusado = new ContextoArcano();
+try { conjurar(&quot;FXL&quot;, recusado); }
+catch (erro: unknown) {
+  if (!(erro instanceof ErroPrograma)) throw erro;
+  console.log(`Recusado: ${erro.codigo} | posição ${erro.posicao} | ${erro.causa}`);
+}
+console.log(`Efeitos do programa inválido: ${recusado.snapshot().sequencia.length}`);
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/23-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/23-01.svg" alt="RunaFogo realiza Expressao." loading="lazy"></a><figcaption>23 · a terminais</figcaption><p class="study-diagram-description">Esta vista reúne Expressao, RunaFogo, RunaGelo, RunaLuz. RunaFogo realiza Expressao. RunaGelo realiza Expressao. RunaLuz realiza Expressao. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure><figure class="study-diagram"><a href="/assets/diagramas/23-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/23-02.svg" alt="Sequencia realiza Expressao." loading="lazy"></a><figcaption>23 · b sequência</figcaption><p class="study-diagram-description">Esta vista reúne Expressao, Sequencia. Sequencia realiza Expressao. Sequencia mantém referência a Expressao (filhos copiados). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e5 · filhos copiados</p></figure><figure class="study-diagram"><a href="/assets/diagramas/23-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/23-03.svg" alt="RunaFogo depende de Contexto (registra F)." loading="lazy"></a><figcaption>23 · c registros</figcaption><p class="study-diagram-description">Esta vista reúne RunaFogo, RunaGelo, RunaLuz, Contexto. RunaFogo depende de Contexto (registra F). RunaGelo depende de Contexto (registra I). RunaLuz depende de Contexto (registra L). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e7 · registra F e8 · registra I e9 · registra L</p></figure><figure class="study-diagram"><a href="/assets/diagramas/23-04.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/23-04.svg" alt="ContextoArcano realiza Contexto." loading="lazy"></a><figcaption>23 · d contexto</figcaption><p class="study-diagram-description">Esta vista reúne Contexto, ContextoArcano. ContextoArcano realiza Contexto. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure><figure class="study-diagram"><a href="/assets/diagramas/23-05.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/23-05.svg" alt="Parser depende de Expressao (constrói árvore sem contexto)." loading="lazy"></a><figcaption>23 · e parser</figcaption><p class="study-diagram-description">Esta vista reúne Expressao, Parser. Parser depende de Expressao (constrói árvore sem contexto). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e10 · constrói árvore sem contexto</p></figure><figure class="study-diagram"><a href="/assets/diagramas/23-06.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/23-06.svg" alt="Classificadores Sequencia, ContextoArcano, Parser." loading="lazy"></a><figcaption>23 · f limites</figcaption><p class="study-diagram-description">Esta vista reúne Sequencia, ContextoArcano, Parser. Parser: Entrada completa, sequência/grupos não vazios, posições UTF16. Função analisar cria este parser interno. Sequencia: Interpreta filhos em ordem. executar verifica custo antes do corpo; Repeticao só no exercício. ContextoArcano: Índices e registro convencionais, sem efeito físico garantido. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — Repetição sem expansão explosiva</h3>
+<p>Acrescente sufixo de repetição a um terminal ou grupo, preservando a análise completa antes de interpretar:</p>
+<pre><code>programa  := sequencia EOF
+sequencia := termo { termo }
+termo     := atomo [ &quot;*&quot; contador ]
+atomo     := &quot;F&quot; | &quot;I&quot; | &quot;L&quot; | &quot;(&quot; sequencia &quot;)&quot;
+contador  := &quot;1&quot; | &quot;2&quot; | ... | &quot;9&quot;</code></pre>
+<p>Separadores aceitos continuam exatamente espaço/tab/LF/CR. Não há repetição zero, contagem multidígito ou dois sufixos no mesmo átomo: use um grupo se quiser compor repetições. <code>F*2*2</code> é inválido, enquanto <code>(F*2)*2</code> é válido. Os limites continuam256 unidades UTF16, oito grupos aninhados e orçamento64 aplicações por programa. O orçamento é global e usa posição0 por convenção.</p>
+<p>Critérios:</p>
+<ol>
+<li><code>Repeticao</code> guarda uma referência ao corpo e o contador1..9. Seu custo é multiplicação validada, sem expandir cópias da AST.</li>
+<li><code>(FI)*2L</code> interpreta F,I,F,I,L. Contagem1 preserva a sequência;0 é erro na posição da contagem.</li>
+<li><code>F*10</code>, contador ausente, sufixo duplo e símbolo desconhecido devem ser recusados sem executar o prefixo.</li>
+<li><code>((F*9)*9)</code> custa81 e é recusado antes de qualquer aplicação. <code>(FFFFFFFF)*8</code> custa64 e é aceito; acrescentar F custa65 e é recusado sem efeito adicional.</li>
+<li>Preservar regras da base e documentar o que mudou. Falha posterior do contexto continua sem rollback.</li>
+</ol>
+<h3>Resposta comentada</h3>
+<p><code>solution/repeticao.ts</code> implementa a nova expressão. <code>solution/parser-ampliado.ts</code> é a versão alterada do parser: após analisar o átomo, lê no máximo um asterisco e um dígito válido, recusa multidígito e cria <code>Repeticao</code>. A base não foi editada; a extensão exigiu explicitamente mudar a produção de termo e o código que constrói esse nó. Não se afirma que basta acrescentar uma classe sem ensinar a sintaxe ao parser.</p>
+<p><code>solution/conjurar.ts</code> analisa toda entrada ampliada e só então usa o pré-verificador/interpretador comum. O cálculo do custo não expande AST nem executa contexto. Os testes medem inclusive custo <code>9 ** 8</code> numa árvore curta, que é recusado pelo orçamento; não tentam executar milhões de aplicações. A garantia depende dos custos honestos das expressões fornecidas, sem sandbox para extensões hostis.</p>
+<p><code>solution/repeticao.test.ts</code> verifica ordem, contagens inválidas, limites, composição e ausência de efeitos. Execute <code>npm test</code> e <code>npm run solution</code>, sem apagar imports ou editar a base para compilar. Uma ferramenta de parser ou DSL existente pode ser mais adequada quando a linguagem crescer; este exercício não é uma proposta de compilador geral nem um mecanismo de abrir portas físicas.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/23-interpreter
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/23-interpreter.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/22-visitor/"><small>Padrão anterior</small><span>22 · Visitor</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" hidden><small>Próximo padrão</small><span></span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

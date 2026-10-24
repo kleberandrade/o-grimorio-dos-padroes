@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Factory Method em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Factory Method com fantasia e TypeScript: variar a criação do mensageiro mantendo a operação comum de envio. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/01-factory-method/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Factory Method em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Factory Method com fantasia e TypeScript: variar a criação do mensageiro mantendo a operação comum de envio. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/01-factory-method/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/01-factory-method-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/01-factory-method-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Uma enguia de água azul e placas de sal rompe o cais enquanto Talo alcança o posto com o tubo de despacho.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Factory Method em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Factory Method com fantasia e TypeScript: variar a criação do mensageiro mantendo a operação comum de envio. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/01-factory-method-v01.jpg">
+  <meta name="twitter:image:alt" content="Uma enguia de água azul e placas de sal rompe o cais enquanto Talo alcança o posto com o tubo de despacho.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/01-factory-method/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/01-factory-method/", "headline": "Factory Method — O Grimório dos Padrões", "description": "Aprenda Factory Method com fantasia e TypeScript: variar a criação do mensageiro mantendo a operação comum de envio. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/01-factory-method-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Factory Method", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/01-factory-method/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="01-factory-method">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 01 · Criacionais</p><h1 id="study-title">Factory Method</h1><p id="study-description">variar a criação do mensageiro mantendo a operação comum de envio.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/01-web.webp" srcset="/assets/cenas-coloridas-v01/01-card.webp 800w, /assets/cenas-coloridas-v01/01-web.webp 1600w" sizes="100vw" alt="Uma enguia de água azul e placas de sal rompe o cais enquanto Talo alcança o posto com o tubo de despacho." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 01 · Factory Method</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>01 — Factory Method: Mensageiros da guilda</h3>
+<p>Uma rotina de envio precisa continuar válida quando a criação do mensageiro muda. O projeto demonstra o Factory Method canônico: subclasses sobrescrevem <code>criarMensageiro()</code>, e <code>CriadorDeNotificacoes.enviar()</code> usa o produto por meio da interface <code>Mensageiro</code>.</p>
+<h3>Executar isoladamente</h3>
+<p>Requer Node 26.10.0 e npm 11.19.1 (se houver nvm: <code>nvm use</code>). Dentro deste diretório:</p>
+<pre><code>npm ci --ignore-scripts
+npm test
+npm start
+npm run solution</code></pre>
+<p><code>npm test</code> limpa <code>dist</code>, compila fontes/testes/solução com TypeScript estrito e executa <code>node:test</code>. <code>exercise/</code> fica fora do build, separado da resposta. Nenhum outro capítulo é importado.</p>
+<h3>Arquivos e responsabilidades</h3>
+<ul>
+<li><code>src/contratos.ts</code>: pedido, comprovante, produto e porta de correio.</li>
+<li><code>src/criadores.ts</code>: Creator, operação comum e Concrete Creators.</li>
+<li><code>src/mensageiros.ts</code>: Concrete Products.</li>
+<li><code>src/correio-em-memoria.ts</code>: simulador local com histórico observável.</li>
+<li><code>src/cliente.ts</code>: cliente que depende do criador abstrato.</li>
+<li><code>src/main.ts</code>: composição e demonstração.</li>
+<li><code>test/</code>: preservação do contrato, limites e falha do correio.</li>
+<li><code>exercise/README.md</code>: enunciado e critérios.</li>
+<li><code>solution/</code>: extensão de corvo, execução e testes.</li>
+<li><code>diagram.mmd</code>: relações editáveis correspondentes ao código-base.</li>
+<li><code>evidence/</code>: saídas reais, resultados e manifesto SHA-256.</li>
+</ul>
+<h3>Contrato e limites</h3>
+<p><code>enviar()</code> remove espaços externos de destino e mensagem, rejeita strings vazias e só então cria um mensageiro. Um envio válido gera exatamente um registro local. O comprovante e a lista consultada não expõem mutação do histórico interno. Uma falha do correio é propagada; não há fallback automático nem retentativa.</p>
+<p>O correio é síncrono, local e em memória: registro não significa recebimento por pessoa, transporte de rede, persistência, criptografia ou confirmação remota. IDs são sequenciais por instância, não globais. Os parâmetros têm tipos estáticos; a aplicação não valida JSON arbitrário nem é uma API pública pronta para produção. TypeScript não tem <code>final</code>: não sobrescrever <code>enviar()</code> é contrato de extensão, não bloqueio da linguagem.</p>
+<h3>Alternativa e custo</h3>
+<p>Se só for preciso escolher um rótulo de canal, uma função como <code>correio.entregar(canal, pedido)</code> resolve com menos classes. A hierarquia serve aqui para estudar uma operação herdada cujo ponto de criação varia, com produtos substituíveis. Adiciona classes, arquivos e acoplamento por herança. O exemplo reduz os transportes ao mínimo para observar o mecanismo, sem alegar que uma hierarquia se paga neste simulador.</p>
+<p>Uma Simple Factory centralizaria uma escolha de produto (por exemplo, em uma função com discriminador). Aqui a operação chama um método sobrescrito pelas subclasses. Abstract Factory trata de famílias de produtos relacionados; não se distingue apenas pela quantidade de objetos produzidos.</p>
+<p>O exercício amplia os canais sem editar a operação comum. A solução de corvo continua uma simulação; não mede latência nem capacidade de transporte.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { avisarGuilda } from &quot;./cliente.js&quot;;
+import { CorreioEmMemoria } from &quot;./correio-em-memoria.js&quot;;
+import { CriadorDeCristal, CriadorDePergaminho } from &quot;./criadores.js&quot;;
+
+const correio = new CorreioEmMemoria();
+const pedido = {
+  destino: &quot;Posto da Ponte&quot;,
+  mensagem: &quot;Fechem a comporta antes da terceira badalada.&quot;,
+};
+
+// Ponto de composição: aqui se escolhem os criadores concretos.
+for (const criador of [new CriadorDeCristal(correio), new CriadorDePergaminho(correio)]) {
+  const recibo = avisarGuilda(criador, pedido);
+  console.log(`#${recibo.id} | ${recibo.canal} | ${recibo.destino} | ${recibo.mensagem}`);
+}
+console.log(`Entregas registradas: ${correio.listarEntregas().length}`);
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/01-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/01-01.svg" alt="CriadorDeCristal herda de CriadorDeNotificacoes." loading="lazy"></a><figcaption>01 · a criação</figcaption><p class="study-diagram-description">Esta vista reúne CriadorDeNotificacoes, CriadorDeCristal, CriadorDePergaminho, Mensageiro. CriadorDeCristal herda de CriadorDeNotificacoes. CriadorDePergaminho herda de CriadorDeNotificacoes. CriadorDeNotificacoes depende de Mensageiro (enviar usa produto). CriadorDeNotificacoes: enviar valida e normaliza; chama criarMensageiro; delega entregar. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e5 · enviar usa produto</p></figure><figure class="study-diagram"><a href="/assets/diagramas/01-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/01-02.svg" alt="MensageiroDeCristal realiza Mensageiro." loading="lazy"></a><figcaption>01 · b produtos</figcaption><p class="study-diagram-description">Esta vista reúne CriadorDeCristal, CriadorDePergaminho, Mensageiro, MensageiroDeCristal, MensageiroDePergaminho. MensageiroDeCristal realiza Mensageiro. MensageiroDePergaminho realiza Mensageiro. CriadorDeCristal depende de MensageiroDeCristal (cria). CriadorDePergaminho depende de MensageiroDePergaminho (cria). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e6 · cria e7 · cria</p></figure><figure class="study-diagram"><a href="/assets/diagramas/01-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/01-03.svg" alt="MensageiroDeCristal mantém referência a Correio." loading="lazy"></a><figcaption>01 · c correio</figcaption><p class="study-diagram-description">Esta vista reúne CriadorDeNotificacoes, MensageiroDeCristal, MensageiroDePergaminho, Correio, CorreioEmMemoria. MensageiroDeCristal mantém referência a Correio. MensageiroDePergaminho mantém referência a Correio. CriadorDeNotificacoes mantém referência a Correio. CorreioEmMemoria realiza Correio. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — O canal de corvo</h3>
+<p>Implemente <code>MensageiroDeCorvo</code> e <code>CriadorDeCorvo</code> em arquivos novos. O produto deve implementar <code>Mensageiro</code>; o criador deve estender <code>CriadorDeNotificacoes</code> e sobrescrever somente <code>criarMensageiro()</code>.</p>
+<p>Critérios verificáveis:</p>
+<ul>
+<li><code>avisarGuilda()</code> continua idêntica e recebe o novo criador.</li>
+<li>Um envio válido aparece no correio com canal <code>corvo</code>, destino e mensagem corretos.</li>
+<li>Espaços externos são removidos pela operação comum herdada.</li>
+<li>Destino ou mensagem vazios lançam o erro existente e não geram entrega.</li>
+<li>Nenhum <code>switch</code>, parâmetro discriminador ou alteração em <code>src/criadores.ts</code> é necessário.</li>
+</ul>
+<p>Compare sua solução com <code>../solution/corvo.ts</code> e os testes em <code>../solution/corvo.test.ts</code>. Para praticar, mantenha seus arquivos em <code>exercise/</code> e compile com uma configuração própria: esse diretório não participa do build oficial, evitando colisões com a resposta.</p>
+<p>A solução usa herança para variar a criação, preservando a operação. Se o problema fosse apenas escolher um rótulo de canal, passar esse rótulo a uma função seria suficiente; a hierarquia aqui torna explícito o mecanismo do Factory Method, sem afirmar que é necessária para todo sistema de mensagens.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/01-factory-method
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/01-factory-method.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" hidden><small>Padrão anterior</small><span></span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/02-abstract-factory/"><small>Próximo padrão</small><span>02 · Abstract Factory</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

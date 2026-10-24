@@ -181,6 +181,7 @@
   }
 
   function renderDiagrams() {
+    byId('study-diagrams').replaceChildren();
     const diagrams = Array.isArray(project.diagrams) ? project.diagrams : [];
     if (!diagrams.length) byId('study-diagrams').append(create('p', 'As relações do projeto podem ser consultadas na fonte Mermaid, nos arquivos do código.'));
     for (const [index, diagram] of diagrams.entries()) {
@@ -214,14 +215,14 @@
     for (const [id, item] of [['previous-project', data[index - 1]], ['next-project', data[index + 1]]]) {
       if (!item) continue;
       byId(id).hidden = false;
-      byId(id).href = `/projeto.html?id=${encodeURIComponent(item.id)}`;
+      byId(id).href = `/padroes/${encodeURIComponent(item.id)}/`;
       byId(id).querySelector('span').textContent = `${item.number} · ${item.name}`;
     }
   }
 
   async function init() {
     try {
-      const id = new URLSearchParams(location.search).get('id');
+      const id = document.body.dataset.projectId || new URLSearchParams(location.search).get('id');
       const response = await fetch('/projetos.json', { cache: 'no-store' });
       if (!response.ok) throw new Error('Índice indisponível');
       const data = await response.json();
@@ -258,7 +259,7 @@
       }, { rootMargin: '-15% 0px -65% 0px' });
       document.querySelectorAll('.study-section').forEach(section => observer.observe(section));
       if (location.hash) requestAnimationFrame(() => document.getElementById(location.hash.slice(1))?.scrollIntoView());
-    } catch (error) { byId('study-error').hidden = false; }
+    } catch (error) { if (!document.body.dataset.projectId) byId('study-error').hidden = false; }
     finally { byId('study-loading').hidden = true; }
   }
   byId('study-copy').addEventListener('click', async () => {

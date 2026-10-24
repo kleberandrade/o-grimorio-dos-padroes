@@ -1,0 +1,74 @@
+[
+  {
+    "number": 1,
+    "title": "A Ordem do Código Limpo",
+    "subtitle": "Fundamentos da Clareza e da Sobrevivência",
+    "series": "Trilogia 1 · Fantasia Técnica",
+    "volume": "I",
+    "cover": "/assets/livros/livro-1.webp",
+    "width": 480,
+    "height": 713,
+    "summary": "Lyron aprende que escrever feitiços com clareza pode impedir que o mundo desabe. Entre bugs e dívida técnica, sua jornada começa no Mosteiro da Coesão.",
+    "purchase": "https://clubedeautores.com.br/livro/a-ordem-do-codigo-limpo"
+  },
+  {
+    "number": 2,
+    "title": "Os Padrões Arcanos de Projeto",
+    "subtitle": "O Legado das Estruturas Invisíveis",
+    "series": "Trilogia 1 · Fantasia Técnica",
+    "volume": "II",
+    "cover": "/assets/livros/livro-2.webp",
+    "width": 480,
+    "height": 713,
+    "summary": "Nas Cidades dos Padrões, Lyron encontra estruturas que organizam a magia — e podem aprisionar um reino. Escolher um padrão exige compreender quem viverá com suas consequências.",
+    "purchase": "https://clubedeautores.com.br/livro/os-padroes-arcanos-de-projeto"
+  },
+  {
+    "number": 3,
+    "title": "A Guerra das Arquiteturas",
+    "subtitle": "Limites, Coesão e a Organização do Mundo",
+    "series": "Trilogia 1 · Fantasia Técnica",
+    "volume": "III",
+    "cover": "/assets/livros/livro-3.webp",
+    "width": 480,
+    "height": 713,
+    "summary": "O mundo cresceu além de uma única estrutura. Entre fronteiras, contratos e promessas de liberdade, Lyron precisa decidir como organizar a magia e quem responderá por suas escolhas.",
+    "purchase": "https://clubedeautores.com.br/livro/a-guerra-das-arquiteturas"
+  },
+  {
+    "number": 4,
+    "title": "O Mestre dos Magos da Agilidade",
+    "subtitle": "Uma Fantasia Épica do Mundo Ágil",
+    "series": "Trilogia 2 · Fantasia Ágil Series",
+    "volume": "I",
+    "cover": "/assets/livros/livro-4.webp",
+    "width": 480,
+    "height": 681,
+    "summary": "No 29º andar, um time enfrenta dragões de escopo e hidras da dívida técnica. Com o Mestre dos Magos, entregar software vira uma aventura de escolhas, negociação e humor corporativo.",
+    "purchase": "https://clubedeautores.com.br/livro/o-mestre-dos-magos-da-agilidade"
+  },
+  {
+    "number": 5,
+    "title": "A Ordem dos Product Owners Perdidos",
+    "subtitle": "Uma Fantasia Épica do Mundo Ágil",
+    "series": "Trilogia 2 · Fantasia Ágil Series",
+    "volume": "II",
+    "cover": "/assets/livros/livro-5.webp",
+    "width": 450,
+    "height": 720,
+    "summary": "Sofía tenta defender o porquê enquanto prioridades mudam no corredor. Entre ruínas de backlog e sombras de stakeholders, dizer não pode custar mais do que aceitar.",
+    "purchase": "https://clubedeautores.com.br/livro/a-ordem-dos-product-owners-perdidos"
+  },
+  {
+    "number": 6,
+    "title": "O Último Sprint da Humanidade",
+    "subtitle": "Uma Fantasia Épica do Mundo Ágil",
+    "series": "Trilogia 2 · Fantasia Ágil Series",
+    "volume": "III",
+    "cover": "/assets/livros/livro-6.webp",
+    "width": 450,
+    "height": 720,
+    "summary": "A automação já ocupa a cadeira ao lado. Rafael, Marcus, Elena e seus colegas enfrentam o custo de terceirizar decisões, numa conclusão sobre software, perdas e julgamento humano.",
+    "purchase": "https://clubedeautores.com.br/livro/o-ultimo-sprint-da-humanidade"
+  }
+]

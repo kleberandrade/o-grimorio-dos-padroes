@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Observer em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Observer com fantasia e TypeScript: inscrever e remover callbacks que reagem a um aviso, com regras de rodada e falha. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/18-observer/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Observer em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Observer com fantasia e TypeScript: inscrever e remover callbacks que reagem a um aviso, com regras de rodada e falha. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/18-observer/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/18-observer-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/18-observer-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Um alado de ferrugem leva uma argola e um retalho de lona sobre o mercado de Valharth, enquanto Nilo e Rute recolhem a cobertura.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Observer em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Observer com fantasia e TypeScript: inscrever e remover callbacks que reagem a um aviso, com regras de rodada e falha. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/18-observer-v01.jpg">
+  <meta name="twitter:image:alt" content="Um alado de ferrugem leva uma argola e um retalho de lona sobre o mercado de Valharth, enquanto Nilo e Rute recolhem a cobertura.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/18-observer/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/18-observer/", "headline": "Observer — O Grimório dos Padrões", "description": "Aprenda Observer com fantasia e TypeScript: inscrever e remover callbacks que reagem a um aviso, com regras de rodada e falha. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/18-observer-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Observer", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/18-observer/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="18-observer">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 18 · Comportamentais</p><h1 id="study-title">Observer</h1><p id="study-description">inscrever e remover callbacks que reagem a um aviso, com regras de rodada e falha.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/18-web.jpg" srcset="/assets/cenas-coloridas-v01/18-card.jpg 800w, /assets/cenas-coloridas-v01/18-web.jpg 1600w" sizes="100vw" alt="Um alado de ferrugem leva uma argola e um retalho de lona sobre o mercado de Valharth, enquanto Nilo e Rute recolhem a cobertura." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 18 · Observer</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>18 — Observer: Os Arautos do Reino</h3>
+<p>O oráculo anuncia uma rajada local em Valharth. Uma casa aposentada ainda recebe um chamado, o sino falha, o escriba publica e o salão muda seu estado para aberto. Cada reação mantém seus próprios dados; o relatório registra callbacks concluídos ou falhos. Avisar não executa automaticamente uma evacuação nem certifica que um serviço físico funcionou.</p>
+<h3>A alternativa direta primeiro</h3>
+<p>Para poucos interessados estáveis, chamar funções diretamente é legítimo e deixa as dependências visíveis. <code>src/main.ts</code> começa assim, registrando um aviso por chamada direta. Observer ajuda quando interessados entram e saem durante o ciclo de vida, sem o emissor codificar a reação particular de cada um.</p>
+<p><code>Oraculo</code> é o Subject; os callbacks inscritos são Observers. O Subject conhece a operação de notificação, enquanto cada callback decide sua reação. Não é necessário criar uma classe para cada reação: funções e closures bastam neste exemplo. Retirar uma inscrição é parte do contrato, não um detalhe opcional do encerramento de turno.</p>
+<h3>Executar</h3>
+<p>Versões declaradas e utilizadas: Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>. <code>.nvmrc</code> e lock são próprios; compilação ESM NodeNext estrita, sem imports de outro projeto.</p>
+<p>Na pasta <code>book-23/code/18-observer</code>:</p>
+<pre><code>npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+npm run solution</code></pre>
+<p>Na raiz do repositório:</p>
+<pre><code>node book-23/scripts/projetos.mjs 18 install
+node book-23/scripts/projetos.mjs 18 check
+node book-23/scripts/projetos.mjs 18 run
+node book-23/scripts/projetos.mjs 18 solution
+node book-23/scripts/projetos.mjs 18 capture
+node book-23/scripts/projetos.mjs 18 verify</code></pre>
+<p><code>evidence/manifest.json</code> vincula versões, fontes, testes e as duas saídas funcionais por SHA256. <code>stdout.txt</code> e <code>solution-stdout.txt</code> são saídas reais sem banners npm. <code>runner-commands.json</code> registra os seis comandos do runner. <code>isolation.json</code> registra instalação/testes/programas numa cópia temporária só deste projeto e a comparação byte a byte das duas saídas. Tempos dos testes podem variar. Evidências do produtor não equivalem a auditoria independente ou aprovação humana.</p>
+<h3>Inscrição, ordem e snapshot</h3>
+<p><code>inscrever(nome, observar)</code> exige nome não vazio e função. O nome é normalizado por <code>trim</code> e serve para apresentação; nomes iguais são permitidos. A duplicata é definida pela <strong>identidade da mesma função atualmente inscrita</strong>, independentemente do nome, e é recusada. Duas closures diferentes, mesmo com corpos semelhantes, são inscrições distintas.</p>
+<p>A função devolvida, <code>Desligar</code>, remove somente aquela inscrição e retorna <code>true</code> se a removeu; se já não for a inscrição ativa correspondente, retorna <code>false</code>. Repeti-la não causa efeito adicional. Depois de remover, a mesma função pode ser inscrita novamente. O handle antigo compara a identidade do registro de inscrição e <strong>não remove a nova inscrição</strong>, mesmo que a função seja a mesma.</p>
+<p><code>emitir({ mensagem, local })</code> exige duas strings não vazias e copia/congela esses campos normalizados. Antes de chamar qualquer observador, copia a lista atual de inscrições em sua ordem de entrada. Uma rodada tem exatamente esses destinatários, nessa ordem:</p>
+<ul>
+<li>Remover uma inscrição durante callback afeta a próxima rodada. Se ainda não foi chamado, aquele destinatário continua na rodada já fixada.</li>
+<li>Incluir durante callback só entra na próxima rodada, na posição de sua nova inscrição.</li>
+<li>Remover e reinscrever durante callback não duplica a rodada: o registro antigo permanece no snapshot atual, e o novo vale para a próxima.</li>
+</ul>
+<p><code>numeroInscricoes()</code> mostra o número ativo, que pode diferir do tamanho de uma rodada em curso. Remover alguém não apaga avisos já processados nem desfaz seus efeitos. No programa, a casa aposentada se desliga ao receber a primeira mensagem; a segunda não a inclui.</p>
+<h3>Falhas síncronas e reentrância</h3>
+<p>Cada callback é chamado isoladamente dentro de <code>try/catch</code>. Uma exceção síncrona gera uma reação <code>falhou</code>, sem impedir os próximos callbacks. A mensagem de <code>Error</code> é preservada quando pode ser lida como string. Outro valor lançado recebe <code>&quot;Falha sem mensagem de Error.&quot;</code>; se a própria leitura da mensagem falhar, usa-se <code>&quot;Falha ao ler mensagem do erro.&quot;</code>, sem chamar conversões arbitrárias de objeto para texto.</p>
+<p>O relatório contém o aviso copiado e as reações em ordem. <code>concluiu</code> significa <strong>o callback retornou normalmente</strong>, não que uma pessoa recebeu a notícia ou que uma evacuação ocorreu. Um callback que captura um erro ou ignora um relatório interno com falhas também pode retornar normalmente. O relatório não infere sucesso transitivo de operações internas. Efeitos anteriores a uma exceção não são revertidos; não há rollback, retentativa automática ou histórico persistente.</p>
+<p>Uma nova <code>emitir()</code> no <strong>mesmo oráculo enquanto sua rodada ainda está em curso</strong> é recusada imediatamente, antes de iniciar outra rodada. Não há fila de avisos aninhados. Se o observador não captura essa recusa, ela entra como falha daquele callback e os seguintes continuam. Ao finalizar a rodada, o bloqueio é liberado em <code>finally</code>, e uma emissão posterior é permitida. Um ciclo síncrono A → B → A termina quando A é chamado novamente ainda ativo; os testes verificam esse caso. Isso não interrompe um callback que entre, por conta própria, em trabalho infinito ou bloqueante.</p>
+<p>O contrato exige callbacks <strong>síncronos</strong>. O tipo <code>(aviso) =&gt; void</code> não proíbe estaticamente toda função <code>async</code>: TypeScript pode aceitar uma função que devolve Promise nesse lugar. A implementação <strong>não espera Promises e não trata suas rejeições</strong>; uma Promise devolvida é ignorada. Não use este Subject como emissor assíncrono nem interprete <code>concluiu</code> como conclusão assíncrona. Não há teste com rejeição não tratada ou promessa de entrega distribuída.</p>
+<h3>Dados, ciclo de vida e custos</h3>
+<p>O aviso tem somente duas strings, copiadas no novo objeto; esse objeto, o relatório, sua lista e os itens da lista são congelados. Não há cópia profunda genérica nem congelamento de estado fechado pelos callbacks. Esses callbacks precisam poder atualizar suas próprias publicações, contadores ou estado de abrigo.</p>
+<p>Campos <code>#</code> mantêm mapa e bloqueio privados em execução. Interfaces e <code>readonly</code> ajudam na compilação, sem constituir validação universal de entrada ou barreira de segurança. O contrato cobre os dados declarados e as implementações fornecidas, sem proteção prometida contra código hostil, adulteração de protótipos/dependências ou serviços externos.</p>
+<p>Inscrições retêm funções e, por consequência, podem manter vivos objetos alcançados por suas closures enquanto forem referenciadas. Encerrar o turno exige chamar unsubscribe ou o controlador do exercício. O handle devolvido também fecha sobre referências: removê-lo do mapa não apaga outras referências guardadas pelo cliente. Uma emissão copia a lista de N inscrições e produz até N itens de relatório, além do tempo arbitrário gasto nos callbacks. Uma reação lenta bloqueia as seguintes porque a execução é síncrona. Não houve benchmark ou promessa de desempenho.</p>
+<h3>Exercício e comparações</h3>
+<p><code>exercise/README.md</code> acrescenta <code>EscopoDeInscricoes</code>, um pequeno responsável pelo conjunto de vínculos de um turno. Não muda as regras do Subject: encerrar dentro de um callback remove vínculos para a próxima emissão, enquanto o snapshot atual continua válido. Os testes verificam encerramento repetido, vínculo externo preservado, handle antigo e reentrância.</p>
+<p>Observer organiza dependentes que reagem à notificação do Subject. Publicação/assinatura pode usar um intermediário, tópicos e contratos de entrega diferentes; um broker pode desacoplar localização e tempo, mas não garante por si só entrega ou exatamente uma vez. Este mapa local de callbacks não é um broker, não possui rede, persistência, tópicos, confirmação ou replay. A semelhança entre inscrição/notificação não torna os termos automaticamente intercambiáveis.</p>
+<p>Mediator concentra regras de interação entre participantes para coordenar decisões. Aqui o Subject distribui a mesma notícia a reações independentes; não decide uma sequência de inspeção, autorização e abertura entre elas. Se o emissor passar a acumular essas políticas, será preciso reavaliar suas responsabilidades. Não há API de framework externo ou emitter nativo demonstrada, nem equivalência automática entre tais APIs e Observer GoF. As citações históricas não verificadas da fonte autoral não são reproduzidas como autoridade.</p>
+<h3>Arquivos</h3>
+<p><code>src/oraculo.ts</code>: Subject, callbacks e relatórios. <code>src/main.ts</code>: alternativa direta e reações com estado local. <code>test/observer.test.ts</code>: ordem, duplicata, snapshot, falhas, reentrância e cópias. <code>solution/escopo.ts</code>: controlador de ciclo de vida adicional, com programa e testes próprios. <code>diagram.mmd</code>: relações da base, sem incluir a classe da solução.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { Oraculo } from &quot;./oraculo.js&quot;;
+import type { Desligar } from &quot;./oraculo.js&quot;;
+
+// Alternativa simples: chamada direta para uma reação estável.
+const avisosDiretos: string[] = [];
+const anotarDiretamente = (mensagem: string) =&gt; { avisosDiretos.push(mensagem); };
+anotarDiretamente(&quot;Recolher bancas.&quot;);
+console.log(`Chamada direta: ${avisosDiretos[0]}`);
+
+const oraculo = new Oraculo();
+let chamadosNaCasa = 0;
+let abrigoAberto = false;
+const publicacoes: string[] = [];
+let desligarAposentado: Desligar = () =&gt; false;
+desligarAposentado = oraculo.inscrever(&quot;Aposentado&quot;, () =&gt; {
+  chamadosNaCasa += 1;
+  desligarAposentado();
+});
+oraculo.inscrever(&quot;Sino&quot;, () =&gt; { throw new Error(&quot;Cabo do sino rompido.&quot;); });
+oraculo.inscrever(&quot;Escriba&quot;, (aviso) =&gt; { publicacoes.push(aviso.mensagem); });
+oraculo.inscrever(&quot;Salão&quot;, () =&gt; { abrigoAberto = true; });
+console.log(&quot;Avisos de Nilo&quot;);
+for (const mensagem of [&quot;Rajada prevista: recolher bancas.&quot;, &quot;Rajada próxima: manter passagem livre.&quot;]) {
+  const relatorio = oraculo.emitir({ mensagem, local: &quot;Praça de Valharth&quot; });
+  console.log(`Aviso: ${relatorio.aviso.mensagem}`);
+  for (const reacao of relatorio.reacoes) {
+    console.log(`${reacao.nome}: ${reacao.status}${reacao.status === &quot;falhou&quot; ? ` | ${reacao.motivo}` : &quot;&quot;}`);
+  }
+}
+console.log(`Casa aposentada: ${chamadosNaCasa} chamado | publicações: ${publicacoes.length} | abrigo aberto: ${abrigoAberto}`);
+console.log(`Inscrições restantes: ${oraculo.numeroInscricoes()}`);
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/18-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/18-01.svg" alt="Oraculo mantém referência a Inscricao (mantém mapa e snapshot)." loading="lazy"></a><figcaption>18 · a inscrições</figcaption><p class="study-diagram-description">Esta vista reúne Oraculo, Observador, Inscricao. Oraculo mantém referência a Inscricao (mantém mapa e snapshot). Inscricao mantém referência a Observador (referência à função). Inscricao é um alias TS Readonly: nome e observar são propriedades somente de leitura no contrato de tipo, inclusive a referência à função observar. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e1 · mantém mapa e snapshot e2 · referência à função</p></figure><figure class="study-diagram"><a href="/assets/diagramas/18-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/18-02.svg" alt="Oraculo depende de Desligar (cria handle por inscrição)." loading="lazy"></a><figcaption>18 · b desligar</figcaption><p class="study-diagram-description">Esta vista reúne Oraculo, Desligar. Oraculo depende de Desligar (cria handle por inscrição). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · cria handle por inscrição</p></figure><figure class="study-diagram"><a href="/assets/diagramas/18-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/18-03.svg" alt="Oraculo depende de Relatorio (devolve concluídos e falhos)." loading="lazy"></a><figcaption>18 · c dados</figcaption><p class="study-diagram-description">Esta vista reúne Oraculo, Observador, Aviso, Relatorio. Oraculo depende de Relatorio (devolve concluídos e falhos). Relatorio mantém referência a Aviso (cópia congelada). Observador depende de Aviso (recebe cópia da rodada). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e4 · devolve concluídos e falhos e5 · cópia congelada e6 · recebe cópia da rodada</p></figure><figure class="study-diagram"><a href="/assets/diagramas/18-04.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/18-04.svg" alt="Classificadores Oraculo, Observador, Desligar." loading="lazy"></a><figcaption>18 · d notas</figcaption><p class="study-diagram-description">Esta vista reúne Oraculo, Observador, Desligar. Oraculo: Ordem de inscrição. Mudanças durante callback afetam próxima rodada. Reentrância no mesmo Subject é recusada. Desligar: Função sem argumentos, retorna boolean. Handle antigo não remove reinscrição. Observador: Função de Aviso para void, síncrona. Exceção é coletada, demais continuam. Não há espera de Promise. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — Encerrar os vínculos de um turno</h3>
+<p>Acrescente <code>EscopoDeInscricoes</code>, que recebe as inscrições feitas por um turno e encerra somente esse conjunto. Use o <code>Oraculo</code> existente, sem alterar sua política de snapshot ou habilitar chamadas reentrantes.</p>
+<p>Critérios:</p>
+<ol>
+<li><code>inscrever(oraculo,nome,callback)</code> deve guardar o unsubscribe devolvido pelo Subject e também devolvê-lo ao cliente.</li>
+<li><code>encerrar()</code> remove os vínculos ainda ativos desse escopo e devolve quantos removeu. Uma segunda chamada retorna zero. Depois de encerrado, novas inscrições pelo mesmo escopo são recusadas.</li>
+<li>Inscrições externas ao turno permanecem.</li>
+<li>Encerrar dentro de callback mantém os destinatários da rodada corrente, mas os remove da próxima.</li>
+<li>Um handle guardado pelo turno antigo não pode apagar uma reinscrição pertencente a outro turno.</li>
+<li>A política de reentrância da base continua valendo. Teste uma reação que tenta emitir novamente e um encerramento posterior na mesma rodada.</li>
+</ol>
+<h3>Resposta comentada</h3>
+<p><code>solution/escopo.ts</code> compõe funções <code>Desligar</code>, sem precisar ler o mapa privado do Subject ou herdar dele. Antes de executar a limpeza, marca o escopo como encerrado e retira a lista interna de handles. Com a implementação de <code>Oraculo</code> fornecida, esses handles não chamam observadores; apenas tentam remover sua própria inscrição. Se uma referência antiga já tiver sido removida ou substituída por reinscrição, retorna <code>false</code> e não conta como nova remoção.</p>
+<p>A base não precisou mudar; a solução acrescenta o controlador de ciclo de vida, não outra implementação do Observer. O uso inclui a responsabilidade de chamar <code>encerrar()</code> no fim do turno: não existe encerramento automático por tempo ou coleta de lixo. O retorno zero repetido é a política idempotente desta limpeza, sem alegar que os callbacks ou a aplicação inteira sejam idempotentes.</p>
+<p><code>solution/main.ts</code> encerra o escopo durante a primeira reação; a segunda ainda escreve o aviso corrente. A emissão seguinte não chama essas reações. <code>solution/escopo.test.ts</code> verifica também uma inscrição externa, uma reinscrição em outro turno e reentrância recusada. Tudo é síncrono e local, sem broker, rede, persistência ou confirmação de entrega.</p>
+<p>A alternativa para um único vínculo é guardar e chamar diretamente o unsubscribe, sem classe de escopo. Um broker exigiria outro contrato de inscrição, entrega, falha e encerramento; esta solução não demonstra essas garantias.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/18-observer
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/18-observer.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/17-memento/"><small>Padrão anterior</small><span>17 · Memento</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/19-mediator/"><small>Próximo padrão</small><span>19 · Mediator</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

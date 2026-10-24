@@ -16,7 +16,7 @@
   };
   function projectCard(project) {
     const card = el('article', 'project-card');
-    const href = `/projeto.html?id=${encodeURIComponent(project.id)}`;
+    const href = `/padroes/${encodeURIComponent(project.id)}/`;
     const headingId = `pattern-${project.number}`;
     card.setAttribute('aria-labelledby', headingId);
     if (project.art?.url) {
@@ -50,6 +50,7 @@
     return card;
   }
   function renderProjects() {
+    if (!projects.length) return;
     const category = document.querySelector('input[name="category"]:checked').value;
     const query = normalize(search.value.trim());
     const filtered = projects.filter(project => (category === 'Todos' || project.category === category) && normalize(`${project.number} ${project.name} ${project.description} ${project.category}`).includes(query));
@@ -70,9 +71,8 @@
       projects = data;
       renderProjects();
     } catch (cause) {
-      grid.replaceChildren();
-      count.textContent = 'Índice indisponível no momento.';
-      error.hidden = false;
+      count.textContent = grid.children.length ? '23 padrões disponíveis · busca temporariamente indisponível.' : 'Índice indisponível no momento.';
+      error.hidden = Boolean(grid.children.length);
     } finally { grid.setAttribute('aria-busy', 'false'); }
   }
   search.addEventListener('input', renderProjects);

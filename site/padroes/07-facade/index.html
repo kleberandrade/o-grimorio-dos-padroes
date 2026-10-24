@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Facade em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Facade com fantasia e TypeScript: coordenar quatro subsistemas numa preparação, informando etapas prontas ou parciais. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/07-facade/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Facade em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Facade com fantasia e TypeScript: coordenar quatro subsistemas numa preparação, informando etapas prontas ou parciais. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/07-facade/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/07-facade-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/07-facade-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A sentinela de pedra com braços-lâmina permanece no carro de trilhos contido pelo freio, enquanto Bento mantém aberta a porta de serviço.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Facade em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Facade com fantasia e TypeScript: coordenar quatro subsistemas numa preparação, informando etapas prontas ou parciais. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/07-facade-v01.jpg">
+  <meta name="twitter:image:alt" content="A sentinela de pedra com braços-lâmina permanece no carro de trilhos contido pelo freio, enquanto Bento mantém aberta a porta de serviço.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/07-facade/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/07-facade/", "headline": "Facade — O Grimório dos Padrões", "description": "Aprenda Facade com fantasia e TypeScript: coordenar quatro subsistemas numa preparação, informando etapas prontas ou parciais. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/07-facade-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Facade", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/07-facade/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="07-facade">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 07 · Estruturais</p><h1 id="study-title">Facade</h1><p id="study-description">coordenar quatro subsistemas numa preparação, informando etapas prontas ou parciais.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/07-web.webp" srcset="/assets/cenas-coloridas-v01/07-card.webp 800w, /assets/cenas-coloridas-v01/07-web.webp 1600w" sizes="100vw" alt="A sentinela de pedra com braços-lâmina permanece no carro de trilhos contido pelo freio, enquanto Bento mantém aberta a porta de serviço." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 07 · Facade</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>07 — Facade: Preparação de uma missão</h3>
+<p><code>FachadaPreparacao.prepararMissao()</code> oferece uma operação de alto nível para quatro subsistemas: cozinha, arsenal, arquivo e guarda. O resultado descreve cada etapa e distingue preparação pronta de parcial. O cliente não precisa repetir o protocolo nem interpretar quatro chamadas isoladas para descobrir o que ficou pendente.</p>
+<h3>Executar</h3>
+<p>Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>, lock independente. Dentro deste diretório:</p>
+<pre><code>npm ci --ignore-scripts
+npm test
+npm start
+npm run solution</code></pre>
+<p>Da raiz Books:</p>
+<pre><code>node book-23/scripts/projetos.mjs 07 install
+node book-23/scripts/projetos.mjs 07 check
+node book-23/scripts/projetos.mjs 07 capture
+node book-23/scripts/projetos.mjs 07 verify</code></pre>
+<p>O build limpa <code>dist</code>, compila módulos ES2022/ESM com TypeScript estrito e roda testes Node sobre o JavaScript emitido. Não há importações de outros capítulos. <code>exercise/</code> fica fora da compilação da resposta.</p>
+<h3>Fontes e papéis</h3>
+<ul>
+<li><code>src/contratos.ts</code>: interfaces dos subsistemas, pedido e estados por etapa.</li>
+<li><code>src/fachada.ts</code>: Facade e protocolo de preparação.</li>
+<li><code>src/subsistemas-em-memoria.ts</code>: implementações locais com estado observável; funções e objetos, sem hierarquia de classes para cada serviço.</li>
+<li><code>src/main.ts</code>: cenário pronto e cenário sem peça, com resultados e efeitos reais do simulador.</li>
+<li><code>test/preparacao.test.ts</code>: dados, ordem, dependências, etapas parciais, efeitos persistentes, erros, repetição e alternativa direta.</li>
+<li><code>exercise/</code> e <code>solution/</code>: autorização diplomática separada da preparação e testes executáveis.</li>
+<li><code>diagram.mmd</code>: relações lógicas editáveis; renderização e QA visual na etapa própria.</li>
+<li><code>evidence/</code>: stdout real, testes, manifesto e execução numa cópia isolada.</li>
+</ul>
+<h3>Protocolo, efeitos e estados</h3>
+<p>O pedido contém missão, número de refeições, peça e rota. Nomes são normalizados; nomes vazios ou refeições que não sejam inteiros não negativos seguros são rejeitados antes dos efeitos. A sequência desta operação é cozinha → arsenal → arquivo → guarda. Arquivo pode ser consultado mesmo quando falta a peça; guarda só é chamado depois de obter uma reserva e um mapa. A guarda do simulador recusa um mapa de outra rota.</p>
+<p>Os estados por etapa significam:</p>
+<ul>
+<li><code>concluida</code>: a operação retornou normalmente com seu resultado esperado.</li>
+<li><code>pendente</code>: faltou um recurso ou uma dependência; a peça não estava disponível ou a guarda ainda precisa de peça e mapa.</li>
+<li><code>ignorada</code>: nenhuma refeição foi pedida, então a cozinha não foi acionada.</li>
+<li><code>falhou</code>: uma chamada lançou uma exceção. Isso <strong>não garante ausência de efeitos</strong>, pois o subsistema pode alterar estado e depois falhar.</li>
+</ul>
+<p>O resultado geral é <code>pronta</code> quando todas as etapas estão concluídas ou legitimamente ignoradas; caso contrário, é <code>parcial</code>. A preparação da passagem não depende das refeições no modelo, então uma falha na cozinha não bloqueia essa tarefa independente; o resultado geral continua parcial.</p>
+<p>O simulador mantém registros de refeições, reservas, mapas e passagens, além de um histórico de chamadas e estoque de peças. Reservar uma peça disponível remove uma unidade do estoque. As consultas devolvem cópias; o resultado da fachada e suas etapas são congelados em execução. Os subsistemas continuam acessíveis diretamente e o teste de consulta ao arquivo demonstra uma tarefa que dispensa fachada.</p>
+<h3>Falha, repetição e fronteiras</h3>
+<p>Não há transação ou rollback. Se o ferreiro falha, as refeições já preparadas permanecem; o mapa ainda pode ser obtido e a guarda fica pendente. Se o arquivo falha, a reserva de peça não é devolvida automaticamente. Há teste também para uma etapa que registra seu efeito e só depois lança erro, deixando esse efeito visível junto do estado <code>falhou</code>.</p>
+<p>Não há retentativa automática, deduplicação por missão ou promessa de idempotência. Repetir o mesmo pedido executa novamente as etapas independentes e pode duplicar refeições e consultas, além de encontrar estoque já consumido. O teste de repetição parte de uma única peça: a primeira chamada termina pronta e a segunda parcial. Recuperação, compensação ou repetição só de etapas pendentes exigiriam outro contrato; não estão implícitas em <code>prepararMissao()</code>.</p>
+<p>A fachada não executa a troca de prisioneiros, não negocia acordos e não garante hospitalidade física ou segurança de visitantes. A solução recebe uma decisão diplomática externa e mantém autorização separada de preparação. O estado <code>pronta</code> descreve somente as tarefas deste simulador, sem abrir portas, verificar equipamento real ou comprovar segurança política.</p>
+<p>As implementações em memória são colaboradores locais do exemplo e recebem dados tipados; não são validadores de JSON arbitrário nem APIs de produção. Chamadas diretas aos subsistemas permitem também ignorar o protocolo, pois a fachada simplifica acesso e não é uma barreira de autorização.</p>
+<h3>Custos, alternativas e comparações</h3>
+<p>Facade acrescenta um ponto de acoplamento e precisa acompanhar a evolução do protocolo. Simplificar o acesso não garante que uma futura mudança de seu próprio contrato preserve todos os consumidores. Se só uma chamada trivial é necessária, usar a API direta ou uma função pequena é mais claro. Uma função poderia organizar este protocolo; a classe aqui agrupa dependências injetadas e expõe a operação de preparação.</p>
+<p>Adapter traduz uma interface para o contrato esperado por outro cliente. Facade oferece uma entrada conveniente para vários serviços sem obrigar esses serviços a conhecer a fachada. Mediator governa regras de comunicação entre colegas que o usam; os subsistemas deste exemplo não se comunicam pela fachada nem dependem dela. Composição ou muitas chamadas, isoladamente, não definem a intenção de um padrão.</p>
+<p>Saídas reais e hashes permitem rastrear a execução; não substituem auditoria técnica independente nem aprovação do autor. Não se extrapola o simulador para recursos externos, transações distribuídas ou desempenho não medido.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { FachadaPreparacao } from &quot;./fachada.js&quot;;
+import { criarSubsistemasEmMemoria } from &quot;./subsistemas-em-memoria.js&quot;;
+
+const pedido = { missao: &quot;Recepção da aurora&quot;, refeicoes: 4, peca: &quot;Fecho do corredor&quot;, rota: &quot;Corredor de serviço&quot; };
+for (const [cenario, pecas] of [[&quot;Com peça&quot;, [pedido.peca]], [&quot;Sem peça&quot;, []]] as const) {
+  const subsistemas = criarSubsistemasEmMemoria(pecas);
+  const resultado = new FachadaPreparacao(subsistemas).prepararMissao(pedido);
+  console.log(`${cenario}: ${resultado.estado}`);
+  console.log(resultado.etapas.map((etapa) =&gt; `${etapa.nome}=${etapa.estado}`).join(&quot; | &quot;));
+  const estado = subsistemas.consultarEstado();
+  const totalRefeicoes = estado.refeicoes.reduce((total, preparo) =&gt; total + preparo.quantidade, 0);
+  console.log(`Efeitos: refeições ${totalRefeicoes} | reservas ${estado.reservas.length} | mapas ${estado.mapas.length} | passagens ${estado.passagens.length}`);
+}
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/07-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/07-01.svg" alt="FachadaPreparacao mantém referência a Cozinha (solicita refeições)." loading="lazy"></a><figcaption>07 · a preparo</figcaption><p class="study-diagram-description">Esta vista reúne FachadaPreparacao, Cozinha, Arsenal. FachadaPreparacao mantém referência a Cozinha (solicita refeições). FachadaPreparacao mantém referência a Arsenal (reserva peça). FachadaPreparacao: Ordem desta operação: cozinha, arsenal, arquivo, guarda. Falha parcial não desfaz efeitos. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e1 · solicita refeições e2 · reserva peça</p></figure><figure class="study-diagram"><a href="/assets/diagramas/07-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/07-02.svg" alt="FachadaPreparacao mantém referência a Arquivo (consulta mapa)." loading="lazy"></a><figcaption>07 · b passagem</figcaption><p class="study-diagram-description">Esta vista reúne FachadaPreparacao, Arquivo, Guarda. FachadaPreparacao mantém referência a Arquivo (consulta mapa). FachadaPreparacao mantém referência a Guarda (só com reserva e mapa). Guarda: Prepara passagem no simulador; não decide acordo diplomático. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · consulta mapa e4 · só com reserva e mapa</p></figure><figure class="study-diagram"><a href="/assets/diagramas/07-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/07-03.svg" alt="FachadaPreparacao depende de ResultadoPreparacao." loading="lazy"></a><figcaption>07 · c resultado</figcaption><p class="study-diagram-description">Esta vista reúne FachadaPreparacao, ResultadoPreparacao, EtapaPreparacao. FachadaPreparacao depende de ResultadoPreparacao. ResultadoPreparacao compõe EtapaPreparacao. EtapaPreparacao: concluida, falhou, pendente ou ignorada. Falhou não garante ausência de efeitos. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — Tirar a diplomacia do mordomo</h3>
+<p>Uma proposta quer acrescentar <code>autorizarTrocaDePrisioneiros()</code> à fachada de preparação. Separe essa decisão: uma <code>AutoridadeDiplomatica</code> deve fornecer a autorização, e uma função externa deve consultá-la antes de pedir a preparação.</p>
+<p>Critérios verificáveis:</p>
+<ul>
+<li><code>FachadaPreparacao</code> continua responsável apenas por cozinha, arsenal, arquivo e guarda.</li>
+<li>Uma decisão negativa não chama nenhum subsistema de preparação.</li>
+<li>Uma decisão positiva permite executar <code>prepararMissao()</code>, mas preserva seu resultado <code>parcial</code> se faltar a peça.</li>
+<li>A decisão vem da autoridade injetada, sem regra política improvisada dentro da fachada.</li>
+<li>Comente quando seria mais simples chamar diretamente um único subsistema.</li>
+</ul>
+<p>Compare com <code>solution/coordenacao.ts</code> e seus testes; execute <code>npm run solution</code>. Tentativas em <code>exercise/</code> não são compiladas com a resposta.</p>
+<h3>Resposta comentada</h3>
+<p><code>coordenarVisita()</code> consulta <code>AutoridadeDiplomatica</code> e chama a fachada somente quando a autorização externa permite. Ela não negocia nem fabrica o acordo. O resultado da solução distingue autorização de preparação: uma visita pode estar autorizada e continuar com preparação parcial.</p>
+<p>Esta separação mantém uma responsabilidade com motivo de mudança diferente fora da fachada. Acrescentar um coordenador para cada chamada trivial também seria excesso: se o objetivo é só buscar um mapa, a chamada direta ao arquivo já é clara. O projeto-base executa e testa essa alternativa.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/07-facade
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/07-facade.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/06-adapter/"><small>Padrão anterior</small><span>06 · Adapter</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/08-decorator/"><small>Próximo padrão</small><span>08 · Decorator</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

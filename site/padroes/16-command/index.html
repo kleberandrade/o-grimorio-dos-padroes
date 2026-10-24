@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Command em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Command com fantasia e TypeScript: guardar solicitações de reserva e desfazer somente parcelas ainda intactas num histórico limitado. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/16-command/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Command em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Command com fantasia e TypeScript: guardar solicitações de reserva e desfazer somente parcelas ainda intactas num histórico limitado. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/16-command/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/16-command-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/16-command-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mauro mantém uma escora com a lança talada enquanto a fera basáltica de Arkhan pressiona a grade na garganta de pedra.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Command em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Command com fantasia e TypeScript: guardar solicitações de reserva e desfazer somente parcelas ainda intactas num histórico limitado. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/16-command-v01.jpg">
+  <meta name="twitter:image:alt" content="Mauro mantém uma escora com a lança talada enquanto a fera basáltica de Arkhan pressiona a grade na garganta de pedra.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/16-command/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/16-command/", "headline": "Command — O Grimório dos Padrões", "description": "Aprenda Command com fantasia e TypeScript: guardar solicitações de reserva e desfazer somente parcelas ainda intactas num histórico limitado. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/16-command-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Command", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/16-command/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="16-command">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 16 · Comportamentais</p><h1 id="study-title">Command</h1><p id="study-description">guardar solicitações de reserva e desfazer somente parcelas ainda intactas num histórico limitado.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/16-web.jpg" srcset="/assets/cenas-coloridas-v01/16-card.jpg 800w, /assets/cenas-coloridas-v01/16-web.jpg 1600w" sizes="100vw" alt="Mauro mantém uma escora com a lança talada enquanto a fera basáltica de Arkhan pressiona a grade na garganta de pedra." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 16 · Command</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>16 — Command: O Grimório de Ordens</h3>
+<p>Davi precisa distinguir uma reserva cancelável de minério já consumido na forja. Este projeto modela um estoque local, reservas por identidade e um invocador com histórico limitado. O programa principal separa 12 unidades em parcelas de 4 e 8: quatro são forjadas por uma operação distinta; oito são reservadas e depois liberadas pelo comando. Desfazer a reserva mantém as quatro forjadas.</p>
+<h3>A solução direta primeiro</h3>
+<p>Se basta executar uma operação imediatamente, chamar <code>estoque.reservar(quantidade)</code> é legítimo. O cliente guarda o token se precisar cancelar essa reserva depois. <code>src/main.ts</code> demonstra a chamada direta para a parcela do forno. Não há obrigação de envolver cada método num comando.</p>
+<p>Quando a solicitação precisa existir antes da execução e integrar um histórico uniforme, <code>ComandoReservar</code> encapsula receptor e quantidade. Construí-lo não altera estoque; <code>Invocador.executar(comando)</code> dispara a operação e só depois registra uma execução bem-sucedida. O invocador conhece <code>Comando</code>, sem conhecer a classe do estoque. O cliente que monta os objetos <strong>conhece o receptor</strong> e o entrega ao comando. Não é necessário esconder essa relação para usar Command.</p>
+<h3>Executar</h3>
+<p>Ambiente declarado e utilizado: Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>. Há <code>.nvmrc</code>, lock próprio e compilação ESM NodeNext estrita, sem importar outro projeto.</p>
+<p>Na pasta <code>book-23/code/16-command</code>:</p>
+<pre><code>npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+npm run solution</code></pre>
+<p>Na raiz do repositório:</p>
+<pre><code>node book-23/scripts/projetos.mjs 16 install
+node book-23/scripts/projetos.mjs 16 check
+node book-23/scripts/projetos.mjs 16 run
+node book-23/scripts/projetos.mjs 16 solution
+node book-23/scripts/projetos.mjs 16 capture
+node book-23/scripts/projetos.mjs 16 verify</code></pre>
+<p><code>evidence/stdout.txt</code> e <code>solution-stdout.txt</code> contêm as saídas dos programas, sem os banners npm. <code>manifest.json</code> vincula fontes, versões, testes e saídas por SHA256. <code>runner-commands.json</code> registra a execução dos seis comandos do runner. <code>isolation.json</code> registra instalação/testes/programas numa cópia temporária só deste projeto e a comparação byte a byte dos stdout. Essas são verificações do produtor; não atribuem auditoria independente ou aprovação humana.</p>
+<h3>Receptor e reversão suportada</h3>
+<p><code>EstoqueMinerio(inicial)</code> recebe um inteiro seguro não negativo. Quantidades de reserva e forja devem ser inteiros seguros <strong>positivos</strong>; NaN, infinito, frações, zero e negativos são recusados. Não há conversão de unidades físicas: são unidades indivisíveis do modelo.</p>
+<p><code>reservar(quantidade)</code> reduz disponível e cria um token congelado <code>Reserva</code>. O receptor conserva o restante dessa reserva num <code>Map</code> privado. O token é reconhecido por identidade e somente no estoque de origem; copiar seus campos não cria uma reserva. Esse mecanismo evita confusão entre reservas do modelo, sem autenticar pessoas ou criar uma fronteira de segurança.</p>
+<p><code>cancelar(reserva)</code> aceita apenas uma reserva ativa <strong>integralmente intacta</strong>. Libera sua quantidade e remove essa reserva, sem reinstalar um snapshot global. <code>forjar(reserva, quantidade)</code> consome parte ou toda a reserva e aumenta <code>forjado</code>; é uma operação distinta, sem inversa neste projeto. Consumo parcial faz o cancelamento integral ser recusado; consumo total encerra a reserva e também impede cancelá-la. As recusas não mudam o estado. Não existe uma operação de liberação parcial do remanescente de uma reserva consumida; esta é uma limitação deliberada do recorte. Parcelas que precisam de destinos independentes devem ser reservadas separadamente antes de consumir.</p>
+<p><code>snapshot()</code> expõe disponível, reservado, forjado e uma lista de quantidades iniciais/restantes das reservas ativas. Nos métodos fornecidos, disponível + reservado + forjado conserva o estoque inicial. Isso não modela perdas, reposição, recursos distribuídos ou atomicidade do mundo físico.</p>
+<h3>Comando, histórico e repetição</h3>
+<p><code>ComandoReservar</code> guarda quantidade, receptor, token e snapshot anterior para consulta. O snapshot é proveniência, <strong>não é restaurado indiscriminadamente</strong> ao desfazer. A operação inversa cancela exclusivamente o token daquela execução, preservando reservas e forjas posteriores em outras parcelas.</p>
+<p>Estados do comando:</p>
+<ul>
+<li><code>novo</code>: pode executar. Se faltar estoque, lança erro e permanece novo; uma tentativa posterior pode executar se houver disponibilidade.</li>
+<li><code>executado</code>: repetir execução é erro, sem nova reserva. Pode desfazer se o receptor ainda aceitar o cancelamento daquela reserva.</li>
+<li><code>desfeito</code>: não executa nem desfaz novamente. Uma nova solicitação exige outra instância; não há redo implementado.</li>
+</ul>
+<p>Isso é uma política de uso único local, não uma promessa de idempotência: chamadas repetidas retornam erro em vez de repetir o sucesso anterior. Instâncias diferentes podem solicitar a mesma quantidade, causando efeitos distintos.</p>
+<p><code>Invocador(limite)</code> exige limite inteiro seguro positivo. <code>desfazerUltimo()</code> usa ordem LIFO, retorna <code>false</code> para histórico vazio e <code>true</code> quando a inversa do topo conclui. A entrada só é removida <strong>depois</strong> do sucesso. Se o cancelamento falhar porque a reserva foi consumida ou cancelada externamente, o erro propaga, a entrada permanece e não se salta para ordens mais antigas. Não há comando para apagar esse conflito ou recuperar metal; o operador precisa reconhecê-lo fora deste recorte.</p>
+<p>Ao ultrapassar o limite, o invocador descarta a entrada mais antiga. Seu efeito continua no receptor e perde-se o acesso àquela inversa <strong>por esse histórico</strong>. Referências ao comando conservadas pelo cliente ainda existem; a poda não revoga essas referências nem é descarte automático de recursos. O cliente deve coordenar acesso a comandos e receptor: chamar seus métodos diretamente pode tornar entradas obsoletas, que serão recusadas se já não satisfizerem suas precondições. Os testes incluem consumo externo, trabalho posterior e tentativa de usar um comando antigo.</p>
+<p>Falha de <code>executar()</code> não entra no histórico. Para os comandos de reserva fornecidos, falta de estoque é detectada antes da mutação. Uma implementação arbitrária de <code>Comando</code> pode realizar um efeito e depois lançar erro: o invocador não dispõe de uma transação universal para revertê-la ou registrar automaticamente o que ocorreu. O contrato síncrono tampouco garante comportamento de comandos que retornem trabalho assíncrono sem aguardá-lo.</p>
+<h3>Dados e custos</h3>
+<p>Campos <code>#</code> protegem estado de instância em JavaScript. <code>readonly</code> e interfaces ajudam na compilação, sem impedir sozinhos mutação em execução. Tokens, snapshots, listas internas dos snapshots e seus itens são congelados; o histórico devolve uma lista nova de descrições congeladas, sem expor comandos. Cópias cobrem estes dados escalares e listas, sem promessa de clonagem profunda genérica, congelamento de protótipos ou proteção contra código arbitrário que altere dependências.</p>
+<p>A pilha guarda até o limite de referências, e o descarte com <code>shift()</code> pode deslocar suas entradas. Descrições e listagens são copiadas; snapshots percorrem reservas ativas. O snapshot anterior de cada comando pode ampliar o custo de memória conforme o número de reservas e o tamanho do histórico. O mapa do receptor mantém reservas ativas independentemente da poda do histórico. Não houve benchmark nem afirmação de ganho de desempenho.</p>
+<h3>Compensação, evento e Memento</h3>
+<p>O exercício usa <code>PortaAvisos</code> com <code>AvisosSimulados</code>, exclusivamente em memória. Emitir um aviso cria um registro; compensar acrescenta outro, vinculado ao original, sem apagar o primeiro. A operação chamada <code>desfazer()</code> pelo contrato do comando representa <strong>compensação</strong>, cuja semântica é distinta do cancelamento exato da reserva. Ela não remove a experiência de um destinatário. Não há rede ou destinatário real neste projeto.</p>
+<p>Na simulação, a falha programada ocorre antes de registrar a compensação; o histórico conserva a entrada para uma tentativa manual posterior. Uma porta real pode falhar depois de produzir efeito, deixando resultado incerto: repetir pode duplicar ações. Não são garantidos exatamente uma vez, entrega, persistência, distribuição ou deduplicação entre instâncias. O comando só evita repetição da própria instância quando o sucesso é conhecido localmente.</p>
+<p>Command representa uma solicitação executável e pode guardar informação para uma inversa específica. Um evento registra algo que ocorreu; não é automaticamente uma solicitação nem uma operação reversível. Uma fila pode transportar comandos, mas uma fila ou evento não se torna Command GoF apenas por esse nome. Este invocador não implementa fila persistente ou replay.</p>
+<p>Memento conserva estado para restauração pelo objeto responsável. Aqui a quantidade e o token bastam à inversa local; restaurar o estoque inteiro ao snapshot anterior apagaria trabalho posterior. Captura e inversa podem coexistir em outros projetos, mas têm intenções e custos diferentes. Nenhum dos padrões torna uma forja física reversível.</p>
+<h3>Arquivos</h3>
+<p><code>src/estoque.ts</code>: receptor e snapshots. <code>src/comando.ts</code>: contrato e comando de reserva. <code>src/invocador.ts</code>: histórico delimitado. <code>src/main.ts</code>: composição/alternativa direta e demonstração. <code>test/command.test.ts</code>: efeitos, falhas, limites e invariantes. <code>diagram.mmd</code>: relações da base. <code>exercise/README.md</code> e <code>solution/</code>: efeito externo simulado, compensação e testes separados.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { EstoqueMinerio } from &quot;./estoque.js&quot;;
+import { ComandoReservar } from &quot;./comando.js&quot;;
+import { Invocador } from &quot;./invocador.js&quot;;
+
+const estoque = new EstoqueMinerio(12);
+const mostrar = (rotulo: string) =&gt; {
+  const estado = estoque.snapshot();
+  console.log(`${rotulo}: disponível ${estado.disponivel} | reservado ${estado.reservado} | forjado ${estado.forjado}`);
+};
+// Alternativa direta: sem histórico, a composição conhece e chama o receptor.
+const parcelaDoForno = estoque.reservar(4);
+estoque.forjar(parcelaDoForno, 4);
+mostrar(&quot;Parcela consumida&quot;);
+const livro = new Invocador(2);
+const ordem = new ComandoReservar(estoque, 8);
+console.log(`Antes da execução, histórico: ${livro.listarHistorico().length}`);
+livro.executar(ordem);
+mostrar(&quot;Reserva de Davi&quot;);
+console.log(`Histórico: ${livro.listarHistorico().map((item) =&gt; item.descricao).join(&quot;, &quot;)}`);
+console.log(`Desfazer reserva: ${livro.desfazerUltimo()}`);
+mostrar(&quot;Parcela intacta liberada&quot;);
+console.log(`Desfazer histórico vazio: ${livro.desfazerUltimo()}`);
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/16-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/16-01.svg" alt="Invocador mantém referência a Comando (executa e guarda sucesso)." loading="lazy"></a><figcaption>16 · a histórico</figcaption><p class="study-diagram-description">Esta vista reúne Comando, Invocador. Invocador mantém referência a Comando (executa e guarda sucesso). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e2 · executa e guarda sucesso</p></figure><figure class="study-diagram"><a href="/assets/diagramas/16-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/16-02.svg" alt="ComandoReservar realiza Comando." loading="lazy"></a><figcaption>16 · b pedido</figcaption><p class="study-diagram-description">Esta vista reúne Comando, ComandoReservar. ComandoReservar realiza Comando. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure><figure class="study-diagram"><a href="/assets/diagramas/16-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/16-03.svg" alt="ComandoReservar mantém referência a EstoqueMinerio (receptor)." loading="lazy"></a><figcaption>16 · c parcela</figcaption><p class="study-diagram-description">Esta vista reúne ComandoReservar, EstoqueMinerio, Reserva. ComandoReservar mantém referência a EstoqueMinerio (receptor). ComandoReservar mantém referência a Reserva (identifica parcela). EstoqueMinerio mantém referência a Reserva (reconhece identidade). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · receptor e4 · identifica parcela e5 · reconhece identidade</p></figure><figure class="study-diagram"><a href="/assets/diagramas/16-04.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/16-04.svg" alt="Classificadores ComandoReservar, Invocador, EstoqueMinerio." loading="lazy"></a><figcaption>16 · d notas</figcaption><p class="study-diagram-description">Esta vista reúne ComandoReservar, Invocador, EstoqueMinerio. Invocador: LIFO limitado. Descartar entrada conserva efeito. Falha ao desfazer mantém topo. ComandoReservar: Uso único. Snapshot anterior é proveniência; undo cancela somente sua reserva intacta. EstoqueMinerio: Forja é operação distinta sem inversa neste modelo. Consumo impede cancelamento integral da mesma reserva. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — Um aviso não pode ser desouvido</h3>
+<p>Implemente um comando que emita um aviso usando uma porta recebida por composição. Use uma implementação <strong>simulada local</strong>, sem enviar mensagens reais. Na operação de compensação, acrescente uma correção vinculada ao aviso original; não o apague.</p>
+<p>Critérios verificáveis:</p>
+<ol>
+<li>Emitir acrescenta um registro com identidade e texto; o invocador registra o comando somente após o sucesso conhecido.</li>
+<li>Compensar acrescenta um segundo registro com referência ao primeiro. O aviso original permanece, inclusive sua identidade e conteúdo.</li>
+<li>Uma falha simulada antes da compensação conserva aviso e entrada de histórico. Uma tentativa manual posterior pode concluir.</li>
+<li>A mesma instância não emite ou compensa duas vezes após sucesso conhecido. Outra ordem pode emitir o mesmo texto; não prometa deduplicação global.</li>
+<li>A listagem não permite apagar ou editar o livro interno de avisos. Explique por que isso não certifica entrega ou segurança de um serviço real.</li>
+</ol>
+<h3>Resposta comentada</h3>
+<p><code>solution/avisos.ts</code> define <code>PortaAvisos</code>, <code>AvisosSimulados</code> e <code>ComandoAvisar</code>. O comando recebe a porta e guarda o identificador do aviso emitido. Seu <code>desfazer()</code> chama <code>compensar(id)</code>; o nome vem da interface comum, mas o efeito é uma <strong>nova ação</strong>, não retorno ao estado sem aviso. O invocador pode retirar a entrada de sua pilha após esse sucesso, enquanto o livro de registros da porta mantém as duas ações. A base não foi alterada para suportar o exercício; a semântica da operação precisa ser explicada ao cliente.</p>
+<p>A falha programada por <code>falharProximaCompensacao()</code> ocorre antes de acrescentar registro, lança erro e é consumida uma vez. A tentativa manual seguinte pode acrescentar a correção. Isso testa somente essa política simulada. Não modela um serviço que recebeu a correção e perdeu a resposta; nesse cenário, uma retentativa pode duplicar efeitos. Não há rede, persistência, exatamente uma vez ou conhecimento da experiência de uma pessoa. O registro da correção não prova que o aviso tenha sido ignorado.</p>
+<p><code>solution/avisos.test.ts</code> verifica registros, falha, repetição e proteção da listagem. Execute <code>npm test</code> e <code>npm run solution</code>. O programa da solução mostra primeiro a falha, depois os registros original e compensatório. A alternativa mais simples para um único aviso sem histórico é chamar diretamente a porta; introduzir Command se justifica pela necessidade concreta de guardar e acionar a solicitação de modo uniforme.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/16-command
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/16-command.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/15-template-method/"><small>Padrão anterior</small><span>15 · Template Method</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/17-memento/"><small>Próximo padrão</small><span>17 · Memento</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

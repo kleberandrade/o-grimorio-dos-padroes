@@ -6,9 +6,11 @@
   <meta name="theme-color" content="#0a1527">
   <meta name="description" content="Estude um padrão de projeto do Grimório: fundamentos, código TypeScript, diagramas e exercício comentado.">
   <title>Estudar um padrão — O Grimório dos Padrões</title>
-  <link rel="stylesheet" href="/styles.css?v=4">
+  <link rel="stylesheet" href="/styles.css?v=6">
   <link rel="stylesheet" href="/projeto.css?v=4">
-  <script src="/projeto.js?v=4" defer></script>
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <meta name="robots" content="noindex,follow">
 </head>
 <body class="study-page">
   <a class="skip-link" href="#estudo">Pular para o estudo</a>
@@ -17,11 +19,11 @@
       <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
       <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
     </a>
-    <nav aria-label="Navegação principal"><a href="/#padroes">Todos os padrões <span aria-hidden="true">↗</span></a><a class="nav-github" href="https://github.com/kleberandrade/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></nav>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
   </header>
   <main id="estudo">
     <div id="study-loading" class="study-message wrap" role="status">Abrindo as páginas do grimório…</div>
-    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h1>Este padrão não foi encontrado.</h1><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
     <div id="study-content" hidden>
       <section class="study-hero" aria-labelledby="study-title">
         <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category"></p><h1 id="study-title"></h1><p id="study-description"></p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Memento em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Memento com fantasia e TypeScript: guardar tokens opacos de capturas e restaurar o estado declarado de um diário. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/17-memento/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Memento em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Memento com fantasia e TypeScript: guardar tokens opacos de capturas e restaurar o estado declarado de um diário. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/17-memento/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/17-memento-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/17-memento-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lia e Cosme contêm um devorador de tinta feito de dobras escuras entre uma espátula e uma chapa de latão, ao lado do diário iluminado em azul.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Memento em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Memento com fantasia e TypeScript: guardar tokens opacos de capturas e restaurar o estado declarado de um diário. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/17-memento-v01.jpg">
+  <meta name="twitter:image:alt" content="Lia e Cosme contêm um devorador de tinta feito de dobras escuras entre uma espátula e uma chapa de latão, ao lado do diário iluminado em azul.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/17-memento/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/17-memento/", "headline": "Memento — O Grimório dos Padrões", "description": "Aprenda Memento com fantasia e TypeScript: guardar tokens opacos de capturas e restaurar o estado declarado de um diário. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/17-memento-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Memento", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/17-memento/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="17-memento">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 17 · Comportamentais</p><h1 id="study-title">Memento</h1><p id="study-description">guardar tokens opacos de capturas e restaurar o estado declarado de um diário.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/17-web.jpg" srcset="/assets/cenas-coloridas-v01/17-card.jpg 800w, /assets/cenas-coloridas-v01/17-web.jpg 1600w" sizes="100vw" alt="Lia e Cosme contêm um devorador de tinta feito de dobras escuras entre uma espátula e uma chapa de latão, ao lado do diário iluminado em azul." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 17 · Memento</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>17 — Memento: O Guardião da Memória Perdida</h3>
+<p>Lia pode restaurar o diário a uma captura anterior. Isso substitui o estado atual do diário, inclusive edições posteriores que ela talvez queira preservar. O programa copia uma anotação atual separadamente <strong>antes</strong> de restaurar. Recuperar uma frase não localiza ou resgata uma pessoa e não restaura o mundo.</p>
+<h3>A alternativa mais simples</h3>
+<p>Para um único valor que o mesmo código pode ler, guardar a string anterior numa variável e atribuí-la novamente é suficiente. <code>src/main.ts</code> começa executando essa alternativa. Não há razão para esconder o valor em tokens quando não existe uma separação de responsabilidades que justifique isso.</p>
+<p>Aqui o problema adicional é permitir que o guardião armazene e selecione capturas sem receber o conteúdo capturado. <code>Diario</code> é o <strong>Originator</strong>; os tokens opacos são os <strong>Mementos</strong>; <code>GuardiaoDasMemorias</code> é o <strong>Caretaker</strong>. O guardião guarda tokens e rótulos, sem analisar ou restaurar o estado por conta própria. O cliente entrega o token selecionado ao próprio diário, que sabe interpretá-lo.</p>
+<h3>Executar</h3>
+<p>Versões declaradas e utilizadas: Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>. Há <code>.nvmrc</code>, lock próprio e configuração estrita ESM NodeNext; não há importação de outro projeto.</p>
+<p>Na pasta <code>book-23/code/17-memento</code>:</p>
+<pre><code>npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+npm run solution</code></pre>
+<p>Na raiz do repositório:</p>
+<pre><code>node book-23/scripts/projetos.mjs 17 install
+node book-23/scripts/projetos.mjs 17 check
+node book-23/scripts/projetos.mjs 17 run
+node book-23/scripts/projetos.mjs 17 solution
+node book-23/scripts/projetos.mjs 17 capture
+node book-23/scripts/projetos.mjs 17 verify</code></pre>
+<p><code>evidence/manifest.json</code> vincula fontes, versões, relatório de testes e as duas saídas funcionais por SHA256. <code>stdout.txt</code> e <code>solution-stdout.txt</code> vêm dos programas reais, sem banners npm. <code>runner-commands.json</code> registra os seis comandos do runner. <code>isolation.json</code> registra uma cópia temporária contendo somente este projeto, com instalação, testes, programas e comparação byte a byte das duas saídas. Tempos de teste variam; não são um benchmark. Evidências de execução do produtor não atribuem aprovação humana nem auditoria independente.</p>
+<h3>Estado, captura e restauração</h3>
+<p>O estado declarado é <code>EstadoDiario</code>: <code>conteudo</code> é string; <code>contexto</code> contém <code>local</code> string e <code>marcadores</code>, uma lista de strings. <code>substituir(estado)</code> substitui o documento ativo completo. <code>ler()</code> devolve uma cópia congelada do estado <strong>ativo</strong>, sem receber token ou revelar uma captura histórica.</p>
+<p>Entrada, captura, leitura e restauração copiam explicitamente os campos do modelo, incluindo objeto aninhado e lista. As cópias e suas estruturas declaradas são congeladas. Mutar a entrada original não altera o documento nem a captura. Restaurar, editar novamente e restaurar o <strong>mesmo token</strong> volta ao estado capturado, sem contaminar a memória. Não há cópia profunda genérica de classes, funções, recursos externos ou grafos cíclicos. O contrato de entrada é esse modelo de dados; TypeScript não valida todo objeto arbitrário vindo de JavaScript sem tipos.</p>
+<p><code>salvar()</code> cria um objeto vazio, congelado e de protótipo nulo. O token não tem getter, campos ou símbolos que contenham o estado. O nominal <code>Memoria</code> ajuda na compilação; a validação real é a presença da <strong>mesma identidade</strong> no <code>WeakMap</code> privado <code>#capturas</code> daquela instância de diário. O payload fica nesse mapa, não no token. <code>restaurar(token)</code> recupera e copia esse payload. Token falso, cópia de campos, resultado de JSON e token de outro diário são recusados com erro, sem alterar o estado ativo.</p>
+<p>Esse encapsulamento corrige o getter público de estado da fonte autoral. Não se promete segurança contra código hostil no mesmo processo, alteração de protótipos/dependências, depuração privilegiada ou vazamento da referência ao próprio diário. Quem recebe <code>Diario</code> pode usar seu método público de leitura ativa. Tokens também conferem a quem os possui a possibilidade de pedir restauração ao diário correto; opacidade não equivale a autorização de pessoas.</p>
+<p>Restaurar substitui todo o estado declarado e perde intencionalmente as edições posteriores no documento ativo. A cópia separada de <code>main.ts</code> é uma decisão do cliente anterior à restauração, não um resgate automático de todo trabalho perdido. O token não captura arquivos, papel, pessoas ou sistemas externos. Nenhum efeito externo é desfeito.</p>
+<h3>Guardião, índice e limite</h3>
+<p><code>GuardiaoDasMemorias(limite)</code> exige inteiro seguro positivo. <code>adicionar(token, rotulo)</code> guarda uma referência ao token e um rótulo textual não vazio. <code>listar()</code> só expõe índices e rótulos; <code>obter(indice)</code> entrega o token para seleção. O índice é zero-based, inteiro e dentro da lista atual; negativos, frações, NaN, infinito e posições inexistentes lançam erro. As listagens são novas listas de itens congelados.</p>
+<p>Ao exceder o limite, o guardião descarta a entrada mais antiga e os índices restantes são renumerados. Isso não restaura o diário nem revoga tokens que outro código tenha conservado. O guardião não valida o payload ou a origem de tokens: essa verificação pertence ao Originator ao restaurar. Os rótulos não contêm texto do documento automaticamente; quem os escolhe deve evitar colocar neles conteúdo que pretendia manter privado.</p>
+<h3>Wrapper e política de checkpoints do exercício</h3>
+<p><code>portaMemorias()</code> devolve um <strong>objeto separado real</strong>, congelado, com apenas <code>salvar</code>, <code>restaurar</code> e <code>correspondeCheckpoint</code>. Não é o próprio diário convertido para uma interface estreita; métodos <code>ler</code> e <code>substituir</code> não estão presentes nesse wrapper em execução. As closures mantêm a referência ao diário sem devolvê-la como campo. Isso reduz a API entregue ao caretaker do exercício, sem prometer proteção hostil geral.</p>
+<p><code>correspondeCheckpoint(token)</code> verifica igualdade da <strong>marca privada de versão</strong>, não igualdade profunda de conteúdo. <code>substituir()</code> cria uma nova marca, mesmo se os valores escritos forem iguais aos anteriores. Restaurar um token recupera sua marca. O booleano permite reconhecer uma edição pendente sem expor texto, local ou marcadores. Token inválido continua sendo erro.</p>
+<p>A base demonstra seleção direta de memória: restaurar por escolha do cliente pode perder uma edição não capturada. O exercício <code>LinhaDoTempo</code> acrescenta uma política mais restrita, explicada em <code>exercise/README.md</code>: captura inicial automática, confirmação explícita depois de editar, recusa de navegar com edição pendente, undo/redo e invalidação da ramificação futura na confirmação de nova edição após undo. Essa política não é uma propriedade automática de Memento.</p>
+<h3>Custos e comparação</h3>
+<p>Cada cópia percorre os campos declarados e a lista de marcadores, além das alocações correspondentes; textos são valores de string, sem promessa de uma cópia física de bytes a cada atribuição. Memórias conservam o payload das versões capturadas enquanto seus tokens forem alcançáveis. O histórico limitado reduz as referências guardadas pelo caretaker, mas não limita referências retidas por outros clientes. <code>WeakMap</code> não fornece um prazo exato de coleta de lixo. O descarte com <code>shift()</code> pode deslocar entradas, e as listagens copiam metadados.</p>
+<p>Estados grandes ou muitas capturas podem tornar esse custo inadequado. Uma operação inversa pequena pode ser mais econômica quando seu contrato é seguro. Command encapsula uma solicitação e pode guardar dados para uma inversa específica; Memento conserva estado para restauração pelo Originator. Restaurar este diário inteiro deliberadamente substitui edições posteriores, enquanto cancelar uma reserva específica pode preservar outras operações. Nenhuma das duas intenções garante reversibilidade física ou transações universais.</p>
+<p>Serialização é transformação de dados para outra representação e requer um contrato próprio de formato/versão. Aqui <code>JSON.stringify(token)</code> resulta em <code>{}</code>; desserializar isso não recria um token válido ou uma captura. Este projeto não exporta snapshots persistentes e não promete que JSON ou <code>structuredClone</code> restaurem identidade, métodos, recursos ou encapsulamento.</p>
+<h3>Arquivos</h3>
+<p><code>src/diario.ts</code>: Originator, estado, tokens e wrapper. <code>src/guardiao.ts</code>: armazenamento/seleção e validação de índice/limite. <code>src/main.ts</code>: alternativa direta, cópia separada e restauração. <code>test/memento.test.ts</code>: opacidade em execução, cópias, origem, restauração, limite e wrapper. <code>diagram.mmd</code>: somente relações da base. <code>solution/linha-do-tempo.ts</code> e testes: política adicional de undo/redo, sem alterar a base para acomodar o exercício.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { Diario } from &quot;./diario.js&quot;;
+import { GuardiaoDasMemorias } from &quot;./guardiao.js&quot;;
+
+// Alternativa simples, suficiente para um único valor sem encapsulamento entre papéis.
+let valorAtivo = &quot;Anotação simples inicial.&quot;;
+const valorGuardado = valorAtivo;
+valorAtivo = &quot;Rascunho posterior.&quot;;
+const antesDaCopiaDireta = valorAtivo;
+valorAtivo = valorGuardado;
+console.log(`Valor direto: ${antesDaCopiaDireta} -&gt; ${valorAtivo}`);
+const diario = new Diario({ conteudo: &quot;A testemunha indicou o arquivo norte.&quot;,
+  contexto: { local: &quot;Chronoria&quot;, marcadores: [&quot;depoimento&quot;] } });
+const guardiao = new GuardiaoDasMemorias(2);
+guardiao.adicionar(diario.salvar(), &quot;Depoimento inicial&quot;);
+diario.substituir({ conteudo: &quot;Anotação pessoal posterior.&quot;, contexto: { local: &quot;Sala do diário&quot;, marcadores: [&quot;pessoal&quot;] } });
+const copiaSeparada = diario.ler();
+console.log(`Antes: ${diario.ler().conteudo}`);
+console.log(`Guardião: ${guardiao.listar()[0]!.rotulo}`);
+console.log(`Campos no token: ${Reflect.ownKeys(guardiao.obter(0)).length}`);
+diario.restaurar(guardiao.obter(0));
+console.log(`Restaurado: ${diario.ler().conteudo}`);
+console.log(`Contexto restaurado: ${diario.ler().contexto.local} | ${diario.ler().contexto.marcadores.join(&quot;, &quot;)}`);
+console.log(`Cópia separada: ${copiaSeparada.conteudo}`);
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/17-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/17-01.svg" alt="Diario depende de Memoria (cria e reconhece identidade)." loading="lazy"></a><figcaption>17 · a captura</figcaption><p class="study-diagram-description">Esta vista reúne Diario, Memoria. Diario depende de Memoria (cria e reconhece identidade). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e1 · cria e reconhece identidade</p></figure><figure class="study-diagram"><a href="/assets/diagramas/17-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/17-02.svg" alt="GuardiaoDasMemorias mantém referência a Memoria (armazena e seleciona)." loading="lazy"></a><figcaption>17 · b guardião</figcaption><p class="study-diagram-description">Esta vista reúne Memoria, GuardiaoDasMemorias. GuardiaoDasMemorias mantém referência a Memoria (armazena e seleciona). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e2 · armazena e seleciona</p></figure><figure class="study-diagram"><a href="/assets/diagramas/17-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/17-03.svg" alt="Diario depende de PortaMemorias (cria wrapper real separado)." loading="lazy"></a><figcaption>17 · c porta</figcaption><p class="study-diagram-description">Esta vista reúne Diario, PortaMemorias. Diario depende de PortaMemorias (cria wrapper real separado). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · cria wrapper real separado</p></figure><figure class="study-diagram"><a href="/assets/diagramas/17-04.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/17-04.svg" alt="Classificadores Diario, Memoria, GuardiaoDasMemorias, PortaMemorias." loading="lazy"></a><figcaption>17 · d notas</figcaption><p class="study-diagram-description">Esta vista reúne Diario, Memoria, GuardiaoDasMemorias, PortaMemorias. Memoria: Vazio, congelado, protótipo nulo. Payload somente no WeakMap privado da instância de Diario. Diario: Leitura pública consulta o estado ativo, nunca um token. Restaurar substitui edições posteriores. GuardiaoDasMemorias: Não recebe Diario nem lê payload. Metadados: índice e rótulo. PortaMemorias: Wrapper sem ler/substituir em execução. Booleano compara marca de versão, não igualdade profunda. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — Undo/redo com confirmação explícita</h3>
+<p>Implemente <code>LinhaDoTempo</code> recebendo a porta estreita real de memórias, sem receber <code>Diario</code> com seus métodos de leitura e edição. O histórico deve ser limitado, e uma edição posterior a undo deve abrir nova ramificação quando confirmada.</p>
+<p>Critérios verificáveis:</p>
+<ol>
+<li>Na construção, capture automaticamente o estado atual como checkpoint <code>Inicial</code>, com cursor zero. Esse ponto conta no limite.</li>
+<li>O cliente edita o diário e chama <code>confirmar(rotulo)</code>. Só essa confirmação captura a edição como ponto navegável. Sem nova edição, confirmar retorna <code>false</code> e não duplica um ponto.</li>
+<li>Undo e redo recusam navegar se houver edição pendente, inclusive nas bordas; não descartam texto silenciosamente. O usuário precisa confirmar antes de navegar. Não há descarte implícito ou comando adicional de descartar nesta solução.</li>
+<li>Sem pendência, undo/redo restauram o checkpoint vizinho, movem cursor só depois do sucesso e retornam <code>false</code> na borda correspondente.</li>
+<li>Uma edição feita após undo torna a navegação pendente; <strong>confirmá-la</strong> corta os checkpoints à frente e cria o novo futuro. Antes disso, os metadados da ramificação antiga ainda existem, embora redo esteja bloqueado pela pendência.</li>
+<li>O limite inclui o ponto atual. Excedê-lo remove o mais antigo e reajusta índices/cursor. Limite um mantém somente o atual e não permite undo.</li>
+</ol>
+<h3>Resposta comentada</h3>
+<p><code>solution/linha-do-tempo.ts</code> mantém apenas tokens, rótulos e cursor. O estado atual entra na linha do tempo no construtor e depois por confirmações explícitas; não é capturado automaticamente quando se clica em undo. Isso evita fingir que todo texto ativo já estava salvo.</p>
+<p>O booleano <code>correspondeCheckpoint</code> consulta a marca de versão privada do Originator, sem acesso ao payload. Ele não compara textos: uma edição com valores iguais também cria uma nova versão e exige confirmação. <code>confirmar</code> valida o rótulo e cria o token antes de cortar o futuro; undo/redo restauram antes de mover cursor. As garantias valem para a porta fornecida e operações síncronas deste modelo; uma implementação externa com efeitos ou falhas arbitrárias tem seus próprios limites.</p>
+<p>A base já continha operações de captura/restauração, marca de versão e wrapper necessárias a esse recorte. A solução acrescenta o controlador de checkpoints e seus testes, sem instalar getter bruto de estado nem alterar a base. Não há persistência, múltiplos editores concorrentes, deduplicação por conteúdo ou recuperação do futuro eliminado pelo controlador. Tokens mantidos externamente não são revogados pelo corte.</p>
+<p>Execute <code>npm run solution</code> para observar A → B → C, undo para B, redo para C e nova ramificação B → D sem redo para C. <code>npm test</code> verifica estado completo, pendência, limite/cursor, confirmação sem edição e listagens. Uma simples string anterior continua sendo uma alternativa legítima para um único estado sem essa política de histórico.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/17-memento
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/17-memento.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/16-command/"><small>Padrão anterior</small><span>16 · Command</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/18-observer/"><small>Próximo padrão</small><span>18 · Observer</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Composite em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Composite com fantasia e TypeScript: aplicar uma ordem a folhas e formações numa árvore parte-todo. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/10-composite/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Composite em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Composite com fantasia e TypeScript: aplicar uma ordem a folhas e formações numa árvore parte-todo. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/10-composite/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/10-composite-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/10-composite-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Colosso de raízes carbonizadas avança pela floresta em chamas enquanto Leda e moradores retiram Otília numa esteira.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Composite em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Composite com fantasia e TypeScript: aplicar uma ordem a folhas e formações numa árvore parte-todo. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/10-composite-v01.jpg">
+  <meta name="twitter:image:alt" content="Colosso de raízes carbonizadas avança pela floresta em chamas enquanto Leda e moradores retiram Otília numa esteira.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/10-composite/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/10-composite/", "headline": "Composite — O Grimório dos Padrões", "description": "Aprenda Composite com fantasia e TypeScript: aplicar uma ordem a folhas e formações numa árvore parte-todo. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/10-composite-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Composite", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/10-composite/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="10-composite">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 10 · Estruturais</p><h1 id="study-title">Composite</h1><p id="study-description">aplicar uma ordem a folhas e formações numa árvore parte-todo.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/10-web.jpg" srcset="/assets/cenas-coloridas-v01/10-card.jpg 800w, /assets/cenas-coloridas-v01/10-web.jpg 1600w" sizes="100vw" alt="Colosso de raízes carbonizadas avança pela floresta em chamas enquanto Leda e moradores retiram Otília numa esteira." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 10 · Composite</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>10 — Composite: Formações de unidades recursivas</h3>
+<p><code>Unidade.executarOrdem()</code> é o contrato comum de <code>Soldado</code> e <code>Formacao</code>. A folha devolve seu evento; a formação registra sua própria entrada e percorre seus membros recursivamente. A operação devolve dados verificáveis, além de permitir formatar uma saída de console.</p>
+<h3>Executar</h3>
+<p>Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>, lock independente. Dentro deste diretório:</p>
+<pre><code>npm ci --ignore-scripts
+npm test
+npm start
+npm run solution</code></pre>
+<p>Da raiz Books:</p>
+<pre><code>node book-23/scripts/projetos.mjs 10 install
+node book-23/scripts/projetos.mjs 10 check
+node book-23/scripts/projetos.mjs 10 capture
+node book-23/scripts/projetos.mjs 10 verify</code></pre>
+<p>O build limpa <code>dist</code>, compila ES2022/ESM com TypeScript estrito e executa testes Node sobre JavaScript emitido. Nenhum projeto vizinho é importado. <code>exercise/</code> fica separado da solução e fora da compilação oficial.</p>
+<h3>Fontes e papéis</h3>
+<ul>
+<li><code>src/contratos.ts</code>: Component <code>Unidade</code> e evento de relatório.</li>
+<li><code>src/arvore.ts</code>: Leaf <code>Soldado</code>, Composite <code>Formacao</code> e integridade da árvore.</li>
+<li><code>src/main.ts</code>: dois níveis de formações e três folhas, com relatório completo.</li>
+<li><code>src/direto.ts</code>: alternativa de lista plana executada em teste.</li>
+<li><code>test/arvore.test.ts</code>: ordem exata, folha, identidade, duplicidade, ciclos, cópias e limites.</li>
+<li><code>exercise/</code> e <code>solution/</code>: variante editável com remoção e reutilização de subárvore.</li>
+<li><code>diagram.mmd</code>: fonte lógica editável; renderização e QA visual na etapa de arte.</li>
+<li><code>evidence/</code>: stdout real, testes, manifesto e execução em cópia isolada.</li>
+</ul>
+<h3>Percurso e resultado</h3>
+<p>O percurso é <strong>pré-ordem</strong>: primeiro o evento do grupo, depois cada membro pela ordem de inserção. Na demonstração, a sequência é Formação de Mirralis → Pelotão do Norte → Alaric → Elora → Lorn. Há duas entradas completas de formação no stdout, correspondentes aos dois objetos de grupo. Essa é a correção do erro de saída do artigo original, que omitia uma das entradas de grupo efetivamente executadas.</p>
+<p>Cada evento contém tipo, nome e ordem. Nome e ordem são normalizados e não podem ficar vazios. O relatório e seus eventos são congelados; cada execução produz novos valores e não altera os relatórios anteriores. Formação vazia ainda gera seu próprio evento. Os dados registram a visita da operação a cada nó, não a execução física de uma retirada, o recebimento de um sinal remoto ou o resultado de um resgate.</p>
+<h3>Política de árvore e identidade</h3>
+<p><code>Formacao.adicionar()</code> aceita os nós fornecidos pelo projeto (<code>Soldado</code> ou <code>Formacao</code>, incluindo a variante do exercício). Cada objeto pode ter no máximo um pai. Auto inclusão, duplicação do mesmo objeto no grupo, inclusão de ancestral e compartilhamento de um objeto entre grupos são recusados antes de modificar os vínculos. O controle de pai fica em um <code>WeakMap</code> interno do módulo e a lista de membros em um campo <code>#</code> da formação.</p>
+<p>Identidade é a referência do objeto, não seu nome: duas instâncias chamadas Homônimo são dois nós. Essa convenção não deduplica pessoas reais. Para representar a mesma unidade no domínio, o chamador precisa conservar sua referência em vez de criar outro objeto com nome repetido. Não existe catálogo global de pessoas ou garantia de identidade distribuída.</p>
+<p><code>listarMembros()</code> devolve uma cópia defensiva do array. Os próprios nós são referências intencionais da árvore, não clones profundos: uma formação continua sendo a mesma quando retirada e reutilizada. Alterar a lista consultada não altera a estrutura nem solta seus vínculos. <code>Soldado</code> não oferece filhos, <code>adicionar()</code> ou <code>remover()</code>; gestão é responsabilidade do Composite.</p>
+<p>O modelo é uma árvore, <strong>não um grafo geral</strong>: compartilhamento de subárvore entre dois pais não é permitido. As garantias valem para as operações e classes fornecidas neste módulo; interfaces TypeScript, <code>protected</code> e verificações <code>instanceof</code> não impedem toda manipulação arbitrária em JavaScript ou a escrita de subclasses que violem contratos. Não é um mecanismo de segurança.</p>
+<h3>Remoção e escala</h3>
+<p>A primitiva protegida <code>desvincularMembro()</code> mantém lista e pai consistentes. A solução <code>FormacaoEditavel</code> expõe <code>remover()</code> publicamente. Remoção ausente devolve <code>false</code> e não libera a unidade de outro grupo. Remoção presente libera somente o vínculo externo; os descendentes permanecem ligados à subárvore. Incluir a subárvore retirada em outro grupo preserva sua identidade, e os testes mostram que isso não permite recriar um ciclo.</p>
+<p>Remover e incluir são operações separadas, sem transação ou transferência automática. O cliente escolhe a nova estrutura explicitamente. O percurso é síncrono e recursivo; uma árvore extremamente profunda pode atingir o limite da pilha. Não se afirma escala ilimitada, segurança contra mutação externa durante o percurso ou suporte a grafos cíclicos. O relatório é um traço em memória, sem persistência.</p>
+<h3>Custos, alternativas e comparações</h3>
+<p>Composite acrescenta estrutura e uma política de gestão que se justificam quando há relação parte-todo e operações recursivas úteis. Se só existem unidades independentes, <code>executarListaPlana()</code> aplica o contrato em uma coleção sem inventar um grupo; o teste demonstra essa alternativa. Uma lista plana não acrescenta hierarquia ou política de pai automaticamente.</p>
+<p>Decorator envolve um componente para acrescentar uma responsabilidade à sua operação. Composite reúne zero ou mais componentes em uma estrutura parte-todo e aplica a operação recursivamente. Ter o mesmo contrato ou conter outros objetos não basta para tornar as duas intenções equivalentes.</p>
+<p>Testes e hashes vinculam o relatório à execução real; não são auditoria técnica independente ou aprovação do autor e não sustentam promessas de desempenho ou segurança física.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { Formacao, Soldado } from &quot;./arvore.js&quot;;
+
+const pelotao = new Formacao(&quot;Pelotão do Norte&quot;);
+pelotao.adicionar(new Soldado(&quot;Alaric&quot;));
+pelotao.adicionar(new Soldado(&quot;Elora&quot;));
+const formacao = new Formacao(&quot;Formação de Mirralis&quot;);
+formacao.adicionar(pelotao);
+formacao.adicionar(new Soldado(&quot;Lorn&quot;));
+
+for (const evento of formacao.executarOrdem(&quot;recuar&quot;)) {
+  console.log(`${evento.tipo === &quot;formacao&quot; ? &quot;Formação&quot; : &quot;Soldado&quot;}: ${evento.nome} | ordem ${evento.ordem}`);
+}
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/10-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/10-01.svg" alt="Soldado realiza Unidade." loading="lazy"></a><figcaption>10 · a operação</figcaption><p class="study-diagram-description">Esta vista reúne Unidade, Soldado, EventoOrdem. Soldado realiza Unidade. Unidade depende de EventoOrdem. Soldado: Folha sem adicionar, remover ou filhos. EventoOrdem: Pré-ordem: grupo antes dos filhos; irmãos na inserção. Relatório congelado. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure><figure class="study-diagram"><a href="/assets/diagramas/10-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/10-02.svg" alt="Formacao realiza Unidade." loading="lazy"></a><figcaption>10 · b agregação</figcaption><p class="study-diagram-description">Esta vista reúne Unidade, Formacao. Formacao realiza Unidade. Formacao agrega Unidade (filhos do modelo); multiplicidade no destino 0..*. Formacao: Gestão aceita Soldado ou Formacao. Cada objeto tem no máximo um pai. Auto, ancestral e duplicado recusados. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · filhos do modelo</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — Retirar sem romper a árvore</h3>
+<p>Crie a variante <code>FormacaoEditavel extends Formacao</code> e acrescente <code>remover(unidade): boolean</code>. A infraestrutura de integridade já oferece a primitiva protegida <code>desvincularMembro()</code>, responsável por alterar a lista e liberar o vínculo do pai juntos. Use-a para não duplicar ou corromper a política de árvore.</p>
+<p>Critérios verificáveis:</p>
+<ul>
+<li>Remover um filho direto presente devolve <code>true</code>; remover ausente ou repetido devolve <code>false</code>.</li>
+<li>Uma tentativa de remoção pela formação errada não libera a unidade da formação correta.</li>
+<li>Remover uma subárvore solta apenas seu vínculo externo; os descendentes continuam vinculados dentro dela.</li>
+<li>A subárvore retirada pode ser adicionada a outra formação, com identidade e comportamento preservados.</li>
+<li>A ordem dos irmãos restantes é mantida.</li>
+<li>Auto inclusão, inclusão de ancestral e duplicidade continuam rejeitadas depois da remoção e reutilização.</li>
+<li><code>Soldado</code> continua sem operações de gestão de filhos.</li>
+</ul>
+<p>Compare com <code>solution/formacao-editavel.ts</code> e <code>solution/remocao.test.ts</code>; execute <code>npm run solution</code>. Tentativas em <code>exercise/</code> não são compiladas junto da resposta oficial.</p>
+<h3>Resposta comentada</h3>
+<p>A política é uma árvore estrita por identidade de objeto: um nó tem no máximo um pai. A variante oferece a remoção pública sem colocar <code>adicionar()</code> ou <code>remover()</code> em uma folha. A primitiva fornecida localiza somente um filho direto e só apaga seu vínculo de pai quando realmente o encontra; uma remoção ausente não afeta outra árvore.</p>
+<p>A retirada e a inclusão no destino são chamadas separadas. Não há transferência atômica nem rollback: o cliente precisa saber se deseja incluir e tratar um erro da inclusão. Um destino descendente não torna válida uma ligação cíclica; as regras de ancestralidade continuam aplicáveis.</p>
+<p><code>protected</code> é uma restrição TypeScript para a API de extensão, não uma barreira de segurança JavaScript. A manutenção das regras pelas operações fornecidas não certifica subclasses arbitrárias ou manipulação de protótipos pelo chamador.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/10-composite
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/10-composite.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/09-proxy/"><small>Padrão anterior</small><span>09 · Proxy</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/11-bridge/"><small>Próximo padrão</small><span>11 · Bridge</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>

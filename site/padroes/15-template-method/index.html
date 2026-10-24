@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1527">
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/projeto.css?v=4">
+  <script src="/projeto.js?v=5" defer></script>
+  <script src="/motion.js?v=1" defer></script>
+  <title>Template Method em TypeScript — O Grimório dos Padrões</title>
+  <meta name="description" content="Aprenda Template Method com fantasia e TypeScript: manter a sequência do ritual na base e especializar sua conjuração. Consulte código, diagramas UML e exercício.">
+  <link rel="canonical" href="https://o-grimorio-dos-padroes.vercel.app/padroes/15-template-method/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="Kleber de Oliveira Andrade">
+  <meta property="og:title" content="Template Method em TypeScript — O Grimório dos Padrões">
+  <meta property="og:description" content="Aprenda Template Method com fantasia e TypeScript: manter a sequência do ritual na base e especializar sua conjuração. Consulte código, diagramas UML e exercício.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://o-grimorio-dos-padroes.vercel.app/padroes/15-template-method/">
+  <meta property="og:site_name" content="O Grimório dos Padrões">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/15-template-method-v01.jpg">
+  <meta property="og:image:secure_url" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/15-template-method-v01.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Parasito de cristais com franjas de fogo envolve a base da reserva de sal enquanto Olga fecha a tampa e Ema sustenta o frasco selado.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Template Method em TypeScript — O Grimório dos Padrões">
+  <meta name="twitter:description" content="Aprenda Template Method com fantasia e TypeScript: manter a sequência do ritual na base e especializar sua conjuração. Consulte código, diagramas UML e exercício.">
+  <meta name="twitter:image" content="https://o-grimorio-dos-padroes.vercel.app/assets/og/15-template-method-v01.jpg">
+  <meta name="twitter:image:alt" content="Parasito de cristais com franjas de fogo envolve a base da reserva de sal enquanto Olga fecha a tampa e Ema sustenta o frasco selado.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://o-grimorio-dos-padroes.vercel.app/#autor", "name": "Kleber de Oliveira Andrade", "url": "https://kleberandrade.dev/"}, {"@type": "WebSite", "@id": "https://o-grimorio-dos-padroes.vercel.app/#website", "name": "O Grimório dos Padrões", "url": "https://o-grimorio-dos-padroes.vercel.app/", "inLanguage": "pt-BR", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}}, {"@type": "TechArticle", "@id": "https://o-grimorio-dos-padroes.vercel.app/padroes/15-template-method/#artigo", "url": "https://o-grimorio-dos-padroes.vercel.app/padroes/15-template-method/", "headline": "Template Method — O Grimório dos Padrões", "description": "Aprenda Template Method com fantasia e TypeScript: manter a sequência do ritual na base e especializar sua conjuração. Consulte código, diagramas UML e exercício.", "image": "https://o-grimorio-dos-padroes.vercel.app/assets/og/15-template-method-v01.jpg", "author": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#autor"}, "inLanguage": "pt-BR", "isPartOf": {"@id": "https://o-grimorio-dos-padroes.vercel.app/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "O Grimório dos Padrões", "item": "https://o-grimorio-dos-padroes.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Template Method", "item": "https://o-grimorio-dos-padroes.vercel.app/padroes/15-template-method/"}]}]}</script>
+</head>
+<body class="study-page" data-project-id="15-template-method">
+  <a class="skip-link" href="#estudo">Pular para o estudo</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="O Grimório dos Padrões, início">
+      <svg class="brand-mark" viewBox="0 0 40 42" aria-hidden="true"><path d="M7 5h20l7 6v25H14l-7-6zM14 11h20M14 11v25M7 5l7 6M20 19h8M20 24h6"/></svg>
+      <span>O Grimório<span class="brand-bottom">dos Padrões</span></span>
+    </a>
+    <nav aria-label="Navegação principal"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></nav>
+  </header>
+  <main id="estudo">
+    <div id="study-loading" class="study-message wrap" role="status" hidden>Abrindo as páginas do grimório…</div>
+    <div id="study-error" class="study-message wrap" hidden><p class="eyebrow">Uma página por encontrar</p><h2>Este padrão não foi encontrado.</h2><p>Escolha um dos 23 padrões no índice do grimório.</p><a class="button button-primary" href="/#padroes">Voltar aos padrões <span aria-hidden="true">↗</span></a></div>
+    <div id="study-content">
+      <section class="study-hero" aria-labelledby="study-title">
+        <div class="study-hero-copy"><a class="study-back" href="/#padroes"><span aria-hidden="true">←</span> Índice do grimório</a><p class="eyebrow" id="study-category">Padrão 15 · Comportamentais</p><h1 id="study-title">Template Method</h1><p id="study-description">manter a sequência do ritual na base e especializar sua conjuração.</p><a class="text-link" href="#codigo">Começar pelo código <span aria-hidden="true">↓</span></a></div>
+        <figure class="study-scene" id="study-scene"><img id="study-art" src="/assets/cenas-coloridas-v01/15-web.jpg" srcset="/assets/cenas-coloridas-v01/15-card.jpg 800w, /assets/cenas-coloridas-v01/15-web.jpg 1600w" sizes="100vw" alt="Parasito de cristais com franjas de fogo envolve a base da reserva de sal enquanto Olga fecha a tampa e Ema sustenta o frasco selado." width="1600" height="900" fetchpriority="high"><figcaption id="study-art-caption">Cena do capítulo 15 · Template Method</figcaption></figure>
+      </section>
+      <nav class="study-nav" aria-label="Seções deste padrão"><div class="wrap"><a href="#fundamentos">Fundamentos</a><a href="#codigo">Código</a><a href="#diagramas">Diagrama</a><a href="#exercicio">Exercício</a></div></nav>
+      <div class="study-paper">
+        <div class="wrap study-layout">
+          <section id="fundamentos" class="study-section" aria-labelledby="foundations-title">
+            <div class="study-section-heading"><div><p class="eyebrow">01 · Entenda a escolha</p><h2 id="foundations-title">Os fundamentos do <em>padrão.</em></h2></div><span class="source-label">README.md</span></div>
+            <div class="readme-document" id="readme-document" aria-busy="false"><h3>15 — Template Method: O Ritual das Etapas Sagradas</h3>
+<p>O projeto representa lotes de poções de fogo e gelo por dados locais. A sequência é preparar ingredientes, conjurar o encantamento e selar. O resultado informa o que foi concluído e o estado do lote; uma falha interrompe o fluxo sem fabricar uma selagem. Este recorte não simula contaminação, pessoas, travessia ou proteção química.</p>
+<h3>Começar pela solução simples</h3>
+<p><code>src/funcao.ts</code> oferece <code>realizarComCallback(ingredientes, conjurar)</code>: uma função mantém a sequência e recebe a variação como callback. Ela é suficiente quando há um fluxo curto e uma única variação. Os testes comparam seus dados e falhas com os das variantes em classes. A presença de um callback, por si só, não exige construir uma hierarquia ou nomear outro padrão.</p>
+<p>Em <code>src/ritual.ts</code>, <code>Ritual.realizar()</code> concentra o mesmo esqueleto numa classe base. <code>prepararIngredientes()</code> e <code>selar()</code> têm implementações comuns; <code>conjurarEncantamento()</code> é abstrato. <code>RitualFogo</code> e <code>RitualGelo</code> implementam o passo variável. O cliente chama o mesmo método, e o template chama os passos por despacho da subclasse. Esta é a implementação de Template Method do projeto.</p>
+<h3>Executar</h3>
+<p>Versões declaradas e efetivamente usadas: Node <strong>26.10.0</strong>, npm <strong>11.19.1</strong>, TypeScript <strong>5.9.3</strong>, <code>@types/node</code> <strong>26.0.0</strong>. <code>.nvmrc</code>, <code>package.json</code> e lock próprio registram o ambiente. O TypeScript é local, ESM NodeNext, estrito; não há importação de outros projetos.</p>
+<p>Dentro de <code>book-23/code/15-template-method</code>:</p>
+<pre><code>npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+npm run solution</code></pre>
+<p>Na raiz do repositório, com o mesmo Node:</p>
+<pre><code>node book-23/scripts/projetos.mjs 15 install
+node book-23/scripts/projetos.mjs 15 check
+node book-23/scripts/projetos.mjs 15 run
+node book-23/scripts/projetos.mjs 15 solution
+node book-23/scripts/projetos.mjs 15 capture
+node book-23/scripts/projetos.mjs 15 verify</code></pre>
+<p>A captura guarda <code>evidence/stdout.txt</code>, <code>solution-stdout.txt</code>, <code>tests.txt</code> e <code>manifest.json</code>, com hashes e versões. <code>verify</code> repete testes e compara saídas funcionais byte a byte; os tempos dos testes variam. <code>evidence/isolation.json</code> registra instalação e execução numa cópia temporária contendo somente este projeto. São evidências de execução, não parecer independente ou aprovação humana.</p>
+<h3>Contrato e estado observável</h3>
+<p><code>realizar(ingredientes: readonly string[]): ResultadoRitual</code> é síncrono. Uma execução possui dados locais próprios; repetir a chamada não reutiliza o lote anterior.</p>
+<ol>
+<li>Preparar exige pelo menos um ingrediente e nomes não vazios. A base copia e normaliza os nomes, sem quantidade, dosagem ou regra química.</li>
+<li>Conjurar recebe a lista preparada e devolve <code>Encantamento</code>. Fogo produz <code>elemento: &quot;fogo&quot;</code> e <code>efeito: &quot;aquecimento modelado&quot;</code>; gelo produz <code>&quot;gelo&quot;</code> e <code>&quot;resfriamento modelado&quot;</code>.</li>
+<li>Selar devolve a marca <code>&quot;selo de fogo&quot;</code> ou <code>&quot;selo de gelo&quot;</code>, conforme o encantamento. Essa string representa uma selagem modelada e não certifica um objeto físico.</li>
+</ol>
+<p>O resultado discriminado tem <code>status: &quot;concluido&quot;</code> ou <code>&quot;falhou&quot;</code>, <code>etapasConcluidas</code> e <code>lote</code>. O lote contém <code>ingredientesPreparados</code>, <code>encantamento</code> e <code>selo</code>. Cada campo é <code>null</code> enquanto seu passo ainda não foi concluído. Em falha, o resultado também informa <code>etapaFalha</code> e <code>motivo</code>; a etapa que lançou erro não entra em <code>etapasConcluidas</code> e as seguintes não são chamadas. Se a conjuração falhar, os ingredientes permanecem preparados e encantamento/selo ficam nulos. Se a selagem falhar, o encantamento permanece e o selo fica nulo.</p>
+<p>Erros síncronos das etapas são convertidos em resultado de falha: preserva-se a mensagem de <code>Error</code>; valores lançados que não sejam <code>Error</code> recebem a mensagem explícita definida em <code>mensagem()</code>. A exceção original não é relançada nem preservada como identidade no resultado. Não há retentativa automática, transação ou rollback. Se uma extensão produz efeitos externos antes de falhar, esses efeitos podem permanecer; os testes mostram que chamadas já feitas não são apagadas. Uma falha da execução anterior não contamina os dados locais de uma nova chamada. Isso não prova idempotência de extensões com efeitos externos.</p>
+<h3>Extensão, limites e custos</h3>
+<p>A sequência descrita vale para a base e as subclasses fornecidas, usadas sem adulteração. <strong>TypeScript não tem `final`: `public realizar` pode ser sobrescrito.</strong> Também é possível sobrescrever passos concretos protegidos; uma extensão que pule etapas ou minta sobre seus resultados viola este contrato. A hierarquia organiza a cooperação, sem impedir toda extensão incorreta.</p>
+<p><code>protected</code>, <code>abstract</code>, <code>override</code> e <code>readonly</code> são recursos de verificação estática, sem constituir barreiras de segurança em execução. O programa aplica <code>Object.freeze</code> aos resultados, às listas, ao lote e ao encantamento copiados. Esses objetos possuem apenas os campos escalares e listas declarados; o congelamento e as cópias cobrem esse modelo. Não há promessa de cópia profunda genérica, de congelamento de protótipos, de imutabilidade dos objetos de ritual ou de controle de código arbitrário. A entrada é copiada pelas implementações fornecidas; callbacks e subclasses externos continuam responsáveis por seus próprios efeitos.</p>
+<p>Herança acopla subclasses aos nomes, argumentos, retorno e ordem dos passos da base. Uma mudança de contrato pode exigir rever todas elas. O exemplo repete a sequência na alternativa funcional para permitir comparação; isso não é recomendação de manter dois fluxos duplicados numa aplicação. Preparação e snapshots copiam listas, com custo proporcional ao número de ingredientes; cada resultado tem seus próprios dados. Não houve benchmark ou promessa de ganho de desempenho.</p>
+<p>Strategy costuma variar uma política ou algoritmo por composição. Template Method fixa o esqueleto nesta base e varia passos por herança. Uma função que recebe a conjuração, ou um objeto de estratégia recebido pelo fluxo, evita esse acoplamento de subclasses quando tal composição é mais clara. Essa comparação não transforma todo workflow em um framework universal, nem estabelece que uma dessas alternativas seja sempre superior.</p>
+<p>A frase da fonte autoral sobre um ritual que “jamais falhava” não é garantia deste projeto: erros são parte explícita do contrato e dos testes. Nenhuma API de framework externo é necessária ou apresentada aqui.</p>
+<h3>Arquivos e exercício</h3>
+<p><code>src/contratos.ts</code> define os dados e operações pequenas comuns; <code>src/ritual.ts</code> contém a hierarquia; <code>src/funcao.ts</code> contém a alternativa; <code>src/main.ts</code> demonstra dois sucessos e uma falha; <code>test/ritual.test.ts</code> verifica ordem, parcial, dados e isolamento. <code>diagram.mmd</code> representa somente a implementação base.</p>
+<p>O exercício em <code>exercise/README.md</code> instala um hook opcional <strong>ausente da base original</strong>. A versão alterada da base está em <code>solution/ritual-com-hook.ts</code>, sem modificar a base principal. A resposta comenta as alterações no método template, tipos de etapas e subclasses, e demonstra aprovação, recusa e hook padrão vazio.</p></div>
+          </section>
+          <section id="codigo" class="study-section" aria-labelledby="code-title">
+            <div class="study-section-heading"><div><p class="eyebrow">02 · Leia o mecanismo</p><h2 id="code-title">O feitiço, <em>linha por linha.</em></h2></div></div>
+            <p class="study-section-description">Comece por <code>src/main.ts</code> para ver o programa em uso. Explore os contratos, a implementação e os testes no seletor de arquivos.</p>
+            <div class="study-code-browser">
+              <div class="study-file-toolbar"><div><label for="study-file-select">Arquivo do projeto</label><select id="study-file-select"><option>src/main.ts</option></select></div><button class="study-copy" id="study-copy" type="button" disabled>Copiar código</button></div>
+              <div class="study-file-shortcuts" id="study-file-shortcuts" aria-label="Atalhos para arquivos do projeto"></div>
+              <div class="study-file-path"><span id="study-file-path">src/main.ts</span><span id="study-file-kind">TypeScript</span></div>
+              <pre id="study-code" class="study-code" tabindex="0" aria-label="Conteúdo do arquivo selecionado" aria-busy="false"><code id="study-code-text">import { RitualFogo, RitualGelo } from &quot;./ritual.js&quot;;
+
+console.log(&quot;Lotes de Ema&quot;);
+for (const ritual of [new RitualFogo(), new RitualGelo()]) {
+  const resultado = ritual.realizar([&quot;água&quot;, &quot;sal arcano&quot;]);
+  console.log(`${resultado.status}: ${resultado.etapasConcluidas.join(&quot; -&gt; &quot;)}`);
+  console.log(`Encantamento: ${resultado.lote.encantamento?.elemento} | selo: ${resultado.lote.selo}`);
+}
+const falha = new RitualFogo().realizar([]);
+if (falha.status === &quot;falhou&quot;) {
+  console.log(`Falha em ${falha.etapaFalha}: ${falha.motivo} | selo: ${falha.lote.selo}`);
+}
+</code></pre>
+              <div class="study-code-status" id="study-code-status" role="status" aria-live="polite">A execução do programa é feita localmente.</div>
+            </div>
+          </section>
+          <section id="diagramas" class="study-section" aria-labelledby="diagrams-title">
+            <div class="study-section-heading"><div><p class="eyebrow">03 · Revele as conexões</p><h2 id="diagrams-title">A estrutura por trás <em>da magia.</em></h2></div></div>
+            <p class="study-section-description">Veja os papéis e suas relações. Amplie cada vista para ler atributos, métodos e conexões com calma.</p>
+            <div class="study-diagrams" id="study-diagrams"><figure class="study-diagram"><a href="/assets/diagramas/15-01.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/15-01.svg" alt="RitualFogo herda de Ritual." loading="lazy"></a><figcaption>15 · a herança</figcaption><p class="study-diagram-description">Esta vista reúne Ritual, RitualFogo, RitualGelo. RitualFogo herda de Ritual. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure><figure class="study-diagram"><a href="/assets/diagramas/15-02.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/15-02.svg" alt="Ritual depende de ResultadoRitual (devolve sucesso ou falha parcial)." loading="lazy"></a><figcaption>15 · b resultado</figcaption><p class="study-diagram-description">Esta vista reúne Ritual, ResultadoRitual, Lote. Ritual depende de ResultadoRitual (devolve sucesso ou falha parcial). ResultadoRitual mantém referência a Lote (snapshot). Membros exibidos são um recorte; construtores e demais membros podem estar omitidos. e3 · devolve sucesso ou falha parcial e4 · snapshot</p></figure><figure class="study-diagram"><a href="/assets/diagramas/15-03.svg" target="_blank" rel="noopener noreferrer"><img src="/assets/diagramas/15-03.svg" alt="RitualGelo herda de Ritual." loading="lazy"></a><figcaption>15 · c notas</figcaption><p class="study-diagram-description">Esta vista reúne Ritual, RitualFogo, RitualGelo, ResultadoRitual. RitualGelo herda de Ritual. Ritual: realizar chama preparar, conjurar, selar. Uma falha interrompe os passos seguintes. Não existe final em TypeScript. ResultadoRitual: Falha acrescenta etapaFalha e motivo. Sem selo quando a etapa não termina. RitualFogo: Fogo: aquecimento modelado. RitualGelo: Gelo: resfriamento modelado. Hook existe somente na versão do exercício. ResultadoRitual é um alias TS com Readonly nas duas variantes: status, lote e etapasConcluidas são propriedades somente de leitura no contrato de tipo. O array de etapas também é readonly; a proteção da referência é distinta da proteção dos elementos. Membros exibidos são um recorte; construtores e demais membros podem estar omitidos.</p></figure></div>
+            <button id="show-diagram-source" type="button" class="study-inline-button" hidden>Consultar a fonte Mermaid no código <span aria-hidden="true">↗</span></button>
+          </section>
+          <section id="exercicio" class="study-section" aria-labelledby="exercise-title">
+            <div class="study-section-heading"><div><p class="eyebrow">04 · Faça sua escolha</p><h2 id="exercise-title">Sua vez de <em>conjurar.</em></h2></div><span class="source-label">exercise/README.md</span></div>
+            <div class="readme-document" id="exercise-document" aria-busy="false"><h3>Exercício — Inspeção opcional antes de selar</h3>
+<p>A base original não possui um hook de inspeção. Prepare uma versão alterada dela, preservada em arquivo separado, que acrescente <code>aposEncantamento(encantamento)</code> depois de conjurar e antes de selar. O hook padrão deve não realizar ação, permitindo que uma subclasse o ignore. Outra subclasse deve poder recusá-lo lançando erro.</p>
+<p>Critérios:</p>
+<ol>
+<li>A ordem deve ser preparar → conjurar → hook → selar.</li>
+<li>Uma recusa no hook deve manter os ingredientes e o encantamento, registrar falha nessa etapa e deixar o selo nulo.</li>
+<li>A aprovação deve permitir o selo. Uma subclasse sem override do hook deve continuar funcionando.</li>
+<li>Instalar o hook precisa ser uma alteração explícita da base; não basta declarar um método nunca chamado.</li>
+<li>Documente quais contratos e arquivos mudaram e que efeitos anteriores não são revertidos.</li>
+</ol>
+<h3>Resposta comentada</h3>
+<p><code>solution/ritual-com-hook.ts</code> é a versão alterada do template, sem editar a base principal. Ela acrescenta o método protegido concreto <code>aposEncantamento</code>, cujo corpo padrão é vazio, e <strong>a chamada a ele no método público `realizar`</strong>. Acrescenta também a etapa ao tipo <code>EtapaComHook</code> e ao resultado correspondente, para identificar a recusa sem atribuí-la à selagem. Essa instalação custou editar o método template e a representação das etapas/resultados da versão de exercício; não houve extensão com zero alterações da base.</p>
+<p><code>solution/inspecao.ts</code> define <code>RitualFogoInspecionado</code>, que sobrescreve o novo hook e recebe uma aprovação didática na construção, e <code>RitualGeloComHookPadrao</code>, que usa o hook vazio sem sobrescrevê-lo. Esse booleano não autentica uma inspeção real nem comprova segurança de uma poção. A variante de fogo ainda fornece o encantamento obrigatório; a de gelo também. Não foram alteradas as decisões de preparação e selagem para acomodar a recusa.</p>
+<p><code>solution/hook.test.ts</code> verifica três caminhos e a ordem completa. <code>npm run solution</code> executa os casos recusado e aprovado, com saídas preservadas em <code>evidence/solution-stdout.txt</code>. O modelo continua síncrono e sem rollback: recusar depois de conjurar não apaga o encantamento já representado. O hook não é um agendador de etapas arbitrárias.</p></div>
+            <div class="study-solution-note"><span aria-hidden="true">◇</span><div><h3>Compare depois da sua tentativa.</h3><p>A resposta e seus testes estão na pasta <code>solution/</code>. O sucesso dos testes fornecidos confirma essa resposta; sua tentativa precisa estar incluída na compilação para ser avaliada.</p><button class="study-inline-button" id="show-solution" type="button">Abrir a solução no código <span aria-hidden="true">↑</span></button></div></div>
+          </section>
+          <section class="study-run" aria-labelledby="run-title"><div><p class="eyebrow">Do estudo à prática</p><h2 id="run-title">Experimente <em>localmente.</em></h2><p>Node 26.10.0 · npm 11.19.1 · TypeScript 5.9.3</p><p>Execute os comandos dentro da pasta deste projeto. O lock instala o compilador local. Os programas não são executados no navegador.</p></div><div><pre id="study-commands">cd book-23/code/15-template-method
+npm ci --ignore-scripts --no-audit --no-fund
+npm test
+npm start
+
+# Depois da sua tentativa
+npm run solution</pre><a class="study-inline-button" id="study-download" href="/downloads/15-template-method.zip" download>Baixar este projeto completo <span aria-hidden="true">↓</span></a></div></section>
+        </div>
+      </div>
+      <nav class="study-pagination wrap" aria-label="Outros padrões"><a id="previous-project" href="/padroes/14-state/"><small>Padrão anterior</small><span>14 · State</span></a><a href="/#padroes" class="study-index-link">Índice completo <span aria-hidden="true">↗</span></a><a id="next-project" href="/padroes/16-command/"><small>Próximo padrão</small><span>16 · Command</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><p class="footer-title">O Grimório dos Padrões</p><p>© 2026 Kleber de Oliveira Andrade.<br>Material complementar do livro. Todos os direitos reservados.</p><a href="https://clubedeautores.com.br/livro/o-grimorio-dos-padroes" target="_blank" rel="noopener noreferrer">Conhecer o livro <span aria-hidden="true">↗</span><span class="sr-only"> (abre em outra aba)</span></a></footer>
+  <dialog class="diagram-dialog" id="diagram-dialog" aria-labelledby="diagram-dialog-title"><div class="diagram-dialog-header"><h2 id="diagram-dialog-title">Diagrama ampliado</h2><button type="button" class="icon-button" id="close-diagram" aria-label="Fechar diagrama">×</button></div><div class="diagram-dialog-body"><img id="diagram-dialog-image" alt=""></div><div class="diagram-dialog-footer"><span>Role para explorar o diagrama completo.</span><a id="diagram-new-tab" target="_blank" rel="noopener noreferrer">Abrir imagem em outra aba <span aria-hidden="true">↗</span></a></div></dialog>
+</body>
+</html>
