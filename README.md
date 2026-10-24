@@ -2,6 +2,8 @@
 
 Design Patterns em 23 histórias, por Kleber de Oliveira Andrade.
 
+[Página do projeto e downloads](https://o-grimorio-dos-padroes.vercel.app) · [Livro no Clube de Autores](https://clubedeautores.com.br/livro/o-grimorio-dos-padroes)
+
 Material complementar: 23 projetos independentes em TypeScript, com fontes, testes, exercícios, soluções e evidências de reprodução. A landing page está em `site/` e disponibiliza leitura de código e downloads sem login.
 
 ## Comece por um projeto
