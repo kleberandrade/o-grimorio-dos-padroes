@@ -55,10 +55,10 @@ Os registros da edição totalizam 354 testes aprovados. Essa contagem correspon
 
 ## Site, descoberta e livros
 
-A página inicial reúne os 23 padrões e um carrossel das duas trilogias. Os seis livros, seus micro resumos e links de compra ficam em `site/livros.json`; o carrossel tem troca manual por padrão e reprodução opcional. As capas são arquivos públicos derivados proporcionalmente das frentes existentes.
+A página inicial reúne os 23 padrões e um carrossel das duas trilogias. Os seis livros, seus micro resumos e links de compra ficam em `site/livros.json`; o carrossel troca automaticamente a cada oito segundos enquanto está visível, com pausa e setas discretas. As seis capas são cópias exatas dos assets atuais de kleberandrade.dev. A seção fica antes de Sobre o autor, sem seletor de minicapas.
 
 Cada padrão também tem HTML próprio em `/padroes/<id>/`, com fundamentos, código inicial e diagramas disponíveis antes do JavaScript. As URLs antigas `projeto.html?id=...` têm redirecionamentos permanentes. O estudo interativo continua carregando os arquivos originais do catálogo.
 
 Após alterar o catálogo, os livros ou os modelos HTML, execute `python3 scripts/build-seo.py` (Python, Pillow e `rsvg-convert`). O comando atualiza as 23 páginas estáticas, o catálogo inicial, o carrossel, as 24 imagens sociais de 1200 × 630, os metadados, `robots.txt`, `sitemap.xml` e os redirecionamentos. Os arquivos gerados ficam versionados; a hospedagem permanece estática, sem dependências de execução.
 
-`site/motion.js` controla entradas de seções e cards. A magia em código, o movimento do livro e o relevo do cenário usam CSS; a preferência por movimento reduzido desativa os efeitos. A reprodução do carrossel pausa fora da tela, durante leitura por foco/ponteiro e com a aba oculta.
+`site/motion.js` controla entradas de seções e cards. A magia em código, o movimento do livro e o relevo do cenário usam CSS; a preferência por movimento reduzido desativa os efeitos. A reprodução do carrossel pausa fora da tela, com a aba oculta e durante interação por foco ou ponteiro com o botão de compra.
