@@ -1,5 +1,7 @@
 # O Grimório dos Padrões
 
+![Language: TypeScript](https://img.shields.io/badge/Language-TypeScript-555555)
+
 Design Patterns em 23 histórias, por Kleber de Oliveira Andrade.
 
 [Página do projeto e downloads](https://o-grimorio-dos-padroes.vercel.app) · [Livro no Clube de Autores](https://clubedeautores.com.br/livro/o-grimorio-dos-padroes)
